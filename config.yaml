@@ -1,0 +1,308 @@
+# Polymarket Trading Bot Configuration
+# =====================================
+# Updated with V2 features: Playwright, Gamma API, USDC Approval
+
+# Capital Settings
+total_capital: 200  # Total capital in USDC (start small!)
+num_wallets: 2  # Number of wallets to use (2-10 recommended)
+
+# RPC Settings
+rpc_url: "https://polygon-rpc.com"  # Use your own Alchemy/Infura for better reliability
+
+# Market Scanner Settings (V2 - Playwright + Gamma API)
+market_scanner:
+  interval: 5  # Scan interval in seconds
+  min_reward: 50  # Minimum reward in USD (lowered for more opportunities)
+  max_competition_bars: 2  # Maximum competition level (0-5)
+  min_shares: 500  # Maximum minimum shares requirement
+
+  # API Settings
+  use_gamma_api: true  # Use Gamma API (faster, more reliable)
+  api_fallback: true  # Fallback to Playwright if API fails
+
+  # Categories to focus on
+  target_categories:
+    - sports
+    - entertainment
+    - crypto
+
+  # Illiquid market threshold
+  illiquid_threshold: 10000  # Markets with liquidity < $10k
+
+# Market Selection AI
+market_selection:
+  # Scoring weights
+  reward_weight: 0.4
+  competition_weight: 0.3
+  volume_weight: 0.2
+  liquidity_weight: 0.1
+  
+  # Volume spike detection
+  volume_spike_multiplier: 2.0
+  volume_lookback_hours: 24
+  
+  # Maximum markets to trade simultaneously
+  max_concurrent_markets: 10
+
+# Order Management
+order_management:
+  # Dynamic spread range (in decimal, e.g., 0.008 = 0.8 cents)
+  spread_min: 0.008  # 0.8 cents
+  spread_max: 0.015  # 1.5 cents
+  
+  # Position size range (number of shares)
+  size_min: 200
+  size_max: 500
+  
+  # Order type
+  order_type: limit
+  time_in_force: GTC  # Good Till Cancelled
+  
+  # Order update frequency
+  update_interval: 30  # seconds
+  
+  # Price improvement attempts
+  price_improvement_enabled: true
+  price_improvement_tick: 0.001  # 0.1 cent
+
+# Position Monitoring
+monitoring:
+  # WebSocket monitoring interval
+  websocket_interval: 10  # seconds
+  
+  # Auto-cancel conditions
+  partial_fill_threshold: 0.1  # Cancel if >10% filled
+  volume_spike_multiplier: 2  # Cancel if volume spikes >2x
+  price_move_threshold: 0.02  # Cancel if price moves >2 cents
+  
+  # Position timeout
+  max_position_age: 3600  # 1 hour in seconds
+  
+  # Monitoring alerts
+  alert_on_fill: true
+  alert_on_cancel: false
+
+# Risk Management
+risk_management:
+  # Capital allocation
+  max_capital_per_market: 0.05  # 5% of total capital
+  max_total_exposure: 0.8  # 80% of total capital
+  
+  # Hedging
+  enable_hedging: true
+  hedge_threshold: 0.6  # Hedge if imbalance >60%
+  partial_hedge_ratio: 0.5  # Hedge 50% of imbalance
+  
+  # Correlation limits
+  max_markets_per_category: 3
+  
+  # Stop loss
+  enable_stop_loss: true
+  stop_loss_percentage: 0.15  # 15% loss per market
+  
+  # Value at Risk
+  var_confidence: 0.95  # 95% confidence level
+  max_var_percentage: 0.1  # 10% of capital
+
+# Wallet Management
+wallet_management:
+  # Number of wallets to rotate
+  num_wallets: 5
+  
+  # Human-like behavior
+  jitter_percentage: 0.2  # ±20% variation
+  min_wallet_cooldown: 30  # seconds between uses
+  
+  # Wallet switching
+  random_switch_probability: 0.2  # 20% chance of random wallet
+  time_based_switch: true
+  switch_interval_min: 180  # 3 minutes
+  switch_interval_max: 300  # 5 minutes
+  
+  # Human behavior simulation
+  enable_breaks: true
+  break_probability: 0.05  # 5% chance
+  break_duration_min: 30  # seconds
+  break_duration_max: 180  # seconds
+  
+  # Typing/action delays
+  micro_delay_min: 0.05  # seconds
+  micro_delay_max: 0.15  # seconds
+  action_delay_min: 0.5  # seconds
+  action_delay_max: 2.0  # seconds
+
+# ML Prediction
+ml_prediction:
+  # Fill risk threshold
+  fill_risk_threshold: 0.8  # Alert if >80% fill probability
+  
+  # Model training
+  model_update_interval: 3600  # 1 hour in seconds
+  min_training_samples: 100
+  max_training_samples: 10000
+  
+  # Model parameters
+  learning_rate: 0.001
+  epochs: 50
+  batch_size: 32
+  
+  # Feature engineering
+  enable_feature_scaling: true
+  feature_selection: auto
+  
+  # Model persistence
+  model_path: models/fill_predictor.pt
+  save_training_data: true
+  training_data_path: data/training_data.pkl
+
+# Daily Optimization
+daily_optimization:
+  # Optimization schedule (UTC)
+  optimization_hour: 0  # Midnight UTC
+  optimization_minute: 0
+  
+  # Performance analysis
+  lookback_days: 7
+  min_trades_for_analysis: 20
+  
+  # Strategy adjustment
+  enable_auto_adjustment: true
+  adjustment_sensitivity: 0.1  # 10% adjustment max
+  
+  # Payout calculation
+  include_unrealized_pnl: false
+  
+  # Redeployment
+  redeploy_underperforming: true
+  performance_threshold: -0.05  # -5% return
+
+# Alerts and Notifications
+alerts:
+  # Telegram
+  telegram_enabled: false
+  telegram_bot_token: ""  # Set in .env
+  telegram_chat_id: ""  # Set in .env
+  
+  # Discord/Slack Webhook
+  webhook_enabled: false
+  webhook_url: ""  # Set in .env
+  
+  # Alert levels
+  alert_on_startup: true
+  alert_on_shutdown: true
+  alert_on_error: true
+  alert_on_high_risk: true
+  alert_on_daily_report: true
+  
+  # Performance alerts
+  alert_on_profit_threshold: 100  # USD
+  alert_on_loss_threshold: -50  # USD
+
+# Polymarket CLOB Settings
+clob:
+  host: "https://clob.polymarket.com"
+  chain_id: 137  # Polygon mainnet
+  
+  # API endpoints
+  api_base: "https://polymarket.com/api"
+  rewards_endpoint: "/rewards"
+  markets_endpoint: "/markets"
+  
+  # Rate limiting
+  max_requests_per_second: 10
+  request_timeout: 30  # seconds
+  
+  # WebSocket
+  websocket_url: "wss://ws-subscriptions-clob.polymarket.com/ws"
+  websocket_reconnect_delay: 5  # seconds
+  websocket_ping_interval: 30  # seconds
+
+# Blockchain Settings
+blockchain:
+  # Polygon RPC
+  rpc_url: "https://polygon-rpc.com"
+  backup_rpc_urls:
+    - "https://rpc-mainnet.matic.network"
+    - "https://polygon-mainnet.infura.io/v3/YOUR_INFURA_KEY"
+  
+  # Gas settings
+  max_gas_price: 500  # Gwei
+  gas_price_multiplier: 1.1  # 10% above suggested
+  
+  # Transaction settings
+  max_retries: 3
+  retry_delay: 5  # seconds
+  confirmation_blocks: 2
+
+# Logging
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  
+  # File logging
+  log_to_file: true
+  log_file: logs/polymarket_bot.log
+  log_rotation: daily
+  log_retention_days: 30
+  
+  # Console logging
+  log_to_console: true
+  colored_logs: true
+  
+  # Performance logging
+  log_performance_metrics: true
+  metrics_interval: 300  # 5 minutes
+
+# Database (Optional)
+database:
+  enabled: false
+  type: sqlite  # sqlite, postgresql, mongodb
+  
+  # SQLite
+  sqlite_path: data/bot_data.db
+  
+  # PostgreSQL
+  postgres_host: localhost
+  postgres_port: 5432
+  postgres_database: polymarket_bot
+  postgres_user: ""  # Set in .env
+  postgres_password: ""  # Set in .env
+  
+  # MongoDB
+  mongodb_uri: ""  # Set in .env
+  mongodb_database: polymarket_bot
+
+# Performance Tuning
+performance:
+  # Async settings
+  max_concurrent_tasks: 50
+  task_timeout: 60  # seconds
+  
+  # Caching
+  enable_caching: true
+  cache_ttl: 300  # 5 minutes
+  
+  # Connection pooling
+  connection_pool_size: 10
+  
+  # Memory management
+  max_memory_mb: 1024  # 1GB
+  gc_interval: 600  # 10 minutes
+
+# Development/Testing
+development:
+  # Test mode (no real orders)
+  test_mode: false
+  
+  # Paper trading
+  paper_trading: false
+  paper_trading_capital: 10000
+  
+  # Simulation
+  simulate_fills: false
+  fill_simulation_probability: 0.3
+  
+  # Debug features
+  verbose_logging: false
+  save_debug_data: false
+  debug_data_path: data/debug/
+
