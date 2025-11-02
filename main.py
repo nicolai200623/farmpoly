@@ -14,6 +14,13 @@ from typing import Dict, List, Optional, Tuple
 import random
 import time
 
+# Setup logging FIRST before any imports that use logger
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 # Core modules
 try:
     # Try new V2 scanner first (with Playwright + API)
@@ -32,13 +39,6 @@ from wallet_manager import WalletManager
 from ml_predictor import MLPredictor
 from optimizer import DailyOptimizer
 from usdc_approver import USDCApprover
-
-# Setup logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
 
 
 class PolymarketBot:

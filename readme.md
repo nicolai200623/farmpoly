@@ -1,8 +1,14 @@
-# Polymarket Trading Bot - Advanced Market Making System
+# 🤖 Farmpoly - Polymarket Trading Bot
+
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://img.shields.io/badge/tests-37%2F37%20passing-brightgreen.svg)]()
 
 ## 🚀 Overview
 
-A sophisticated trading bot for Polymarket using CLOB API with 8 competitive modules designed to compete in the top 1% of traders. The bot implements advanced strategies including ML-based fill prediction, dynamic spread adjustment, multi-wallet rotation, and real-time risk management.
+A sophisticated automated trading bot for Polymarket using CLOB API with 8 competitive modules designed to compete in the top 1% of traders. The bot implements advanced strategies including ML-based fill prediction, dynamic spread adjustment, multi-wallet rotation, and real-time risk management.
+
+**⚡ Quick Deploy on VPS:** See [VPS_QUICKSTART.md](VPS_QUICKSTART.md) for 5-minute deployment guide!
 
 ## ⚡ Key Features
 
@@ -25,21 +31,97 @@ A sophisticated trading bot for Polymarket using CLOB API with 8 competitive mod
 - **Max Drawdown**: $500
 - **Capital Efficiency**: 80%
 
-## 🛠️ Installation
+## 🚀 Quick Start
+
+### Option 1: Deploy on VPS (Recommended)
+
+**For Ubuntu 22.04 VPS - Deploy in 5 minutes:**
+
+```bash
+# 1. Download setup script
+wget https://raw.githubusercontent.com/nicolai200623/farmpoly/master/scripts/vps_setup.sh
+chmod +x vps_setup.sh && ./vps_setup.sh
+
+# 2. Clone repository
+cd ~/projects
+git clone https://github.com/nicolai200623/farmpoly.git
+cd farmpoly
+
+# 3. Configure
+cp .env.example .env
+nano .env  # Add your private keys
+
+# 4. Deploy
+chmod +x scripts/quick_deploy.sh
+./scripts/quick_deploy.sh
+```
+
+**📖 Detailed guides:**
+- **[VPS_QUICKSTART.md](VPS_QUICKSTART.md)** - 5-minute quick start
+- **[VPS_UBUNTU_DEPLOYMENT.md](VPS_UBUNTU_DEPLOYMENT.md)** - Full deployment guide
+- **[HUONG_DAN_VPS_NHANH.md](HUONG_DAN_VPS_NHANH.md)** - Vietnamese guide
+
+### Option 2: Local Setup
+
+**For testing on local machine:**
+
+```bash
+# 1. Clone repository
+git clone https://github.com/nicolai200623/farmpoly.git
+cd farmpoly
+
+# 2. Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+playwright install chromium
+
+# 4. Configure
+cp .env.example .env
+# Edit .env with your settings
+
+# 5. Run tests
+python tests/run_tests.py
+
+# 6. Start bot
+python main.py
+```
+
+**📖 See [SETUP_GUIDE.md](SETUP_GUIDE.md) for detailed setup instructions**
+
+### Option 3: Demo Mode (No Real Money)
+
+**Test the bot without risking real money:**
+
+```bash
+# Set demo mode in .env
+USE_DEMO_WALLETS=true
+
+# Run bot
+python main.py
+```
+
+**📖 See [TESTNET_DEPLOYMENT.md](TESTNET_DEPLOYMENT.md) for testing guide**
+
+---
+
+## 🛠️ Installation (Detailed)
 
 ### Prerequisites
 
-- Python 3.8+
-- Chrome/Chromium browser (for Selenium)
+- Python 3.9+
+- Playwright (for web scraping)
 - PostgreSQL (optional)
 - Redis (optional)
 
-### Setup Steps
+### Manual Setup Steps
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/polymarket-bot.git
-cd polymarket-bot
+git clone https://github.com/nicolai200623/farmpoly.git
+cd farmpoly
 ```
 
 2. **Install dependencies**
@@ -47,7 +129,7 @@ cd polymarket-bot
 pip install -r requirements.txt
 ```
 
-3. **Install ChromeDriver**
+3. **Install Playwright browsers**
 ```bash
 # Ubuntu/Debian
 sudo apt-get update
@@ -192,6 +274,31 @@ The bot uses a 4-layer neural network for fill prediction:
 - Capital utilization
 - Risk-adjusted returns
 - Market timing effectiveness
+
+## 📚 Documentation
+
+### Quick Links
+
+- **[DEPLOYMENT_INDEX.md](DEPLOYMENT_INDEX.md)** - Complete documentation index
+- **[VPS_QUICKSTART.md](VPS_QUICKSTART.md)** - 5-minute VPS deployment
+- **[VPS_UBUNTU_DEPLOYMENT.md](VPS_UBUNTU_DEPLOYMENT.md)** - Full VPS guide
+- **[HUONG_DAN_VPS_NHANH.md](HUONG_DAN_VPS_NHANH.md)** - Vietnamese VPS guide
+- **[TESTNET_DEPLOYMENT.md](TESTNET_DEPLOYMENT.md)** - Testing guide
+- **[USER_GUIDE.md](USER_GUIDE.md)** - User manual
+- **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Setup guide
+- **[PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md)** - Architecture overview
+
+### Scripts
+
+- **[scripts/vps_setup.sh](scripts/vps_setup.sh)** - Automated VPS setup
+- **[scripts/quick_deploy.sh](scripts/quick_deploy.sh)** - One-command deployment
+- **[scripts/monitor.sh](scripts/monitor.sh)** - Monitoring dashboard
+- **[scripts/check_wallets.py](scripts/check_wallets.py)** - Check wallet balances
+- **[scripts/approve_wallets.py](scripts/approve_wallets.py)** - Approve USDC
+
+See **[scripts/README.md](scripts/README.md)** for all available scripts.
+
+---
 
 ## 🔧 Advanced Features
 

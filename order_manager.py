@@ -11,8 +11,7 @@ from decimal import Decimal, ROUND_DOWN
 import json
 import time
 import random
-from py_clob_client.client import Client
-from py_clob_client.order_builder.builder import OrderBuilder
+from py_clob_client.client import ClobClient
 
 logger = logging.getLogger(__name__)
 
@@ -26,25 +25,18 @@ class OrderManager:
         self.active_orders = {}
         self.filled_orders = []
         self.clob_client = None
-        self.order_builder = None
         self._initialize_clob()
     
     def _initialize_clob(self):
-        """Initialize CLOB client and order builder"""
+        """Initialize CLOB client (read-only mode)"""
         try:
-            # Initialize CLOB client
-            self.clob_client = Client(
-                host="https://clob.polymarket.com",
-                chain_id=137  # Polygon mainnet
+            # Initialize CLOB client in read-only mode (no key required for market data)
+            self.clob_client = ClobClient(
+                host="https://clob.polymarket.com"
             )
-            
-            # Initialize order builder
-            self.order_builder = OrderBuilder(
-                chain_id=137
-            )
-            
-            logger.info("CLOB client initialized successfully")
-            
+
+            logger.info("CLOB client initialized successfully (read-only mode)")
+
         except Exception as e:
             logger.error(f"Failed to initialize CLOB: {e}")
     
@@ -258,24 +250,32 @@ class OrderManager:
     async def _place_single_order(self, order_params: Dict, market_id: str, wallet: Dict) -> Optional[str]:
         """Place a single order on CLOB"""
         try:
-            # Build order using py-clob-client
-            order = self.order_builder.build_order(
-                market_id=market_id,
-                side=order_params['side'],
-                outcome=order_params['outcome'],
+            # Create order using ClobClient directly
+            from py_clob_client.order_builder.constants import BUY, SELL
+
+            # Determine side constant
+            side_constant = BUY if order_params['side'] == 'buy' else SELL
+
+            # Create and sign order
+            order = self.clob_client.create_order(
+                token_id=market_id,
                 price=order_params['price'],
                 size=order_params['size'],
-                private_key=wallet['private_key']
+                side=side_constant,
+                fee_rate_bps=0,  # Fee rate in basis points
+                nonce=0,  # Will be auto-generated
+                expiration=0,  # No expiration
+                signer=wallet['private_key']
             )
-            
+
             # Submit order
-            response = self.clob_client.post_order(order)
-            
-            if response and 'orderId' in response:
-                return response['orderId']
-            
+            response = self.clob_client.post_order(order, signature_type=0)
+
+            if response and 'orderID' in response:
+                return response['orderID']
+
             return None
-            
+
         except Exception as e:
             logger.error(f"Error placing single order: {e}")
             return None
@@ -315,34 +315,32 @@ class OrderManager:
         logger.info(f"Cancelled {cancelled_count} orders")
         return cancelled_count
     
-    async def update_order_price(self, order_id: str, new_price: float) -> bool:
+    async def update_order_price(self, order_id: str, new_price: float, wallet: Dict) -> bool:
         """Update order price (cancel and replace)"""
         try:
             # Get order details
             order_details = await self._get_order_details(order_id)
-            
+
             if not order_details:
                 return False
-            
+
             # Cancel existing order
             if not await self.cancel_order(order_id):
                 return False
-            
+
             # Place new order with updated price
             new_order_params = order_details.copy()
             new_order_params['price'] = new_price
-            
-            # Get wallet (simplified - should be managed properly)
-            wallet = {'private_key': 'dummy_key'}  # This should come from wallet manager
-            
+
+            # Use provided wallet (from wallet manager)
             new_order_id = await self._place_single_order(
                 new_order_params,
                 order_details['market_id'],
                 wallet
             )
-            
+
             return new_order_id is not None
-            
+
         except Exception as e:
             logger.error(f"Error updating order: {e}")
             return False

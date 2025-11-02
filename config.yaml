@@ -7,14 +7,14 @@ total_capital: 200  # Total capital in USDC (start small!)
 num_wallets: 2  # Number of wallets to use (2-10 recommended)
 
 # RPC Settings
-rpc_url: "https://polygon-rpc.com"  # Use your own Alchemy/Infura for better reliability
+rpc_url: "https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQLZqOJuRTH6n_FZEkyWx2vO1"  # Use your own Alchemy/Infura for better reliability
 
 # Market Scanner Settings (V2 - Playwright + Gamma API)
 market_scanner:
   interval: 5  # Scan interval in seconds
-  min_reward: 50  # Minimum reward in USD (lowered for more opportunities)
+  min_reward: 100  # Minimum reward in USD (lowered for more opportunities)
   max_competition_bars: 2  # Maximum competition level (0-5)
-  min_shares: 500  # Maximum minimum shares requirement
+  min_shares: 200  # Maximum minimum shares requirement
 
   # API Settings
   use_gamma_api: true  # Use Gamma API (faster, more reliable)
@@ -47,7 +47,7 @@ market_selection:
 # Order Management
 order_management:
   # Dynamic spread range (in decimal, e.g., 0.008 = 0.8 cents)
-  spread_min: 0.008  # 0.8 cents
+  spread_min: 0.005  # 0.8 cents
   spread_max: 0.015  # 1.5 cents
   
   # Position size range (number of shares)
@@ -107,7 +107,7 @@ risk_management:
 # Wallet Management
 wallet_management:
   # Number of wallets to rotate
-  num_wallets: 5
+  num_wallets: 2
   
   # Human-like behavior
   jitter_percentage: 0.2  # ±20% variation
@@ -179,7 +179,7 @@ daily_optimization:
 # Alerts and Notifications
 alerts:
   # Telegram
-  telegram_enabled: false
+  telegram_enabled: true
   telegram_bot_token: ""  # Set in .env
   telegram_chat_id: ""  # Set in .env
   
@@ -290,17 +290,17 @@ performance:
 
 # Development/Testing
 development:
-  # Test mode (no real orders)
+  # Test mode (no real orders) - SET TO FALSE FOR LIVE TRADING
   test_mode: false
-  
-  # Paper trading
+
+  # Paper trading - SET TO FALSE FOR LIVE TRADING
   paper_trading: false
   paper_trading_capital: 10000
-  
+
   # Simulation
   simulate_fills: false
   fill_simulation_probability: 0.3
-  
+
   # Debug features
   verbose_logging: false
   save_debug_data: false

@@ -216,27 +216,41 @@ class WalletManager:
     async def check_wallet_balances(self) -> Dict:
         """Check balances for all wallets"""
         balances = {}
-        
+
+        # USDC contract on Polygon
+        USDC_ADDRESS = '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174'
+        USDC_ABI = [
+            {
+                "constant": True,
+                "inputs": [{"name": "_owner", "type": "address"}],
+                "name": "balanceOf",
+                "outputs": [{"name": "balance", "type": "uint256"}],
+                "type": "function"
+            }
+        ]
+
+        usdc_contract = self.w3.eth.contract(address=USDC_ADDRESS, abi=USDC_ABI)
+
         for wallet in self.wallets:
             try:
                 # Check MATIC balance
                 matic_balance = self.w3.eth.get_balance(wallet['address'])
                 matic_balance_eth = self.w3.from_wei(matic_balance, 'ether')
-                
-                # Would also check USDC balance on Polygon
-                # For demo, using placeholder
-                usdc_balance = 1000  # Placeholder
-                
+
+                # Check REAL USDC balance from blockchain
+                usdc_balance_raw = usdc_contract.functions.balanceOf(wallet['address']).call()
+                usdc_balance = usdc_balance_raw / 1e6  # USDC has 6 decimals
+
                 balances[wallet['address']] = {
                     'matic': float(matic_balance_eth),
-                    'usdc': usdc_balance,
+                    'usdc': float(usdc_balance),
                     'index': wallet['index']
                 }
-                
+
             except Exception as e:
                 logger.error(f"Error checking wallet {wallet['index']}: {e}")
                 balances[wallet['address']] = {'matic': 0, 'usdc': 0}
-        
+
         return balances
     
     async def rotate_wallets(self):

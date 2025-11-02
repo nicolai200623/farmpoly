@@ -2,6 +2,75 @@
 
 Thư mục này chứa các script tiện ích để quản lý và vận hành Polymarket Bot.
 
+---
+
+## 🚀 VPS Deployment Scripts (NEW!)
+
+### vps_setup.sh
+**Automated VPS setup for Ubuntu 22.04**
+
+```bash
+# Download and run on fresh VPS
+curl -o vps_setup.sh https://raw.githubusercontent.com/nicolai200623/farmpoly/master/scripts/vps_setup.sh
+chmod +x vps_setup.sh
+./vps_setup.sh
+```
+
+**What it does:**
+- ✅ Updates system packages
+- ✅ Installs Python 3.9+
+- ✅ Installs Playwright dependencies
+- ✅ Creates project directory structure
+- ✅ Configures firewall
+- ✅ Applies security settings
+
+**Time:** ~5 minutes
+
+---
+
+### quick_deploy.sh
+**One-command deployment**
+
+```bash
+# Run from project directory
+cd ~/projects/farmpoly
+chmod +x scripts/quick_deploy.sh
+./scripts/quick_deploy.sh
+```
+
+**What it does:**
+- ✅ Creates virtual environment
+- ✅ Installs all dependencies
+- ✅ Runs unit tests
+- ✅ Creates systemd service
+- ✅ Starts the bot
+
+**Time:** ~10 minutes
+
+---
+
+### monitor.sh
+**Real-time monitoring dashboard**
+
+```bash
+# Run from anywhere
+cd ~/projects/farmpoly
+chmod +x scripts/monitor.sh
+./scripts/monitor.sh
+```
+
+**Features:**
+- 📊 Bot status (running/stopped)
+- 💻 System resources (CPU, RAM, Disk)
+- 📝 Recent logs (last 10 lines)
+- ⚠️ Error summary
+- 💰 Trading stats
+- ⚡ Quick actions (restart, stop, view logs, etc.)
+
+**Auto-refresh:** Every 5 seconds
+
+---
+
 ## 📋 Danh Sách Scripts
 
 ### 1. check_wallets.py

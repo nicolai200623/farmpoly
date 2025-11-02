@@ -19,8 +19,8 @@ class MarketScannerV2:
     
     def __init__(self, config: dict):
         self.config = config
-        self.rewards_url = "https://gamma.polymarket.com/?show=rewards"
-        self.api_url = "https://gamma-api.polymarket.com/markets"
+        self.rewards_url = "https://polymarket.com/rewards"
+        self.api_url = "https://gamma-api.polymarket.com/events"
         self.min_reward = config.get('min_reward', 300)
         self.max_competition = config.get('max_competition_bars', 2)
         self.browser = None
@@ -50,102 +50,101 @@ class MarketScannerV2:
     async def scan_rewards_page(self) -> List[Dict]:
         """Scan rewards page using multiple sources"""
         markets = []
-        
+
         try:
             # Method 1: Try Gamma API first (fastest and most reliable)
             logger.info("🔍 Fetching from Gamma API...")
             api_markets = await self._fetch_gamma_api()
-            
+
             if api_markets:
                 markets.extend(api_markets)
                 logger.info(f"✅ Got {len(api_markets)} markets from API")
-            
-            # Method 2: Fallback to Playwright scraping if API fails
-            if not markets:
-                logger.info("🔍 Falling back to Playwright scraping...")
-                scraped_markets = await self._scrape_with_playwright()
-                markets.extend(scraped_markets)
-            
+            else:
+                logger.warning("⚠️  No markets from API, trying Playwright scraping...")
+                # Method 2: Fallback to Playwright scraping if API fails
+                try:
+                    scraped_markets = await self._scrape_with_playwright()
+                    markets.extend(scraped_markets)
+                except Exception as scrape_error:
+                    logger.error(f"❌ Playwright scraping failed: {scrape_error}")
+
             # Filter based on criteria
             filtered_markets = self._filter_markets(markets)
-            
+
             logger.info(f"✅ Found {len(filtered_markets)} qualifying markets (from {len(markets)} total)")
             return filtered_markets
-            
+
         except Exception as e:
             logger.error(f"❌ Scanning error: {e}")
             return []
     
     async def _fetch_gamma_api(self) -> List[Dict]:
-        """Fetch markets from Gamma API"""
+        """Fetch markets from Gamma API using /events endpoint"""
         markets = []
-        
+
         try:
             async with aiohttp.ClientSession() as session:
-                # Try rewards endpoint
+                # Fetch active events (which contain markets)
                 params = {
-                    'reward': 'true',
-                    'active': 'true',
+                    'closed': 'false',
+                    'order': 'id',
+                    'ascending': 'false',
                     'limit': 100
                 }
-                
+
                 async with session.get(self.api_url, params=params, timeout=10) as response:
                     if response.status == 200:
                         data = await response.json()
-                        
-                        # Parse API response
+
+                        # Parse API response - events contain markets
                         if isinstance(data, list):
-                            for item in data:
-                                market = self._parse_api_market(item)
-                                if market:
-                                    markets.append(market)
-                        elif isinstance(data, dict) and 'data' in data:
-                            for item in data['data']:
-                                market = self._parse_api_market(item)
-                                if market:
-                                    markets.append(market)
+                            for event in data:
+                                # Extract markets from event
+                                event_markets = event.get('markets', [])
+                                for market_data in event_markets:
+                                    market = self._parse_api_market(market_data, event)
+                                    if market:
+                                        markets.append(market)
+
+                        logger.info(f"✅ Fetched {len(markets)} markets from API")
                     else:
                         logger.warning(f"⚠️  API returned status {response.status}")
-                        
+
         except Exception as e:
             logger.warning(f"⚠️  API fetch failed: {e}")
-        
+
         return markets
     
-    def _parse_api_market(self, item: dict) -> Optional[Dict]:
+    def _parse_api_market(self, market_data: dict, event: dict = None) -> Optional[Dict]:
         """Parse market data from API response"""
         try:
-            # Extract reward info
-            reward_info = item.get('rewards', {}) or item.get('reward', {})
-            
-            if not reward_info:
+            # Check if market has rewards enabled
+            rewards_min_size = market_data.get('rewardsMinSize', 0)
+            rewards_max_spread = market_data.get('rewardsMaxSpread', 0)
+
+            # Skip markets without rewards
+            if rewards_min_size == 0 and rewards_max_spread == 0:
                 return None
-            
-            # Calculate reward amount
-            reward = 0
-            if isinstance(reward_info, dict):
-                reward = float(reward_info.get('amount', 0) or reward_info.get('total', 0))
-            elif isinstance(reward_info, (int, float)):
-                reward = float(reward_info)
-            
-            # Get competition level
-            competition = item.get('competition_bars', 0) or item.get('competition', 0)
-            
-            # Get minimum shares
-            min_shares = item.get('min_shares', 0) or item.get('minimum_shares', 0)
-            
+
+            # Calculate estimated reward (simplified)
+            reward = rewards_min_size * 10  # Rough estimate
+
+            # Get competition level (use volume as proxy)
+            volume = float(market_data.get('volume', 0))
+            competition = min(3, int(volume / 10000))  # 0-3 bars based on volume
+
             market = {
-                'id': item.get('id') or item.get('market_id'),
-                'question': item.get('question') or item.get('title', 'Unknown'),
+                'id': market_data.get('id') or market_data.get('conditionId'),
+                'question': market_data.get('question') or event.get('title', 'Unknown') if event else 'Unknown',
                 'reward': reward,
                 'competition_bars': competition,
-                'min_shares': min_shares,
-                'volume': float(item.get('volume', 0)),
-                'liquidity': float(item.get('liquidity', 0)),
-                'end_date': item.get('end_date') or item.get('end_time'),
+                'min_shares': rewards_min_size,
+                'volume': volume,
+                'liquidity': float(market_data.get('liquidity', 0) or market_data.get('liquidityNum', 0)),
+                'end_date': market_data.get('endDate') or market_data.get('endDateIso'),
                 'source': 'gamma_api'
             }
-            
+
             return market
             
         except Exception as e:
@@ -162,8 +161,8 @@ class MarketScannerV2:
         try:
             page = await self.context.new_page()
             
-            # Navigate to rewards page
-            await page.goto(self.rewards_url, wait_until='networkidle', timeout=30000)
+            # Navigate to rewards page with longer timeout
+            await page.goto(self.rewards_url, wait_until='domcontentloaded', timeout=60000)
             
             # Wait for market cards to load
             try:
