@@ -12,7 +12,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Project directory
-PROJECT_DIR="$HOME/farmpoly/farmpoly"
+PROJECT_DIR="/home/farmpoly/farmpoly"
 LOG_FILE="$PROJECT_DIR/logs/polymarket_bot.log"
 
 # Function to print header
