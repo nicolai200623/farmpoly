@@ -293,3 +293,25 @@ Bot đã được tối ưu hóa toàn diện với:
 
 Bot bây giờ đã sẵn sàng để chạy production! 🚀
 
+---
+
+## 🚨 **VPS DEPLOYMENT NOTE**
+
+**QUAN TRỌNG**: Nếu bạn deploy lên VPS, cần cài đặt dependencies trên VPS:
+
+### **Quick Fix (Chỉ cài psutil):**
+```bash
+ssh user@vps-ip
+cd /home/farmpoly/farmpoly
+bash scripts/quick_fix_vps.sh
+```
+
+### **Full Installation (Khuyến nghị):**
+```bash
+ssh user@vps-ip
+cd /home/farmpoly/farmpoly
+bash scripts/vps_install_dependencies.sh
+```
+
+**Chi tiết**: Xem file `VPS_PSUTIL_FIX_SUMMARY.md`
+

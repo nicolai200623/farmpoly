@@ -1,496 +1,358 @@
-2025-11-03 06:56:16,640 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
-2025-11-03 06:56:24,323 - order_manager - INFO - CLOB client initialized successfully (read-only mode)
-2025-11-03 06:56:24,335 - wallet_manager - INFO - Loading REAL wallets from .env
-2025-11-03 06:56:24,342 - wallet_manager - INFO - âœ… Loaded wallet 1: 0x18F261DC...Ae4FfD96
-2025-11-03 06:56:24,343 - wallet_manager - INFO - âœ… Successfully loaded 1 real wallets
-2025-11-03 06:56:24,362 - ml_predictor - INFO - No pre-trained model found, using new model
-2025-11-03 06:56:24,362 - __main__ - INFO - â­ï¸  Reward Manager disabled in config
-2025-11-03 06:56:24,362 - __main__ - INFO - All modules initialized successfully
-2025-11-03 06:56:24,362 - __main__ - INFO - ðŸš€ Starting Polymarket Trading Bot...
-2025-11-03 06:56:24,362 - __main__ - INFO - ðŸ” Checking USDC approval for wallets...
-2025-11-03 06:56:24,510 - usdc_approver - INFO - âœ… Connected to Polygon RPC: https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQ...
-2025-11-03 06:56:24,658 - __main__ - WARNING - âš ï¸  USDC approval needed!
-2025-11-03 06:56:24,658 - __main__ - WARNING -    Run: python scripts/approve_wallets.py
-2025-11-03 06:56:24,659 - __main__ - WARNING -    Or the bot may fail to place orders
-2025-11-03 06:56:24,659 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:56:24,660 - ml_predictor - INFO - Insufficient training data: 0 samples
-2025-11-03 06:56:24,660 - __main__ - INFO - ML model updated successfully
-2025-11-03 06:56:25,251 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:56:25,253 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 06:56:26,841 - market_scanner_v2 - INFO - âœ… Playwright browser initialized
-2025-11-03 06:56:42,901 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 06:56:47,807 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 06:56:47,808 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 06:56:53,512 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:56:54,081 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:56:54,083 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 06:57:08,755 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 06:57:16,493 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 06:57:16,493 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 06:57:21,267 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:57:21,869 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:57:21,871 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 06:57:37,202 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 06:57:40,963 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 06:57:40,963 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 06:57:46,030 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:57:46,746 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:57:46,749 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 06:58:03,021 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 06:58:07,193 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 06:58:07,193 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 06:58:12,324 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:58:12,922 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:58:12,924 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 06:58:28,539 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 06:58:31,838 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 06:58:31,838 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 06:58:35,929 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:58:36,566 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:58:36,568 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 06:58:50,972 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 06:58:53,468 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 06:58:53,468 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 06:58:58,306 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:58:58,856 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:58:58,858 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 06:59:13,739 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 06:59:16,630 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 06:59:16,630 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 06:59:22,093 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:59:22,646 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:59:22,649 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 06:59:37,334 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 06:59:41,929 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 06:59:41,933 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 06:59:46,981 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 06:59:47,553 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 06:59:47,555 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:00:02,263 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:00:19,921 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:00:19,945 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:00:25,398 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:00:26,029 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:00:26,036 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:00:41,266 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:00:45,126 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:00:45,126 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:00:51,071 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:00:51,624 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:00:51,626 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:01:06,750 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:01:13,063 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:01:13,063 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:01:18,078 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:01:18,672 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:01:18,674 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:01:32,988 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:01:38,438 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:01:38,438 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:01:43,259 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:01:43,839 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:01:43,842 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:01:58,710 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:02:02,480 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:02:02,480 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:02:07,138 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:02:07,741 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:02:07,743 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:02:22,708 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:02:25,803 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:02:25,803 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:02:29,910 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:02:30,494 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:02:30,498 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:02:46,326 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:02:49,877 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:02:49,883 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:02:55,001 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:02:55,607 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:02:55,609 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:03:11,408 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:03:15,444 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:03:15,444 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:03:19,966 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:03:20,527 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:03:20,530 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:03:35,147 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:03:38,232 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:03:38,232 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:03:42,657 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:03:43,260 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:03:43,263 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:03:58,926 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:04:01,022 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:04:01,022 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:04:05,149 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:04:05,751 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:04:05,754 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:04:20,674 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:04:23,968 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:04:23,968 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:04:28,046 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:04:28,645 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:04:28,650 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:04:43,815 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:04:48,181 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:04:48,181 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:04:52,231 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:04:52,818 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:04:52,820 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:05:07,130 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:05:11,336 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:05:11,336 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:05:16,138 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:05:16,742 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:05:16,745 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:05:32,062 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:05:38,359 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:05:38,360 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:05:44,262 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:05:44,840 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:05:44,843 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:06:00,268 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:06:04,430 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:06:04,430 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:06:08,518 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:06:09,110 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:06:09,112 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:06:23,635 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:06:31,250 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:06:31,251 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:06:36,316 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:06:36,872 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:06:36,874 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:06:51,693 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:06:55,391 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:06:55,391 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:06:59,724 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:07:00,326 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:07:00,329 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:07:15,359 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:07:19,570 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:07:19,571 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:07:24,034 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:07:24,602 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:07:24,604 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:07:39,352 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:07:45,352 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:07:45,353 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:07:49,874 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:07:50,608 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:07:50,610 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:08:05,267 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:08:09,043 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:08:09,043 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:08:14,901 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:08:15,488 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:08:15,495 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:08:30,162 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:08:33,832 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:08:33,832 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:08:38,062 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:08:38,626 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:08:38,634 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:08:54,768 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:08:59,313 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:08:59,318 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:09:05,108 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:09:05,681 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:09:05,683 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:09:19,962 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:09:23,539 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:09:23,539 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:09:28,232 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:09:28,782 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:09:28,788 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:09:43,021 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:09:46,810 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:09:46,810 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:09:51,587 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:09:52,200 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:09:52,202 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:10:07,146 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:10:11,797 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:10:11,797 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:10:15,983 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:10:16,592 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:10:16,594 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:10:31,607 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:10:35,521 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:10:35,521 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:10:40,578 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:10:41,168 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:10:41,171 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:10:56,048 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:10:59,590 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:10:59,590 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:11:05,481 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:11:06,090 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:11:06,092 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:11:20,672 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:11:25,464 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:11:25,464 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:11:30,218 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:11:30,773 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:11:30,776 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:11:45,570 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:11:48,267 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:11:48,267 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:11:53,072 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:11:53,664 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:11:53,666 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:12:08,922 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:12:12,765 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:12:12,776 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:12:17,553 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:12:18,142 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:12:18,144 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:12:34,457 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:12:41,651 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:12:41,652 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:12:46,301 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:12:46,886 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:12:46,889 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:13:02,617 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:13:07,013 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:13:07,013 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:13:11,820 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:13:12,424 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:13:12,426 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:13:27,305 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:13:31,641 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:13:31,641 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:13:35,899 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:13:36,483 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:13:36,485 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:13:50,998 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:13:54,702 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:13:54,703 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:13:59,376 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:13:59,974 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:13:59,976 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:14:15,499 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:14:19,276 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:14:19,276 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:14:24,155 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:14:24,767 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:14:24,770 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:14:39,820 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:14:46,296 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:14:46,296 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:14:50,531 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:14:51,123 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:14:51,125 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:15:06,840 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:15:11,658 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:15:11,659 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:15:16,660 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:15:17,292 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:15:17,295 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:15:32,185 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:15:36,518 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:15:36,518 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:15:42,078 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:15:42,640 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:15:42,643 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:15:57,587 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:16:01,557 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:16:01,558 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:16:06,744 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:16:07,341 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:16:07,343 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:16:21,846 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:16:26,996 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:16:26,996 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:16:32,450 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:16:33,024 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:16:33,028 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:16:47,747 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:16:49,822 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:16:49,822 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:16:55,561 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:16:56,137 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:16:56,140 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:17:10,728 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:17:17,079 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:17:17,079 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:17:23,004 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:17:23,594 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:17:23,598 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:17:38,238 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:17:45,003 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:17:45,003 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:17:50,045 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:17:50,632 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:17:50,634 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:18:05,471 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:18:10,917 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:18:10,920 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:18:16,142 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:18:16,708 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:18:16,710 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:18:31,456 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:18:35,456 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:18:35,456 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:18:40,046 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:18:40,616 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:18:40,621 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:18:55,458 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:18:59,137 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:18:59,137 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:19:03,436 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:19:04,064 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:19:04,068 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:19:18,490 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:19:23,428 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:19:23,428 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:19:27,454 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:19:28,085 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:19:28,088 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:19:42,802 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:19:46,525 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:19:46,525 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:19:52,416 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:19:53,013 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:19:53,015 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:20:07,914 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:20:14,653 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:20:14,653 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:20:19,280 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:20:19,903 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:20:19,916 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:20:35,336 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:20:38,837 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:20:38,837 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:20:43,754 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:20:44,323 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:20:44,326 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:20:59,368 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:21:02,634 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:21:02,634 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:21:07,840 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:21:08,451 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:21:08,454 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:21:23,223 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:21:25,640 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:21:25,640 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:21:25,962 - __main__ - INFO - Shutdown signal received
-2025-11-03 07:21:26,052 - __main__ - INFO - Shutting down bot...
-2025-11-03 07:21:26,054 - order_manager - INFO - Cancelled 0 orders
-2025-11-03 07:21:26,064 - __main__ - INFO - Bot shutdown complete
-2025-11-03 07:22:56,987 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
-2025-11-03 07:23:04,464 - __main__ - INFO - âœ… Telegram alerts configured (Chat ID: -1003157421030)
-2025-11-03 07:23:04,465 - __main__ - INFO - âœ… Webhook alerts configured
-2025-11-03 07:23:04,465 - order_manager - INFO - CLOB client initialized successfully (read-only mode)
-2025-11-03 07:23:04,479 - wallet_manager - INFO - Loading REAL wallets from .env
-2025-11-03 07:23:04,492 - wallet_manager - INFO - âœ… Loaded wallet 1: 0x18F261DC...Ae4FfD96
-2025-11-03 07:23:04,493 - wallet_manager - INFO - âœ… Successfully loaded 1 real wallets
-2025-11-03 07:23:04,505 - ml_predictor - INFO - No pre-trained model found, using new model
-2025-11-03 07:23:04,506 - __main__ - INFO - â­ï¸  Reward Manager disabled in config
-2025-11-03 07:23:04,506 - __main__ - INFO - All modules initialized successfully
-2025-11-03 07:23:04,506 - __main__ - INFO - ðŸš€ Starting Polymarket Trading Bot...
-2025-11-03 07:23:04,788 - ml_predictor - ERROR - Webhook alert failed: {"message": "405: Method Not Allowed", "code": 0}
-2025-11-03 07:23:05,396 - ml_predictor - INFO - Alert sent: ðŸš€ <b>Polymarket Bot Started</b>
-â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
-â° Time: 2025-11-03 07:23:04
-ðŸ’¼ Wallets: 1
-ðŸ“Š Status: Running
-â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
-Bot is now scanning markets and placing orders.
-2025-11-03 07:23:05,396 - __main__ - INFO - âœ… Startup alert sent
-2025-11-03 07:23:05,396 - __main__ - INFO - ðŸ” Checking USDC approval for wallets...
-2025-11-03 07:23:05,563 - usdc_approver - INFO - âœ… Connected to Polygon RPC: https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQ...
-2025-11-03 07:23:05,715 - __main__ - WARNING - âš ï¸  USDC approval needed!
-2025-11-03 07:23:05,715 - __main__ - WARNING -    Run: python scripts/approve_wallets.py
-2025-11-03 07:23:05,715 - __main__ - WARNING -    Or the bot may fail to place orders
-2025-11-03 07:23:05,715 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:23:05,716 - ml_predictor - INFO - Insufficient training data: 0 samples
-2025-11-03 07:23:05,716 - __main__ - INFO - ML model updated successfully
-2025-11-03 07:23:06,304 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:23:06,306 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:23:07,971 - market_scanner_v2 - INFO - âœ… Playwright browser initialized
-2025-11-03 07:23:24,125 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:23:32,303 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:23:32,304 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:23:36,370 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:23:36,937 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:23:36,940 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:23:51,878 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:23:55,155 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:23:55,155 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:23:59,291 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:23:59,860 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:23:59,863 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:24:14,847 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:24:20,025 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:24:20,032 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:24:25,315 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:24:25,887 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:24:25,890 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:24:40,288 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:24:47,157 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:24:47,157 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:24:52,333 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:24:52,927 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:24:52,933 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:25:07,856 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:25:11,654 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:25:11,655 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:25:17,448 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:25:18,038 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:25:18,044 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:25:33,304 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:25:37,991 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:25:37,992 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:25:43,010 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:25:43,598 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:25:43,602 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:25:58,059 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:26:02,073 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:26:02,073 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:26:07,901 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:26:08,686 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:26:08,690 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:26:23,791 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:26:27,968 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:26:27,969 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:26:33,859 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:26:34,439 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:26:34,444 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:26:49,005 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:26:55,949 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:26:55,949 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:27:00,158 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:27:00,721 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:27:00,726 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:27:15,450 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:27:19,432 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:27:19,432 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:27:24,392 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:27:24,985 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:27:24,987 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:27:39,503 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:27:43,700 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:27:43,700 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:27:47,980 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:27:48,564 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:27:48,566 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:28:03,232 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:28:06,560 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:28:06,560 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:28:10,949 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:28:11,577 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:28:11,579 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:28:26,866 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:28:32,099 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:28:32,099 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:28:37,687 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:28:38,286 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:28:38,288 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
-2025-11-03 07:28:52,698 - market_scanner_v2 - WARNING - âš ï¸  Timeout waiting for market cards
-2025-11-03 07:28:56,372 - market_scanner_v2 - INFO - âœ… Found 0 qualifying markets (from 0 total)
-2025-11-03 07:28:56,372 - market_selector - INFO - Selected 0 markets from 0 candidates
-2025-11-03 07:29:01,300 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-03 07:29:01,915 - market_scanner_v2 - INFO - âœ… Fetched 0 markets from API
-2025-11-03 07:29:01,918 - market_scanner_v2 - WARNING - âš ï¸  No markets from API, trying Playwright scraping...
+2025-11-03 08:35:41,138 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:36:01,778 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:36:22,247 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:36:39,596 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:36:57,043 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:37:14,519 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:37:31,800 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:37:49,987 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:38:06,270 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:38:24,689 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:38:42,835 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:38:59,791 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:39:17,502 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:39:34,271 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:39:51,519 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:40:09,607 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:40:27,064 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:40:44,839 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:41:02,279 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:41:19,350 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:41:35,497 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:41:51,290 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:42:10,147 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:42:27,021 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:42:45,046 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:43:02,094 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:43:18,767 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:43:35,774 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:43:52,518 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:44:09,622 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:44:27,281 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:44:44,369 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:45:01,072 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:45:17,979 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:45:34,531 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:45:51,738 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:46:07,796 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:46:25,026 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:46:42,533 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:46:59,768 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:47:16,827 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:47:33,797 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:47:50,902 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:48:07,821 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:48:25,056 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:48:42,034 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:48:59,045 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:49:18,828 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:49:36,250 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:49:53,010 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:50:10,371 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/main.py", line 48, in <module>
+    from monitoring_system import MonitoringSystem
+  File "/home/farmpoly/farmpoly/monitoring_system.py", line 11, in <module>
+    import psutil
+ModuleNotFoundError: No module named 'psutil'
+2025-11-03 08:50:30,569 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
