@@ -39,6 +39,7 @@ from wallet_manager import WalletManager
 from ml_predictor import MLPredictor
 from optimizer import DailyOptimizer
 from usdc_approver import USDCApprover
+from reward_manager import RewardManager
 
 
 class PolymarketBot:
@@ -114,7 +115,15 @@ class PolymarketBot:
             self.modules['wallet_mgr'] = WalletManager(self.config['wallet_management'])
             self.modules['ml_predictor'] = MLPredictor(self.config['ml_prediction'])
             self.modules['optimizer'] = DailyOptimizer(self.config)
-            
+
+            # Initialize reward manager if enabled
+            reward_config = self.config.get('reward_management', {})
+            if reward_config.get('enabled', True):
+                self.modules['reward_mgr'] = RewardManager(self.config)
+                logger.info("✅ Reward Manager enabled")
+            else:
+                logger.info("⏭️  Reward Manager disabled in config")
+
             logger.info("All modules initialized successfully")
         except Exception as e:
             logger.error(f"Module initialization failed: {e}")
@@ -141,6 +150,10 @@ class PolymarketBot:
             self._ml_training_loop(),
             self._daily_optimization_loop()
         ]
+
+        # Add reward management loop if enabled
+        if 'reward_mgr' in self.modules:
+            tasks.append(self._reward_management_loop())
 
         try:
             await asyncio.gather(*tasks)
@@ -295,7 +308,7 @@ class PolymarketBot:
     async def _daily_optimization_loop(self):
         """Daily strategy optimization at UTC 00:00"""
         optimizer = self.modules['optimizer']
-        
+
         while self.running:
             try:
                 # Calculate time until next UTC midnight
@@ -304,22 +317,53 @@ class PolymarketBot:
                     hour=0, minute=0, second=0, microsecond=0
                 )
                 seconds_until_midnight = (next_midnight - now).total_seconds()
-                
+
                 # Wait until midnight
                 await asyncio.sleep(seconds_until_midnight)
-                
+
                 # Run daily optimization
                 await optimizer.optimize_daily_strategy()
-                
+
                 # Update performance stats
                 self.performance_stats['daily_pnl'] = await optimizer.calculate_daily_pnl()
-                
+
                 # Send performance report
                 await self._send_performance_report()
-                
+
             except Exception as e:
                 logger.error(f"Daily optimization error: {e}")
                 await asyncio.sleep(3600)
+
+    async def _reward_management_loop(self):
+        """Automated reward checking and withdrawal loop"""
+        reward_mgr = self.modules['reward_mgr']
+        wallet_mgr = self.modules['wallet_mgr']
+
+        # Initialize reward manager async resources
+        try:
+            await reward_mgr.initialize()
+        except Exception as e:
+            logger.error(f"Failed to initialize reward manager: {e}")
+            return
+
+        logger.info("🎁 Starting automated reward management loop")
+
+        while self.running:
+            try:
+                # Get all wallets
+                wallets = wallet_mgr.wallets
+
+                if not wallets:
+                    logger.warning("No wallets available for reward checking")
+                    await asyncio.sleep(300)  # Wait 5 minutes and retry
+                    continue
+
+                # Run the auto-withdraw loop (it handles its own timing)
+                await reward_mgr.auto_withdraw_loop(wallets)
+
+            except Exception as e:
+                logger.error(f"Reward management error: {e}")
+                await asyncio.sleep(300)  # Wait 5 minutes before retry
     
     async def _process_market_opportunity(self, market: dict):
         """Process a selected market opportunity"""
@@ -373,18 +417,28 @@ class PolymarketBot:
         """Graceful shutdown"""
         logger.info("Shutting down bot...")
         self.running = False
-        
+
         # Cancel all open orders
         try:
             await self.modules['order_mgr'].cancel_all_orders()
         except:
             pass
-        
+
+        # Log final reward statistics if reward manager is active
+        if 'reward_mgr' in self.modules:
+            try:
+                stats = self.modules['reward_mgr'].get_statistics()
+                logger.info("📊 Final Reward Manager Statistics:")
+                logger.info(f"   Total withdrawals: {stats['total_withdrawals']}")
+                logger.info(f"   Total withdrawn: ${stats['total_withdrawn_amount']:.2f} USDC")
+            except:
+                pass
+
         # Close all connections
         for module in self.modules.values():
             if hasattr(module, 'close'):
                 await module.close()
-        
+
         logger.info("Bot shutdown complete")
 
 

@@ -3,8 +3,8 @@
 # Updated with V2 features: Playwright, Gamma API, USDC Approval
 
 # Capital Settings
-total_capital: 200  # Total capital in USDC (start small!)
-num_wallets: 2  # Number of wallets to use (2-10 recommended)
+total_capital: 100  # Total capital in USDC (start small!)
+num_wallets: 1  # Number of wallets to use (2-10 recommended)
 
 # RPC Settings
 rpc_url: "https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQLZqOJuRTH6n_FZEkyWx2vO1"  # Use your own Alchemy/Infura for better reliability
@@ -107,7 +107,7 @@ risk_management:
 # Wallet Management
 wallet_management:
   # Number of wallets to rotate
-  num_wallets: 2
+  num_wallets: 1
   
   # Human-like behavior
   jitter_percentage: 0.2  # ±20% variation
@@ -176,24 +176,58 @@ daily_optimization:
   redeploy_underperforming: true
   performance_threshold: -0.05  # -5% return
 
+# Reward Management (Automated Reward Checking & Withdrawal)
+reward_management:
+  # Enable automated reward checking and withdrawal
+  # ⚠️ DISABLED FOR NOW - Bot is confusing trading capital with rewards!
+  # Only enable this after you understand how Polymarket rewards work
+  enabled: false
+
+  # Check interval (in seconds)
+  # 3600 = 1 hour, 7200 = 2 hours, 14400 = 4 hours, 86400 = 24 hours
+  check_interval: 86400  # Check every 24 hours (not every hour!)
+
+  # Minimum reward threshold before triggering withdrawal (in USDC)
+  min_withdrawal_threshold: 10000.0  # Withdraw when rewards >= $50 (increased for safety)
+
+  # Withdrawal wallet address (set in .env for security)
+  # This is where rewards will be sent
+  withdrawal_wallet: ""  # Set REWARD_WITHDRAWAL_WALLET in .env
+
+  # Maximum gas price for withdrawal transactions (in Gwei)
+  max_gas_price: 500  # Don't withdraw if gas > 500 Gwei
+
+  # Retry settings for failed withdrawals
+  max_retry_attempts: 3
+  retry_delay: 300  # 5 minutes between retries
+
+  # Alert settings
+  alert_on_withdrawal: true  # Send alert when withdrawal occurs
+  alert_on_withdrawal_failure: true  # Send alert on withdrawal failure
+  alert_on_threshold_reached: true  # Send alert when threshold is reached
+
+  # Safety settings
+  require_confirmation: true  # REQUIRE manual confirmation before withdrawal!
+  max_withdrawal_per_day: 1000.0  # Maximum USDC to withdraw per day (safety limit)
+
 # Alerts and Notifications
 alerts:
   # Telegram
   telegram_enabled: true
   telegram_bot_token: ""  # Set in .env
   telegram_chat_id: ""  # Set in .env
-  
+
   # Discord/Slack Webhook
   webhook_enabled: false
   webhook_url: ""  # Set in .env
-  
+
   # Alert levels
   alert_on_startup: true
   alert_on_shutdown: true
   alert_on_error: true
   alert_on_high_risk: true
   alert_on_daily_report: true
-  
+
   # Performance alerts
   alert_on_profit_threshold: 100  # USD
   alert_on_loss_threshold: -50  # USD
