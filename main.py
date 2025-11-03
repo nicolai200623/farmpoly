@@ -9,10 +9,15 @@ import logging
 import yaml
 import signal
 import sys
+import os
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple
+from dotenv import load_dotenv
 import random
 import time
+
+# Load environment variables FIRST
+load_dotenv()
 
 # Setup logging FIRST before any imports that use logger
 logging.basicConfig(
@@ -61,10 +66,39 @@ class PolymarketBot:
         self._initialize_modules()
         
     def _load_config(self, path: str) -> dict:
-        """Load configuration from YAML file"""
+        """Load configuration from YAML file and merge with .env"""
         try:
-            with open(path, 'r') as f:
-                return yaml.safe_load(f)
+            with open(path, 'r', encoding='utf-8') as f:
+                config = yaml.safe_load(f)
+
+            # Merge Telegram config from .env
+            telegram_token = os.getenv('TELEGRAM_BOT_TOKEN', '')
+            telegram_chat_id = os.getenv('TELEGRAM_CHAT_ID', '')
+
+            if telegram_token and telegram_chat_id:
+                # Ensure alerts section exists
+                if 'alerts' not in config:
+                    config['alerts'] = {}
+
+                # Override with .env values
+                config['alerts']['telegram_bot_token'] = telegram_token
+                config['alerts']['telegram_chat_id'] = telegram_chat_id
+                config['alerts']['telegram_enabled'] = True
+
+                logger.info(f"✅ Telegram alerts configured (Chat ID: {telegram_chat_id})")
+            else:
+                logger.warning("⚠️  Telegram not configured in .env")
+
+            # Merge webhook config from .env
+            webhook_url = os.getenv('DISCORD_WEBHOOK_URL') or os.getenv('SLACK_WEBHOOK_URL', '')
+            if webhook_url:
+                if 'alerts' not in config:
+                    config['alerts'] = {}
+                config['alerts']['webhook_url'] = webhook_url
+                config['alerts']['webhook_enabled'] = True
+                logger.info("✅ Webhook alerts configured")
+
+            return config
         except Exception as e:
             logger.error(f"Failed to load config: {e}")
             return self._default_config()
@@ -113,7 +147,20 @@ class PolymarketBot:
             self.modules['monitor'] = PositionMonitor(self.config['monitoring'])
             self.modules['risk_mgr'] = RiskManager(self.config['risk_management'])
             self.modules['wallet_mgr'] = WalletManager(self.config['wallet_management'])
-            self.modules['ml_predictor'] = MLPredictor(self.config['ml_prediction'])
+
+            # Initialize ML Predictor with alerts config
+            ml_config = self.config.get('ml_prediction', {})
+            alerts_config = self.config.get('alerts', {})
+
+            # Merge alerts into ml_config for MLPredictor
+            ml_config_with_alerts = {
+                **ml_config,
+                'telegram_bot_token': alerts_config.get('telegram_bot_token', ''),
+                'telegram_chat_id': alerts_config.get('telegram_chat_id', ''),
+                'alert_webhook': alerts_config.get('webhook_url', ''),
+            }
+
+            self.modules['ml_predictor'] = MLPredictor(ml_config_with_alerts)
             self.modules['optimizer'] = DailyOptimizer(self.config)
 
             # Initialize reward manager if enabled
@@ -133,6 +180,9 @@ class PolymarketBot:
         """Start the trading bot"""
         self.running = True
         logger.info("🚀 Starting Polymarket Trading Bot...")
+
+        # Send startup alert
+        await self._send_startup_alert()
 
         # Check USDC approval before starting
         await self._check_usdc_approval()
@@ -388,23 +438,51 @@ class PolymarketBot:
         """Sleep with random jitter to appear more human-like"""
         jitter = random.uniform(-0.2, 0.2) * base_seconds
         await asyncio.sleep(base_seconds + jitter)
-    
+
+    async def _send_startup_alert(self):
+        """Send startup notification via Telegram"""
+        try:
+            alerts_config = self.config.get('alerts', {})
+
+            if not alerts_config.get('alert_on_startup', True):
+                return
+
+            wallet_mgr = self.modules.get('wallet_mgr')
+            num_wallets = len(wallet_mgr.wallets) if wallet_mgr else 0
+
+            message = f"""
+🚀 <b>Polymarket Bot Started</b>
+━━━━━━━━━━━━━━━━━━━━━━
+⏰ Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+💼 Wallets: {num_wallets}
+📊 Status: Running
+━━━━━━━━━━━━━━━━━━━━━━
+Bot is now scanning markets and placing orders.
+            """
+
+            # Send via configured alert channels
+            await self.modules['ml_predictor'].send_alert(message.strip())
+            logger.info("✅ Startup alert sent")
+
+        except Exception as e:
+            logger.error(f"Failed to send startup alert: {e}")
+
     async def _send_performance_report(self):
         """Send daily performance report via alerts"""
         try:
             report = f"""
-            📊 Daily Performance Report
-            ═══════════════════════════
-            💰 Daily P&L: ${self.performance_stats['daily_pnl']:.2f}
-            ✅ Successful Trades: {self.performance_stats['successful_trades']}
-            📝 Total Fills: {self.performance_stats['total_fills']}
-            ❌ Cancelled Orders: {self.performance_stats['cancelled_orders']}
-            ═══════════════════════════
+📊 <b>Daily Performance Report</b>
+━━━━━━━━━━━━━━━━━━━━━━
+💰 Daily P&L: ${self.performance_stats['daily_pnl']:.2f}
+✅ Successful Trades: {self.performance_stats['successful_trades']}
+📝 Total Fills: {self.performance_stats['total_fills']}
+❌ Cancelled Orders: {self.performance_stats['cancelled_orders']}
+━━━━━━━━━━━━━━━━━━━━━━
             """
-            
+
             # Send via configured alert channels
-            await self.modules['ml_predictor'].send_alert(report)
-            
+            await self.modules['ml_predictor'].send_alert(report.strip())
+
         except Exception as e:
             logger.error(f"Failed to send performance report: {e}")
     

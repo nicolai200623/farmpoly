@@ -172,14 +172,14 @@ After=network.target
 
 [Service]
 Type=simple
-User=your_username
-WorkingDirectory=/home/your_username/projects/farmpoly
-Environment="PATH=/home/your_username/projects/farmpoly/venv/bin"
-ExecStart=/home/your_username/projects/farmpoly/venv/bin/python main.py
+User=root
+WorkingDirectory=/home/farmpoly/farmpoly
+Environment="PATH=/home/farmpoly/farmpoly/venv/bin"
+ExecStart=/home/farmpoly/farmpoly/venv/bin/python main.py
 Restart=always
 RestartSec=10
-StandardOutput=append:/home/your_username/projects/farmpoly/logs/systemd.log
-StandardError=append:/home/your_username/projects/farmpoly/logs/systemd-error.log
+StandardOutput=append:/home/farmpoly/farmpoly/logs/systemd.log
+StandardError=append:/home/farmpoly/farmpoly/logs/systemd-error.log
 
 [Install]
 WantedBy=multi-user.target
