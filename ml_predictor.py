@@ -290,19 +290,30 @@ class MLPredictor:
     async def _send_webhook_alert(self, message: str):
         """Send alert via webhook (Discord/Slack)"""
         try:
+            # Skip if webhook URL is not configured or is placeholder
+            if not self.alert_webhook or '...' in self.alert_webhook or 'hooks.slack.com/services/...' in self.alert_webhook:
+                return
+
             data = {
                 'content': message,  # Discord format
                 'text': message,     # Slack format
                 'username': 'Polymarket Bot'
             }
-            
+
             async with aiohttp.ClientSession() as session:
-                async with session.post(self.alert_webhook, json=data) as response:
+                async with session.post(self.alert_webhook, json=data, timeout=5) as response:
                     if response.status not in [200, 204]:
-                        logger.error(f"Webhook alert failed: {await response.text()}")
-                        
+                        error_text = await response.text()
+                        # Only log error if it's not a configuration issue
+                        if response.status != 405:  # 405 = Method Not Allowed (bad webhook URL)
+                            logger.error(f"Webhook alert failed: {error_text}")
+
+        except asyncio.TimeoutError:
+            logger.debug(f"Webhook timeout (URL may be invalid)")
         except Exception as e:
-            logger.error(f"Webhook alert error: {e}")
+            # Only log if it's not a connection error (which indicates bad URL)
+            if 'Cannot connect' not in str(e):
+                logger.debug(f"Webhook alert error: {e}")
     
     def get_model_stats(self) -> Dict:
         """Get model statistics"""

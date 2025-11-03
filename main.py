@@ -45,6 +45,7 @@ from ml_predictor import MLPredictor
 from optimizer import DailyOptimizer
 from usdc_approver import USDCApprover
 from reward_manager import RewardManager
+from monitoring_system import MonitoringSystem
 
 
 class PolymarketBot:
@@ -163,6 +164,13 @@ class PolymarketBot:
             self.modules['ml_predictor'] = MLPredictor(ml_config_with_alerts)
             self.modules['optimizer'] = DailyOptimizer(self.config)
 
+            # Initialize monitoring system
+            self.modules['monitoring'] = MonitoringSystem(
+                self.config,
+                self.modules['ml_predictor']  # Pass ML predictor for sending alerts
+            )
+            logger.info("✅ Monitoring System enabled")
+
             # Initialize reward manager if enabled
             reward_config = self.config.get('reward_management', {})
             if reward_config.get('enabled', True):
@@ -198,7 +206,9 @@ class PolymarketBot:
             self._position_monitoring_loop(),
             self._risk_management_loop(),
             self._ml_training_loop(),
-            self._daily_optimization_loop()
+            self._daily_optimization_loop(),
+            self._monitoring_loop(),  # Add monitoring loop
+            self._hourly_report_loop()  # Add hourly report loop
         ]
 
         # Add reward management loop if enabled
@@ -236,27 +246,41 @@ class PolymarketBot:
             logger.warning("   Make sure to run: python scripts/approve_wallets.py")
     
     async def _market_scanning_loop(self):
-        """Continuous market scanning"""
+        """Continuous market scanning with monitoring"""
         scanner = self.modules['scanner']
         selector = self.modules['selector']
-        
+        monitoring = self.modules['monitoring']
+
         while self.running:
+            scan_start = datetime.now()
             try:
                 # Scan for opportunities
                 markets = await scanner.scan_rewards_page()
-                
+
+                # Record scan metrics
+                monitoring.record_market_scan(len(markets))
+
                 # Filter and score markets
                 selected_markets = await selector.select_markets(markets)
-                
+
                 # Process selected markets
                 for market in selected_markets:
                     await self._process_market_opportunity(market)
-                
+
+                # Record API response time
+                scan_duration = (datetime.now() - scan_start).total_seconds()
+                monitoring.record_api_call(scan_duration, True)
+
                 # Add human-like delay with jitter
                 await self._jittered_sleep(self.config['market_scanner']['interval'])
-                
+
             except Exception as e:
                 logger.error(f"Market scanning error: {e}")
+
+                # Record error
+                monitoring.record_error('market_scan', str(e))
+                monitoring.record_api_call((datetime.now() - scan_start).total_seconds(), False)
+
                 await asyncio.sleep(10)
     
     async def _order_management_loop(self):
@@ -434,6 +458,53 @@ class PolymarketBot:
         except Exception as e:
             logger.error(f"Error processing market {market['id']}: {e}")
     
+    async def _monitoring_loop(self):
+        """Continuous health monitoring"""
+        monitoring = self.modules['monitoring']
+
+        while self.running:
+            try:
+                # Check health status
+                health = await monitoring.check_health()
+
+                # Log health status
+                if not health['healthy']:
+                    logger.warning(f"⚠️ Health check failed: {len(health['issues'])} issues")
+                    for issue in health['issues']:
+                        logger.warning(f"   - {issue['message']}")
+                else:
+                    logger.debug("✅ Health check passed")
+
+                # Wait 30 seconds before next check
+                await asyncio.sleep(30)
+
+            except Exception as e:
+                logger.error(f"Monitoring loop error: {e}")
+                await asyncio.sleep(60)
+
+    async def _hourly_report_loop(self):
+        """Send hourly performance reports"""
+        monitoring = self.modules['monitoring']
+
+        while self.running:
+            try:
+                # Calculate time until next hour
+                now = datetime.now()
+                next_hour = (now + timedelta(hours=1)).replace(
+                    minute=0, second=0, microsecond=0
+                )
+                seconds_until_next_hour = (next_hour - now).total_seconds()
+
+                # Wait until next hour
+                await asyncio.sleep(seconds_until_next_hour)
+
+                # Send hourly report
+                await monitoring.send_hourly_report()
+
+            except Exception as e:
+                logger.error(f"Hourly report error: {e}")
+                await asyncio.sleep(3600)  # Retry in 1 hour
+
     async def _jittered_sleep(self, base_seconds: float):
         """Sleep with random jitter to appear more human-like"""
         jitter = random.uniform(-0.2, 0.2) * base_seconds

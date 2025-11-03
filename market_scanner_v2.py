@@ -10,13 +10,14 @@ import logging
 from typing import List, Dict, Optional
 import json
 import time
+from circuit_breaker import CircuitBreaker, CircuitBreakerOpenError
 
 logger = logging.getLogger(__name__)
 
 
 class MarketScannerV2:
     """Enhanced market scanner with Playwright and API fallback"""
-    
+
     def __init__(self, config: dict):
         self.config = config
         self.rewards_url = "https://polymarket.com/rewards"
@@ -25,6 +26,20 @@ class MarketScannerV2:
         self.max_competition = config.get('max_competition_bars', 2)
         self.browser = None
         self.context = None
+
+        # Initialize circuit breakers
+        self.api_breaker = CircuitBreaker(
+            name="gamma_api",
+            failure_threshold=5,
+            timeout_seconds=60,
+            success_threshold=2
+        )
+        self.playwright_breaker = CircuitBreaker(
+            name="playwright_scraper",
+            failure_threshold=3,
+            timeout_seconds=120,
+            success_threshold=2
+        )
         
     async def initialize(self):
         """Initialize Playwright browser"""
@@ -48,23 +63,36 @@ class MarketScannerV2:
             await self.browser.close()
     
     async def scan_rewards_page(self) -> List[Dict]:
-        """Scan rewards page using multiple sources"""
+        """Scan rewards page using multiple sources with circuit breaker protection"""
         markets = []
 
         try:
             # Method 1: Try Gamma API first (fastest and most reliable)
             logger.info("🔍 Fetching from Gamma API...")
-            api_markets = await self._fetch_gamma_api()
 
-            if api_markets:
-                markets.extend(api_markets)
-                logger.info(f"✅ Got {len(api_markets)} markets from API")
-            else:
-                logger.warning("⚠️  No markets from API, trying Playwright scraping...")
-                # Method 2: Fallback to Playwright scraping if API fails
+            try:
+                # Use circuit breaker for API calls
+                api_markets = await self.api_breaker.call(self._fetch_gamma_api_internal)
+
+                if api_markets:
+                    markets.extend(api_markets)
+                    logger.info(f"✅ Got {len(api_markets)} markets from API")
+                else:
+                    logger.warning("⚠️  No markets from API")
+
+            except CircuitBreakerOpenError as e:
+                logger.warning(f"⚠️  API circuit breaker OPEN: {e}")
+            except Exception as api_error:
+                logger.error(f"❌ API error: {api_error}")
+
+            # Method 2: Fallback to Playwright scraping if API didn't return markets
+            if not markets:
+                logger.warning("⚠️  Trying Playwright scraping...")
                 try:
-                    scraped_markets = await self._scrape_with_playwright()
+                    scraped_markets = await self.playwright_breaker.call(self._scrape_with_playwright_internal)
                     markets.extend(scraped_markets)
+                except CircuitBreakerOpenError as e:
+                    logger.warning(f"⚠️  Playwright circuit breaker OPEN: {e}")
                 except Exception as scrape_error:
                     logger.error(f"❌ Playwright scraping failed: {scrape_error}")
 
@@ -78,40 +106,36 @@ class MarketScannerV2:
             logger.error(f"❌ Scanning error: {e}")
             return []
     
-    async def _fetch_gamma_api(self) -> List[Dict]:
-        """Fetch markets from Gamma API using /events endpoint"""
+    async def _fetch_gamma_api_internal(self) -> List[Dict]:
+        """Internal method: Fetch markets from Gamma API using /events endpoint"""
         markets = []
 
-        try:
-            async with aiohttp.ClientSession() as session:
-                # Fetch active events (which contain markets)
-                params = {
-                    'closed': 'false',
-                    'order': 'id',
-                    'ascending': 'false',
-                    'limit': 100
-                }
+        async with aiohttp.ClientSession() as session:
+            # Fetch active events (which contain markets)
+            params = {
+                'closed': 'false',
+                'order': 'id',
+                'ascending': 'false',
+                'limit': 100
+            }
 
-                async with session.get(self.api_url, params=params, timeout=10) as response:
-                    if response.status == 200:
-                        data = await response.json()
+            async with session.get(self.api_url, params=params, timeout=10) as response:
+                if response.status == 200:
+                    data = await response.json()
 
-                        # Parse API response - events contain markets
-                        if isinstance(data, list):
-                            for event in data:
-                                # Extract markets from event
-                                event_markets = event.get('markets', [])
-                                for market_data in event_markets:
-                                    market = self._parse_api_market(market_data, event)
-                                    if market:
-                                        markets.append(market)
+                    # Parse API response - events contain markets
+                    if isinstance(data, list):
+                        for event in data:
+                            # Extract markets from event
+                            event_markets = event.get('markets', [])
+                            for market_data in event_markets:
+                                market = self._parse_api_market(market_data, event)
+                                if market:
+                                    markets.append(market)
 
-                        logger.info(f"✅ Fetched {len(markets)} markets from API")
-                    else:
-                        logger.warning(f"⚠️  API returned status {response.status}")
-
-        except Exception as e:
-            logger.warning(f"⚠️  API fetch failed: {e}")
+                    logger.info(f"✅ Fetched {len(markets)} markets from API")
+                else:
+                    logger.warning(f"⚠️  API returned status {response.status}")
 
         return markets
     
@@ -119,40 +143,65 @@ class MarketScannerV2:
         """Parse market data from API response"""
         try:
             # Check if market has rewards enabled
-            rewards_min_size = market_data.get('rewardsMinSize', 0)
-            rewards_max_spread = market_data.get('rewardsMaxSpread', 0)
+            rewards_min_size = float(market_data.get('rewardsMinSize', 0) or 0)
+            rewards_max_spread = float(market_data.get('rewardsMaxSpread', 0) or 0)
+            uma_reward = float(market_data.get('umaReward', 0) or 0)
 
-            # Skip markets without rewards
-            if rewards_min_size == 0 and rewards_max_spread == 0:
+            # Skip markets without ANY rewards indicators
+            # Accept if ANY of these conditions is true:
+            # 1. rewardsMinSize > 0 (có yêu cầu minimum size)
+            # 2. rewardsMaxSpread > 0 (có giới hạn spread)
+            # 3. umaReward > 0 (có UMA reward)
+            if rewards_min_size == 0 and rewards_max_spread == 0 and uma_reward == 0:
                 return None
 
-            # Calculate estimated reward (simplified)
-            reward = rewards_min_size * 10  # Rough estimate
+            # Calculate estimated reward (improved calculation)
+            # Sử dụng rewardsMinSize hoặc volume để ước tính
+            if rewards_min_size > 0:
+                reward = rewards_min_size * 10  # Rough estimate based on min size
+            elif uma_reward > 0:
+                reward = uma_reward * 100  # UMA rewards are typically smaller
+            else:
+                # Fallback: estimate from volume
+                volume = float(market_data.get('volume', 0) or market_data.get('volumeNum', 0) or 0)
+                reward = min(volume * 0.001, 1000)  # 0.1% of volume, max $1000
 
             # Get competition level (use volume as proxy)
-            volume = float(market_data.get('volume', 0))
+            volume = float(market_data.get('volume', 0) or market_data.get('volumeNum', 0) or 0)
             competition = min(3, int(volume / 10000))  # 0-3 bars based on volume
+
+            # Get liquidity
+            liquidity = float(
+                market_data.get('liquidity', 0) or
+                market_data.get('liquidityNum', 0) or
+                market_data.get('liquidityClob', 0) or
+                0
+            )
 
             market = {
                 'id': market_data.get('id') or market_data.get('conditionId'),
                 'question': market_data.get('question') or event.get('title', 'Unknown') if event else 'Unknown',
                 'reward': reward,
                 'competition_bars': competition,
-                'min_shares': rewards_min_size,
+                'min_shares': int(rewards_min_size) if rewards_min_size > 0 else 100,
                 'volume': volume,
-                'liquidity': float(market_data.get('liquidity', 0) or market_data.get('liquidityNum', 0)),
+                'liquidity': liquidity,
                 'end_date': market_data.get('endDate') or market_data.get('endDateIso'),
-                'source': 'gamma_api'
+                'source': 'gamma_api',
+                # Thêm thông tin rewards chi tiết
+                'rewards_min_size': rewards_min_size,
+                'rewards_max_spread': rewards_max_spread,
+                'uma_reward': uma_reward,
             }
 
             return market
-            
+
         except Exception as e:
             logger.debug(f"Failed to parse API market: {e}")
             return None
     
-    async def _scrape_with_playwright(self) -> List[Dict]:
-        """Scrape using Playwright for JavaScript-rendered content"""
+    async def _scrape_with_playwright_internal(self) -> List[Dict]:
+        """Internal method: Scrape using Playwright for JavaScript-rendered content"""
         markets = []
         
         if not self.context:
@@ -230,26 +279,44 @@ class MarketScannerV2:
         return markets
     
     def _filter_markets(self, markets: List[Dict]) -> List[Dict]:
-        """Filter markets based on criteria"""
+        """Filter markets based on criteria with detailed logging"""
         filtered = []
-        
+        rejected_reasons = {
+            'low_reward': 0,
+            'high_competition': 0,
+            'other': 0
+        }
+
         for market in markets:
             # Check reward threshold
             if market['reward'] < self.min_reward:
+                rejected_reasons['low_reward'] += 1
+                logger.debug(f"❌ Rejected (low reward): {market['question'][:50]} - Reward: ${market['reward']:.0f} < ${self.min_reward}")
                 continue
-            
+
             # Check competition level
             if market['competition_bars'] > self.max_competition:
+                rejected_reasons['high_competition'] += 1
+                logger.debug(f"❌ Rejected (high competition): {market['question'][:50]} - Competition: {market['competition_bars']} > {self.max_competition}")
                 continue
-            
+
             # Add score for ranking
             market['score'] = self._calculate_score(market)
-            
+
             filtered.append(market)
-        
+            logger.debug(f"✅ Accepted: {market['question'][:50]} - Reward: ${market['reward']:.0f}, Competition: {market['competition_bars']}, Score: {market['score']:.1f}")
+
+        # Log summary
+        if len(markets) > 0:
+            logger.info(f"📊 Filter results: {len(filtered)}/{len(markets)} markets passed")
+            if rejected_reasons['low_reward'] > 0:
+                logger.info(f"   - {rejected_reasons['low_reward']} rejected: reward < ${self.min_reward}")
+            if rejected_reasons['high_competition'] > 0:
+                logger.info(f"   - {rejected_reasons['high_competition']} rejected: competition > {self.max_competition}")
+
         # Sort by score (highest first)
         filtered.sort(key=lambda x: x['score'], reverse=True)
-        
+
         return filtered
     
     def _calculate_score(self, market: Dict) -> float:

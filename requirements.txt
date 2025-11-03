@@ -27,6 +27,7 @@ pyyaml>=6.0
 # Logging and Monitoring
 python-dotenv>=1.0.0
 colorlog>=6.7.0
+psutil>=5.9.0  # For system monitoring
 
 # Optional - for enhanced features
 redis>=4.5.0  # For caching
