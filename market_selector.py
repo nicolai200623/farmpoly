@@ -58,7 +58,7 @@ class MarketSelectorAI:
             competition_score = self._score_competition(market['competition_bars'])
             volume_spike_score = await self._score_volume_spike(market)
             liquidity_score = self._score_liquidity(market.get('liquidity', 0))
-            category_score = self._score_category(market['category'])
+            category_score = self._score_category(market.get('category', 'other'))  # Default to 'other' if missing
             price_score = self._score_price_efficiency(market)
             timing_score = self._score_timing(market)
             
@@ -84,7 +84,7 @@ class MarketSelectorAI:
             )
             
             # Apply special conditions
-            if market['category'] == 'sports':
+            if market.get('category') == 'sports':
                 total_score *= 1.2  # 20% boost for sports
             
             if market.get('liquidity', 0) < 5000:
@@ -250,14 +250,14 @@ class MarketSelectorAI:
                 break
             
             # Check category limit
-            category = market['category']
+            category = market.get('category', 'other')
             if category_counts.get(category, 0) >= max_per_category:
                 continue
-            
+
             # Check correlation with existing selections
             if self._is_correlated(market, selected):
                 continue
-            
+
             selected.append(market)
             category_counts[category] = category_counts.get(category, 0) + 1
         

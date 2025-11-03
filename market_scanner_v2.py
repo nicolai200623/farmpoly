@@ -178,9 +178,13 @@ class MarketScannerV2:
                 0
             )
 
+            # Infer category from question/title
+            question = market_data.get('question') or event.get('title', 'Unknown') if event else 'Unknown'
+            category = self._infer_category(question, event)
+
             market = {
                 'id': market_data.get('id') or market_data.get('conditionId'),
-                'question': market_data.get('question') or event.get('title', 'Unknown') if event else 'Unknown',
+                'question': question,
                 'reward': reward,
                 'competition_bars': competition,
                 'min_shares': int(rewards_min_size) if rewards_min_size > 0 else 100,
@@ -188,6 +192,7 @@ class MarketScannerV2:
                 'liquidity': liquidity,
                 'end_date': market_data.get('endDate') or market_data.get('endDateIso'),
                 'source': 'gamma_api',
+                'category': category,  # Add inferred category
                 # Thêm thông tin rewards chi tiết
                 'rewards_min_size': rewards_min_size,
                 'rewards_max_spread': rewards_max_spread,
@@ -336,8 +341,78 @@ class MarketScannerV2:
         # Liquidity bonus (if available)
         if market.get('liquidity', 0) > 0:
             score += min(market['liquidity'] / 5000, 30)
-        
+
         return score
+
+    def _infer_category(self, question: str, event: dict = None) -> str:
+        """
+        Infer market category from question text and event data
+
+        Categories:
+        - sports: Sports events, esports
+        - entertainment: Movies, TV, celebrities
+        - crypto: Cryptocurrency prices
+        - politics: Elections, government
+        - economics: Economy, markets
+        - science: Technology, research
+        - other: Everything else
+        """
+        question_lower = question.lower()
+
+        # Sports keywords
+        sports_keywords = [
+            'nfl', 'nba', 'mlb', 'nhl', 'soccer', 'football', 'basketball', 'baseball',
+            'hockey', 'tennis', 'golf', 'ufc', 'boxing', 'f1', 'racing', 'olympics',
+            'world cup', 'super bowl', 'playoffs', 'championship', 'league',
+            'esports', 'counter-strike', 'cs2', 'dota', 'league of legends', 'valorant',
+            'mobile legends', 'mlbb', 'team', 'match', 'game', 'vs', 'win', 'score'
+        ]
+
+        # Crypto keywords
+        crypto_keywords = [
+            'bitcoin', 'btc', 'ethereum', 'eth', 'solana', 'sol', 'xrp', 'ripple',
+            'crypto', 'cryptocurrency', 'up or down', 'price', 'trading'
+        ]
+
+        # Politics keywords
+        politics_keywords = [
+            'election', 'president', 'senate', 'congress', 'vote', 'poll',
+            'democrat', 'republican', 'party', 'government', 'policy'
+        ]
+
+        # Entertainment keywords
+        entertainment_keywords = [
+            'movie', 'film', 'actor', 'actress', 'celebrity', 'tv show',
+            'series', 'netflix', 'disney', 'oscar', 'emmy', 'grammy'
+        ]
+
+        # Economics keywords
+        economics_keywords = [
+            'stock', 'market', 'economy', 'gdp', 'inflation', 'fed', 'interest rate',
+            'recession', 'unemployment', 'dow', 'nasdaq', 's&p'
+        ]
+
+        # Science keywords
+        science_keywords = [
+            'technology', 'ai', 'artificial intelligence', 'research', 'study',
+            'discovery', 'space', 'nasa', 'climate', 'vaccine'
+        ]
+
+        # Check each category
+        if any(keyword in question_lower for keyword in sports_keywords):
+            return 'sports'
+        elif any(keyword in question_lower for keyword in crypto_keywords):
+            return 'crypto'
+        elif any(keyword in question_lower for keyword in politics_keywords):
+            return 'politics'
+        elif any(keyword in question_lower for keyword in entertainment_keywords):
+            return 'entertainment'
+        elif any(keyword in question_lower for keyword in economics_keywords):
+            return 'economics'
+        elif any(keyword in question_lower for keyword in science_keywords):
+            return 'science'
+        else:
+            return 'other'
 
 
 # Backward compatibility - alias to new scanner
