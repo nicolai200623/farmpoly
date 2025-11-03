@@ -213,11 +213,13 @@ class MarketSelectorAI:
         try:
             if not market.get('end_date'):
                 return 0.5
-            
+
             # Parse end date
             end_date = datetime.fromisoformat(market['end_date'].replace('Z', '+00:00'))
-            now = datetime.utcnow()
-            
+            # Use timezone-aware datetime to match end_date
+            from datetime import timezone
+            now = datetime.now(timezone.utc)
+
             # Calculate days to expiry
             days_to_expiry = (end_date - now).days
             
