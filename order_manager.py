@@ -318,11 +318,18 @@ class OrderManager:
                 side=side_constant
             )
 
+            # Create a new ClobClient instance with the wallet's private key
+            # (The global clob_client is read-only, we need a signing client per wallet)
+            signing_client = ClobClient(
+                host="https://clob.polymarket.com",
+                key=wallet['private_key']  # Add private key for signing
+            )
+
             # Create and sign order
-            signed_order = self.clob_client.create_order(order_args)
+            signed_order = signing_client.create_order(order_args)
 
             # Submit order
-            response = self.clob_client.post_order(signed_order)
+            response = signing_client.post_order(signed_order)
 
             if response and 'orderID' in response:
                 return response['orderID']
