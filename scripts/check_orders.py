@@ -18,10 +18,10 @@ def main():
     # Load environment variables
     load_dotenv()
     
-    # Get wallet info
-    private_key = os.getenv('WALLET_1_PRIVATE_KEY')
+    # Get wallet info (try both naming conventions)
+    private_key = os.getenv('WALLET_1_PRIVATE_KEY') or os.getenv('WALLET_1_PK')
     if not private_key:
-        print("❌ Error: WALLET_1_PRIVATE_KEY not found in .env")
+        print("❌ Error: WALLET_1_PRIVATE_KEY or WALLET_1_PK not found in .env")
         return
     
     # Remove '0x' prefix if present

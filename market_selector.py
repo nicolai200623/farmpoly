@@ -246,7 +246,9 @@ class MarketSelectorAI:
         max_per_category = 3
 
         # Get max_concurrent_markets from config (default to 10 if not set)
-        max_total = self.config.get('max_concurrent_markets', 10)
+        # Config structure: market_selection.max_concurrent_markets
+        market_selection_config = self.config.get('market_selection', {})
+        max_total = market_selection_config.get('max_concurrent_markets', 10)
 
         for market in markets:
             # Check total limit (IMPORTANT: respects max_concurrent_markets)
