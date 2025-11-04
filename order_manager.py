@@ -43,23 +43,32 @@ class OrderManager:
     async def prepare_market_order(self, market: Dict) -> Dict:
         """Prepare order with dynamic spread calculation"""
         try:
+            # Get token_id from market data (first token for YES outcome)
+            token_id = None
+            if market.get('clob_token_ids') and len(market['clob_token_ids']) > 0:
+                token_id = market['clob_token_ids'][0]  # Use first token (YES outcome)
+                logger.debug(f"Using token_id: {token_id} for market {market['id']}")
+            else:
+                logger.warning(f"No clob_token_ids found for market {market['id']}, will try with market ID")
+
             # Get current market prices
-            market_data = await self._fetch_market_data(market['id'])
-            
+            market_data = await self._fetch_market_data(market['id'], token_id)
+
             if not market_data:
                 logger.warning(f"Could not fetch data for market {market['id']}")
                 return None
-            
+
             # Calculate dynamic spread
             spread = self._calculate_dynamic_spread(market_data)
-            
+
             # Calculate order sizes with jitter
             yes_size, no_size = self._calculate_order_sizes()
-            
+
             # Prepare both sides
             order = {
                 'market_id': market['id'],
-                'market_title': market['title'],
+                'market_title': market.get('question', market.get('title', 'Unknown')),
+                'token_ids': market.get('clob_token_ids', []),  # Store token IDs for order placement
                 'yes_order': {
                     'side': 'buy',
                     'outcome': 'yes',
@@ -80,21 +89,26 @@ class OrderManager:
                 'created_at': time.time(),
                 'status': 'pending'
             }
-            
+
             logger.info(f"Prepared order for market {market['id']} with spread {spread:.4f}")
-            
+
             return order
-            
+
         except Exception as e:
             logger.error(f"Error preparing order: {e}")
             return None
     
-    async def _fetch_market_data(self, market_id: str) -> Optional[Dict]:
-        """Fetch current market data from CLOB"""
+    async def _fetch_market_data(self, market_id: str, token_id: str = None) -> Optional[Dict]:
+        """Fetch current market data from CLOB
+
+        Args:
+            market_id: Market ID (for logging)
+            token_id: CLOB token ID (required for fetching orderbook)
+        """
         try:
-            # Get order book
-            order_book = await self._get_order_book(market_id)
-            
+            # Get order book using token_id
+            order_book = await self._get_order_book(market_id, token_id)
+
             if not order_book:
                 return None
             
@@ -124,24 +138,32 @@ class OrderManager:
             logger.error(f"Error fetching market data: {e}")
             return None
     
-    async def _get_order_book(self, market_id: str) -> Optional[Dict]:
-        """Get order book from CLOB API"""
+    async def _get_order_book(self, market_id: str, token_id: str = None) -> Optional[Dict]:
+        """Get order book from CLOB API
+
+        Args:
+            market_id: Market ID (for logging)
+            token_id: CLOB token ID (required for fetching orderbook)
+        """
         try:
+            # Use token_id if provided, otherwise fall back to market_id
+            lookup_id = token_id if token_id else market_id
+
             if self.clob_client:
-                # Use py-clob-client
-                book = self.clob_client.get_order_book(market_id)
+                # Use py-clob-client with token_id
+                book = self.clob_client.get_order_book(lookup_id)
                 return book
             else:
                 # Fallback to direct API call
-                url = f"https://clob.polymarket.com/book?market={market_id}"
-                
+                url = f"https://clob.polymarket.com/book?token_id={lookup_id}"
+
                 async with aiohttp.ClientSession() as session:
                     async with session.get(url) as response:
                         if response.status == 200:
                             return await response.json()
-            
+
             return None
-            
+
         except Exception as e:
             logger.error(f"Error getting order book: {e}")
             return None
@@ -206,43 +228,52 @@ class OrderManager:
             if not self.clob_client:
                 logger.error("CLOB client not initialized")
                 return None
-            
+
+            # Get token IDs for YES and NO outcomes
+            token_ids = order.get('token_ids', [])
+            if len(token_ids) < 2:
+                logger.error(f"Missing token_ids for market {order['market_id']}")
+                return None
+
+            yes_token_id = token_ids[0]  # First token is YES
+            no_token_id = token_ids[1]   # Second token is NO
+
             placed_orders = {}
-            
+
             # Place YES side
             yes_order_id = await self._place_single_order(
                 order['yes_order'],
-                order['market_id'],
+                yes_token_id,  # Use YES token ID
                 wallet
             )
             if yes_order_id:
                 placed_orders['yes'] = yes_order_id
-            
+
             # Add small delay to appear human
             await asyncio.sleep(random.uniform(0.5, 1.5))
-            
+
             # Place NO side
             no_order_id = await self._place_single_order(
                 order['no_order'],
-                order['market_id'],
+                no_token_id,  # Use NO token ID
                 wallet
             )
             if no_order_id:
                 placed_orders['no'] = no_order_id
-            
+
             if placed_orders:
                 # Update order status
                 order['status'] = 'active'
                 order['order_ids'] = placed_orders
                 order['placed_at'] = time.time()
-                
+
                 # Add to active orders
                 self.active_orders[order['market_id']] = order
-                
+
                 logger.info(f"Placed orders for market {order['market_id']}: {placed_orders}")
-                
+
             return placed_orders
-            
+
         except Exception as e:
             logger.error(f"Error placing order: {e}")
             return None

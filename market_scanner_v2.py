@@ -182,8 +182,22 @@ class MarketScannerV2:
             question = market_data.get('question') or event.get('title', 'Unknown') if event else 'Unknown'
             category = self._infer_category(question, event)
 
+            # Parse clobTokenIds (JSON string array)
+            clob_token_ids = []
+            try:
+                import json
+                clob_token_ids_str = market_data.get('clobTokenIds', '[]')
+                if isinstance(clob_token_ids_str, str):
+                    clob_token_ids = json.loads(clob_token_ids_str)
+                elif isinstance(clob_token_ids_str, list):
+                    clob_token_ids = clob_token_ids_str
+            except Exception as e:
+                logger.debug(f"Could not parse clobTokenIds: {e}")
+
             market = {
                 'id': market_data.get('id') or market_data.get('conditionId'),
+                'condition_id': market_data.get('conditionId'),  # Store condition ID separately
+                'clob_token_ids': clob_token_ids,  # Store CLOB token IDs for orderbook
                 'question': question,
                 'reward': reward,
                 'competition_bars': competition,
