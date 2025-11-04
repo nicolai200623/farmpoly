@@ -35,7 +35,7 @@ class BotTester:
         self.test_config = {
             'market_scanner': {
                 'interval': 5,
-                'min_reward': 300,
+                'min_reward': 100,  # FIXED: match config.yaml
                 'max_competition_bars': 2,
                 'min_shares': 500
             },

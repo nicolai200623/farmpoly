@@ -69,8 +69,16 @@ class PolymarketBot:
     def _load_config(self, path: str) -> dict:
         """Load configuration from YAML file and merge with .env"""
         try:
+            logger.info(f"📂 Loading config from: {path}")
             with open(path, 'r', encoding='utf-8') as f:
                 config = yaml.safe_load(f)
+
+            # Log critical config values for debugging
+            scanner_config = config.get('market_scanner', {})
+            logger.info(f"✅ Config loaded successfully")
+            logger.info(f"   - min_reward: {scanner_config.get('min_reward', 'NOT SET')}")
+            logger.info(f"   - max_competition_bars: {scanner_config.get('max_competition_bars', 'NOT SET')}")
+            logger.info(f"   - interval: {scanner_config.get('interval', 'NOT SET')}s")
 
             # Merge Telegram config from .env
             telegram_token = os.getenv('TELEGRAM_BOT_TOKEN', '')
@@ -101,15 +109,17 @@ class PolymarketBot:
 
             return config
         except Exception as e:
-            logger.error(f"Failed to load config: {e}")
+            logger.error(f"❌ Failed to load config from {path}: {e}")
+            logger.error(f"   Using default config instead")
             return self._default_config()
     
     def _default_config(self) -> dict:
-        """Return default configuration"""
+        """Return default configuration - SHOULD MATCH config.yaml"""
+        logger.warning("⚠️  Using DEFAULT config - config.yaml not found or failed to load!")
         return {
             'market_scanner': {
-                'interval': 5,  # seconds
-                'min_reward': 300,
+                'interval': 30,  # seconds - match config.yaml
+                'min_reward': 100,  # FIXED: was 300, now matches config.yaml
                 'max_competition_bars': 2,
                 'min_shares': 500
             },
