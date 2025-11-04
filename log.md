@@ -1,2470 +1,2628 @@
-2025-11-04 05:54:01,117 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:01,117 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:02,092 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:02,092 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:04,201 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:04,201 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:05,132 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:05,132 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:05,772 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:54:06,806 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:06,807 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:07,747 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:07,748 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:07,773 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:54:07,775 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:54:07,776 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:54:07,776 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:54:07,778 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:54:08,066 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:54:08,066 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:54:08,067 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:54:08,351 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:54:08,352 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:54:08,352 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:54:08,631 - order_manager - INFO - Prepared order for market 664305 with spread 0.0132
-2025-11-04 05:54:08,631 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:54:08,632 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:54:09,777 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:09,777 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:10,708 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:10,709 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:12,272 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:12,273 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:13,186 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:13,186 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:15,438 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:15,439 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:16,392 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:16,393 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:16,393 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:54:17,323 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:54:17,325 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:54:17,326 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:54:17,326 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:54:17,328 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:54:17,611 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:54:17,612 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:54:17,613 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:54:17,970 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:54:17,970 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:54:17,971 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:54:18,254 - order_manager - INFO - Prepared order for market 664305 with spread 0.0132
-2025-11-04 05:54:18,255 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:54:18,255 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:54:19,530 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:19,531 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:20,408 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:20,409 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:22,792 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:22,792 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:23,700 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:23,700 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:23,781 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:54:24,724 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:54:24,727 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:54:24,729 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:54:24,729 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:54:24,732 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:54:25,018 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:54:25,019 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:54:25,019 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:54:25,330 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:54:25,330 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:54:25,331 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:54:25,614 - order_manager - INFO - Prepared order for market 664305 with spread 0.0132
-2025-11-04 05:54:25,615 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:54:25,615 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:54:26,559 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:26,559 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:27,430 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:27,430 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:29,751 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:29,751 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:30,693 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:30,694 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:31,482 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:54:32,600 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:32,601 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:33,474 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:33,474 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:33,501 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:54:33,504 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:54:33,505 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:54:33,505 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:54:33,507 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:54:33,796 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:54:33,797 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:54:33,797 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:54:34,157 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:54:34,158 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:54:34,158 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:54:34,511 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:54:34,512 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:54:34,512 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:54:35,803 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:35,803 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:36,690 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:36,690 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:38,654 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:38,655 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:39,544 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:39,544 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:40,982 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:40,983 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:41,874 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:41,875 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:41,875 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:54:43,475 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:43,475 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:44,322 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:44,323 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:44,344 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:54:45,348 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:54:45,349 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:54:45,349 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:54:45,352 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:54:45,628 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:54:45,628 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:54:45,628 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:54:45,917 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:54:45,918 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:54:45,918 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:54:46,741 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:54:46,742 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:54:46,742 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:54:47,583 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:47,584 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:48,656 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:48,656 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:50,204 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:50,204 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:51,210 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:51,211 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:51,375 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:54:53,194 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:53,195 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:54,055 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:54,055 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:54,081 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:54:54,084 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:54:54,086 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:54:54,086 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:54:54,088 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:54:54,383 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:54:54,384 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:54:54,384 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:54:54,660 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:54:54,660 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:54:54,660 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:54:54,943 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:54:54,943 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:54:54,943 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:54:56,017 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:56,017 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:56,893 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:56,894 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:58,488 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:58,488 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:59,366 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:54:59,366 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:54:59,366 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:55:00,236 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:55:00,240 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:55:00,241 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:55:00,242 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:55:00,244 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:55:00,526 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:55:00,527 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:55:00,527 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:55:00,821 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:55:00,823 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:55:00,823 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:55:01,130 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:55:01,130 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:55:01,130 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:55:02,231 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:02,231 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:03,340 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:03,340 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:05,400 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:05,400 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:06,336 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:06,337 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:06,407 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:55:08,854 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:08,855 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:09,820 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:09,821 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:09,845 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:55:09,849 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:55:09,850 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:55:09,851 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:55:09,854 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:55:10,153 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:55:10,153 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:55:10,153 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:55:10,470 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:55:10,471 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:55:10,471 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:55:10,756 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:55:10,756 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:55:10,756 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:55:12,051 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:12,051 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:12,925 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:12,926 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:14,764 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:14,764 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:16,739 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:16,739 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:17,742 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:55:18,898 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:18,899 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:19,758 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:19,759 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:19,787 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:55:19,789 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:55:19,790 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:55:19,791 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:55:19,793 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:55:20,075 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:55:20,076 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:55:20,076 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:55:20,368 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:55:20,369 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:55:20,369 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:55:20,644 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:55:20,644 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:55:20,644 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:55:21,525 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:21,526 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:22,449 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:22,450 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:24,226 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:24,226 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:25,114 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:25,115 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:26,747 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:26,747 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:27,685 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:27,686 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:27,686 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:55:29,818 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:29,818 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:30,756 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:30,760 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:30,795 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:55:30,799 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:55:30,801 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:55:30,802 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:55:30,806 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:55:31,148 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:55:31,149 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:55:31,149 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:55:31,471 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:55:31,472 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:55:31,473 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:55:31,864 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:55:31,864 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:55:31,865 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:55:33,199 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:33,200 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:34,277 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:34,278 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:36,756 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:36,756 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:38,010 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:38,011 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:38,011 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:55:39,990 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:39,991 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:41,297 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:41,298 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:41,359 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:55:41,368 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:55:41,372 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:55:41,372 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:55:41,380 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:55:41,784 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:55:41,784 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:55:41,785 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:55:42,097 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:55:42,099 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:55:42,099 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:55:42,508 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:55:42,509 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:55:42,509 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:55:43,634 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:43,634 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:44,782 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:44,783 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:46,278 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:46,279 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:47,249 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:47,249 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:47,249 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:55:48,777 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:55:49,753 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:49,754 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:50,816 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:50,816 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:50,818 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:55:50,819 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:55:50,819 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:55:50,821 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:55:51,101 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:55:51,101 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:55:51,101 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:55:51,378 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:55:51,379 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:55:51,379 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:55:51,692 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:55:51,692 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:55:51,692 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:55:53,124 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:53,124 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:54,314 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:54,315 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:56,771 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:56,772 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:58,732 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:55:58,733 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:55:58,733 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:55:59,661 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:55:59,673 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:55:59,676 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:55:59,676 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:55:59,681 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:56:00,170 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:56:00,170 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:56:00,170 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:56:00,639 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:56:00,648 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:56:00,648 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:56:01,147 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:56:01,147 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:56:01,147 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:56:02,414 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:02,418 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:04,216 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:04,217 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:06,363 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:06,365 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:07,834 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:07,834 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:07,835 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:56:08,436 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:56:08,444 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:56:08,445 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:56:08,445 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:56:08,451 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:56:08,917 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:56:08,917 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:56:08,917 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:56:09,475 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:56:09,475 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:56:09,476 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:56:09,842 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:56:09,843 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:56:09,843 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:56:11,110 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:11,111 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:12,536 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:12,536 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:15,422 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:15,423 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:16,372 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:16,373 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:16,373 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:56:17,087 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:56:17,090 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:56:17,091 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:56:17,091 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:56:17,094 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:56:17,383 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:56:17,383 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:56:17,383 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:56:17,735 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:56:17,735 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:56:17,735 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:56:18,052 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:56:18,053 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:56:18,053 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:56:19,042 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:19,042 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:20,003 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:20,003 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:21,888 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:21,888 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:22,830 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:22,831 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:23,395 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:56:25,015 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:25,016 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:26,001 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:26,009 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:26,059 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:56:26,061 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:56:26,063 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:56:26,063 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:56:26,065 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:56:26,416 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:56:26,416 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:56:26,416 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:56:26,689 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:56:26,690 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:56:26,690 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:56:26,979 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:56:26,980 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:56:26,980 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:56:28,098 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:28,098 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:29,095 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:29,095 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:30,862 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:30,863 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:31,856 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:31,857 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:32,066 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:56:32,687 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:56:32,691 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:56:32,692 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:56:32,692 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:56:32,695 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:56:32,988 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:56:32,988 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:56:32,988 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:56:33,289 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:56:33,290 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:56:33,290 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:56:33,569 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:56:33,570 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:56:33,570 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:56:34,668 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:34,668 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:35,534 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:35,534 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:37,027 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:37,028 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:37,926 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:37,927 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:38,560 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:56:39,643 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:39,643 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:40,750 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:40,750 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:40,778 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:56:40,781 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:56:40,782 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:56:40,782 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:56:40,784 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:56:41,097 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:56:41,098 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:56:41,098 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:56:41,380 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:56:41,381 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:56:41,381 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:56:41,677 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:56:41,677 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:56:41,678 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:56:42,716 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:42,717 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:43,761 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:43,762 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:45,870 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:45,871 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:46,859 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:46,860 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:46,860 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:56:48,372 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:48,372 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:49,252 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:49,253 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:49,278 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:56:49,280 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:56:49,281 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:56:49,281 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:56:49,284 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:56:49,594 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:56:49,595 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:56:49,595 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:56:49,957 - order_manager - INFO - Prepared order for market 664308 with spread 0.0132
-2025-11-04 05:56:49,958 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:56:49,958 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:56:50,253 - order_manager - INFO - Prepared order for market 664305 with spread 0.0120
-2025-11-04 05:56:50,255 - order_manager - INFO - Added order to pending queue: 664305
-2025-11-04 05:56:50,255 - __main__ - INFO - Added market 664305 to pending orders
-2025-11-04 05:56:51,452 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:51,452 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:52,468 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:52,468 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:54,470 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:54,470 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:55,348 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:55,348 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:55,938 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:56:57,406 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:57,406 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:58,366 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:56:58,367 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:56:58,395 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:56:58,400 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:56:58,401 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:56:58,401 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:56:58,404 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:56:58,701 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:56:58,702 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:56:58,702 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:56:58,982 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:56:58,983 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:56:58,983 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:56:59,270 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:56:59,271 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:56:59,271 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:57:00,160 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:00,161 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:01,014 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:01,014 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:02,939 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:02,940 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:05,088 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:57:05,660 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:57:05,662 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:57:05,663 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:57:05,663 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:57:05,666 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:57:05,947 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:57:05,947 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:57:05,947 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:57:06,227 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:57:06,227 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:57:06,227 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:57:06,497 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:57:06,498 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:57:06,498 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:57:07,870 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:07,870 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:09,938 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:09,938 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:10,807 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:10,807 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:12,514 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:12,514 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:13,421 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:13,422 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:13,422 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:57:14,505 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:57:14,510 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:57:14,511 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:57:14,511 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:57:14,514 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:57:14,804 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:57:14,804 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:57:14,805 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:57:15,083 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:57:15,084 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:57:15,084 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:57:15,360 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:57:15,361 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:57:15,361 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:57:16,251 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:16,251 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:17,244 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:17,244 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:19,491 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:19,491 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:20,399 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:20,400 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:21,054 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:57:22,289 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:22,290 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:23,162 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:23,163 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:23,196 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:57:23,199 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:57:23,201 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:57:23,201 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:57:23,203 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:57:23,494 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:57:23,495 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:57:23,495 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:57:23,788 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:57:23,789 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:57:23,789 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:57:24,096 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:57:24,096 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:57:24,096 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:57:26,015 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:26,015 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:26,930 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:26,930 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:29,226 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:29,226 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:30,134 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:30,135 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:30,135 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:57:30,890 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:57:30,891 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:57:30,893 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:57:30,893 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:57:30,895 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:57:31,250 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:57:31,250 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:57:31,251 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:57:31,591 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:57:31,592 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:57:31,592 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:57:31,999 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:57:32,000 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:57:32,000 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:57:32,858 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:32,859 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:33,742 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:33,742 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:35,952 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:35,952 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:36,900 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:36,900 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:37,051 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:57:38,607 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:38,607 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:39,486 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:39,486 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:39,507 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:57:39,509 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:57:39,510 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:57:39,510 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:57:39,513 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:57:39,800 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:57:39,800 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:57:39,800 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:57:40,077 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:57:40,077 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:57:40,077 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:57:40,374 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:57:40,375 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:57:40,375 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:57:41,561 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:41,562 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:42,430 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:42,430 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:43,910 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:43,910 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:44,948 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:44,949 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:44,949 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:57:46,854 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:46,854 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:47,803 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:47,804 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:47,824 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:57:47,826 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:57:47,828 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:57:47,828 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:57:47,830 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:57:48,208 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:57:48,209 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:57:48,209 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:57:48,493 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:57:48,494 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:57:48,494 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:57:48,771 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:57:48,771 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:57:48,771 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:57:49,947 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:49,948 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:50,842 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:50,842 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:52,532 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:52,532 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:53,491 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:53,491 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:53,801 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:57:54,511 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:57:54,514 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:57:54,514 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:57:54,515 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:57:54,517 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:57:54,903 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:57:54,903 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:57:54,903 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:57:55,173 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:57:55,173 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:57:55,173 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:57:55,452 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:57:55,455 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:57:55,455 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:57:56,344 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:56,344 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:57,318 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:57,319 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:57:59,679 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:57:59,679 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:00,566 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:00,566 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:00,567 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:58:01,275 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:58:01,277 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:58:01,278 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:58:01,278 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:58:01,281 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:58:01,594 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:58:01,594 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:58:01,594 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:58:01,875 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:58:01,879 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:58:01,880 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:58:02,184 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:58:02,185 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:58:02,185 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:58:03,085 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:03,086 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:04,068 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:04,069 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:05,804 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:05,804 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:06,684 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:06,684 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:06,684 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:58:07,432 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:58:07,438 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:58:07,439 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:58:07,440 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:58:07,446 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:58:07,738 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:58:07,738 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:58:07,738 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:58:08,017 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:58:08,017 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:58:08,018 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:58:08,303 - order_manager - INFO - Prepared order for market 664308 with spread 0.0120
-2025-11-04 05:58:08,304 - order_manager - INFO - Added order to pending queue: 664308
-2025-11-04 05:58:08,304 - __main__ - INFO - Added market 664308 to pending orders
-2025-11-04 05:58:09,292 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:09,293 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:10,244 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:10,244 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:12,598 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:12,598 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:13,584 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:13,584 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:13,584 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:58:14,204 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:58:14,207 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:58:14,208 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:58:14,208 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:58:14,211 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:58:14,517 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:58:14,518 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:58:14,518 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:58:14,854 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
-2025-11-04 05:58:14,855 - order_manager - INFO - Added order to pending queue: 664211
-2025-11-04 05:58:14,855 - __main__ - INFO - Added market 664211 to pending orders
-2025-11-04 05:58:15,130 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:58:15,131 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:58:15,131 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:58:16,023 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:16,023 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:16,889 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:16,890 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:18,833 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:18,834 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:19,784 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:19,785 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:21,086 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:58:22,088 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:22,092 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:22,962 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:22,963 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:23,211 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:58:23,219 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:58:23,220 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:58:23,220 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:58:23,225 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:58:23,621 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:58:23,621 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:58:23,622 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:58:23,927 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
-2025-11-04 05:58:23,928 - order_manager - INFO - Added order to pending queue: 664211
-2025-11-04 05:58:23,928 - __main__ - INFO - Added market 664211 to pending orders
-2025-11-04 05:58:24,227 - order_manager - INFO - Prepared order for market 664311 with spread 0.0120
-2025-11-04 05:58:24,228 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:58:24,228 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:58:25,258 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:25,258 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:26,203 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:26,204 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:28,536 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:28,536 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:29,470 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:29,471 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:30,473 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:58:31,499 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:31,499 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:32,453 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:32,453 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:33,905 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:33,905 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:34,831 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:34,831 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:34,852 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:58:34,855 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:58:34,856 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:58:34,856 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:58:34,859 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:58:35,205 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:58:35,206 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:58:35,206 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:58:35,489 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
-2025-11-04 05:58:35,490 - order_manager - INFO - Added order to pending queue: 664211
-2025-11-04 05:58:35,490 - __main__ - INFO - Added market 664211 to pending orders
-2025-11-04 05:58:35,882 - order_manager - INFO - Prepared order for market 664311 with spread 0.0132
-2025-11-04 05:58:35,883 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:58:35,884 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:58:36,737 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:36,738 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:37,725 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:37,725 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:39,368 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:39,369 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:40,243 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:40,243 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:41,958 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:41,959 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:42,854 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:42,855 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:42,855 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:58:43,433 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:58:43,435 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:58:43,436 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:58:43,436 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:58:43,438 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:58:43,724 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:58:43,725 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:58:43,725 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:58:43,991 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
-2025-11-04 05:58:43,992 - order_manager - INFO - Added order to pending queue: 664211
-2025-11-04 05:58:43,992 - __main__ - INFO - Added market 664211 to pending orders
-2025-11-04 05:58:44,324 - order_manager - INFO - Prepared order for market 664311 with spread 0.0132
-2025-11-04 05:58:44,325 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:58:44,325 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:58:45,209 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:45,210 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:46,088 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:46,089 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:47,914 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:47,915 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:48,828 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:48,828 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:48,919 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:58:50,272 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:58:51,227 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:51,227 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:52,208 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:52,208 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:52,209 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:58:52,210 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:58:52,211 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:58:52,213 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:58:52,487 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:58:52,487 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:58:52,487 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:58:52,757 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
-2025-11-04 05:58:52,758 - order_manager - INFO - Added order to pending queue: 664211
-2025-11-04 05:58:52,758 - __main__ - INFO - Added market 664211 to pending orders
-2025-11-04 05:58:53,038 - order_manager - INFO - Prepared order for market 664311 with spread 0.0132
-2025-11-04 05:58:53,039 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:58:53,039 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:58:54,645 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:54,646 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:55,710 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:55,710 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:57,323 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:57,324 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:58,288 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:58:58,288 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:58:58,288 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:58:59,067 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:58:59,071 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:58:59,072 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:58:59,073 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:58:59,076 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:58:59,396 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:58:59,396 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:58:59,396 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:58:59,710 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
-2025-11-04 05:58:59,710 - order_manager - INFO - Added order to pending queue: 664211
-2025-11-04 05:58:59,711 - __main__ - INFO - Added market 664211 to pending orders
-2025-11-04 05:58:59,986 - order_manager - INFO - Prepared order for market 664311 with spread 0.0132
-2025-11-04 05:58:59,987 - order_manager - INFO - Added order to pending queue: 664311
-2025-11-04 05:58:59,988 - __main__ - INFO - Added market 664311 to pending orders
-2025-11-04 05:59:00,880 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:59:00,881 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:59:01,775 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:59:01,775 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:59:04,249 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:59:04,249 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:59:05,239 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:59:05,240 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
-
-2025-11-04 05:59:05,240 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
-2025-11-04 05:59:05,961 - market_scanner_v2 - INFO - âœ… Fetched 159 markets from API
-2025-11-04 05:59:05,964 - market_scanner_v2 - INFO - âœ… Got 159 markets from API
-2025-11-04 05:59:05,965 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 159/159 markets passed
-2025-11-04 05:59:05,965 - market_scanner_v2 - INFO - âœ… Found 159 qualifying markets (from 159 total)
-2025-11-04 05:59:05,968 - market_selector - INFO - Selected 3 markets from 159 candidates
-2025-11-04 05:59:06,235 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
-2025-11-04 05:59:06,236 - order_manager - INFO - Added order to pending queue: 664214
-2025-11-04 05:59:06,236 - __main__ - INFO - Added market 664214 to pending orders
-2025-11-04 05:59:06,569 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
-2025-11-04 05:59:06,569 - order_manager - INFO - Added order to pending queue: 664299
-2025-11-04 05:59:06,569 - __main__ - INFO - Added market 664299 to pending orders
-2025-11-04 05:59:06,857 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
-2025-11-04 05:59:06,858 - order_manager - INFO - Added order to pending queue: 664211
-2025-11-04 05:59:06,858 - __main__ - INFO - Added market 664211 to pending orders
-2025-11-04 05:59:08,013 - order_manager - ERROR - Error placing single order: PolyException: API Credentials are needed to interact with this endpoint!
-2025-11-04 05:59:08,017 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
-  File "/home/farmpoly/farmpoly/order_manager.py", line 340, in _place_single_order
-    response = signing_client.post_order(signed_order)
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 515, in post_order
-    self.assert_level_2_auth()
-  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 697, in assert_level_2_auth
-    raise PolyException(L2_AUTH_UNAVAILABLE)
-py_clob_client.exceptions.PolyException: API Credentials are needed to interact with this endpoint!
+2025-11-04 08:10:01,133 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+2025-11-04 08:10:07,332 - __main__ - INFO - âœ… Telegram alerts configured (Chat ID: -1003157421030)
+2025-11-04 08:10:07,333 - __main__ - INFO - âœ… Webhook alerts configured
+2025-11-04 08:10:07,333 - circuit_breaker - INFO - âœ… Circuit Breaker 'gamma_api' initialized (threshold=5, timeout=60s)
+2025-11-04 08:10:07,333 - circuit_breaker - INFO - âœ… Circuit Breaker 'playwright_scraper' initialized (threshold=3, timeout=120s)
+2025-11-04 08:10:07,333 - order_manager - INFO - CLOB client initialized successfully (read-only mode)
+2025-11-04 08:10:07,341 - wallet_manager - INFO - Loading REAL wallets from .env
+2025-11-04 08:10:07,347 - wallet_manager - INFO - âœ… Loaded wallet 1: 0x18F261DC...Ae4FfD96
+2025-11-04 08:10:07,347 - wallet_manager - INFO - âœ… Successfully loaded 1 real wallets
+2025-11-04 08:10:07,374 - ml_predictor - INFO - No pre-trained model found, using new model
+2025-11-04 08:10:07,374 - monitoring_system - INFO - âœ… Monitoring System initialized
+2025-11-04 08:10:07,374 - __main__ - INFO - âœ… Monitoring System enabled
+2025-11-04 08:10:07,374 - __main__ - INFO - â­ï¸  Reward Manager disabled in config
+2025-11-04 08:10:07,374 - __main__ - INFO - All modules initialized successfully
+2025-11-04 08:10:07,374 - __main__ - INFO - ðŸš€ Starting Polymarket Trading Bot...
+2025-11-04 08:10:08,349 - ml_predictor - INFO - Alert sent: ðŸš€ <b>Polymarket Bot Started</b>
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+â° Time: 2025-11-04 08:10:07
+ðŸ’¼ Wallets: 1
+ðŸ“Š Status: Running
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+Bot is now scanning markets and placing orders.
+2025-11-04 08:10:08,350 - __main__ - INFO - âœ… Startup alert sent
+2025-11-04 08:10:08,350 - __main__ - INFO - ðŸ” Checking USDC approval for wallets...
+2025-11-04 08:10:08,562 - usdc_approver - INFO - âœ… Connected to Polygon RPC: https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQ...
+2025-11-04 08:10:08,562 - __main__ - INFO -    Checking wallet: 0x18F261DC...Ae4FfD96
+2025-11-04 08:10:08,946 - __main__ - INFO -    Raw allowance: 100000000 (base units)
+2025-11-04 08:10:08,946 - __main__ - INFO -    Allowance in USDC: 100.00 USDC
+2025-11-04 08:10:08,947 - __main__ - INFO -    Required minimum: 100 USDC (test mode)
+2025-11-04 08:10:08,947 - __main__ - INFO - âœ… USDC approval OK (100 USDC)
+2025-11-04 08:10:08,947 - __main__ - WARNING -    âš ï¸  Running in TEST MODE with 100 USDC
+2025-11-04 08:10:08,947 - __main__ - WARNING -    For production, approve at least 1,000 USDC
+2025-11-04 08:10:08,947 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:10:08,948 - ml_predictor - INFO - Insufficient training data: 0 samples
+2025-11-04 08:10:08,948 - __main__ - INFO - ML model updated successfully
+2025-11-04 08:10:10,958 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:10:10,960 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:10:10,962 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:10:10,962 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:10:10,964 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:10:11,293 - order_manager - INFO - Prepared order for market 664453 with spread 0.0120
+2025-11-04 08:10:11,293 - order_manager - INFO - Added order to pending queue: 664453
+2025-11-04 08:10:11,293 - __main__ - INFO - Added market 664453 to pending orders
+2025-11-04 08:10:11,642 - order_manager - INFO - Prepared order for market 664438 with spread 0.0120
+2025-11-04 08:10:11,642 - order_manager - INFO - Added order to pending queue: 664438
+2025-11-04 08:10:11,643 - __main__ - INFO - Added market 664438 to pending orders
+2025-11-04 08:10:11,987 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:10:11,987 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:10:11,988 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:10:14,203 - order_manager - INFO - Order placed successfully: 0x3aade4c80e20e314e8dcdbe370c55ccccc85cfb1ada4270646b9de63e8857f5e
+2025-11-04 08:10:17,685 - order_manager - INFO - Order placed successfully: 0x745d87fde2ee23eda7894bd05039a841b35482f5696710356e57fba17fc4c9bd
+2025-11-04 08:10:17,685 - order_manager - INFO - Placed orders for market 664453: {'yes': '0x3aade4c80e20e314e8dcdbe370c55ccccc85cfb1ada4270646b9de63e8857f5e', 'no': '0x745d87fde2ee23eda7894bd05039a841b35482f5696710356e57fba17fc4c9bd'}
+2025-11-04 08:10:19,748 - order_manager - INFO - Order placed successfully: 0x3f7f49156165bca0e092ac703f74a01ac815f6fbb7ccb29fde37cdca6e497afa
+2025-11-04 08:10:19,748 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:10:20,787 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:10:22,843 - order_manager - INFO - Order placed successfully: 0x8f4f1e08871f4d9d537a3291cac52b6128cd4f29610e7fda32120b0c827e3f60
+2025-11-04 08:10:22,843 - order_manager - INFO - Placed orders for market 664438: {'yes': '0x3f7f49156165bca0e092ac703f74a01ac815f6fbb7ccb29fde37cdca6e497afa', 'no': '0x8f4f1e08871f4d9d537a3291cac52b6128cd4f29610e7fda32120b0c827e3f60'}
+2025-11-04 08:10:24,997 - order_manager - INFO - Order placed successfully: 0x1a2c65d9e9be4163b44afa1d89f61ee519e1139854308da0cdc0014c34dfbb97
+2025-11-04 08:10:24,999 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:10:25,000 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:10:25,000 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:10:25,003 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:10:25,341 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:10:25,341 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:10:25,341 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:10:25,672 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:10:25,672 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:10:25,672 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:10:26,021 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:10:26,022 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:10:26,022 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:10:28,540 - order_manager - INFO - Order placed successfully: 0xa2fe4390472af91b495e6e671e1bfe72129a9c1160744340b9f5176193d9f134
+2025-11-04 08:10:28,541 - order_manager - INFO - Placed orders for market 664299: {'yes': '0x1a2c65d9e9be4163b44afa1d89f61ee519e1139854308da0cdc0014c34dfbb97', 'no': '0xa2fe4390472af91b495e6e671e1bfe72129a9c1160744340b9f5176193d9f134'}
+2025-11-04 08:10:31,565 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:10:34,102 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:10:34,104 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:10:34,136 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:10:34,138 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:10:34,139 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:10:34,139 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:10:34,142 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:10:34,492 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:10:34,492 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:10:34,492 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:10:34,827 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:10:34,828 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:10:34,828 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:10:35,162 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:10:35,162 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:10:35,162 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:10:37,393 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:10:37,394 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:10:39,446 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:10:39,447 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:10:43,022 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:10:43,023 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:10:45,158 - order_manager - INFO - Order placed successfully: 0x282f718aa67fde477cffb0fbefff081e502db61d0cc80dbdb220ba2cdff867d2
+2025-11-04 08:10:45,159 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:10:46,206 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:10:46,208 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:10:46,209 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:10:46,210 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:10:46,212 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:10:46,545 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:10:46,545 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:10:46,545 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:10:46,880 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:10:46,880 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:10:46,881 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:10:47,217 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:10:47,217 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:10:47,217 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:10:49,338 - order_manager - INFO - Order placed successfully: 0xee0b891719b8081ea310b601016fce3bae370da90c8eb9448f2857704de834d6
+2025-11-04 08:10:49,338 - order_manager - INFO - Placed orders for market 664299: {'yes': '0x282f718aa67fde477cffb0fbefff081e502db61d0cc80dbdb220ba2cdff867d2', 'no': '0xee0b891719b8081ea310b601016fce3bae370da90c8eb9448f2857704de834d6'}
+2025-11-04 08:10:51,568 - order_manager - INFO - Order placed successfully: 0x29fda1bb55cf546d074d4c9e3ae8455f3aef983c2511e97094bab98a78559368
+2025-11-04 08:10:51,704 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:10:52,723 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:10:52,725 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:10:52,726 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:10:52,726 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:10:52,729 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:10:53,069 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:10:53,069 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:10:53,070 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:10:53,408 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:10:53,408 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:10:53,408 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:10:53,774 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:10:53,774 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:10:53,774 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:10:55,930 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:10:55,930 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:10:55,932 - order_manager - INFO - Placed orders for market 664299: {'yes': '0x29fda1bb55cf546d074d4c9e3ae8455f3aef983c2511e97094bab98a78559368'}
+2025-11-04 08:10:58,035 - order_manager - INFO - Order placed successfully: 0xf8510c361f3e2525e592b40d3dc5a83789b9a48e68b5a08e72e0bba06a2f70a0
+2025-11-04 08:10:58,443 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:11:01,063 - order_manager - INFO - Order placed successfully: 0x3cb7ca161af02d2e5124c6ebb138bbb1c215a124029aeed23600c1e92311e91d
+2025-11-04 08:11:01,064 - order_manager - INFO - Placed orders for market 664211: {'yes': '0xf8510c361f3e2525e592b40d3dc5a83789b9a48e68b5a08e72e0bba06a2f70a0', 'no': '0x3cb7ca161af02d2e5124c6ebb138bbb1c215a124029aeed23600c1e92311e91d'}
+2025-11-04 08:11:03,174 - order_manager - INFO - Order placed successfully: 0x71c12562c389978329c08e3dd391234b25c3b628f6efc35e1ea9a73dd9f1b6de
+2025-11-04 08:11:03,203 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:11:03,205 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:11:03,206 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:11:03,207 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:11:03,209 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:11:03,556 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:11:03,556 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:11:03,556 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:11:03,903 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:11:03,904 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:11:03,904 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:11:04,240 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:11:04,241 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:11:04,241 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:11:06,456 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:06,457 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:06,458 - order_manager - INFO - Placed orders for market 664214: {'yes': '0x71c12562c389978329c08e3dd391234b25c3b628f6efc35e1ea9a73dd9f1b6de'}
+2025-11-04 08:11:08,731 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:11:09,768 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:11:09,770 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:11:09,771 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:11:09,771 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:11:09,774 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:11:10,118 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:11:10,118 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:11:10,118 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:11:10,457 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:11:10,457 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:11:10,457 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:11:10,802 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:11:10,802 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:11:10,802 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:11:12,844 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:12,844 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:16,262 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:16,262 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:18,368 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:18,368 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:18,369 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:11:21,286 - order_manager - INFO - Order placed successfully: 0xdf23cc2c4d31fc9dd23f9a226cd3e1c75caba849687614b0e9b6804cb3494132
+2025-11-04 08:11:21,287 - order_manager - INFO - Placed orders for market 664438: {'no': '0xdf23cc2c4d31fc9dd23f9a226cd3e1c75caba849687614b0e9b6804cb3494132'}
+2025-11-04 08:11:23,434 - order_manager - INFO - Order placed successfully: 0x113725bc099200a427901735091e84ca6f98059440afffee9b36be3e5fb75151
+2025-11-04 08:11:23,457 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:11:23,459 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:11:23,460 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:11:23,460 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:11:23,462 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:11:23,781 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:11:23,782 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:11:23,782 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:11:24,119 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:11:24,120 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:11:24,120 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:11:24,453 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:11:24,453 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:11:24,453 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:11:26,551 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:26,553 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:26,554 - order_manager - INFO - Placed orders for market 664299: {'yes': '0x113725bc099200a427901735091e84ca6f98059440afffee9b36be3e5fb75151'}
+2025-11-04 08:11:28,657 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:28,657 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:29,516 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:11:32,143 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:32,144 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:34,233 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:34,233 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:34,260 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:11:34,262 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:11:34,262 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:11:34,263 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:11:34,265 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:11:34,597 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:11:34,597 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:11:34,597 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:11:34,931 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:11:34,932 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:11:34,932 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:11:35,282 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:11:35,282 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:11:35,282 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:11:37,344 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:37,344 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:39,380 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:39,381 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:42,123 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:42,123 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:44,250 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:44,250 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:44,252 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:11:47,633 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:47,633 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:49,747 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:49,747 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:49,775 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:11:49,776 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:11:49,777 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:11:49,777 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:11:49,780 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:11:50,111 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:11:50,111 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:11:50,111 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:11:50,436 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:11:50,436 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:11:50,436 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:11:50,771 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:11:50,771 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:11:50,771 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:11:52,840 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:52,840 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:54,876 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:54,876 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:11:54,878 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:11:55,901 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:11:57,957 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:11:57,958 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:00,006 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:00,007 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:00,009 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:12:00,011 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:12:00,011 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:12:00,013 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:12:00,344 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:12:00,345 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:12:00,345 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:12:00,677 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:12:00,678 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:12:00,678 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:12:01,009 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:12:01,009 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:12:01,010 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:12:03,559 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:03,560 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:05,581 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:05,581 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:05,583 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:12:06,594 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:12:06,595 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:12:06,596 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:12:06,596 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:12:06,599 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:12:06,924 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:12:06,924 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:12:06,924 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:12:07,241 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:12:07,241 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:12:07,241 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:12:07,594 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:12:07,594 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:12:07,594 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:12:09,821 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:09,821 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:11,941 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:11,941 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:12,560 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:12:15,262 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:15,262 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:17,324 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:17,324 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:18,359 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:12:18,360 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:12:18,361 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:12:18,361 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:12:18,364 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:12:18,694 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:12:18,694 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:12:18,694 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:12:19,038 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:12:19,039 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:12:19,039 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:12:19,381 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:12:19,381 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:12:19,381 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:12:21,470 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:21,471 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:23,546 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:23,546 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:23,621 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:12:26,522 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:26,523 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:28,686 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:28,686 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:28,712 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:12:28,714 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:12:28,715 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:12:28,715 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:12:28,718 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:12:29,083 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:12:29,083 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:12:29,083 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:12:29,424 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:12:29,424 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:12:29,424 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:12:29,756 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:12:29,757 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:12:29,757 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:12:32,268 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:32,269 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:34,409 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:34,409 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:34,412 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:12:35,472 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:12:35,474 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:12:35,475 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:12:35,475 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:12:35,478 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:12:35,814 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:12:35,815 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:12:35,815 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:12:36,162 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:12:36,162 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:12:36,162 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:12:36,535 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:12:36,536 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:12:36,536 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:12:38,610 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:38,610 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:40,718 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:40,719 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:40,777 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:12:43,370 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:43,370 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:45,448 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:45,448 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:45,479 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:12:45,481 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:12:45,482 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:12:45,482 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:12:45,484 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:12:45,836 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:12:45,836 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:12:45,836 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:12:46,178 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:12:46,179 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:12:46,179 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:12:46,534 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:12:46,534 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:12:46,534 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:12:48,632 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:48,632 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:50,721 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:50,721 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:51,727 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:12:54,009 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:54,009 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:56,044 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:56,045 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:12:56,073 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:12:56,075 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:12:56,076 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:12:56,076 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:12:56,079 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:12:56,409 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:12:56,410 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:12:56,410 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:12:56,756 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:12:56,757 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:12:56,757 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:12:57,098 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:12:57,099 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:12:57,099 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:12:59,211 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:12:59,212 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:01,301 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:01,302 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:04,369 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:04,370 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:04,372 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:13:05,185 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:13:05,187 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:13:05,188 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:13:05,188 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:13:05,191 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:13:05,534 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:13:05,535 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:13:05,535 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:13:05,871 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:13:05,871 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:13:05,871 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:13:06,216 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:13:06,216 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:13:06,216 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:13:10,655 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:10,656 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:10,927 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:13:13,646 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:13,646 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:15,754 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:15,755 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:15,787 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:13:15,793 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:13:15,794 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:13:15,794 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:13:15,801 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:13:16,130 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:13:16,131 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:13:16,131 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:13:16,495 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:13:16,496 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:13:16,496 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:13:16,837 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:13:16,837 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:13:16,837 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:13:18,924 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:18,924 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:21,059 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:21,060 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:24,834 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:24,834 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:26,938 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:26,939 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:26,941 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:13:29,988 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:29,988 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:32,090 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:32,090 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:32,116 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:13:32,118 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:13:32,119 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:13:32,119 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:13:32,122 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:13:32,460 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:13:32,460 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:13:32,460 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:13:32,810 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:13:32,810 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:13:32,810 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:13:33,150 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:13:33,151 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:13:33,151 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:13:35,241 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:35,241 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:37,349 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:37,349 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:40,114 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:40,115 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:42,155 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:42,155 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:42,157 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:13:45,204 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:45,204 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:47,277 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:47,278 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:47,300 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:13:47,302 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:13:47,303 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:13:47,303 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:13:47,305 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:13:47,637 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:13:47,637 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:13:47,637 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:13:47,978 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:13:47,978 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:13:47,978 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:13:48,304 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:13:48,305 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:13:48,305 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:13:50,401 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:50,402 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:52,487 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:52,487 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:52,634 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:13:55,873 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:55,874 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:57,910 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:13:57,910 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:13:57,936 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:13:57,938 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:13:57,939 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:13:57,940 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:13:57,942 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:13:58,257 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:13:58,257 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:13:58,258 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:13:58,598 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:13:58,599 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:13:58,599 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:13:58,946 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:13:58,947 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:13:58,947 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:14:01,086 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:01,087 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:03,245 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:03,245 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:03,649 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:14:06,645 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:06,645 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:08,754 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:08,755 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:08,782 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:14:08,784 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:14:08,785 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:14:08,785 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:14:08,788 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:14:09,133 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:14:09,134 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:14:09,134 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:14:09,465 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:14:09,466 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:14:09,466 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:14:09,792 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:14:09,793 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:14:09,793 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:14:11,871 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:11,872 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:13,898 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:13,898 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:14,338 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:14:17,140 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:17,141 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:19,246 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:19,247 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:19,275 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:14:19,277 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:14:19,278 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:14:19,278 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:14:19,281 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:14:19,628 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:14:19,628 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:14:19,628 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:14:19,971 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:14:19,972 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:14:19,972 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:14:20,346 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:14:20,346 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:14:20,346 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:14:22,450 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:22,451 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:24,497 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:24,497 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:25,502 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:14:27,865 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:27,865 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:29,923 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:29,923 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:29,952 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:14:29,954 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:14:29,955 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:14:29,956 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:14:29,958 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:14:30,296 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:14:30,297 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:14:30,297 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:14:30,628 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:14:30,629 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:14:30,629 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:14:30,968 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:14:30,969 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:14:30,969 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:14:33,076 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:33,077 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:35,217 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:35,217 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:36,226 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:14:38,423 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:38,424 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:40,535 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:40,536 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:40,576 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:14:40,579 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:14:40,580 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:14:40,580 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:14:40,583 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:14:40,930 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:14:40,930 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:14:40,930 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:14:41,264 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:14:41,265 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:14:41,265 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:14:41,604 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:14:41,604 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:14:41,604 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:14:43,744 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:43,744 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:45,830 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:45,830 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:46,576 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:14:48,977 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:48,981 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:51,069 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:51,070 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:51,100 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:14:51,103 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:14:51,104 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:14:51,104 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:14:51,107 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:14:51,442 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:14:51,443 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:14:51,443 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:14:51,779 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:14:51,780 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:14:51,780 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:14:52,111 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:14:52,111 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:14:52,112 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:14:54,171 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:54,171 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:56,221 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:56,222 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:14:57,379 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:14:59,662 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:14:59,663 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:01,820 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:01,820 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:01,855 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:15:01,858 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:15:01,860 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:15:01,860 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:15:01,863 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:15:02,201 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:15:02,202 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:15:02,202 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:15:02,609 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:15:02,610 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:15:02,610 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:15:02,959 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:15:02,959 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:15:02,959 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:15:05,038 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:05,039 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:07,084 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:07,085 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:09,973 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:09,973 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:12,128 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:12,129 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:12,131 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:15:13,161 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:15:13,164 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:15:13,165 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:15:13,165 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:15:13,168 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:15:13,545 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:15:13,546 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:15:13,546 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:15:13,880 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:15:13,881 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:15:13,881 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:15:14,212 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:15:14,213 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:15:14,213 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:15:16,245 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:16,246 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:18,370 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:18,371 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:18,682 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:15:21,594 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:21,594 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:23,673 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:23,674 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:23,700 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:15:23,702 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:15:23,703 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:15:23,703 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:15:23,706 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:15:24,045 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:15:24,045 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:15:24,045 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:15:24,378 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:15:24,378 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:15:24,379 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:15:24,726 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:15:24,727 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:15:24,727 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:15:26,904 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:26,905 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:28,965 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:28,966 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:29,970 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:15:32,530 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:32,531 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:34,595 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:34,596 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:34,628 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:15:34,631 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:15:34,632 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:15:34,632 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:15:34,635 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:15:34,989 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:15:34,990 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:15:34,990 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:15:35,329 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:15:35,329 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:15:35,329 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:15:35,673 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:15:35,673 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:15:35,673 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:15:37,757 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:37,758 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:39,846 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:39,847 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:43,236 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:43,237 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:45,360 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:45,361 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:45,363 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:15:46,385 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:15:46,388 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:15:46,390 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:15:46,390 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:15:46,393 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:15:46,737 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:15:46,737 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:15:46,737 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:15:47,085 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:15:47,086 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:15:47,086 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:15:47,419 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:15:47,420 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:15:47,420 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:15:49,485 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:49,485 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:51,588 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:51,589 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:54,647 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:54,648 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:56,756 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:56,756 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:15:56,758 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:15:59,661 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:15:59,662 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:01,808 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:01,808 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:01,836 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:16:04,942 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:04,943 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:07,044 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:07,044 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:07,050 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:16:07,052 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:16:07,052 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:16:07,058 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:16:07,406 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:16:07,406 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:16:07,406 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:16:07,751 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:16:07,751 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:16:07,752 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:16:08,079 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:16:08,080 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:16:08,080 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:16:10,389 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:10,390 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:12,476 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:12,476 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:12,605 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:16:13,630 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:16:13,632 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:16:13,633 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:16:13,634 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:16:13,637 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:16:14,028 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:16:14,028 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:16:14,028 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:16:14,361 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:16:14,361 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:16:14,361 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:16:14,704 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:16:14,704 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:16:14,704 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:16:16,769 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:16,769 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:18,883 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:18,883 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:19,696 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:16:22,266 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:22,267 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:24,368 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:24,368 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:24,399 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:16:24,401 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:16:24,401 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:16:24,402 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:16:24,404 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:16:24,731 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:16:24,731 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:16:24,731 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:16:25,084 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:16:25,085 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:16:25,085 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:16:25,423 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:16:25,424 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:16:25,424 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:16:27,631 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:27,631 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:29,705 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:29,705 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:29,746 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:16:30,791 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:16:30,793 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:16:30,794 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:16:30,794 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:16:30,797 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:16:31,136 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:16:31,136 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:16:31,136 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:16:31,497 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:16:31,498 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:16:31,498 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:16:31,827 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:16:31,827 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:16:31,828 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:16:33,853 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:33,853 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:36,001 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:36,002 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:37,006 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:16:39,119 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:39,120 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:41,217 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:41,217 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:42,296 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:16:42,299 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:16:42,300 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:16:42,300 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:16:42,302 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:16:42,645 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:16:42,646 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:16:42,646 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:16:42,987 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:16:42,988 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:16:42,988 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:16:43,331 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:16:43,331 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:16:43,331 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:16:45,395 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:45,395 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:47,477 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:47,477 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:47,479 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:16:50,390 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:50,390 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:52,502 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:52,503 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:52,530 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:16:52,532 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:16:52,533 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:16:52,533 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:16:52,536 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:16:52,866 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:16:52,866 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:16:52,866 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:16:53,190 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:16:53,190 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:16:53,191 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:16:53,527 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:16:53,528 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:16:53,528 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:16:55,572 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:55,573 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:16:57,682 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:16:57,683 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:00,712 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:00,713 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:02,809 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:02,809 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:02,811 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:17:03,818 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:17:03,820 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:17:03,821 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:17:03,821 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:17:03,824 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:17:04,153 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:17:04,154 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:17:04,154 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:17:04,489 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:17:04,489 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:17:04,489 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:17:04,813 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:17:04,813 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:17:04,813 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:17:06,850 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:06,851 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:08,987 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:08,987 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:09,991 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:17:12,111 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:12,112 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:14,185 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:14,186 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:14,215 - market_scanner_v2 - INFO - âœ… Fetched 300 markets from API
+2025-11-04 08:17:14,218 - market_scanner_v2 - INFO - âœ… Got 300 markets from API
+2025-11-04 08:17:14,219 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 300/300 markets passed
+2025-11-04 08:17:14,219 - market_scanner_v2 - INFO - âœ… Found 300 qualifying markets (from 300 total)
+2025-11-04 08:17:14,222 - market_selector - INFO - Selected 3 markets from 300 candidates
+2025-11-04 08:17:14,561 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:17:14,562 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:17:14,562 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:17:14,898 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:17:14,898 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:17:14,898 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:17:15,231 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:17:15,232 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:17:15,232 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:17:17,323 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:17,324 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:19,342 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:19,343 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:19,345 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:17:20,333 - market_scanner_v2 - INFO - âœ… Fetched 276 markets from API
+2025-11-04 08:17:20,335 - market_scanner_v2 - INFO - âœ… Got 276 markets from API
+2025-11-04 08:17:20,336 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 276/276 markets passed
+2025-11-04 08:17:20,336 - market_scanner_v2 - INFO - âœ… Found 276 qualifying markets (from 276 total)
+2025-11-04 08:17:20,338 - market_selector - INFO - Selected 3 markets from 276 candidates
+2025-11-04 08:17:20,696 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:17:20,696 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:17:20,696 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:17:21,044 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:17:21,044 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:17:21,044 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:17:21,382 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:17:21,383 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:17:21,383 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:17:23,470 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:23,471 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:25,522 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:25,522 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:28,158 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:28,158 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:30,247 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:30,247 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:30,248 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:17:32,881 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:32,882 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:34,964 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:34,964 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:34,993 - market_scanner_v2 - INFO - âœ… Fetched 276 markets from API
+2025-11-04 08:17:34,995 - market_scanner_v2 - INFO - âœ… Got 276 markets from API
+2025-11-04 08:17:34,996 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 276/276 markets passed
+2025-11-04 08:17:34,996 - market_scanner_v2 - INFO - âœ… Found 276 qualifying markets (from 276 total)
+2025-11-04 08:17:34,999 - market_selector - INFO - Selected 3 markets from 276 candidates
+2025-11-04 08:17:35,348 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:17:35,349 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:17:35,349 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:17:35,686 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:17:35,687 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:17:35,687 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:17:36,031 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:17:36,031 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:17:36,031 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:17:38,170 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:38,170 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:40,293 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:40,293 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:41,297 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:17:43,711 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:43,712 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:45,779 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:45,779 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:45,810 - market_scanner_v2 - INFO - âœ… Fetched 276 markets from API
+2025-11-04 08:17:45,812 - market_scanner_v2 - INFO - âœ… Got 276 markets from API
+2025-11-04 08:17:45,813 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 276/276 markets passed
+2025-11-04 08:17:45,813 - market_scanner_v2 - INFO - âœ… Found 276 qualifying markets (from 276 total)
+2025-11-04 08:17:45,815 - market_selector - INFO - Selected 3 markets from 276 candidates
+2025-11-04 08:17:46,148 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:17:46,148 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:17:46,148 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:17:46,483 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:17:46,484 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:17:46,485 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:17:46,855 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:17:46,855 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:17:46,855 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:17:48,936 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:48,937 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:51,014 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:51,015 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:51,131 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:17:54,159 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:54,159 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:56,186 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:56,186 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:17:56,210 - market_scanner_v2 - INFO - âœ… Fetched 276 markets from API
+2025-11-04 08:17:56,212 - market_scanner_v2 - INFO - âœ… Got 276 markets from API
+2025-11-04 08:17:56,213 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 276/276 markets passed
+2025-11-04 08:17:56,214 - market_scanner_v2 - INFO - âœ… Found 276 qualifying markets (from 276 total)
+2025-11-04 08:17:56,216 - market_selector - INFO - Selected 3 markets from 276 candidates
+2025-11-04 08:17:56,552 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:17:56,553 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:17:56,553 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:17:56,908 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:17:56,909 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:17:56,909 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:17:57,241 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:17:57,241 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:17:57,242 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:17:59,588 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:17:59,588 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:18:04,793 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:18:04,794 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:18:04,796 - market_scanner_v2 - INFO - ðŸ” Fetching from Gamma API...
+2025-11-04 08:18:07,922 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:18:07,922 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:18:10,056 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:18:10,057 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+
+2025-11-04 08:18:10,082 - market_scanner_v2 - INFO - âœ… Fetched 276 markets from API
+2025-11-04 08:18:10,085 - market_scanner_v2 - INFO - âœ… Got 276 markets from API
+2025-11-04 08:18:10,086 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 276/276 markets passed
+2025-11-04 08:18:10,086 - market_scanner_v2 - INFO - âœ… Found 276 qualifying markets (from 276 total)
+2025-11-04 08:18:10,088 - market_selector - INFO - Selected 3 markets from 276 candidates
+2025-11-04 08:18:10,440 - order_manager - INFO - Prepared order for market 664299 with spread 0.0120
+2025-11-04 08:18:10,440 - order_manager - INFO - Added order to pending queue: 664299
+2025-11-04 08:18:10,440 - __main__ - INFO - Added market 664299 to pending orders
+2025-11-04 08:18:10,783 - order_manager - INFO - Prepared order for market 664214 with spread 0.0120
+2025-11-04 08:18:10,783 - order_manager - INFO - Added order to pending queue: 664214
+2025-11-04 08:18:10,783 - __main__ - INFO - Added market 664214 to pending orders
+2025-11-04 08:18:11,106 - order_manager - INFO - Prepared order for market 664211 with spread 0.0120
+2025-11-04 08:18:11,106 - order_manager - INFO - Added order to pending queue: 664211
+2025-11-04 08:18:11,106 - __main__ - INFO - Added market 664211 to pending orders
+2025-11-04 08:18:14,586 - order_manager - ERROR - Error placing single order: PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
+2025-11-04 08:18:14,586 - order_manager - ERROR - Full traceback: Traceback (most recent call last):
+  File "/home/farmpoly/farmpoly/order_manager.py", line 344, in _place_single_order
+    response = signing_client.post_order(signed_order)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/client.py", line 533, in post_order
+    return post("{}{}".format(self.host, POST_ORDER), headers=headers, data=body)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 54, in post
+    return request(endpoint, POST, headers, data)
+  File "/home/farmpoly/farmpoly/venv/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 42, in request
+    raise PolyApiException(resp)
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=400, error_message={'error': 'not enough balance / allowance'}]
 
