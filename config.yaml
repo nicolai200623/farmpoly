@@ -42,7 +42,7 @@ market_selection:
   volume_lookback_hours: 24
   
   # Maximum markets to trade simultaneously
-  max_concurrent_markets: 10
+  max_concurrent_markets: 2
 
 # Order Management
 order_management:

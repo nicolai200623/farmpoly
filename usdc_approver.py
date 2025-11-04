@@ -114,15 +114,26 @@ class USDCApprover:
     async def _get_allowance(self, address: str) -> int:
         """Get current USDC allowance for CLOB exchange"""
         try:
+            checksum_address = Web3.to_checksum_address(address)
+            checksum_exchange = Web3.to_checksum_address(CLOB_EXCHANGE_ADDRESS)
+
+            logger.debug(f"Checking allowance for {checksum_address[:10]}...")
+            logger.debug(f"Exchange address: {checksum_exchange}")
+
             allowance = self.usdc_contract.functions.allowance(
-                Web3.to_checksum_address(address),
-                Web3.to_checksum_address(CLOB_EXCHANGE_ADDRESS)
+                checksum_address,
+                checksum_exchange
             ).call()
-            
+
+            logger.debug(f"Allowance retrieved: {allowance} base units ({allowance/1e6:.2f} USDC)")
+
             return allowance
-            
+
         except Exception as e:
-            logger.error(f"Error getting allowance: {e}")
+            logger.error(f"❌ Error getting allowance for {address[:10]}...: {e}")
+            logger.error(f"   This usually means RPC connection issue or invalid address")
+            import traceback
+            logger.debug(traceback.format_exc())
             return 0
     
     async def _approve_usdc(self, wallet: Dict, amount: int) -> bool:

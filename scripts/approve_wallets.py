@@ -64,13 +64,16 @@ async def main():
     
     # Ask for approval amount
     print("\n💰 How much USDC should each wallet be approved for?")
-    print("   Recommended: 10,000 USDC (allows trading without re-approval)")
-    print("   Minimum: 1,000 USDC")
-    
+    print("   Production: 10,000 USDC (recommended for live trading)")
+    print("   Testing: 100 USDC (minimum for testing with small capital)")
+    print("")
+    print("   ⚠️  NOTE: 100 USDC is only for TESTING!")
+    print("   You may need to re-approve frequently with small amounts")
+
     try:
         amount_input = input("\nEnter amount (default 10000): ").strip()
         amount = float(amount_input) if amount_input else 10000
-        
+
         if amount < 100:
             logger.error("❌ Amount too low! Minimum is 100 USDC")
             return

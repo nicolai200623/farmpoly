@@ -232,18 +232,38 @@ class PolymarketBot:
             # Check first wallet as sample
             if wallet_mgr.wallets:
                 first_wallet = wallet_mgr.wallets[0]
-                allowance = await approver._get_allowance(first_wallet['address'])
+                wallet_address = first_wallet['address']
 
-                if allowance < 1000 * 1e6:  # Less than 1000 USDC approved
+                # Log which wallet we're checking
+                logger.info(f"   Checking wallet: {wallet_address[:10]}...{wallet_address[-8:]}")
+
+                allowance = await approver._get_allowance(wallet_address)
+
+                # Log raw allowance value for debugging
+                logger.info(f"   Raw allowance: {allowance} (base units)")
+                logger.info(f"   Allowance in USDC: {allowance/1e6:,.2f} USDC")
+                logger.info(f"   Required minimum: 100 USDC (test mode)")
+
+                if allowance < 100 * 1e6:  # Less than 100 USDC approved (LOWERED for testing)
                     logger.warning("⚠️  USDC approval needed!")
+                    logger.warning(f"   Current: {allowance/1e6:,.2f} USDC")
+                    logger.warning(f"   Required: 100 USDC (test mode)")
                     logger.warning("   Run: python scripts/approve_wallets.py")
                     logger.warning("   Or the bot may fail to place orders")
+                    logger.warning("")
+                    logger.warning("   ⚠️  NOTE: 100 USDC is for TESTING only!")
+                    logger.warning("   For production, approve at least 1,000 USDC")
                 else:
                     logger.info(f"✅ USDC approval OK ({allowance/1e6:,.0f} USDC)")
+                    if allowance < 1000 * 1e6:
+                        logger.warning(f"   ⚠️  Running in TEST MODE with {allowance/1e6:,.0f} USDC")
+                        logger.warning(f"   For production, approve at least 1,000 USDC")
 
         except Exception as e:
             logger.warning(f"⚠️  Could not check USDC approval: {e}")
             logger.warning("   Make sure to run: python scripts/approve_wallets.py")
+            import traceback
+            logger.debug(traceback.format_exc())
     
     async def _market_scanning_loop(self):
         """Continuous market scanning with monitoring"""
