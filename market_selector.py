@@ -268,14 +268,18 @@ class MarketSelectorAI:
     def _is_correlated(self, market: Dict, selected: List[Dict]) -> bool:
         """Check if market is correlated with already selected markets"""
         for selected_market in selected:
-            # Check title similarity
-            if self._similarity_score(market['title'], selected_market['title']) > 0.7:
-                return True
-            
+            # Check question similarity (use 'question' field, not 'title')
+            market_question = market.get('question', market.get('title', ''))
+            selected_question = selected_market.get('question', selected_market.get('title', ''))
+
+            if market_question and selected_question:
+                if self._similarity_score(market_question, selected_question) > 0.7:
+                    return True
+
             # Check if same event/topic
             if market.get('event_id') and market.get('event_id') == selected_market.get('event_id'):
                 return True
-        
+
         return False
     
     def _similarity_score(self, text1: str, text2: str) -> float:

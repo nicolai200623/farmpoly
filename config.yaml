@@ -12,8 +12,8 @@ rpc_url: "https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQLZqOJuRTH6n_FZEkyWx2
 # Market Scanner Settings (V2 - Playwright + Gamma API)
 market_scanner:
   interval: 5  # Scan interval in seconds
-  min_reward: 50  # Minimum reward in USD (LOWERED to catch more markets)
-  max_competition_bars: 3  # Maximum competition level (0-5) - INCREASED to allow more markets
+  min_reward: 100  # Minimum reward in USD (LOWERED to catch more markets)
+  max_competition_bars: 2  # Maximum competition level (0-5) - INCREASED to allow more markets
   min_shares: 500  # Maximum minimum shares requirement
 
   # API Settings
@@ -23,8 +23,8 @@ market_scanner:
   # Categories to focus on
   target_categories:
     - sports
-    - entertainment
-    - crypto
+   # - entertainment
+    #- crypto
 
   # Illiquid market threshold
   illiquid_threshold: 10000  # Markets with liquidity < $10k
@@ -42,7 +42,7 @@ market_selection:
   volume_lookback_hours: 24
   
   # Maximum markets to trade simultaneously
-  max_concurrent_markets: 2
+  max_concurrent_markets: 1
 
 # Order Management
 order_management:
@@ -51,8 +51,8 @@ order_management:
   spread_max: 0.015  # 1.5 cents
   
   # Position size range (number of shares)
-  size_min: 200
-  size_max: 500
+   size_min: 50   # Giảm từ 200 xuống 50
+   size_max: 100  # Giảm từ 500 xuống 100
   
   # Order type
   order_type: limit
