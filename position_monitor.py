@@ -184,8 +184,9 @@ class PositionMonitor:
             # Check if order is too old
             if 'created_at' in position:
                 age_seconds = time.time() - position['created_at']
-                max_age = 300  # 5 minutes
-                
+                # Read from config instead of hardcoded value
+                max_age = self.config.get('max_position_age', 3600)  # Default 1 hour
+
                 if age_seconds > max_age:
                     return True
             

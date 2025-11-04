@@ -47,13 +47,14 @@ market_selection:
 # Order Management
 order_management:
   # Dynamic spread range (in decimal, e.g., 0.008 = 0.8 cents)
-  spread_min: 0.005  # 0.8 cents
-  spread_max: 0.015  # 1.5 cents
-  
+  # WIDER SPREAD to avoid fills (liquidity farming strategy)
+  spread_min: 0.03   # 3 cents (was 0.5 cents - too tight!)
+  spread_max: 0.08   # 8 cents (was 1.5 cents - too tight!)
+
   # Position size range (number of shares)
   size_min: 50   # Giảm từ 200 xuống 50
   size_max: 100  # Giảm từ 500 xuống 100
-  
+
   # Order type
   order_type: limit
   time_in_force: GTC  # Good Till Cancelled
@@ -69,14 +70,14 @@ order_management:
 monitoring:
   # WebSocket monitoring interval
   websocket_interval: 10  # seconds
-  
-  # Auto-cancel conditions
-  partial_fill_threshold: 0.1  # Cancel if >10% filled
+
+  # Auto-cancel conditions (LIQUIDITY FARMING STRATEGY)
+  partial_fill_threshold: 0.05  # Cancel if >5% filled (was 10% - too risky!)
   volume_spike_multiplier: 2  # Cancel if volume spikes >2x
   price_move_threshold: 0.02  # Cancel if price moves >2 cents
-  
-  # Position timeout
-  max_position_age: 3600  # 1 hour in seconds
+
+  # Position timeout (AUTO-CANCEL to avoid fills)
+  max_position_age: 1800  # 30 minutes (was 1 hour - too long!)
   
   # Monitoring alerts
   alert_on_fill: true

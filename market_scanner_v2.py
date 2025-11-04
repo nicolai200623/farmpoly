@@ -22,8 +22,11 @@ class MarketScannerV2:
         self.config = config
         self.rewards_url = "https://polymarket.com/rewards"
         self.api_url = "https://gamma-api.polymarket.com/events"
-        self.min_reward = config.get('min_reward', 300)
-        self.max_competition = config.get('max_competition_bars', 2)
+
+        # Read from nested market_scanner config
+        scanner_config = config.get('market_scanner', {})
+        self.min_reward = scanner_config.get('min_reward', 300)
+        self.max_competition = scanner_config.get('max_competition_bars', 2)
         self.browser = None
         self.context = None
 
