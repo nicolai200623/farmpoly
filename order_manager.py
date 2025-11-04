@@ -111,19 +111,32 @@ class OrderManager:
 
             if not order_book:
                 return None
-            
+
+            # Convert OrderBookSummary object to dict if needed
+            if hasattr(order_book, 'bids'):
+                # It's an OrderBookSummary object, access attributes directly
+                bids = order_book.bids if order_book.bids else []
+                asks = order_book.asks if order_book.asks else []
+            elif isinstance(order_book, dict):
+                # It's already a dict (from direct API call)
+                bids = order_book.get('bids', [])
+                asks = order_book.get('asks', [])
+            else:
+                logger.error(f"Unknown orderbook type: {type(order_book)}")
+                return None
+
             # Calculate mid price
-            best_bid = float(order_book['bids'][0]['price']) if order_book['bids'] else 0
-            best_ask = float(order_book['asks'][0]['price']) if order_book['asks'] else 1
+            best_bid = float(bids[0]['price']) if bids else 0
+            best_ask = float(asks[0]['price']) if asks else 1
             mid_price = (best_bid + best_ask) / 2
-            
+
             # Calculate spread and depth
             current_spread = best_ask - best_bid
-            
+
             # Calculate volume at best prices
-            bid_volume = sum(float(bid['size']) for bid in order_book['bids'][:5])
-            ask_volume = sum(float(ask['size']) for ask in order_book['asks'][:5])
-            
+            bid_volume = sum(float(bid['size']) for bid in bids[:5])
+            ask_volume = sum(float(ask['size']) for ask in asks[:5])
+
             return {
                 'mid_price': mid_price,
                 'best_bid': best_bid,
@@ -133,7 +146,7 @@ class OrderManager:
                 'ask_volume': ask_volume,
                 'order_book': order_book
             }
-            
+
         except Exception as e:
             logger.error(f"Error fetching market data: {e}")
             return None
