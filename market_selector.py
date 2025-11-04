@@ -244,13 +244,15 @@ class MarketSelectorAI:
         selected = []
         category_counts = {}
         max_per_category = 3
-        max_total = 10
-        
+
+        # Get max_concurrent_markets from config (default to 10 if not set)
+        max_total = self.config.get('max_concurrent_markets', 10)
+
         for market in markets:
-            # Check total limit
+            # Check total limit (IMPORTANT: respects max_concurrent_markets)
             if len(selected) >= max_total:
                 break
-            
+
             # Check category limit
             category = market.get('category', 'other')
             if category_counts.get(category, 0) >= max_per_category:
@@ -262,7 +264,7 @@ class MarketSelectorAI:
 
             selected.append(market)
             category_counts[category] = category_counts.get(category, 0) + 1
-        
+
         return selected
     
     def _is_correlated(self, market: Dict, selected: List[Dict]) -> bool:

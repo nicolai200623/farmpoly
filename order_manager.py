@@ -305,24 +305,24 @@ class OrderManager:
         try:
             # Create order using ClobClient directly
             from py_clob_client.order_builder.constants import BUY, SELL
+            from py_clob_client.clob_types import OrderArgs
 
             # Determine side constant
             side_constant = BUY if order_params['side'] == 'buy' else SELL
 
-            # Create and sign order
-            order = self.clob_client.create_order(
+            # Create OrderArgs object
+            order_args = OrderArgs(
                 token_id=market_id,
                 price=order_params['price'],
                 size=order_params['size'],
-                side=side_constant,
-                fee_rate_bps=0,  # Fee rate in basis points
-                nonce=0,  # Will be auto-generated
-                expiration=0,  # No expiration
-                signer=wallet['private_key']
+                side=side_constant
             )
 
+            # Create and sign order
+            signed_order = self.clob_client.create_order(order_args)
+
             # Submit order
-            response = self.clob_client.post_order(order, signature_type=0)
+            response = self.clob_client.post_order(signed_order)
 
             if response and 'orderID' in response:
                 return response['orderID']
