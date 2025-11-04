@@ -51,11 +51,15 @@ def main():
         wallet_address = Account.from_key(private_key).address
         print(f"Wallet: {wallet_address}")
         print()
-        
+
         # Get positions (filled orders)
-        print("📋 Fetching positions...")
-        
+        print("📋 Fetching positions from Polymarket...")
+        print("⚠️  Note: This script uses CLOB API which may not show all positions.")
+        print("   For accurate positions, check: https://polymarket.com/profile")
+        print()
+
         # Get all orders (including filled)
+        # Note: CLOB API may not return all historical fills
         orders = client.get_orders()
         
         # Filter for filled orders (these are positions)
