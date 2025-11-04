@@ -125,17 +125,26 @@ class OrderManager:
                 logger.error(f"Unknown orderbook type: {type(order_book)}")
                 return None
 
+            # Helper function to safely get price/size from order (object or dict)
+            def get_order_value(order, field):
+                if hasattr(order, field):
+                    return float(getattr(order, field))
+                elif isinstance(order, dict):
+                    return float(order.get(field, 0))
+                else:
+                    return 0.0
+
             # Calculate mid price
-            best_bid = float(bids[0]['price']) if bids else 0
-            best_ask = float(asks[0]['price']) if asks else 1
+            best_bid = get_order_value(bids[0], 'price') if bids else 0
+            best_ask = get_order_value(asks[0], 'price') if asks else 1
             mid_price = (best_bid + best_ask) / 2
 
             # Calculate spread and depth
             current_spread = best_ask - best_bid
 
             # Calculate volume at best prices
-            bid_volume = sum(float(bid['size']) for bid in bids[:5])
-            ask_volume = sum(float(ask['size']) for ask in asks[:5])
+            bid_volume = sum(get_order_value(bid, 'size') for bid in bids[:5])
+            ask_volume = sum(get_order_value(ask, 'size') for ask in asks[:5])
 
             return {
                 'mid_price': mid_price,
