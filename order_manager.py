@@ -306,9 +306,13 @@ class OrderManager:
             # Create order using ClobClient directly
             from py_clob_client.order_builder.constants import BUY, SELL
             from py_clob_client.clob_types import OrderArgs
+            import traceback
 
             # Determine side constant
             side_constant = BUY if order_params['side'] == 'buy' else SELL
+
+            # Log order details for debugging
+            logger.debug(f"Creating order: token_id={market_id}, price={order_params['price']}, size={order_params['size']}, side={order_params['side']}")
 
             # Create OrderArgs object
             order_args = OrderArgs(
@@ -326,18 +330,26 @@ class OrderManager:
             )
 
             # Create and sign order
+            logger.debug("Signing order...")
             signed_order = signing_client.create_order(order_args)
+            logger.debug(f"Order signed: {type(signed_order)}")
 
             # Submit order
+            logger.debug("Submitting order to CLOB...")
             response = signing_client.post_order(signed_order)
+            logger.debug(f"CLOB response: {response}")
 
             if response and 'orderID' in response:
+                logger.info(f"Order placed successfully: {response['orderID']}")
                 return response['orderID']
 
+            logger.warning(f"Order placement failed: no orderID in response: {response}")
             return None
 
         except Exception as e:
-            logger.error(f"Error placing single order: {e}")
+            # Enhanced error logging with full traceback
+            logger.error(f"Error placing single order: {type(e).__name__}: {str(e)}")
+            logger.error(f"Full traceback: {traceback.format_exc()}")
             return None
     
     async def cancel_order(self, order_id: str) -> bool:
