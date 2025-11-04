@@ -61,13 +61,22 @@ def main():
         # Filter for filled orders (these are positions)
         positions = {}
         for order in orders:
-            if order.get('status') == 'FILLED' or order.get('original_size', 0) > order.get('size', 0):
+            # Convert string values to float for comparison
+            try:
+                original_size = float(order.get('original_size', 0))
+                current_size = float(order.get('size', 0))
+                status = order.get('status', '')
+            except (ValueError, TypeError):
+                continue
+
+            # Check if order is filled (fully or partially)
+            if status == 'FILLED' or original_size > current_size:
                 market = order.get('market', 'Unknown')
                 token_id = order.get('asset_id', order.get('token_id', 'Unknown'))
-                
+
                 if market not in positions:
                     positions[market] = {}
-                
+
                 if token_id not in positions[market]:
                     positions[market][token_id] = {
                         'shares': 0,
@@ -75,8 +84,8 @@ def main():
                         'total_cost': 0,
                         'orders': []
                     }
-                
-                filled_size = order.get('original_size', 0) - order.get('size', 0)
+
+                filled_size = original_size - current_size
                 fill_price = float(order.get('price', 0))
                 
                 pos = positions[market][token_id]
@@ -110,11 +119,16 @@ def main():
                     # Get current price from orderbook
                     try:
                         orderbook = client.get_order_book(token_id)
-                        
+
                         # Get best bid (price we can sell at)
                         best_bid = 0
                         if hasattr(orderbook, 'bids') and len(orderbook.bids) > 0:
-                            best_bid = float(orderbook.bids[0].price)
+                            # Handle both object attribute and dict access
+                            bid = orderbook.bids[0]
+                            if hasattr(bid, 'price'):
+                                best_bid = float(bid.price)
+                            else:
+                                best_bid = float(bid.get('price', 0))
                         
                         current_value = pos['shares'] * best_bid
                         pnl = current_value - pos['total_cost']
