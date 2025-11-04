@@ -326,7 +326,8 @@ class OrderManager:
             # (The global clob_client is read-only, we need a signing client per wallet)
             signing_client = ClobClient(
                 host="https://clob.polymarket.com",
-                key=wallet['private_key']  # Add private key for signing
+                key=wallet['private_key'],  # Add private key for signing
+                chain_id=137  # Polygon mainnet chain ID
             )
 
             # Create and sign order
