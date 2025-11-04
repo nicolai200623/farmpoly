@@ -23,7 +23,7 @@ market_scanner:
   # Categories to focus on
   target_categories:
     - sports
-   # - entertainment
+    - entertainment
     #- crypto
 
   # Illiquid market threshold
@@ -48,8 +48,8 @@ market_selection:
 order_management:
   # Dynamic spread range (in decimal, e.g., 0.008 = 0.8 cents)
   # WIDER SPREAD to avoid fills (liquidity farming strategy)
-  spread_min: 0.03   # 3 cents (was 0.5 cents - too tight!)
-  spread_max: 0.08   # 8 cents (was 1.5 cents - too tight!)
+  spread_min: 0.05   # 3 cents (was 0.5 cents - too tight!)
+  spread_max: 0.12   # 8 cents (was 1.5 cents - too tight!)
 
   # Position size range (number of shares)
   size_min: 50   # Giảm từ 200 xuống 50
