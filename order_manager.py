@@ -330,6 +330,10 @@ class OrderManager:
                 chain_id=137  # Polygon mainnet chain ID
             )
 
+            # Set API credentials (required for L2 auth to post orders)
+            logger.debug("Setting API credentials...")
+            signing_client.set_api_creds(signing_client.create_or_derive_api_creds())
+
             # Create and sign order
             logger.debug("Signing order...")
             signed_order = signing_client.create_order(order_args)
