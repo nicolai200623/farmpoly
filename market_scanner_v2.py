@@ -99,16 +99,11 @@ class MarketScannerV2:
             except Exception as api_error:
                 logger.error(f"❌ API error: {api_error}")
 
-            # Method 2: Fallback to Playwright scraping if API didn't return markets
+            # DISABLED: Playwright fallback (unreliable, can scrape markets without real rewards)
+            # Only use Gamma API to ensure all markets have verified rewards
             if not markets:
-                logger.warning("⚠️  Trying Playwright scraping...")
-                try:
-                    scraped_markets = await self.playwright_breaker.call(self._scrape_with_playwright_internal)
-                    markets.extend(scraped_markets)
-                except CircuitBreakerOpenError as e:
-                    logger.warning(f"⚠️  Playwright circuit breaker OPEN: {e}")
-                except Exception as scrape_error:
-                    logger.error(f"❌ Playwright scraping failed: {scrape_error}")
+                logger.warning("⚠️  No markets from API - Playwright fallback is DISABLED for safety")
+                logger.info("💡 Bot will only trade markets with verified rewards from Gamma API")
 
             # Filter based on criteria
             filtered_markets = self._filter_markets(markets)
@@ -167,6 +162,8 @@ class MarketScannerV2:
             # 2. rewardsMaxSpread > 0 (có giới hạn spread)
             # 3. umaReward > 0 (có UMA reward)
             if rewards_min_size == 0 and rewards_max_spread == 0 and uma_reward == 0:
+                question = market_data.get('question', 'Unknown')
+                logger.debug(f"⏭️  Skipped (no rewards): {question[:60]}")
                 return None
 
             # Calculate estimated reward (improved calculation)
@@ -337,7 +334,20 @@ class MarketScannerV2:
             market['score'] = self._calculate_score(market)
 
             filtered.append(market)
-            logger.debug(f"✅ Accepted: {market['question'][:50]} - Reward: ${market['reward']:.0f}, Competition: {market['competition_bars']}, Score: {market['score']:.1f}")
+
+            # Log detailed acceptance info with reward verification
+            reward_source = "UNKNOWN"
+            if market.get('rewards_min_size', 0) > 0:
+                reward_source = f"rewardsMinSize={market['rewards_min_size']}"
+            elif market.get('uma_reward', 0) > 0:
+                reward_source = f"umaReward={market['uma_reward']}"
+            elif market.get('rewards_max_spread', 0) > 0:
+                reward_source = f"rewardsMaxSpread={market['rewards_max_spread']}"
+
+            logger.info(f"✅ ACCEPTED: {market['question'][:60]}")
+            logger.info(f"   - Estimated Reward: ${market['reward']:.0f} (from {reward_source})")
+            logger.info(f"   - Competition: {market['competition_bars']} bars, Score: {market['score']:.2f}")
+            logger.info(f"   - Source: {market.get('source', 'unknown')}")
 
         # Log summary
         if len(markets) > 0:
