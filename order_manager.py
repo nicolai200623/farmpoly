@@ -18,13 +18,14 @@ logger = logging.getLogger(__name__)
 
 class OrderManager:
     """Manages order lifecycle on Polymarket CLOB"""
-    
-    def __init__(self, config: dict):
+
+    def __init__(self, config: dict, telegram_notifier=None):
         self.config = config
         self.pending_orders = []
         self.active_orders = {}
         self.filled_orders = []
         self.clob_client = None
+        self.telegram = telegram_notifier  # Telegram notifier
         self._initialize_clob()
     
     def _initialize_clob(self):
@@ -294,6 +295,18 @@ class OrderManager:
 
                 logger.info(f"Placed orders for market {order['market_id']}: {placed_orders}")
 
+                # Send Telegram notification
+                if self.telegram:
+                    try:
+                        # Get market details for notification
+                        market = {
+                            'question': order.get('market_title', 'Unknown'),
+                            'id': order['market_id']
+                        }
+                        await self.telegram.notify_order_placed(order, market)
+                    except Exception as e:
+                        logger.debug(f"Failed to send order placed notification: {e}")
+
             return placed_orders
 
         except Exception as e:
@@ -357,21 +370,37 @@ class OrderManager:
             logger.error(f"Full traceback: {traceback.format_exc()}")
             return None
     
-    async def cancel_order(self, order_id: str) -> bool:
+    async def cancel_order(self, order_id: str, reason: str = "Unknown") -> bool:
         """Cancel an order"""
         try:
             if not self.clob_client:
                 return False
-            
+
             # Cancel via CLOB API
             response = self.clob_client.cancel_order(order_id)
-            
+
             if response and response.get('success'):
-                logger.info(f"Cancelled order {order_id}")
+                logger.info(f"Cancelled order {order_id} - Reason: {reason}")
+
+                # Send Telegram notification
+                if self.telegram:
+                    try:
+                        # Find market name from active orders
+                        market_name = "Unknown"
+                        for market_id, order in self.active_orders.items():
+                            if order.get('order_ids', {}).get('yes') == order_id or \
+                               order.get('order_ids', {}).get('no') == order_id:
+                                market_name = order.get('market_title', 'Unknown')
+                                break
+
+                        await self.telegram.notify_order_cancelled(order_id, market_name, reason)
+                    except Exception as e:
+                        logger.debug(f"Failed to send cancel notification: {e}")
+
                 return True
-            
+
             return False
-            
+
         except Exception as e:
             logger.error(f"Error cancelling order {order_id}: {e}")
             return False
@@ -454,17 +483,30 @@ class OrderManager:
                 order_status = await self._get_order_details(order_id)
                 
                 if order_status and order_status.get('status') == 'filled':
-                    fills.append({
+                    fill_data = {
                         'market_id': market_id,
                         'side': side,
                         'order_id': order_id,
                         'fill_price': order_status.get('fillPrice'),
                         'fill_size': order_status.get('fillSize'),
                         'timestamp': time.time()
-                    })
-                    
+                    }
+                    fills.append(fill_data)
+
                     # Move to filled orders
                     self.filled_orders.append(order_status)
+
+                    # Send Telegram notification (IMPORTANT!)
+                    if self.telegram:
+                        try:
+                            market = {
+                                'question': order.get('market_title', 'Unknown'),
+                                'id': market_id
+                            }
+                            # TODO: Calculate P&L if possible
+                            await self.telegram.notify_order_filled(fill_data, market, pnl=None)
+                        except Exception as e:
+                            logger.debug(f"Failed to send fill notification: {e}")
         
         return fills
     

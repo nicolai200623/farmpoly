@@ -46,6 +46,7 @@ from optimizer import DailyOptimizer
 from usdc_approver import USDCApprover
 from reward_manager import RewardManager
 from monitoring_system import MonitoringSystem
+from telegram_notifier import TelegramNotifier
 
 
 class PolymarketBot:
@@ -152,9 +153,19 @@ class PolymarketBot:
     def _initialize_modules(self):
         """Initialize all trading modules"""
         try:
+            # Initialize Telegram Notifier FIRST
+            self.modules['telegram'] = TelegramNotifier(self.config)
+            logger.info("✅ Telegram Notifier initialized")
+
             self.modules['scanner'] = MarketScanner(self.config['market_scanner'])
             self.modules['selector'] = MarketSelectorAI(self.config)
-            self.modules['order_mgr'] = OrderManager(self.config['order_management'])
+
+            # Pass telegram notifier to OrderManager
+            self.modules['order_mgr'] = OrderManager(
+                self.config['order_management'],
+                telegram_notifier=self.modules['telegram']
+            )
+
             self.modules['monitor'] = PositionMonitor(self.config['monitoring'])
             self.modules['risk_mgr'] = RiskManager(self.config['risk_management'])
             self.modules['wallet_mgr'] = WalletManager(self.config['wallet_management'])
@@ -290,6 +301,14 @@ class PolymarketBot:
                 # Record scan metrics
                 monitoring.record_market_scan(len(markets))
 
+                # Send notification if markets found
+                telegram = self.modules.get('telegram')
+                if telegram and markets:
+                    try:
+                        await telegram.notify_market_found(markets)
+                    except Exception as e:
+                        logger.debug(f"Failed to send market found notification: {e}")
+
                 # Filter and score markets
                 selected_markets = await selector.select_markets(markets)
 
@@ -310,6 +329,14 @@ class PolymarketBot:
                 # Record error
                 monitoring.record_error('market_scan', str(e))
                 monitoring.record_api_call((datetime.now() - scan_start).total_seconds(), False)
+
+                # Send error notification
+                telegram = self.modules.get('telegram')
+                if telegram:
+                    try:
+                        await telegram.notify_error('Market Scan', str(e), 'Market scanning loop')
+                    except Exception as notify_err:
+                        logger.debug(f"Failed to send error notification: {notify_err}")
 
                 await asyncio.sleep(10)
     
@@ -528,8 +555,18 @@ class PolymarketBot:
                 # Wait until next hour
                 await asyncio.sleep(seconds_until_next_hour)
 
-                # Send hourly report
-                await monitoring.send_hourly_report()
+                # Send hourly report via TelegramNotifier
+                telegram = self.modules.get('telegram')
+                if telegram and self.config.get('alerts', {}).get('notifications', {}).get('hourly_report', True):
+                    try:
+                        stats = monitoring.get_statistics(time_window_minutes=60)
+                        health = await monitoring.check_health()
+                        await telegram.notify_hourly_report(stats, health)
+                    except Exception as e:
+                        logger.error(f"Failed to send hourly report: {e}")
+                else:
+                    # Fallback to old method
+                    await monitoring.send_hourly_report()
 
             except Exception as e:
                 logger.error(f"Hourly report error: {e}")
@@ -543,27 +580,18 @@ class PolymarketBot:
     async def _send_startup_alert(self):
         """Send startup notification via Telegram"""
         try:
-            alerts_config = self.config.get('alerts', {})
-
-            if not alerts_config.get('alert_on_startup', True):
-                return
-
             wallet_mgr = self.modules.get('wallet_mgr')
             num_wallets = len(wallet_mgr.wallets) if wallet_mgr else 0
 
-            message = f"""
-🚀 <b>Polymarket Bot Started</b>
-━━━━━━━━━━━━━━━━━━━━━━
-⏰ Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-💼 Wallets: {num_wallets}
-📊 Status: Running
-━━━━━━━━━━━━━━━━━━━━━━
-Bot is now scanning markets and placing orders.
-            """
-
-            # Send via configured alert channels
-            await self.modules['ml_predictor'].send_alert(message.strip())
-            logger.info("✅ Startup alert sent")
+            # Use new TelegramNotifier
+            telegram = self.modules.get('telegram')
+            if telegram:
+                await telegram.notify_startup(num_wallets)
+                logger.info("✅ Startup alert sent via TelegramNotifier")
+            else:
+                # Fallback to old method
+                await self.modules['ml_predictor'].send_alert(f"🚀 Bot Started - {num_wallets} wallets")
+                logger.info("✅ Startup alert sent via MLPredictor")
 
         except Exception as e:
             logger.error(f"Failed to send startup alert: {e}")

@@ -233,6 +233,27 @@ alerts:
   alert_on_profit_threshold: 100  # USD
   alert_on_loss_threshold: -50  # USD
 
+  # Detailed Notifications (NEW!)
+  # Bật/tắt từng loại thông báo chi tiết
+  notifications:
+    # Order notifications
+    order_placed: true          # Thông báo khi đặt lệnh mới
+    order_cancelled: false      # Thông báo khi hủy lệnh (có thể spam)
+    order_filled: true          # Thông báo khi lệnh bị fill (QUAN TRỌNG!)
+
+    # Market scanning notifications
+    market_found: true          # Thông báo khi tìm thấy markets mới
+    market_removed: false       # Thông báo khi markets bị loại bỏ (có thể spam)
+
+    # Error & Alert notifications
+    error: true                 # Thông báo khi có lỗi
+    circuit_breaker: true       # Thông báo khi circuit breaker kích hoạt
+    risk_alert: true            # Thông báo về rủi ro cao
+
+    # Report notifications
+    hourly_report: true         # Báo cáo hàng giờ
+    daily_report: true          # Báo cáo hàng ngày
+
 # Polymarket CLOB Settings
 clob:
   host: "https://clob.polymarket.com"
