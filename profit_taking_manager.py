@@ -66,12 +66,12 @@ class ProfitTakingManager:
             host = "https://clob.polymarket.com"
             chain_id = POLYGON
             
+            # signature_type=0 is default for EOA wallets (private key from .env)
+            # Do NOT set signature_type=2 (that's for browser wallets)
             client = ClobClient(
                 host,
                 key=private_key,
-                chain_id=chain_id,
-                signature_type=2,
-                funder=None
+                chain_id=chain_id
             )
             
             # Create API credentials
@@ -242,13 +242,13 @@ class ProfitTakingManager:
                     private_key = private_key[2:]
 
                 # Create fresh signing client
+                # signature_type=0 is default for EOA wallets (private key from .env)
+                # Do NOT set signature_type=2 (that's for browser wallets)
                 logger.info("🔧 Creating fresh signing client for SELL order...")
                 signing_client = ClobClient(
                     host="https://clob.polymarket.com",
                     key=private_key,
-                    chain_id=POLYGON,
-                    signature_type=2,
-                    funder=None
+                    chain_id=POLYGON
                 )
 
                 # Set API credentials (required for L2 auth)
