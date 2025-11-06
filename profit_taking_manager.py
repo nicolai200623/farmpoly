@@ -242,7 +242,7 @@ class ProfitTakingManager:
                     private_key = private_key[2:]
 
                 # Create fresh signing client
-                logger.debug("Creating fresh signing client for SELL order...")
+                logger.info("🔧 Creating fresh signing client for SELL order...")
                 signing_client = ClobClient(
                     host="https://clob.polymarket.com",
                     key=private_key,
@@ -252,9 +252,9 @@ class ProfitTakingManager:
                 )
 
                 # Set API credentials (required for L2 auth)
-                logger.debug("Setting API credentials...")
+                logger.info("🔑 Setting API credentials...")
                 signing_client.set_api_creds(signing_client.create_or_derive_api_creds())
-                logger.debug("✅ API credentials set successfully for SELL order")
+                logger.info("✅ API credentials set successfully for SELL order")
 
             except Exception as e:
                 logger.error(f"❌ Failed to create signing client: {e}")
@@ -268,9 +268,9 @@ class ProfitTakingManager:
             )
 
             # Create, sign, and post order using the fresh signing client
-            logger.debug("Creating and signing SELL order...")
+            logger.info("📝 Creating and signing SELL order...")
             signed_order = signing_client.create_order(order_args)
-            logger.debug("Posting SELL order to CLOB...")
+            logger.info("📤 Posting SELL order to CLOB...")
             resp = signing_client.post_order(signed_order, OrderType.GTC)
             
             if resp and resp.get('success'):
@@ -298,7 +298,7 @@ class ProfitTakingManager:
                 logger.error(f"❌ Failed to place SELL order: {error_msg}")
             
         except Exception as e:
-            logger.error(f"❌ Error closing position: {e}")
+            logger.error(f"❌ Error closing position: {e}", exc_info=True)
     
     async def _send_close_alert(self, market: str, shares: float, pnl: float, pnl_pct: float, reason: str):
         """Send Telegram alert for closed position"""
