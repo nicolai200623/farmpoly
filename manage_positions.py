@@ -108,17 +108,17 @@ def sell_positions(positions):
         if not positions or len(positions) == 0:
             print("✅ No positions to sell!")
             return
-        
+
         # Get wallet private key
         private_key = os.getenv("WALLET_1_PK")
         if not private_key:
             print("❌ WALLET_1_PK not found in .env")
             return
-        
+
         # Initialize CLOB client
         host = "https://clob.polymarket.com"
         chain_id = 137
-        
+
         client = ClobClient(
             host,
             key=private_key,
@@ -126,8 +126,16 @@ def sell_positions(positions):
             signature_type=2,
             funder=None
         )
-        
-        print(f"🔧 Initialized CLOB client\n")
+
+        print(f"🔧 Initialized CLOB client")
+
+        # Create API credentials
+        print(f"🔑 Creating API credentials...")
+        try:
+            client.create_or_derive_api_creds()
+            print(f"✅ API credentials created\n")
+        except Exception as e:
+            print(f"⚠️  API credentials may already exist: {e}\n")
         
         # Ask for confirmation
         print("=" * 100)
