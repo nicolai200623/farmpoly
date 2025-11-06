@@ -93,7 +93,7 @@ profit_taking:
 
   # Profit thresholds
   min_profit_percentage: 5  # Start considering closing at 50% profit
-  target_profit_percentage: 100 # Target profit to close position
+  target_profit_percentage: 10 # Target profit to close position
   max_profit_percentage: 150  # Close immediately if profit >= 150%
 
   # Safety settings
