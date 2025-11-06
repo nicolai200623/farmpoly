@@ -1,6 +1,7 @@
 """
-Market Scanner V2 - Upgraded with Playwright + Gamma API
-Replaces fragile Selenium scraper with robust multi-source approach
+Market Scanner V2 - Using Playwright to Scrape /rewards Page
+Scrapes markets directly from https://polymarket.com/rewards for maximum accuracy
+This ensures we only get markets that actually appear on the rewards page
 """
 
 import asyncio
@@ -11,6 +12,9 @@ from typing import List, Dict, Optional
 import json
 import time
 from circuit_breaker import CircuitBreaker, CircuitBreakerOpenError
+from playwright_rewards_scraper import PlaywrightRewardsScraper
+from py_clob_client.client import ClobClient
+from py_clob_client.exceptions import PolyApiException
 
 logger = logging.getLogger(__name__)
 
@@ -29,22 +33,41 @@ class MarketScannerV2:
             # Direct scanner config
             self.min_reward = config.get('min_reward', 100)
             self.max_competition = config.get('max_competition_bars', 2)
+            self.target_categories = config.get('target_categories', [])
         else:
             # Nested config (for backward compatibility)
             scanner_config = config.get('market_scanner', {})
             self.min_reward = scanner_config.get('min_reward', 100)
             self.max_competition = scanner_config.get('max_competition_bars', 2)
+            self.target_categories = scanner_config.get('target_categories', [])
 
         # Log the actual values being used
         logger.info(f"📊 Market Scanner initialized with min_reward=${self.min_reward}, max_competition={self.max_competition}")
+        if self.target_categories:
+            logger.info(f"🎯 Target categories: {', '.join(self.target_categories)}")
+        else:
+            logger.info(f"🎯 No category filter (all categories allowed)")
 
         self.browser = None
         self.context = None
 
+        # Initialize CLOB client for orderbook verification
+        clob_config = config.get('clob', {})
+        self.clob_host = clob_config.get('host', 'https://clob.polymarket.com')
+        try:
+            self.clob_client = ClobClient(host=self.clob_host)
+            logger.debug("✅ CLOB client initialized for orderbook verification")
+        except Exception as e:
+            logger.warning(f"⚠️ Could not initialize CLOB client: {e}")
+            self.clob_client = None
+
+        # Initialize Playwright Rewards Scraper (primary source - scrapes /rewards page!)
+        self.playwright_scraper = PlaywrightRewardsScraper()
+
         # Initialize circuit breakers
-        self.api_breaker = CircuitBreaker(
-            name="gamma_api",
-            failure_threshold=5,
+        self.playwright_breaker = CircuitBreaker(
+            name="playwright_scraper",
+            failure_threshold=3,
             timeout_seconds=60,
             success_threshold=2
         )
@@ -77,36 +100,72 @@ class MarketScannerV2:
             await self.browser.close()
     
     async def scan_rewards_page(self) -> List[Dict]:
-        """Scan rewards page using multiple sources with circuit breaker protection"""
+        """
+        Scan rewards page using official Polymarket Rewards API (primary) with Gamma API fallback
+
+        Priority:
+        1. Polymarket Rewards API - Official /api/rewards/markets endpoint (MOST ACCURATE!)
+        2. Gamma API - Fallback if rewards API fails
+        """
         markets = []
 
         try:
-            # Method 1: Try Gamma API first (fastest and most reliable)
-            logger.info("🔍 Fetching from Gamma API...")
+            # Use Playwright to scrape /rewards page (most accurate method)
+            logger.info("🌐 Scraping markets from /rewards page using Playwright...")
 
             try:
-                # Use circuit breaker for API calls
-                api_markets = await self.api_breaker.call(self._fetch_gamma_api_internal)
+                # Use circuit breaker for Playwright scraper
+                playwright_markets = await self.playwright_breaker.call(
+                    lambda: self.playwright_scraper.scrape_rewards_page()
+                )
 
-                if api_markets:
-                    markets.extend(api_markets)
-                    logger.info(f"✅ Got {len(api_markets)} markets from API")
+                if playwright_markets:
+                    # Add category to each market BEFORE filtering
+                    for market in playwright_markets:
+                        if 'category' not in market:
+                            market['category'] = self._infer_category(market['question'], market)
+
+                    markets.extend(playwright_markets)
+                    logger.info(f"✅ Got {len(markets)} markets from /rewards page")
                 else:
-                    logger.warning("⚠️  No markets from API")
+                    logger.warning("⚠️  No markets from /rewards page")
 
             except CircuitBreakerOpenError as e:
-                logger.warning(f"⚠️  API circuit breaker OPEN: {e}")
-            except Exception as api_error:
-                logger.error(f"❌ API error: {api_error}")
+                logger.warning(f"⚠️  Playwright scraper circuit breaker OPEN: {e}")
+            except Exception as scraper_error:
+                logger.error(f"❌ Playwright scraper error: {scraper_error}")
 
-            # DISABLED: Playwright fallback (unreliable, can scrape markets without real rewards)
-            # Only use Gamma API to ensure all markets have verified rewards
+            # DISABLED: Playwright fallback (unreliable)
             if not markets:
-                logger.warning("⚠️  No markets from API - Playwright fallback is DISABLED for safety")
-                logger.info("💡 Bot will only trade markets with verified rewards from Gamma API")
+                logger.warning("⚠️  No markets from any source - Playwright is DISABLED")
+                logger.info("💡 Bot will retry on next scan cycle")
 
             # Filter based on criteria
             filtered_markets = self._filter_markets(markets)
+
+            # ✅ NEW FILTER 3: Verify orderbook exists for top markets
+            # Only verify top 50 markets to avoid too many API calls
+            if filtered_markets and len(filtered_markets) > 0:
+                logger.info(f"🔍 Verifying orderbook for top {min(50, len(filtered_markets))} markets...")
+                verified_markets = []
+                no_orderbook_count = 0
+
+                for market in filtered_markets[:50]:  # Only check top 50
+                    has_orderbook = await self._verify_orderbook_exists(market)
+                    if has_orderbook:
+                        verified_markets.append(market)
+                    else:
+                        no_orderbook_count += 1
+                        logger.debug(f"❌ Rejected (no orderbook): {market['question'][:50]}")
+
+                # Add remaining markets without verification (to avoid too many API calls)
+                if len(filtered_markets) > 50:
+                    verified_markets.extend(filtered_markets[50:])
+
+                if no_orderbook_count > 0:
+                    logger.info(f"   - {no_orderbook_count} markets rejected: no orderbook exists")
+
+                filtered_markets = verified_markets
 
             logger.info(f"✅ Found {len(filtered_markets)} qualifying markets (from {len(markets)} total)")
             return filtered_markets
@@ -121,11 +180,10 @@ class MarketScannerV2:
 
         async with aiohttp.ClientSession() as session:
             # Fetch active events (which contain markets)
+            # IMPORTANT: Gamma API uses '_limit' not 'limit'
             params = {
                 'closed': 'false',
-                'order': 'id',
-                'ascending': 'false',
-                'limit': 100
+                '_limit': 100  # Fixed: was 'limit', should be '_limit'
             }
 
             async with session.get(self.api_url, params=params, timeout=10) as response:
@@ -151,31 +209,53 @@ class MarketScannerV2:
     def _parse_api_market(self, market_data: dict, event: dict = None) -> Optional[Dict]:
         """Parse market data from API response"""
         try:
-            # Check if market has rewards enabled
-            rewards_min_size = float(market_data.get('rewardsMinSize', 0) or 0)
-            rewards_max_spread = float(market_data.get('rewardsMaxSpread', 0) or 0)
-            uma_reward = float(market_data.get('umaReward', 0) or 0)
-
-            # Skip markets without ANY rewards indicators
-            # Accept if ANY of these conditions is true:
-            # 1. rewardsMinSize > 0 (có yêu cầu minimum size)
-            # 2. rewardsMaxSpread > 0 (có giới hạn spread)
-            # 3. umaReward > 0 (có UMA reward)
-            if rewards_min_size == 0 and rewards_max_spread == 0 and uma_reward == 0:
-                question = market_data.get('question', 'Unknown')
-                logger.debug(f"⏭️  Skipped (no rewards): {question[:60]}")
+            # Skip closed or inactive markets
+            # IMPORTANT: Gamma API can have active=True AND closed=True at the same time!
+            # We need to check BOTH conditions
+            if market_data.get('closed', False):
                 return None
 
-            # Calculate estimated reward (improved calculation)
-            # Sử dụng rewardsMinSize hoặc volume để ước tính
-            if rewards_min_size > 0:
-                reward = rewards_min_size * 10  # Rough estimate based on min size
-            elif uma_reward > 0:
-                reward = uma_reward * 100  # UMA rewards are typically smaller
+            if not market_data.get('active', False):
+                return None
+
+            # Check if market has rewards enabled
+            # IMPORTANT: Only use rewardsMinSize and rewardsMaxSpread as indicators
+            # umaReward is NOT a dollar amount - it's a config value/multiplier
+            rewards_min_size = float(market_data.get('rewardsMinSize', 0) or 0)
+            rewards_max_spread = float(market_data.get('rewardsMaxSpread', 0) or 0)
+
+            # Skip markets without REAL rewards indicators
+            # Only accept if BOTH conditions are true:
+            # 1. rewardsMinSize > 0 (có yêu cầu minimum size)
+            # 2. rewardsMaxSpread > 0 (có giới hạn spread)
+            # This ensures we only trade on markets with VERIFIED rewards program
+            if rewards_min_size == 0 or rewards_max_spread == 0:
+                question = market_data.get('question', 'Unknown')
+                logger.debug(f"⏭️  Skipped (no verified rewards): {question[:60]} - minSize={rewards_min_size}, maxSpread={rewards_max_spread}")
+                return None
+
+            # Get actual reward from umaReward field
+            # IMPORTANT: umaReward is the ACTUAL dollar amount for rewards, not a multiplier!
+            uma_reward = float(market_data.get('umaReward', 0) or 0)
+
+            # Use umaReward as the primary reward value
+            if uma_reward > 0:
+                reward = uma_reward
             else:
-                # Fallback: estimate from volume
+                # Fallback: Estimate reward based on volume (conservative estimate)
                 volume = float(market_data.get('volume', 0) or market_data.get('volumeNum', 0) or 0)
-                reward = min(volume * 0.001, 1000)  # 0.1% of volume, max $1000
+                liquidity = float(market_data.get('liquidity', 0) or 0)
+
+                if volume > 10000:
+                    reward = min(volume * 0.002, 500)  # 0.2% of volume, max $500
+                elif volume > 1000:
+                    reward = min(volume * 0.005, 200)  # 0.5% of volume, max $200
+                else:
+                    reward = min(volume * 0.01, 100)  # 1% of volume, max $100
+
+                # Boost reward if liquidity is high
+                if liquidity > 1000:
+                    reward *= 1.5
 
             # Get competition level (use volume as proxy)
             volume = float(market_data.get('volume', 0) or market_data.get('volumeNum', 0) or 0)
@@ -221,7 +301,6 @@ class MarketScannerV2:
                 # Thêm thông tin rewards chi tiết
                 'rewards_min_size': rewards_min_size,
                 'rewards_max_spread': rewards_max_spread,
-                'uma_reward': uma_reward,
             }
 
             return market
@@ -314,6 +393,9 @@ class MarketScannerV2:
         rejected_reasons = {
             'low_reward': 0,
             'high_competition': 0,
+            'wrong_category': 0,
+            'no_clob_tokens': 0,
+            'no_volume': 0,
             'other': 0
         }
 
@@ -330,22 +412,39 @@ class MarketScannerV2:
                 logger.debug(f"❌ Rejected (high competition): {market['question'][:50]} - Competition: {market['competition_bars']} > {self.max_competition}")
                 continue
 
+            # Check category filter (if configured AND category field exists)
+            if self.target_categories:
+                market_category = market.get('category', None)
+                # Only apply category filter if category field exists
+                if market_category is not None and market_category not in self.target_categories:
+                    rejected_reasons['wrong_category'] += 1
+                    logger.debug(f"❌ Rejected (wrong category): {market['question'][:50]} - Category: '{market_category}' not in {self.target_categories}")
+                    continue
+
+            # ✅ NEW FILTER 1: Check if market has clob_token_ids
+            clob_token_ids = market.get('clob_token_ids', [])
+            if not clob_token_ids or len(clob_token_ids) == 0:
+                rejected_reasons['no_clob_tokens'] += 1
+                logger.debug(f"❌ Rejected (no clob_token_ids): {market['question'][:50]} - ID: {market.get('id')}")
+                continue
+
+            # ✅ NEW FILTER 2: Check if market has volume > 0
+            volume = market.get('volume', 0) or market.get('volume_24hr', 0)
+            if volume <= 0:
+                rejected_reasons['no_volume'] += 1
+                logger.debug(f"❌ Rejected (no volume): {market['question'][:50]} - Volume: {volume}")
+                continue
+
             # Add score for ranking
             market['score'] = self._calculate_score(market)
 
             filtered.append(market)
 
             # Log detailed acceptance info with reward verification
-            reward_source = "UNKNOWN"
-            if market.get('rewards_min_size', 0) > 0:
-                reward_source = f"rewardsMinSize={market['rewards_min_size']}"
-            elif market.get('uma_reward', 0) > 0:
-                reward_source = f"umaReward={market['uma_reward']}"
-            elif market.get('rewards_max_spread', 0) > 0:
-                reward_source = f"rewardsMaxSpread={market['rewards_max_spread']}"
-
             logger.info(f"✅ ACCEPTED: {market['question'][:60]}")
-            logger.info(f"   - Estimated Reward: ${market['reward']:.0f} (from {reward_source})")
+            logger.info(f"   - Category: {market.get('category', 'unknown')}")
+            logger.info(f"   - Estimated Reward: ${market['reward']:.0f} (based on volume=${market.get('volume', 0):.0f})")
+            logger.info(f"   - Rewards Config: minSize={market.get('rewards_min_size', 0)}, maxSpread={market.get('rewards_max_spread', 0)}")
             logger.info(f"   - Competition: {market['competition_bars']} bars, Score: {market['score']:.2f}")
             logger.info(f"   - Source: {market.get('source', 'unknown')}")
 
@@ -356,6 +455,12 @@ class MarketScannerV2:
                 logger.info(f"   - {rejected_reasons['low_reward']} rejected: reward < ${self.min_reward}")
             if rejected_reasons['high_competition'] > 0:
                 logger.info(f"   - {rejected_reasons['high_competition']} rejected: competition > {self.max_competition}")
+            if rejected_reasons['wrong_category'] > 0:
+                logger.info(f"   - {rejected_reasons['wrong_category']} rejected: category not in {self.target_categories}")
+            if rejected_reasons['no_clob_tokens'] > 0:
+                logger.info(f"   - {rejected_reasons['no_clob_tokens']} rejected: no clob_token_ids (cannot trade)")
+            if rejected_reasons['no_volume'] > 0:
+                logger.info(f"   - {rejected_reasons['no_volume']} rejected: volume = 0 (no liquidity)")
 
         # Sort by score (highest first)
         filtered.sort(key=lambda x: x['score'], reverse=True)
@@ -382,6 +487,52 @@ class MarketScannerV2:
 
         return score
 
+    async def _verify_orderbook_exists(self, market: Dict) -> bool:
+        """
+        Verify that an orderbook exists for this market
+
+        Args:
+            market: Market dict with clob_token_ids
+
+        Returns:
+            True if orderbook exists and has liquidity, False otherwise
+        """
+        if not self.clob_client:
+            logger.debug("⚠️ CLOB client not available, skipping orderbook verification")
+            return True  # Skip verification if CLOB client not available
+
+        clob_token_ids = market.get('clob_token_ids', [])
+        if not clob_token_ids or len(clob_token_ids) == 0:
+            return False
+
+        try:
+            # Try to fetch orderbook for the first token (YES outcome)
+            token_id = clob_token_ids[0]
+            book = self.clob_client.get_order_book(token_id)
+
+            # Check if orderbook has any bids or asks
+            if hasattr(book, 'bids') and hasattr(book, 'asks'):
+                has_liquidity = (book.bids and len(book.bids) > 0) or (book.asks and len(book.asks) > 0)
+                if has_liquidity:
+                    logger.debug(f"✅ Orderbook verified for market {market.get('id')}: {len(book.bids)} bids, {len(book.asks)} asks")
+                    return True
+                else:
+                    logger.debug(f"❌ Orderbook empty for market {market.get('id')}")
+                    return False
+            else:
+                logger.debug(f"❌ Invalid orderbook format for market {market.get('id')}")
+                return False
+
+        except PolyApiException as e:
+            if e.status_code == 404:
+                logger.debug(f"❌ No orderbook exists for market {market.get('id')} (404)")
+            else:
+                logger.debug(f"❌ Error fetching orderbook for market {market.get('id')}: {e}")
+            return False
+        except Exception as e:
+            logger.debug(f"❌ Unexpected error verifying orderbook for market {market.get('id')}: {e}")
+            return False
+
     def _infer_category(self, question: str, event: dict = None) -> str:
         """
         Infer market category from question text and event data
@@ -397,58 +548,91 @@ class MarketScannerV2:
         """
         question_lower = question.lower()
 
-        # Sports keywords
+        # Crypto keywords (check FIRST - most specific)
+        crypto_keywords = [
+            'bitcoin', 'btc', 'ethereum', 'eth', 'solana', 'sol', 'xrp', 'ripple',
+            'crypto', 'cryptocurrency', 'up or down', 'price', 'fdv', 'market cap',
+            'metamask', 'wallet', 'defi', 'token', 'coin', 'blockchain'
+        ]
+
+        # Science/Tech keywords (check SECOND - specific)
+        science_keywords = [
+            'ai', 'artificial intelligence', 'gemini', 'chatgpt', 'gpt', 'claude',
+            'openai', 'google ai', 'deepmind', 'machine learning', 'neural network',
+            'technology', 'research', 'study', 'discovery', 'space', 'nasa',
+            'climate', 'vaccine', 'humanit', 'benchmark'
+        ]
+
+        # Politics keywords (check THIRD - specific)
+        politics_keywords = [
+            # Elections & Government
+            'election', 'president', 'senate', 'congress', 'vote', 'poll',
+            'democrat', 'republican', 'party', 'government', 'policy', 'campaign',
+
+            # Politicians (US)
+            'trump', 'biden', 'harris', 'pelosi', 'nancy pelosi', 'obama', 'clinton',
+            'desantis', 'newsom', 'pence', 'mcconnell', 'schumer', 'aoc',
+
+            # Politicians (NYC/Local)
+            'mamdani', 'nyc', 'mayor', 'city council', 'rent', 'rents',
+
+            # International Politics & Conflicts
+            'russia', 'ukraine', 'putin', 'zelensky', 'war', 'conflict', 'military',
+            'israel', 'palestine', 'gaza', 'hamas', 'iran', 'yemen', 'strike', 'attack',
+            'china', 'taiwan', 'xi jinping', 'north korea', 'kim jong',
+
+            # Political Events
+            'impeachment', 'scandal', 'investigation', 'hearing', 'testimony',
+            'shutdown', 'budget', 'debt ceiling', 'supreme court', 'justice',
+            'cabinet', 'secretary', 'ambassador', 'diplomat'
+        ]
+
+        # Entertainment keywords (check FOURTH - specific)
+        entertainment_keywords = [
+            # Movies & TV
+            'movie', 'film', 'actor', 'actress', 'celebrity', 'tv show',
+            'series', 'netflix', 'disney', 'oscar', 'emmy', 'grammy',
+            'box office', 'streaming', 'hbo', 'amazon prime',
+
+            # Celebrities & Social Media
+            'tweet', 'tweets', 'twitter', 'instagram', 'tiktok', 'viral',
+            'influencer', 'streamer', 'youtube', 'podcast',
+
+            # Specific Celebrities (if not political)
+            'ackman', 'bill ackman', 'elon musk', 'kardashian', 'swift',
+            'beyonce', 'kanye', 'drake', 'rogan'
+        ]
+
+        # Economics keywords (check FIFTH - can overlap with crypto)
+        economics_keywords = [
+            'stock', 'economy', 'gdp', 'inflation', 'fed', 'interest rate',
+            'recession', 'unemployment', 'dow', 'nasdaq', 's&p', 'treasury'
+        ]
+
+        # Sports keywords (check LAST - has generic words like "game", "score")
         sports_keywords = [
             'nfl', 'nba', 'mlb', 'nhl', 'soccer', 'football', 'basketball', 'baseball',
             'hockey', 'tennis', 'golf', 'ufc', 'boxing', 'f1', 'racing', 'olympics',
-            'world cup', 'super bowl', 'playoffs', 'championship', 'league',
+            'world cup', 'super bowl', 'playoffs', 'championship', 'premier league',
+            'la liga', 'serie a', 'bundesliga', 'champions league',
             'esports', 'counter-strike', 'cs2', 'dota', 'league of legends', 'valorant',
-            'mobile legends', 'mlbb', 'team', 'match', 'game', 'vs', 'win', 'score'
+            'mobile legends', 'mlbb', 'tournament', 'qualifier'
         ]
 
-        # Crypto keywords
-        crypto_keywords = [
-            'bitcoin', 'btc', 'ethereum', 'eth', 'solana', 'sol', 'xrp', 'ripple',
-            'crypto', 'cryptocurrency', 'up or down', 'price', 'trading'
-        ]
-
-        # Politics keywords
-        politics_keywords = [
-            'election', 'president', 'senate', 'congress', 'vote', 'poll',
-            'democrat', 'republican', 'party', 'government', 'policy'
-        ]
-
-        # Entertainment keywords
-        entertainment_keywords = [
-            'movie', 'film', 'actor', 'actress', 'celebrity', 'tv show',
-            'series', 'netflix', 'disney', 'oscar', 'emmy', 'grammy'
-        ]
-
-        # Economics keywords
-        economics_keywords = [
-            'stock', 'market', 'economy', 'gdp', 'inflation', 'fed', 'interest rate',
-            'recession', 'unemployment', 'dow', 'nasdaq', 's&p'
-        ]
-
-        # Science keywords
-        science_keywords = [
-            'technology', 'ai', 'artificial intelligence', 'research', 'study',
-            'discovery', 'space', 'nasa', 'climate', 'vaccine'
-        ]
-
-        # Check each category
-        if any(keyword in question_lower for keyword in sports_keywords):
-            return 'sports'
-        elif any(keyword in question_lower for keyword in crypto_keywords):
+        # Check each category in order of SPECIFICITY (most specific first)
+        # This prevents generic sports keywords from matching crypto/AI questions
+        if any(keyword in question_lower for keyword in crypto_keywords):
             return 'crypto'
+        elif any(keyword in question_lower for keyword in science_keywords):
+            return 'science'
         elif any(keyword in question_lower for keyword in politics_keywords):
             return 'politics'
         elif any(keyword in question_lower for keyword in entertainment_keywords):
             return 'entertainment'
         elif any(keyword in question_lower for keyword in economics_keywords):
             return 'economics'
-        elif any(keyword in question_lower for keyword in science_keywords):
-            return 'science'
+        elif any(keyword in question_lower for keyword in sports_keywords):
+            return 'sports'
         else:
             return 'other'
 

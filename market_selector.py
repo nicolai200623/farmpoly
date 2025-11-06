@@ -21,7 +21,7 @@ class MarketSelectorAI:
         self.historical_data = []
         self.volume_baselines = {}
         self.market_performance = {}
-        self.selection_threshold = 0.7  # Minimum score to select
+        self.selection_threshold = 0.5  # Minimum score to select (lowered from 0.7 to accept more markets)
     
     async def select_markets(self, markets: List[Dict]) -> List[Dict]:
         """Select best markets using AI scoring"""
@@ -121,8 +121,9 @@ class MarketSelectorAI:
     async def _score_volume_spike(self, market: Dict) -> float:
         """Score based on volume spike detection"""
         try:
-            market_id = market['id']
-            current_volume = market['volume']
+            # Get market ID (CLOB API uses 'market_id' or 'condition_id', Gamma API uses 'id')
+            market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
+            current_volume = market.get('volume', 0) or market.get('volume_24hr', 0)
             
             # Get baseline volume
             if market_id not in self.volume_baselines:

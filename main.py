@@ -301,16 +301,16 @@ class PolymarketBot:
                 # Record scan metrics
                 monitoring.record_market_scan(len(markets))
 
-                # Send notification if markets found
-                telegram = self.modules.get('telegram')
-                if telegram and markets:
-                    try:
-                        await telegram.notify_market_found(markets)
-                    except Exception as e:
-                        logger.debug(f"Failed to send market found notification: {e}")
-
                 # Filter and score markets
                 selected_markets = await selector.select_markets(markets)
+
+                # Send notification AFTER filtering (only show qualifying markets)
+                telegram = self.modules.get('telegram')
+                if telegram and selected_markets:
+                    try:
+                        await telegram.notify_market_found(selected_markets)
+                    except Exception as e:
+                        logger.debug(f"Failed to send market found notification: {e}")
 
                 # Process selected markets
                 for market in selected_markets:
@@ -499,21 +499,25 @@ class PolymarketBot:
     async def _process_market_opportunity(self, market: dict):
         """Process a selected market opportunity"""
         try:
+            # Get market ID (CLOB API uses 'market_id' or 'condition_id', Gamma API uses 'id')
+            market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
+
             # Check risk limits
             if not await self.modules['risk_mgr'].check_market_limit(market):
-                logger.info(f"Skipping market {market['id']} due to risk limits")
+                logger.info(f"Skipping market {market_id} due to risk limits")
                 return
-            
+
             # Prepare order with dynamic spread
             order = await self.modules['order_mgr'].prepare_market_order(market)
-            
+
             # Add to pending orders
             await self.modules['order_mgr'].add_pending_order(order)
-            
-            logger.info(f"Added market {market['id']} to pending orders")
-            
+
+            logger.info(f"Added market {market_id} to pending orders")
+
         except Exception as e:
-            logger.error(f"Error processing market {market['id']}: {e}")
+            market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
+            logger.error(f"Error processing market {market_id}: {e}")
     
     async def _monitoring_loop(self):
         """Continuous health monitoring"""

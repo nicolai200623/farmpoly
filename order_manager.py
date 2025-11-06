@@ -26,6 +26,12 @@ class OrderManager:
         self.filled_orders = []
         self.clob_client = None
         self.telegram = telegram_notifier  # Telegram notifier
+        
+        # Read CLOB settings from config
+        clob_config = self.config.get('clob', {})
+        self.clob_host = clob_config.get('host', 'https://clob.polymarket.com')
+        self.chain_id = clob_config.get('chain_id', 137)
+        
         self._initialize_clob()
     
     def _initialize_clob(self):
@@ -33,7 +39,7 @@ class OrderManager:
         try:
             # Initialize CLOB client in read-only mode (no key required for market data)
             self.clob_client = ClobClient(
-                host="https://clob.polymarket.com"
+                host=self.clob_host
             )
 
             logger.info("CLOB client initialized successfully (read-only mode)")
@@ -42,38 +48,52 @@ class OrderManager:
             logger.error(f"Failed to initialize CLOB: {e}")
     
     async def prepare_market_order(self, market: Dict) -> Dict:
-        """Prepare order with dynamic spread calculation"""
+        """Prepare order with position-based pricing (2nd or 3rd position in order book)"""
         try:
+            # Get market ID (CLOB API uses 'market_id' or 'condition_id', Gamma API uses 'id')
+            market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
+
             # Get token_id from market data (first token for YES outcome)
             token_id = None
             if market.get('clob_token_ids') and len(market['clob_token_ids']) > 0:
                 token_id = market['clob_token_ids'][0]  # Use first token (YES outcome)
-                logger.debug(f"Using token_id: {token_id} for market {market['id']}")
+                logger.debug(f"Using token_id: {token_id} for market {market_id}")
             else:
-                logger.warning(f"No clob_token_ids found for market {market['id']}, will try with market ID")
+                logger.warning(f"No clob_token_ids found for market {market_id}, will try with market ID")
 
-            # Get current market prices
-            market_data = await self._fetch_market_data(market['id'], token_id)
+            # Get current market prices and order book
+            market_data = await self._fetch_market_data(market_id, token_id)
 
             if not market_data:
-                logger.warning(f"Could not fetch data for market {market['id']}")
+                logger.warning(f"Could not fetch data for market {market_id}")
                 return None
 
-            # Calculate dynamic spread
-            spread = self._calculate_dynamic_spread(market_data)
+            # Get max spread from market rewards config (if available)
+            max_spread_pct = market.get('rewards_max_spread', 3.5)  # Default 3.5%
+            max_spread_decimal = max_spread_pct / 100  # Convert to decimal (e.g., 0.035)
+
+            # Calculate order prices at 2nd or 3rd position in order book
+            yes_price, no_price, position_info = self._calculate_position_based_prices(
+                market_data,
+                max_spread_decimal
+            )
+
+            if yes_price is None or no_price is None:
+                logger.warning(f"Could not calculate valid prices for market {market_id}")
+                return None
 
             # Calculate order sizes with jitter
             yes_size, no_size = self._calculate_order_sizes()
 
             # Prepare both sides
             order = {
-                'market_id': market['id'],
+                'market_id': market_id,
                 'market_title': market.get('question', market.get('title', 'Unknown')),
                 'token_ids': market.get('clob_token_ids', []),  # Store token IDs for order placement
                 'yes_order': {
                     'side': 'buy',
                     'outcome': 'yes',
-                    'price': market_data['mid_price'] - spread,
+                    'price': yes_price,
                     'size': yes_size,
                     'type': 'limit',
                     'time_in_force': 'GTC'  # Good Till Cancelled
@@ -81,17 +101,20 @@ class OrderManager:
                 'no_order': {
                     'side': 'buy',
                     'outcome': 'no',
-                    'price': 1 - (market_data['mid_price'] + spread),
+                    'price': no_price,
                     'size': no_size,
                     'type': 'limit',
                     'time_in_force': 'GTC'
                 },
-                'spread': spread,
+                'position_info': position_info,  # Store position details for logging
                 'created_at': time.time(),
                 'status': 'pending'
             }
 
-            logger.info(f"Prepared order for market {market['id']} with spread {spread:.4f}")
+            logger.info(f"✅ Prepared order for market {market_id}")
+            logger.info(f"   - YES: ${yes_price:.4f} at position {position_info['yes_position']}")
+            logger.info(f"   - NO: ${no_price:.4f} at position {position_info['no_position']}")
+            logger.info(f"   - Spread from mid: {position_info['spread_from_mid']:.2%} (max: {max_spread_decimal:.2%})")
 
             return order
 
@@ -178,7 +201,7 @@ class OrderManager:
                 return book
             else:
                 # Fallback to direct API call
-                url = f"https://clob.polymarket.com/book?token_id={lookup_id}"
+                url = f"{self.clob_host}/book?token_id={lookup_id}"
 
                 async with aiohttp.ClientSession() as session:
                     async with session.get(url) as response:
@@ -191,41 +214,145 @@ class OrderManager:
             logger.error(f"Error getting order book: {e}")
             return None
     
-    def _calculate_dynamic_spread(self, market_data: Dict) -> float:
-        """Calculate dynamic spread based on market conditions"""
+    def _calculate_position_based_prices(self, market_data: Dict, max_spread: float) -> Tuple[Optional[float], Optional[float], Dict]:
+        """Calculate order prices to place at 2nd or 3rd position in order book
+
+        Args:
+            market_data: Market data including order book
+            max_spread: Maximum allowed spread from midpoint (as decimal, e.g., 0.035 for 3.5%)
+
+        Returns:
+            Tuple of (yes_price, no_price, position_info)
+        """
         try:
-            base_spread = (self.config['spread_min'] + self.config['spread_max']) / 2
-            
-            # Adjust based on current spread
-            current_spread = market_data['current_spread']
-            if current_spread > 0.05:  # Wide spread
-                spread_multiplier = 1.2
-            elif current_spread > 0.02:  # Normal spread
-                spread_multiplier = 1.0
-            else:  # Tight spread
-                spread_multiplier = 0.8
-            
-            # Adjust based on volume imbalance
-            bid_volume = market_data['bid_volume']
-            ask_volume = market_data['ask_volume']
-            
-            if bid_volume > ask_volume * 2:  # Heavy buying pressure
-                spread_multiplier *= 1.1
-            elif ask_volume > bid_volume * 2:  # Heavy selling pressure
-                spread_multiplier *= 1.1
-            
-            # Calculate final spread
-            dynamic_spread = base_spread * spread_multiplier
-            
-            # Ensure within configured bounds
-            dynamic_spread = max(self.config['spread_min'], 
-                                min(self.config['spread_max'], dynamic_spread))
-            
-            return dynamic_spread
-            
+            order_book = market_data['order_book']
+            mid_price = market_data['mid_price']
+
+            # Extract bids and asks from order book
+            if hasattr(order_book, 'bids'):
+                bids = order_book.bids if order_book.bids else []
+                asks = order_book.asks if order_book.asks else []
+            elif isinstance(order_book, dict):
+                bids = order_book.get('bids', [])
+                asks = order_book.get('asks', [])
+            else:
+                logger.error(f"Unknown orderbook type: {type(order_book)}")
+                return None, None, {}
+
+            # ⚠️ CRITICAL CHECK: Ensure order book has enough depth
+            # We need at least 2 orders on each side to place at position 2 or 3
+            # This prevents bot from EVER placing at position 1 (best bid/ask)
+            if len(bids) < 2 or len(asks) < 2:
+                logger.warning(f"❌ Order book too thin! Bids: {len(bids)}, Asks: {len(asks)}")
+                logger.warning(f"   Bot requires at least 2 orders on EACH side to avoid position 1")
+                logger.warning(f"   Rejecting this market to prevent being best bid/ask")
+                return None, None, {}
+
+            # Helper function to get price from order (handle both dict and object)
+            def get_price(order):
+                if isinstance(order, dict):
+                    return float(order.get('price', 0))
+                else:
+                    return float(getattr(order, 'price', 0))
+
+            # Target position: 2nd or 3rd (randomly choose for variety)
+            target_position = random.choice([2, 3])
+
+            # Calculate YES order price (buy side - we want to be in the bid book)
+            # For YES outcome, we BUY at a price below midpoint
+            yes_price = None
+            yes_position = 1  # Default to position 1 if not enough orders
+
+            if len(bids) >= target_position:
+                # Place at target position (2nd or 3rd)
+                target_bid = bids[target_position - 1]
+                target_price = get_price(target_bid)
+
+                # Slightly undercut the target position (0.001 = 0.1 cent lower)
+                yes_price = target_price - 0.001
+                yes_position = target_position
+            elif len(bids) > 0:
+                # Not enough orders, place behind the last bid
+                last_bid = bids[-1]
+                yes_price = get_price(last_bid) - 0.001
+                yes_position = len(bids) + 1
+            else:
+                # No bids, place at midpoint - max_spread
+                yes_price = mid_price - (max_spread * mid_price)
+                yes_position = 1
+
+            # Calculate NO order price (buy side - we want to be in the bid book for NO)
+            # For NO outcome, price = 1 - YES_ask_equivalent
+            # We need to think in terms of the NO token's order book
+            no_price = None
+            no_position = 1
+
+            if len(asks) >= target_position:
+                # Place at target position (2nd or 3rd)
+                target_ask = asks[target_position - 1]
+                target_price = get_price(target_ask)
+
+                # For NO: if YES ask is at X, NO bid should be at (1 - X) + small offset
+                # We want to be slightly better than the target position
+                no_price = 1 - target_price - 0.001
+                no_position = target_position
+            elif len(asks) > 0:
+                # Not enough orders, place behind the last ask
+                last_ask = asks[-1]
+                no_price = 1 - get_price(last_ask) - 0.001
+                no_position = len(asks) + 1
+            else:
+                # No asks, place at midpoint - max_spread
+                no_price = (1 - mid_price) - (max_spread * (1 - mid_price))
+                no_position = 1
+
+            # Validate prices are within max spread
+            # For YES: spread from mid = (mid - yes_price) / mid
+            # For NO: we need to convert NO price to YES equivalent first
+            # NO price of X means YES price of (1-X), so spread = (mid - (1-no_price)) / mid
+            yes_spread_from_mid = abs(mid_price - yes_price) / mid_price
+            no_as_yes_price = 1 - no_price  # Convert NO price to YES equivalent
+            no_spread_from_mid = abs(mid_price - no_as_yes_price) / mid_price
+
+            max_spread_from_mid = max(yes_spread_from_mid, no_spread_from_mid)
+
+            if max_spread_from_mid > max_spread:
+                logger.warning(f"Calculated prices exceed max spread ({max_spread_from_mid:.2%} > {max_spread:.2%})")
+                logger.warning(f"Adjusting prices to fit within max spread...")
+
+                # Adjust to max spread
+                yes_price = mid_price - (max_spread * mid_price)
+                no_price = 1 - (mid_price + (max_spread * mid_price))
+                yes_position = "adjusted"
+                no_position = "adjusted"
+
+                # Recalculate spread after adjustment
+                yes_spread_from_mid = abs(mid_price - yes_price) / mid_price
+                no_as_yes_price = 1 - no_price
+                no_spread_from_mid = abs(mid_price - no_as_yes_price) / mid_price
+                max_spread_from_mid = max(yes_spread_from_mid, no_spread_from_mid)
+
+            # Ensure prices are valid (between 0 and 1)
+            yes_price = max(0.01, min(0.99, yes_price))
+            no_price = max(0.01, min(0.99, no_price))
+
+            position_info = {
+                'yes_position': yes_position,
+                'no_position': no_position,
+                'spread_from_mid': max_spread_from_mid,
+                'max_spread_allowed': max_spread,
+                'midpoint': mid_price,
+                'num_bids': len(bids),
+                'num_asks': len(asks)
+            }
+
+            return yes_price, no_price, position_info
+
         except Exception as e:
-            logger.error(f"Error calculating spread: {e}")
-            return (self.config['spread_min'] + self.config['spread_max']) / 2
+            logger.error(f"Error calculating position-based prices: {e}")
+            import traceback
+            traceback.print_exc()
+            return None, None, {}
     
     def _calculate_order_sizes(self) -> Tuple[int, int]:
         """Calculate order sizes with jitter"""
@@ -338,9 +465,9 @@ class OrderManager:
             # Create a new ClobClient instance with the wallet's private key
             # (The global clob_client is read-only, we need a signing client per wallet)
             signing_client = ClobClient(
-                host="https://clob.polymarket.com",
+                host=self.clob_host,
                 key=wallet['private_key'],  # Add private key for signing
-                chain_id=137  # Polygon mainnet chain ID
+                chain_id=self.chain_id  # From config
             )
 
             # Set API credentials (required for L2 auth to post orders)

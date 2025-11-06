@@ -31,7 +31,8 @@ class RiskManager:
     async def check_market_limit(self, market: Dict) -> bool:
         """Check if market fits within risk limits"""
         try:
-            market_id = market['id']
+            # Get market ID (CLOB API uses 'market_id' or 'condition_id', Gamma API uses 'id')
+            market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
             required_capital = self._calculate_required_capital(market)
             
             # Check max capital per market

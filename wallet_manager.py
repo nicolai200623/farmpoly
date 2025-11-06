@@ -6,6 +6,7 @@ Manages multiple wallets with rotation and jitter
 import logging
 import random
 import time
+import os
 from typing import List, Dict, Optional
 from eth_account import Account
 import asyncio
@@ -23,7 +24,9 @@ class WalletManager:
         self.current_wallet_index = 0
         self.wallet_usage = {}
         self.last_wallet_switch = time.time()
-        self.w3 = Web3(Web3.HTTPProvider('https://polygon-rpc.com'))
+        # Get RPC URL from config or env
+        rpc_url = self.config.get('rpc_url') or os.getenv('POLYGON_RPC_URL', 'https://polygon-rpc.com')
+        self.w3 = Web3(Web3.HTTPProvider(rpc_url))
         self._initialize_wallets()
     
     def _initialize_wallets(self):

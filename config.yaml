@@ -3,7 +3,7 @@
 # Updated with V2 features: Playwright, Gamma API, USDC Approval
 
 # Capital Settings
-total_capital: 100  # Total capital in USDC (start small!)
+total_capital: 30  # Total capital in USDC (start small!)
 num_wallets: 1  # Number of wallets to use (2-10 recommended)
 
 # RPC Settings
@@ -11,48 +11,51 @@ rpc_url: "https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQLZqOJuRTH6n_FZEkyWx2
 
 # Market Scanner Settings (V2 - Playwright + Gamma API)
 market_scanner:
-  interval: 30  # Scan interval in seconds
-  min_reward: 100  # Minimum reward in USD (LOWERED to catch more markets)
-  max_competition_bars: 2  # Maximum competition level (0-5) - INCREASED to allow more markets
-  min_shares: 500  # Maximum minimum shares requirement
+  interval: 60  # Scan interval in seconds
+  min_reward: 10  # Minimum reward in USD (LOWERED to 3 to catch markets with umaReward 5-10)
+  max_competition_bars: 3  # Maximum competition level (0-5) - INCREASED to allow more markets
+  min_shares: 100  # Maximum minimum shares requirement
 
   # API Settings
   use_gamma_api: true  # Use Gamma API (faster, more reliable)
   api_fallback: true  # Fallback to Playwright if API fails
 
   # Categories to focus on
-  target_categories:
+  target_categories: 
+    - crypto  # Temporarily changed to crypto for testing
     - sports
+    - politics
+    - science
     - entertainment
-    #- crypto
+    #
 
   # Illiquid market threshold
-  illiquid_threshold: 10000  # Markets with liquidity < $10k
+  illiquid_threshold: 2000  # Markets with liquidity < $10k
 
 # Market Selection AI
 market_selection:
   # Scoring weights
-  reward_weight: 0.4
-  competition_weight: 0.3
-  volume_weight: 0.2
-  liquidity_weight: 0.1
+  reward_weight: 0.3
+  competition_weight: 0.5
+  volume_weight: 0.05
+  liquidity_weight: 0.05
   
   # Volume spike detection
-  volume_spike_multiplier: 2.0
+  volume_spike_multiplier: 1.5
   volume_lookback_hours: 24
   
   # Maximum markets to trade simultaneously
-  max_concurrent_markets: 1
+  max_concurrent_markets: 2
 
 # Order Management
 order_management:
   # Dynamic spread range (in decimal, e.g., 0.008 = 0.8 cents)
   # WIDER SPREAD to avoid fills (liquidity farming strategy)
-  spread_min: 0.05   # 3 cents (was 0.5 cents - too tight!)
-  spread_max: 0.12   # 8 cents (was 1.5 cents - too tight!)
+  spread_min: 0.03   # 3 cents (was 0.5 cents - too tight!)
+  spread_max: 0.10   # 8 cents (was 1.5 cents - too tight!)
 
   # Position size range (number of shares)
-  size_min: 50   # Giảm từ 200 xuống 50
+  size_min: 20   # Giảm từ 200 xuống 50
   size_max: 100  # Giảm từ 500 xuống 100
 
   # Order type
@@ -72,12 +75,12 @@ monitoring:
   websocket_interval: 10  # seconds
 
   # Auto-cancel conditions (LIQUIDITY FARMING STRATEGY)
-  partial_fill_threshold: 0.05  # Cancel if >5% filled (was 10% - too risky!)
-  volume_spike_multiplier: 2  # Cancel if volume spikes >2x
-  price_move_threshold: 0.02  # Cancel if price moves >2 cents
+  partial_fill_threshold: 0.005  # Cancel if >5% filled (was 10% - too risky!)
+  volume_spike_multiplier: 1.5  # Cancel if volume spikes >2x
+  price_move_threshold: 0.005  # Cancel if price moves >2 cents
 
   # Position timeout (AUTO-CANCEL to avoid fills)
-  max_position_age: 600  # 30 minutes (was 1 hour - too long!)
+  max_position_age: 1800  # 30 minutes (was 1 hour - too long!)
   
   # Monitoring alerts
   alert_on_fill: true
@@ -86,12 +89,12 @@ monitoring:
 # Risk Management
 risk_management:
   # Capital allocation
-  max_capital_per_market: 0.05  # 5% of total capital
-  max_total_exposure: 0.8  # 80% of total capital
+  max_capital_per_market: 0.5  # 5% of total capital
+  max_total_exposure: 1 # 80% of total capital
   
   # Hedging
-  enable_hedging: true
-  hedge_threshold: 0.6  # Hedge if imbalance >60%
+  enable_hedging: false
+  hedge_threshold: 0.5  # Hedge if imbalance >60%
   partial_hedge_ratio: 0.5  # Hedge 50% of imbalance
   
   # Correlation limits
@@ -112,7 +115,7 @@ wallet_management:
   
   # Human-like behavior
   jitter_percentage: 0.2  # ±20% variation
-  min_wallet_cooldown: 30  # seconds between uses
+  min_wallet_cooldown: 60  # seconds between uses
   
   # Wallet switching
   random_switch_probability: 0.2  # 20% chance of random wallet
@@ -292,7 +295,7 @@ blockchain:
 
 # Logging
 logging:
-  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: DEBUG  # DEBUG, INFO, WARNING, ERROR, CRITICAL
   
   # File logging
   log_to_file: true

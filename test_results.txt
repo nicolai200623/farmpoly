@@ -1,0 +1,572 @@
+INFO:market_scanner_v2:\U0001f4ca Market Scanner initialized with min_reward=$3, max_competition=3
+INFO:market_scanner_v2:\U0001f3af Target categories: crypto, sports, politics, science, entertainment
+INFO:circuit_breaker:\u2705 Circuit Breaker 'polymarket_rewards_api' initialized (threshold=3, timeout=60s)
+INFO:circuit_breaker:\u2705 Circuit Breaker 'gamma_api' initialized (threshold=5, timeout=60s)
+INFO:circuit_breaker:\u2705 Circuit Breaker 'playwright_scraper' initialized (threshold=3, timeout=120s)
+INFO:market_scanner_v2:\U0001f310 Fetching from official Polymarket Rewards API...
+INFO:polymarket_rewards_api:\U0001f310 Fetching rewards markets from official Polymarket API
+INFO:polymarket_rewards_api:\U0001f4c4 Fetching page 1 (cursor: MA==...)...
+INFO:polymarket_rewards_api:\u2705 Got 100 markets on page 1
+INFO:polymarket_rewards_api:\u2705 Reached end of pagination
+INFO:polymarket_rewards_api:\u2705 Fetched 100 total markets with rewards
+INFO:market_scanner_v2:\u2705 Got 100 markets from Polymarket Rewards API
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Zohran Mamdani win by >9%?
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $150 (based on volume=$4110)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 1.713901 bars, Score: -95.98
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Consensys IPO closing market cap above $1B?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$77)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 10.01
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Consensys IPO closing market cap above $2B?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$12)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 10.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Consensys IPO closing market cap above $3B?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$1)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 10.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Jeannette Jara come in second in the 1st round of the 2
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Jaime Mulet come in second in the 1st round of the 2025
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Carolina Tohß come in second in the 1st round of the 20
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Gonzalo Winter come in second in the 1st round of the 2
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Eduardo ArtΘs come in second in the 1st round of the 20
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will FΘlix Gonzßlez come in second in the 1st round of the 2
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.00492 bars, Score: 24.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Johannes Kaiser come in second in the 1st round of the 
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will JosΘ Antonio Kast come in second in the 1st round of th
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Evelyn Matthei come in second in the 1st round of the 2
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Francesca Mu±oz come in second in the 1st round of the 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Ximena Rinc≤n come in second in the 1st round of the 20
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.01976 bars, Score: 23.03
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Michelle Bachelet come in second in the 1st round of th
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Marco Enrφquez-Ominami come in second in the 1st round 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Franco Parisi come in second in the 1st round of the 20
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Alberto Undurraga come in second in the 1st round of th
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$40)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Mamdani raise the minimum wage to $30 before 2027?
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $100 (based on volume=$80)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 1.492914 bars, Score: -99.28
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Metamask daily perps revenue hit $100k in 2025?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$1670)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.185031 bars, Score: 6.66
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Zohran Mamdani out as mayor of NYC before 2027?
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $70 (based on volume=$740)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 1.325524 bars, Score: -97.48
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Trump announces new drug boat strike by November 7?
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $70 (based on volume=$100)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 1.80837 bars, Score: -145.83
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Trump announces new drug boat strike by November 14?
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $70 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 35.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôNobody Wants This: Season 2ö be the top global Netflix
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $3 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 1.50
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôThe Witcher: Season 4ö be the top global Netflix show 
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$232)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.011816 bars, Score: 23.84
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôThe Bad Guys: Breaking Inö be the top global Netflix s
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $3 (based on volume=$1)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 1.50
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôDeath by Lightningö be the top global Netflix show thi
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $3 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 1.50
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôSquid Game: The Challenge: Season 2ö be the top global
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $3 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 1.50
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôThe Vince Staples Showö be the top global Netflix show
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $3 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 1.50
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôA House of Dynamiteö be the top global Netflix movie t
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $40 (based on volume=$421)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.168186 bars, Score: 3.22
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôKPop Demon Huntersö be the top global Netflix movie th
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $3 (based on volume=$132)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 1.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôFrankensteinö be the top global Netflix movie this wee
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$316)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 10.03
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôDr. Seuss's the Sneetchesö be the top global Netflix m
+INFO:market_scanner_v2:   - Category: entertainment
+INFO:market_scanner_v2:   - Estimated Reward: $3 (based on volume=$115)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 1.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will ôLife of the Partyö be the top global Netflix movie thi
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $3 (based on volume=$228)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 1.52
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will USD.AI launch a token in 2025?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$2002)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.467333 bars, Score: -36.53
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will USD.AI launch a token by March 31?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$5)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 10.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Variational launch a token in 2025?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$479)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 1.015425 bars, Score: -91.49
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: EdgeX FDV above $1B one day after launch?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$220)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.11526 bars, Score: -1.50
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: EdgeX FDV above $2B one day after launch?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$409)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 10.04
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: EdgeX FDV above $3B one day after launch?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$179)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 10.02
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: EdgeX FDV above $4B one day after launch?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$54)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 1.916295 bars, Score: -181.62
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Jeannette Jara and Johannes Kaiser advance to the runof
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will JosΘ Antonio Kast and Johannes Kaiser advance to the ru
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Evelyn Matthei and Johannes Kaiser advance to the runof
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will a different combination of candidates advance to the ru
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Johannes Kaiser win less than 7% of votes in the first 
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.04444 bars, Score: 20.56
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Johannes Kaiser win between 7% and 10% of votes in the 
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.04444 bars, Score: 20.56
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Johannes Kaiser win between 10% and 13% of votes in the
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.013206 bars, Score: 23.68
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Johannes Kaiser win between 13% and 16% of votes in the
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.00492 bars, Score: 24.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Johannes Kaiser win between 16% and 19% of votes in the
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.00492 bars, Score: 24.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Johannes Kaiser win at least 19% of votes in the first 
+INFO:market_scanner_v2:   - Category: science
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.019793 bars, Score: 23.02
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will JosΘ Antonio Kast win less than 16% of votes in the fir
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.01976 bars, Score: 23.02
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will JosΘ Antonio Kast win between 16% and 20% of votes in t
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will JosΘ Antonio Kast win between 20% and 24% of votes in t
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.00492 bars, Score: 24.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will JosΘ Antonio Kast win between 24% and 28% of votes in t
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.034621 bars, Score: 21.54
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will JosΘ Antonio Kast win at least 28% of votes in the firs
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.04444 bars, Score: 20.56
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Evelyn Matthei win less than 9% of votes in the first r
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.01976 bars, Score: 23.02
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Evelyn Matthei win between 9% and 12% of votes in the f
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.013206 bars, Score: 23.68
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Evelyn Matthei win between 12% and 15% of votes in the 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.00492 bars, Score: 24.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Evelyn Matthei win between 15% and 18% of votes in the 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.00492 bars, Score: 24.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Evelyn Matthei win between 18% and 21% of votes in the 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 25.00
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Evelyn Matthei win at least 21% of votes in the first r
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.079 bars, Score: 17.10
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Jeannette Jara win less than 20% of votes in the first 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.04444 bars, Score: 20.56
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Jeannette Jara win between 20% and 24% of votes in the 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.01976 bars, Score: 23.02
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Jeannette Jara win between 24% and 28% of votes in the 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.00492 bars, Score: 24.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Jeannette Jara win between 28% and 32% of votes in the 
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.00492 bars, Score: 24.51
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Will Jeannette Jara win at least 32% of votes in the first r
+INFO:market_scanner_v2:   - Category: politics
+INFO:market_scanner_v2:   - Estimated Reward: $50 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.013206 bars, Score: 23.68
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Airbnb (ABNB) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$283)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.58072 bars, Score: -48.04
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Rocket Lab (RKLB) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$70)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.502113 bars, Score: -40.20
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Opendoor (OPEN) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$102)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.22984 bars, Score: -12.97
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Palantir (PLTR) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$597)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.49912 bars, Score: -39.85
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: NYA (NYA) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.153 bars, Score: -5.30
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Netflix (NFLX) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$11)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.36176 bars, Score: -26.17
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Russell 2000 (RUT) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$60)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 1.050213 bars, Score: -95.02
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: NVIDIA (NVDA) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$81)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.075062 bars, Score: 2.50
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Hang Seng (HSI) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$300)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.2788 bars, Score: -17.85
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Tesla (TSLA) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.10404 bars, Score: -0.40
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: DAX (DAX) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$5)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.051 bars, Score: 4.90
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Meta (META) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$76)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.102 bars, Score: -0.19
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: FTSE 100 (UKX) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.051 bars, Score: 4.90
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Google (GOOGL) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.102 bars, Score: -0.20
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Dow Jones (DJI) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.3536 bars, Score: -25.36
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$0)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.051 bars, Score: 4.90
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Amazon (AMZN) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$49)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.541915 bars, Score: -44.19
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$98)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.20536 bars, Score: -10.53
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$2)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.051 bars, Score: 4.90
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Microsoft (MSFT) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$8)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0.36176 bars, Score: -26.18
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\u2705 ACCEPTED: Nikkei 225 (NIK) Up or Down on November 6?
+INFO:market_scanner_v2:   - Category: crypto
+INFO:market_scanner_v2:   - Estimated Reward: $20 (based on volume=$154)
+INFO:market_scanner_v2:   - Rewards Config: minSize=0, maxSpread=0
+INFO:market_scanner_v2:   - Competition: 0 bars, Score: 10.02
+INFO:market_scanner_v2:   - Source: polymarket_rewards_api
+INFO:market_scanner_v2:\U0001f4ca Filter results: 89/100 markets passed
+INFO:market_scanner_v2:   - 7 rejected: competition > 3
+INFO:market_scanner_v2:   - 4 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
+INFO:market_scanner_v2:\u2705 Found 89 qualifying markets (from 100 total)
+
+================================================================================
+Traceback (most recent call last):
+  File "C:\LAINP\Augment\Farmpoly\test_final_results.py", line 62, in <module>
+    asyncio.run(test_final())
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\LAINP\Augment\Farmpoly\test_final_results.py", line 31, in test_final
+    print(f"\U0001f4ca SCAN RESULTS")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4ca' in position 0: character maps to <undefined>
