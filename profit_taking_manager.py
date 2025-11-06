@@ -225,18 +225,39 @@ class ProfitTakingManager:
             logger.info(f"   Token ID: {token_id}")
             logger.info(f"   Shares: {shares:.2f}")
             logger.info(f"   Price: ${current_price:.4f}")
-            
+
             # Place sell order slightly below current price to ensure fill
             sell_price = current_price * 0.99  # 1% below to ensure quick fill
 
-            # Set API credentials (required for L2 auth to post orders)
-            # This is CRITICAL - without this, post_order will fail with "API Credentials are needed"
+            # Create a NEW signing client for this order (same approach as order_manager.py)
+            # This ensures fresh API credentials and proper signature
             try:
-                api_creds = self.client.create_or_derive_api_creds()
-                self.client.set_api_creds(api_creds)
+                # Get private key
+                private_key = os.getenv('WALLET_1_PK') or os.getenv('PRIVATE_KEY')
+                if not private_key:
+                    raise ValueError("WALLET_1_PK or PRIVATE_KEY not found in .env")
+
+                # Remove 0x prefix if present
+                if private_key.startswith('0x'):
+                    private_key = private_key[2:]
+
+                # Create fresh signing client
+                logger.debug("Creating fresh signing client for SELL order...")
+                signing_client = ClobClient(
+                    host="https://clob.polymarket.com",
+                    key=private_key,
+                    chain_id=POLYGON,
+                    signature_type=2,
+                    funder=None
+                )
+
+                # Set API credentials (required for L2 auth)
+                logger.debug("Setting API credentials...")
+                signing_client.set_api_creds(signing_client.create_or_derive_api_creds())
                 logger.debug("✅ API credentials set successfully for SELL order")
+
             except Exception as e:
-                logger.error(f"❌ Failed to set API credentials: {e}")
+                logger.error(f"❌ Failed to create signing client: {e}")
                 raise
 
             order_args = OrderArgs(
@@ -246,11 +267,11 @@ class ProfitTakingManager:
                 side=SELL
             )
 
-            # Post order
+            # Create, sign, and post order using the fresh signing client
             logger.debug("Creating and signing SELL order...")
-            signed_order = self.client.create_order(order_args)
+            signed_order = signing_client.create_order(order_args)
             logger.debug("Posting SELL order to CLOB...")
-            resp = self.client.post_order(signed_order, OrderType.GTC)
+            resp = signing_client.post_order(signed_order, OrderType.GTC)
             
             if resp and resp.get('success'):
                 order_id = resp.get('orderID', 'unknown')

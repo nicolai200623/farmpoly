@@ -582,10 +582,12 @@ class PolymarketBot:
             # Prepare order with dynamic spread
             order = await self.modules['order_mgr'].prepare_market_order(market)
 
-            # Add to pending orders
-            await self.modules['order_mgr'].add_pending_order(order)
-
-            logger.info(f"Added market {market_id} to pending orders")
+            # Add to pending orders ONLY if order is valid
+            if order:
+                await self.modules['order_mgr'].add_pending_order(order)
+                logger.info(f"✅ Added market {market_id} to pending orders")
+            else:
+                logger.warning(f"⚠️  Skipped market {market_id} - could not prepare valid order (spread too high or orderbook too thin)")
 
         except Exception as e:
             market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
