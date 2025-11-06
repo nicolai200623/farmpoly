@@ -47,6 +47,7 @@ from usdc_approver import USDCApprover
 from reward_manager import RewardManager
 from monitoring_system import MonitoringSystem
 from telegram_notifier import TelegramNotifier
+from profit_taking_manager import ProfitTakingManager
 
 
 class PolymarketBot:
@@ -200,6 +201,17 @@ class PolymarketBot:
             else:
                 logger.info("⏭️  Reward Manager disabled in config")
 
+            # Initialize profit taking manager if enabled
+            profit_config = self.config.get('profit_taking', {})
+            if profit_config.get('enabled', True):
+                self.modules['profit_mgr'] = ProfitTakingManager(
+                    self.config,
+                    telegram_notifier=self.modules['telegram']
+                )
+                logger.info("✅ Profit Taking Manager enabled")
+            else:
+                logger.info("⏭️  Profit Taking Manager disabled in config")
+
             logger.info("All modules initialized successfully")
         except Exception as e:
             logger.error(f"Module initialization failed: {e}")
@@ -235,6 +247,10 @@ class PolymarketBot:
         # Add reward management loop if enabled
         if 'reward_mgr' in self.modules:
             tasks.append(self._reward_management_loop())
+
+        # Add profit taking loop if enabled
+        if 'profit_mgr' in self.modules:
+            tasks.append(self._profit_taking_loop())
 
         try:
             await asyncio.gather(*tasks)
@@ -495,6 +511,26 @@ class PolymarketBot:
             except Exception as e:
                 logger.error(f"Reward management error: {e}")
                 await asyncio.sleep(300)  # Wait 5 minutes before retry
+
+    async def _profit_taking_loop(self):
+        """Automated profit taking loop - close profitable positions"""
+        profit_mgr = self.modules['profit_mgr']
+
+        logger.info("💰 Starting automated profit taking loop")
+
+        while self.running:
+            try:
+                # Check and close profitable positions
+                await profit_mgr.check_and_close_positions()
+
+                # Wait for next check interval
+                check_interval = profit_mgr.check_interval
+                logger.info(f"⏳ Next profit check in {check_interval}s")
+                await asyncio.sleep(check_interval)
+
+            except Exception as e:
+                logger.error(f"Profit taking error: {e}")
+                await asyncio.sleep(60)  # Wait 1 minute before retry
     
     async def _process_market_opportunity(self, market: dict):
         """Process a selected market opportunity"""

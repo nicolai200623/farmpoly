@@ -81,10 +81,27 @@ monitoring:
 
   # Position timeout (AUTO-CANCEL to avoid fills)
   max_position_age: 1800  # 30 minutes (was 1 hour - too long!)
-  
+
   # Monitoring alerts
   alert_on_fill: true
   alert_on_cancel: false
+
+# Profit Taking (AUTO-CLOSE PROFITABLE POSITIONS)
+profit_taking:
+  enabled: true  # Enable automatic profit taking
+  check_interval: 300  # Check positions every 5 minutes
+
+  # Profit thresholds
+  min_profit_percentage: 5  # Start considering closing at 50% profit
+  target_profit_percentage: 100 # Target profit to close position
+  max_profit_percentage: 150  # Close immediately if profit >= 150%
+
+  # Safety settings
+  never_close_losing_positions: true  # NEVER auto-close losing positions
+  min_hold_time: 300  # Hold position for at least 5 minutes before closing
+
+  # Alerts
+  alert_on_profit_close: true  # Send Telegram alert when closing profitable position
 
 # Risk Management
 risk_management:
