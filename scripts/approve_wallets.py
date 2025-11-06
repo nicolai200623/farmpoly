@@ -65,19 +65,34 @@ async def main():
     # Ask for approval amount
     print("\n💰 How much USDC should each wallet be approved for?")
     print("   Production: 10,000 USDC (recommended for live trading)")
-    print("   Testing: 100 USDC (minimum for testing with small capital)")
+    print("   Testing: 100 USDC (safe for testing)")
+    print("   Small Test: 1-99 USDC (for careful testing with small capital)")
     print("")
-    print("   ⚠️  NOTE: 100 USDC is only for TESTING!")
-    print("   You may need to re-approve frequently with small amounts")
+    print("   ⚠️  WARNING: Approving small amounts (<100 USDC):")
+    print("      - You may need to re-approve frequently")
+    print("      - Each re-approval costs gas fees (~0.01 MATIC)")
+    print("      - Recommended to approve at least 2-3x your capital")
 
     try:
         amount_input = input("\nEnter amount (default 10000): ").strip()
         amount = float(amount_input) if amount_input else 10000
 
-        if amount < 100:
-            logger.error("❌ Amount too low! Minimum is 100 USDC")
+        if amount < 1:
+            logger.error("❌ Amount too low! Minimum is 1 USDC")
             return
-        
+
+        # Warning for small amounts
+        if amount < 100:
+            print(f"\n⚠️  WARNING: You are approving only {amount} USDC")
+            print("   This is a very small amount and may require frequent re-approvals.")
+            print("   Each re-approval costs gas fees.")
+            print(f"   Recommended: Approve at least {amount * 3:.0f} USDC (3x your amount)")
+
+            confirm_small = input("\nContinue with this small amount? (yes/no): ").strip().lower()
+            if confirm_small not in ['yes', 'y']:
+                logger.info("❌ Cancelled by user")
+                return
+
     except ValueError:
         logger.error("❌ Invalid amount")
         return
