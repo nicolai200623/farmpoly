@@ -308,6 +308,8 @@ class PolymarketBot:
         selector = self.modules['selector']
         monitoring = self.modules['monitoring']
 
+        logger.info("🔍 Starting market scanning loop")
+
         while self.running:
             scan_start = datetime.now()
             try:
@@ -360,38 +362,66 @@ class PolymarketBot:
         """Manage order placement and updates"""
         order_mgr = self.modules['order_mgr']
         wallet_mgr = self.modules['wallet_mgr']
-        
+
+        logger.info("📦 Starting order management loop")
+
         while self.running:
             try:
                 # Get active wallet
                 wallet = await wallet_mgr.get_next_wallet()
-                
+
                 # Check pending orders
                 pending_orders = await order_mgr.get_pending_orders()
-                
+
+                if pending_orders:
+                    logger.info(f"📋 Processing {len(pending_orders)} pending orders")
+
+                # Process each pending order
+                processed_orders = []
                 for order in pending_orders:
-                    # Apply ML prediction
-                    fill_probability = await self.modules['ml_predictor'].predict_fill(order)
-                    
-                    if fill_probability < self.config['ml_prediction']['fill_risk_threshold']:
-                        # Place or update order
-                        await order_mgr.place_order(order, wallet)
-                    else:
-                        # Cancel high-risk order
-                        await order_mgr.cancel_order(order['id'])
-                        self.performance_stats['cancelled_orders'] += 1
-                
-                await asyncio.sleep(1)
-                
+                    try:
+                        # Apply ML prediction
+                        fill_probability = await self.modules['ml_predictor'].predict_fill(order)
+
+                        logger.debug(f"ML prediction for {order['market_id']}: fill_probability={fill_probability:.2%}")
+
+                        if fill_probability < self.config['ml_prediction']['fill_risk_threshold']:
+                            # Place order
+                            logger.info(f"📤 Placing order for market {order['market_id']}")
+                            result = await order_mgr.place_order(order, wallet)
+
+                            if result:
+                                logger.info(f"✅ Order placed successfully: {result}")
+                                processed_orders.append(order)
+                            else:
+                                logger.warning(f"⚠️  Failed to place order for {order['market_id']}")
+                        else:
+                            logger.info(f"⏭️  Skipping high-risk order {order['market_id']} (fill_probability={fill_probability:.2%})")
+                            processed_orders.append(order)
+                            self.performance_stats['cancelled_orders'] += 1
+
+                    except Exception as e:
+                        logger.error(f"❌ Error processing order {order.get('market_id', 'unknown')}: {e}", exc_info=True)
+
+                # Remove processed orders from pending queue
+                for order in processed_orders:
+                    if order in order_mgr.pending_orders:
+                        order_mgr.pending_orders.remove(order)
+
+                # Sleep before next check
+                await asyncio.sleep(5)  # Check every 5 seconds
+
             except Exception as e:
-                logger.error(f"Order management error: {e}")
-                await asyncio.sleep(5)
+                logger.error(f"❌ Order management loop error: {e}", exc_info=True)
+                await asyncio.sleep(10)
     
     async def _position_monitoring_loop(self):
         """Monitor open positions and market conditions"""
         monitor = self.modules['monitor']
         order_mgr = self.modules['order_mgr']
-        
+
+        logger.info("👁️  Starting position monitoring loop")
+
         while self.running:
             try:
                 # Get all open positions
@@ -416,7 +446,9 @@ class PolymarketBot:
     async def _risk_management_loop(self):
         """Continuous risk monitoring and hedging"""
         risk_mgr = self.modules['risk_mgr']
-        
+
+        logger.info("🛡️  Starting risk management loop")
+
         while self.running:
             try:
                 # Check portfolio risk
@@ -438,7 +470,9 @@ class PolymarketBot:
     async def _ml_training_loop(self):
         """Periodic ML model training"""
         ml_predictor = self.modules['ml_predictor']
-        
+
+        logger.info("🤖 Starting ML training loop")
+
         while self.running:
             try:
                 # Train model on recent data
@@ -455,6 +489,8 @@ class PolymarketBot:
     async def _daily_optimization_loop(self):
         """Daily strategy optimization at UTC 00:00"""
         optimizer = self.modules['optimizer']
+
+        logger.info("📊 Starting daily optimization loop")
 
         while self.running:
             try:
@@ -559,6 +595,8 @@ class PolymarketBot:
         """Continuous health monitoring"""
         monitoring = self.modules['monitoring']
 
+        logger.info("🏥 Starting health monitoring loop")
+
         while self.running:
             try:
                 # Check health status
@@ -582,6 +620,8 @@ class PolymarketBot:
     async def _hourly_report_loop(self):
         """Send hourly performance reports"""
         monitoring = self.modules['monitoring']
+
+        logger.info("📈 Starting hourly report loop")
 
         while self.running:
             try:

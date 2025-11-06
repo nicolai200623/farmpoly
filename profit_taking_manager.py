@@ -229,12 +229,15 @@ class ProfitTakingManager:
             # Place sell order slightly below current price to ensure fill
             sell_price = current_price * 0.99  # 1% below to ensure quick fill
 
-            # Ensure API credentials are created before posting order
+            # Set API credentials (required for L2 auth to post orders)
+            # This is CRITICAL - without this, post_order will fail with "API Credentials are needed"
             try:
-                self.client.create_or_derive_api_creds()
-                logger.debug("API credentials refreshed")
+                api_creds = self.client.create_or_derive_api_creds()
+                self.client.set_api_creds(api_creds)
+                logger.debug("✅ API credentials set successfully for SELL order")
             except Exception as e:
-                logger.debug(f"API credentials may already exist: {e}")
+                logger.error(f"❌ Failed to set API credentials: {e}")
+                raise
 
             order_args = OrderArgs(
                 token_id=token_id,
@@ -244,7 +247,9 @@ class ProfitTakingManager:
             )
 
             # Post order
+            logger.debug("Creating and signing SELL order...")
             signed_order = self.client.create_order(order_args)
+            logger.debug("Posting SELL order to CLOB...")
             resp = self.client.post_order(signed_order, OrderType.GTC)
             
             if resp and resp.get('success'):
