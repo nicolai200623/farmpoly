@@ -9,7 +9,14 @@ import asyncio
 import yaml
 from pathlib import Path
 from web3 import Web3
-from web3.middleware import geth_poa_middleware
+try:
+    # Web3.py v7+
+    from web3.middleware import ExtraDataToPOAMiddleware
+    poa_middleware = ExtraDataToPOAMiddleware
+except ImportError:
+    # Web3.py v6 and earlier
+    from web3.middleware import geth_poa_middleware
+    poa_middleware = geth_poa_middleware
 import logging
 
 # Add parent directory to path
@@ -84,7 +91,7 @@ async def main():
     
     # Load config
     try:
-        with open('config.yaml', 'r') as f:
+        with open('config.yaml', 'r', encoding='utf-8') as f:
             config = yaml.safe_load(f)
     except Exception as e:
         logger.error(f"❌ Failed to load config.yaml: {e}")
@@ -109,7 +116,7 @@ async def main():
     try:
         rpc_url = config.get('rpc_url') or os.getenv('POLYGON_RPC_URL', 'https://polygon-rpc.com')
         w3 = Web3(Web3.HTTPProvider(rpc_url))
-        w3.middleware_onion.inject(geth_poa_middleware, layer=0)
+        w3.middleware_onion.inject(poa_middleware, layer=0)
         
         if not w3.is_connected():
             logger.error("❌ Failed to connect to Polygon RPC")
