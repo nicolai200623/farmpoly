@@ -242,6 +242,8 @@ class OrderManager:
             # ⚠️ CRITICAL CHECK: Ensure order book has enough depth
             # We need at least 2 orders on each side to place at position 2 or 3
             # This prevents bot from EVER placing at position 1 (best bid/ask)
+            logger.debug(f"📊 Orderbook depth: {len(bids)} bids, {len(asks)} asks")
+
             if len(bids) < 2 or len(asks) < 2:
                 logger.warning(f"❌ Order book too thin! Bids: {len(bids)}, Asks: {len(asks)}")
                 logger.warning(f"   Bot requires at least 2 orders on EACH side to avoid position 1")
@@ -316,21 +318,24 @@ class OrderManager:
 
             max_spread_from_mid = max(yes_spread_from_mid, no_spread_from_mid)
 
+            # 🔍 DEBUG: Log calculated prices and spreads
+            logger.debug(f"💰 Calculated prices:")
+            logger.debug(f"   Midpoint: ${mid_price:.4f}")
+            logger.debug(f"   YES: ${yes_price:.4f} (position {yes_position}, spread: {yes_spread_from_mid:.2%})")
+            logger.debug(f"   NO: ${no_price:.4f} (position {no_position}, spread: {no_spread_from_mid:.2%})")
+            logger.debug(f"   Max spread: {max_spread_from_mid:.2%} (allowed: {max_spread:.2%})")
+
             if max_spread_from_mid > max_spread:
-                logger.warning(f"Calculated prices exceed max spread ({max_spread_from_mid:.2%} > {max_spread:.2%})")
-                logger.warning(f"Adjusting prices to fit within max spread...")
+                logger.warning(f"❌ Calculated prices exceed max spread ({max_spread_from_mid:.2%} > {max_spread:.2%})")
+                logger.warning(f"   This indicates orderbook is too thin or position 2-3 is too far from midpoint")
+                logger.warning(f"   REJECTING market to avoid placing order at position #1 (best bid/ask)")
+                logger.warning(f"   Reason: Adjusting to max spread would place order too close to best bid/ask")
+                logger.warning(f"   → High risk of being filled immediately!")
 
-                # Adjust to max spread
-                yes_price = mid_price - (max_spread * mid_price)
-                no_price = 1 - (mid_price + (max_spread * mid_price))
-                yes_position = "adjusted"
-                no_position = "adjusted"
-
-                # Recalculate spread after adjustment
-                yes_spread_from_mid = abs(mid_price - yes_price) / mid_price
-                no_as_yes_price = 1 - no_price
-                no_spread_from_mid = abs(mid_price - no_as_yes_price) / mid_price
-                max_spread_from_mid = max(yes_spread_from_mid, no_spread_from_mid)
+                # 🚨 CRITICAL FIX: REJECT market instead of adjusting
+                # Adjusting to max spread often places order at or very close to position #1
+                # This causes immediate fills and losses
+                return None, None, {}
 
             # Ensure prices are valid (between 0 and 1)
             yes_price = max(0.01, min(0.99, yes_price))
