@@ -146,17 +146,33 @@ class MarketScannerV2:
             # ✅ NEW FILTER 3: Verify orderbook exists for top markets
             # Only verify top 50 markets to avoid too many API calls
             if filtered_markets and len(filtered_markets) > 0:
-                logger.info(f"🔍 Verifying orderbook for top {min(50, len(filtered_markets))} markets...")
+                top_count = min(50, len(filtered_markets))
+                logger.info(f"🔍 Verifying orderbook for top {top_count} markets...")
                 verified_markets = []
                 no_orderbook_count = 0
+                error_count = 0
 
-                for market in filtered_markets[:50]:  # Only check top 50
-                    has_orderbook = await self._verify_orderbook_exists(market)
-                    if has_orderbook:
-                        verified_markets.append(market)
-                    else:
-                        no_orderbook_count += 1
-                        logger.debug(f"❌ Rejected (no orderbook): {market['question'][:50]}")
+                for i, market in enumerate(filtered_markets[:50], 1):  # Only check top 50
+                    try:
+                        # Log progress every 10 markets
+                        if i % 10 == 0:
+                            logger.info(f"   Progress: {i}/{top_count} markets verified...")
+
+                        has_orderbook = await self._verify_orderbook_exists(market)
+                        if has_orderbook:
+                            verified_markets.append(market)
+                        else:
+                            no_orderbook_count += 1
+                            logger.debug(f"❌ Rejected (no orderbook): {market['question'][:50]}")
+
+                        # Add small delay to avoid rate limiting (100ms between requests)
+                        await asyncio.sleep(0.1)
+
+                    except Exception as e:
+                        error_count += 1
+                        logger.warning(f"⚠️  Error verifying market {i}/{top_count}: {market.get('question', 'unknown')[:50]} - {e}")
+                        # Continue with next market instead of crashing
+                        continue
 
                 # Add remaining markets without verification (to avoid too many API calls)
                 if len(filtered_markets) > 50:
@@ -164,6 +180,8 @@ class MarketScannerV2:
 
                 if no_orderbook_count > 0:
                     logger.info(f"   - {no_orderbook_count} markets rejected: no orderbook exists")
+                if error_count > 0:
+                    logger.warning(f"   - {error_count} markets skipped due to errors")
 
                 filtered_markets = verified_markets
 
@@ -507,8 +525,19 @@ class MarketScannerV2:
 
         try:
             # Try to fetch orderbook for the first token (YES outcome)
+            # Add timeout to prevent hanging
             token_id = clob_token_ids[0]
-            book = self.clob_client.get_order_book(token_id)
+
+            # Wrap synchronous call in asyncio timeout
+            try:
+                # Use asyncio.wait_for with timeout of 5 seconds
+                book = await asyncio.wait_for(
+                    asyncio.to_thread(self.clob_client.get_order_book, token_id),
+                    timeout=5.0
+                )
+            except asyncio.TimeoutError:
+                logger.debug(f"⏱️  Timeout fetching orderbook for market {market.get('id')}")
+                return False
 
             # Check if orderbook has any bids or asks
             if hasattr(book, 'bids') and hasattr(book, 'asks'):
