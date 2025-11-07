@@ -54,25 +54,48 @@ class OrderManager:
             market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
 
             # Get token_id from market data
-            # IMPORTANT: clob_token_ids[0] is NO token, clob_token_ids[1] is YES token
-            # We need YES token for proper orderbook (bids/asks in normal range 0-100¢)
-            token_id = None
-            if market.get('clob_token_ids') and len(market['clob_token_ids']) > 1:
-                token_id = market['clob_token_ids'][1]  # Use SECOND token (YES outcome)
-                logger.debug(f"Using YES token_id: {token_id} for market {market_id}")
-            elif market.get('clob_token_ids') and len(market['clob_token_ids']) > 0:
-                # Fallback to first token if only one available
-                token_id = market['clob_token_ids'][0]
-                logger.warning(f"Only one token_id available, using: {token_id} for market {market_id}")
-            else:
-                logger.warning(f"No clob_token_ids found for market {market_id}, will try with market ID")
+            # TESTING: Try BOTH tokens to see which one gives normal orderbook
+            # Normal orderbook should have bid/ask in similar range (e.g., 40-45¢, not 3¢-95¢)
+            token_ids = market.get('clob_token_ids', [])
 
-            # Get current market prices and order book
-            market_data = await self._fetch_market_data(market_id, token_id)
+            logger.info(f"🔍 Market {market_id} has {len(token_ids)} tokens: {token_ids}")
 
-            if not market_data:
-                logger.warning(f"Could not fetch data for market {market_id}")
+            if len(token_ids) < 2:
+                logger.warning(f"❌ Market {market_id} has less than 2 tokens, skipping")
                 return None
+
+            # Try BOTH tokens and pick the one with narrower spread
+            token_id_0 = token_ids[0]
+            token_id_1 = token_ids[1]
+
+            logger.info(f"🧪 Testing token[0]: {token_id_0}")
+            market_data_0 = await self._fetch_market_data(market_id, token_id_0)
+
+            logger.info(f"🧪 Testing token[1]: {token_id_1}")
+            market_data_1 = await self._fetch_market_data(market_id, token_id_1)
+
+            if not market_data_0 or not market_data_1:
+                logger.warning(f"❌ Could not fetch orderbook for both tokens")
+                return None
+
+            # Compare spreads - pick the token with NARROWER spread
+            spread_0 = market_data_0.get('current_spread', 1.0)
+            spread_1 = market_data_1.get('current_spread', 1.0)
+
+            logger.info(f"📊 Token[0] spread: ${spread_0:.4f} ({spread_0*100:.2f}¢)")
+            logger.info(f"📊 Token[1] spread: ${spread_1:.4f} ({spread_1*100:.2f}¢)")
+
+            if spread_0 < spread_1:
+                token_id = token_id_0
+                market_data = market_data_0
+                logger.info(f"✅ Using token[0] (narrower spread)")
+            else:
+                token_id = token_id_1
+                market_data = market_data_1
+                logger.info(f"✅ Using token[1] (narrower spread)")
+
+            # market_data already fetched above when testing both tokens
+            # No need to fetch again
 
             # Get max spread from market rewards config (if available)
             # UPDATED: Increased default from 3.5% to 8% for position #3 strategy
@@ -302,15 +325,18 @@ class OrderManager:
             best_ask = get_price(asks[0])
 
             # Check if position #2 spread is reasonable
-            # If spread at position #2 is >50%, this is a very thin market - reject it
+            # Calculate spread percentage relative to mid price
             position_2_spread = second_ask - second_bid
-            position_2_spread_pct = position_2_spread / mid_price if mid_price > 0 else 0
+            position_2_spread_pct = (position_2_spread / mid_price) if mid_price > 0 else 0
 
-            if position_2_spread_pct > 0.5:  # 50% spread
+            # UPDATED: Increased threshold from 50% to 150%
+            # Some good markets have wide spread at position #2 but narrow at position #1
+            # We should focus on OUR final spread (checked later) rather than position #2 spread
+            if position_2_spread_pct > 1.5:  # 150% spread
                 logger.warning(f"❌ Position #2 spread too wide: {position_2_spread_pct:.2%}")
                 logger.warning(f"   Position #2 Bid: ${second_bid:.4f} ({second_bid*100:.2f}¢)")
                 logger.warning(f"   Position #2 Ask: ${second_ask:.4f} ({second_ask*100:.2f}¢)")
-                logger.warning(f"   This is a very thin market - REJECTING")
+                logger.warning(f"   This is an extremely thin market - REJECTING")
                 return None, None, {}
 
             # Random offset between 0.05 and 0.15 cents to add variety
