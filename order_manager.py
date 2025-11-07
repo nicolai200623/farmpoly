@@ -60,9 +60,21 @@ class OrderManager:
 
             logger.info(f"🔍 Market {market_id} has {len(token_ids)} tokens: {token_ids}")
 
-            if len(token_ids) < 2:
-                logger.warning(f"❌ Market {market_id} has less than 2 tokens, skipping")
+            # CRITICAL CHECK: Only accept BINARY markets (exactly 2 tokens)
+            # Categorical markets have >2 tokens and are not suitable for our YES/NO strategy
+            if len(token_ids) != 2:
+                if len(token_ids) < 2:
+                    logger.warning(f"❌ REJECTED - Invalid market: only {len(token_ids)} token(s)")
+                    logger.warning(f"   Binary markets must have exactly 2 tokens (YES + NO)")
+                else:
+                    logger.warning(f"❌ REJECTED - CATEGORICAL MARKET detected: {len(token_ids)} tokens")
+                    logger.warning(f"   This is NOT a binary YES/NO market!")
+                    logger.warning(f"   Categorical markets have multiple outcomes, not suitable for our strategy")
+                    logger.warning(f"   Example: 'Elon tweets 0-19' vs '20-39' vs '40-59' etc.")
+                logger.warning(f"   Market: {market.get('question', 'Unknown')[:80]}")
                 return None
+
+            logger.info(f"✅ Binary market confirmed: 2 tokens (YES/NO)")
 
             # Fetch both orderbooks
             yes_token_id = token_ids[0]
@@ -107,6 +119,32 @@ class OrderManager:
             if not no_market_data:
                 logger.warning(f"❌ Could not fetch NO orderbook")
                 return None
+
+            # VALIDATION: Verify this is a TRUE binary market (YES + NO ≈ $1.00)
+            # In binary markets, YES best_bid + NO best_bid should be close to $1.00
+            # If not, it might be a categorical market misidentified as binary
+            no_best_bid = no_market_data.get('best_bid', 0)
+            yes_best_bid_price = yes_best_bid
+            no_best_bid_price = no_best_bid
+
+            # Calculate sum of best bids
+            bid_sum = yes_best_bid_price + no_best_bid_price
+
+            # In true binary market: YES bid + NO bid should be in range [0.4, 1.6]
+            # (accounting for spread and market inefficiency)
+            # If sum is too low (<0.3) or too high (>1.7), it's likely a categorical market
+            if bid_sum < 0.3 or bid_sum > 1.7:
+                logger.warning(f"❌ REJECTED - Invalid binary market detected!")
+                logger.warning(f"   YES best bid: ${yes_best_bid_price:.4f} ({yes_best_bid_price*100:.2f}¢)")
+                logger.warning(f"   NO best bid: ${no_best_bid_price:.4f} ({no_best_bid_price*100:.2f}¢)")
+                logger.warning(f"   Sum: ${bid_sum:.4f} (expected ~$1.00 for binary markets)")
+                logger.warning(f"   This market does NOT behave like a binary YES/NO market")
+                logger.warning(f"   Likely a categorical market with 2 unrelated outcomes")
+                return None
+
+            logger.info(f"✅ Binary market validation passed:")
+            logger.info(f"   YES best bid: ${yes_best_bid_price:.4f} + NO best bid: ${no_best_bid_price:.4f} = ${bid_sum:.4f}")
+            logger.info(f"   Sum is within valid range [0.3, 1.7] for binary markets")
 
             # Get max spread from market rewards config (if available)
             # UPDATED: Increased default from 3.5% to 8% for position #3 strategy
