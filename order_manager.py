@@ -721,16 +721,18 @@ class OrderManager:
         return self.pending_orders.copy()
     
     async def check_order_fills(self) -> List[Dict]:
-        """Check for filled orders"""
+        """Check for filled orders and cancel remaining orders on same market"""
         fills = []
-        
-        for market_id, order in self.active_orders.items():
+        markets_to_cleanup = []
+
+        for market_id, order in list(self.active_orders.items()):
             if 'order_ids' not in order:
                 continue
-            
+
+            filled_sides = []
             for side, order_id in order['order_ids'].items():
                 order_status = await self._get_order_details(order_id)
-                
+
                 if order_status and order_status.get('status') == 'filled':
                     fill_data = {
                         'market_id': market_id,
@@ -741,9 +743,12 @@ class OrderManager:
                         'timestamp': time.time()
                     }
                     fills.append(fill_data)
+                    filled_sides.append(side)
 
                     # Move to filled orders
                     self.filled_orders.append(order_status)
+
+                    logger.info(f"✅ Order FILLED: {side} side for market {market_id}")
 
                     # Send Telegram notification (IMPORTANT!)
                     if self.telegram:
@@ -756,8 +761,52 @@ class OrderManager:
                             await self.telegram.notify_order_filled(fill_data, market, pnl=None)
                         except Exception as e:
                             logger.debug(f"Failed to send fill notification: {e}")
-        
+
+            # CRITICAL: Cancel remaining orders on same market when one side is filled
+            if filled_sides:
+                logger.warning(f"⚠️ {len(filled_sides)} order(s) filled on market {market_id}, cancelling remaining orders...")
+                await self._cancel_remaining_orders_for_market(market_id, filled_sides)
+                markets_to_cleanup.append(market_id)
+
+        # Clean up markets that have been fully processed
+        for market_id in markets_to_cleanup:
+            if market_id in self.active_orders:
+                del self.active_orders[market_id]
+                logger.info(f"🗑️ Removed market {market_id} from active orders (filled)")
+
         return fills
+
+    async def _cancel_remaining_orders_for_market(self, market_id: str, filled_sides: List[str]):
+        """Cancel all remaining orders for a market (after one side is filled)"""
+        if market_id not in self.active_orders:
+            return
+
+        order = self.active_orders[market_id]
+        if 'order_ids' not in order:
+            return
+
+        cancelled_count = 0
+        for side, order_id in order['order_ids'].items():
+            # Skip already filled sides
+            if side in filled_sides:
+                continue
+
+            # Cancel this remaining order
+            logger.warning(f"❌ Cancelling remaining {side} order {order_id} for market {market_id}")
+            try:
+                success = await self.cancel_order(order_id, reason=f"Other side filled (avoiding double exposure)")
+                if success:
+                    cancelled_count += 1
+                    logger.info(f"✅ Successfully cancelled {side} order to prevent double fill")
+                else:
+                    logger.error(f"❌ Failed to cancel {side} order {order_id}")
+            except Exception as e:
+                logger.error(f"❌ Error cancelling {side} order {order_id}: {e}")
+
+        if cancelled_count > 0:
+            logger.info(f"✅ Cancelled {cancelled_count} remaining order(s) for market {market_id}")
+        else:
+            logger.warning(f"⚠️ No remaining orders were cancelled for market {market_id}")
     
     def get_order_stats(self) -> Dict:
         """Get order statistics"""

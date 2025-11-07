@@ -416,29 +416,41 @@ class PolymarketBot:
                 await asyncio.sleep(10)
     
     async def _position_monitoring_loop(self):
-        """Monitor open positions and market conditions"""
+        """Monitor open positions, check fills, and cancel remaining orders"""
         monitor = self.modules['monitor']
         order_mgr = self.modules['order_mgr']
+        monitoring = self.modules['monitoring']
 
-        logger.info("👁️  Starting position monitoring loop")
+        logger.info("👁️  Starting position monitoring loop (with fill detection)")
 
         while self.running:
             try:
+                # CRITICAL: Check for filled orders and cancel remaining orders
+                fills = await order_mgr.check_order_fills()
+
+                if fills:
+                    for fill in fills:
+                        logger.info(f"📈 Detected fill: {fill['side']} order for market {fill['market_id']}")
+                        self.performance_stats['total_fills'] += 1
+
+                        # Record fill in monitoring system
+                        monitoring.record_order_filled(fill['order_id'], profit=0)  # TODO: Calculate actual profit
+
                 # Get all open positions
                 positions = await monitor.get_open_positions()
-                
+
                 for position in positions:
                     # Check cancellation conditions
                     should_cancel = await monitor.check_cancel_conditions(position)
-                    
+
                     if should_cancel:
                         await order_mgr.cancel_order(position['order_id'])
                         logger.info(f"Cancelled order {position['order_id']} due to market conditions")
                         self.performance_stats['cancelled_orders'] += 1
-                
+
                 # WebSocket interval
                 await asyncio.sleep(self.config['monitoring']['websocket_interval'])
-                
+
             except Exception as e:
                 logger.error(f"Position monitoring error: {e}")
                 await asyncio.sleep(10)
