@@ -89,74 +89,66 @@ class OrderManager:
 
             logger.info(f"✅ Binary market confirmed: 2 tokens (YES/NO)")
 
-            # Fetch both orderbooks
-            yes_token_id = token_ids[0]
-            no_token_id = token_ids[1]
+            # AUTO-SELECT CORRECT TOKEN: Try BOTH tokens and pick the one with narrower spread
+            # Polymarket token convention may vary - we can't assume token[0] = YES or NO
+            # The correct token will have a NARROW spread (e.g., 2-10¢)
+            # The wrong token will have a WIDE spread (e.g., 90-98¢)
+            token_id_0 = token_ids[0]
+            token_id_1 = token_ids[1]
 
-            logger.info(f"📖 Fetching orderbook for YES token: {yes_token_id}")
-            yes_market_data = await self._fetch_market_data(market_id, yes_token_id)
+            logger.info(f"🧪 Testing token[0]: {token_id_0}")
+            market_data_0 = await self._fetch_market_data(market_id, token_id_0)
 
-            if not yes_market_data:
-                logger.warning(f"❌ Could not fetch YES orderbook")
+            logger.info(f"🧪 Testing token[1]: {token_id_1}")
+            market_data_1 = await self._fetch_market_data(market_id, token_id_1)
+
+            if not market_data_0 or not market_data_1:
+                logger.warning(f"❌ Could not fetch orderbook for both tokens")
                 return None
 
-            # EARLY REJECTION: Check if best bid/ask spread is reasonable
-            # This saves 1 API call (NO orderbook) if market is obviously too thin
-            yes_best_bid = yes_market_data.get('best_bid', 0)
-            yes_best_ask = yes_market_data.get('best_ask', 1)
-            yes_mid_price = yes_market_data.get('mid_price', 0.5)
+            # Compare spreads - pick the token with NARROWER spread
+            spread_0 = market_data_0.get('current_spread', 1.0)
+            spread_1 = market_data_1.get('current_spread', 1.0)
 
-            # Calculate position #1 spread percentage
-            position_1_spread = yes_best_ask - yes_best_bid
-            position_1_spread_pct = (position_1_spread / yes_mid_price) if yes_mid_price > 0 else 999
+            logger.info(f"📊 Token[0] spread: ${spread_0:.4f} ({spread_0*100:.2f}¢)")
+            logger.info(f"📊 Token[1] spread: ${spread_1:.4f} ({spread_1*100:.2f}¢)")
 
-            # REJECT if position #1 spread is too wide (> 50%)
-            # This indicates an extremely illiquid market not suitable for market making
-            MAX_POSITION_1_SPREAD = 0.50  # 50% - markets with wider spread are too thin
-
-            if position_1_spread_pct > MAX_POSITION_1_SPREAD:
-                logger.warning(f"❌ EARLY REJECTION - Position #1 spread too wide: {position_1_spread_pct:.2%}")
-                logger.warning(f"   Best Bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
-                logger.warning(f"   Best Ask: ${yes_best_ask:.4f} ({yes_best_ask*100:.2f}¢)")
-                logger.warning(f"   Spread: ${position_1_spread:.4f} ({position_1_spread*100:.2f}¢)")
-                logger.warning(f"   This market is too illiquid for market making - REJECTING")
-                logger.warning(f"   (Saved 1 API call by not fetching NO orderbook)")
-                return None
-
-            logger.info(f"✅ Position #1 spread OK: {position_1_spread_pct:.2%} (< {MAX_POSITION_1_SPREAD:.0%})")
-
-            # Spread looks good, proceed with fetching NO orderbook
-            logger.info(f"📖 Fetching orderbook for NO token: {no_token_id}")
-            no_market_data = await self._fetch_market_data(market_id, no_token_id)
-
-            if not no_market_data:
-                logger.warning(f"❌ Could not fetch NO orderbook")
-                return None
+            if spread_0 < spread_1:
+                yes_token_id = token_id_0
+                no_token_id = token_id_1
+                yes_market_data = market_data_0
+                no_market_data = market_data_1
+                logger.info(f"✅ Using token[0] as YES (narrower spread)")
+            else:
+                yes_token_id = token_id_1
+                no_token_id = token_id_0
+                yes_market_data = market_data_1
+                no_market_data = market_data_0
+                logger.info(f"✅ Using token[1] as YES (narrower spread)")
 
             # VALIDATION: Verify this is a TRUE binary market (YES + NO ≈ $1.00)
             # In binary markets, YES best_bid + NO best_bid should be close to $1.00
             # If not, it might be a categorical market misidentified as binary
+            yes_best_bid = yes_market_data.get('best_bid', 0)
             no_best_bid = no_market_data.get('best_bid', 0)
-            yes_best_bid_price = yes_best_bid
-            no_best_bid_price = no_best_bid
 
             # Calculate sum of best bids
-            bid_sum = yes_best_bid_price + no_best_bid_price
+            bid_sum = yes_best_bid + no_best_bid
 
             # In true binary market: YES bid + NO bid should be in range [0.4, 1.6]
             # (accounting for spread and market inefficiency)
             # If sum is too low (<0.3) or too high (>1.7), it's likely a categorical market
             if bid_sum < 0.3 or bid_sum > 1.7:
                 logger.warning(f"❌ REJECTED - Invalid binary market detected!")
-                logger.warning(f"   YES best bid: ${yes_best_bid_price:.4f} ({yes_best_bid_price*100:.2f}¢)")
-                logger.warning(f"   NO best bid: ${no_best_bid_price:.4f} ({no_best_bid_price*100:.2f}¢)")
+                logger.warning(f"   YES best bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
+                logger.warning(f"   NO best bid: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢)")
                 logger.warning(f"   Sum: ${bid_sum:.4f} (expected ~$1.00 for binary markets)")
                 logger.warning(f"   This market does NOT behave like a binary YES/NO market")
                 logger.warning(f"   Likely a categorical market with 2 unrelated outcomes")
                 return None
 
             logger.info(f"✅ Binary market validation passed:")
-            logger.info(f"   YES best bid: ${yes_best_bid_price:.4f} + NO best bid: ${no_best_bid_price:.4f} = ${bid_sum:.4f}")
+            logger.info(f"   YES best bid: ${yes_best_bid:.4f} + NO best bid: ${no_best_bid:.4f} = ${bid_sum:.4f}")
             logger.info(f"   Sum is within valid range [0.3, 1.7] for binary markets")
 
             # Get max spread from market rewards config (if available)
