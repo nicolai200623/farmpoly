@@ -301,6 +301,18 @@ class OrderManager:
             best_bid = get_price(bids[0])
             best_ask = get_price(asks[0])
 
+            # Check if position #2 spread is reasonable
+            # If spread at position #2 is >50%, this is a very thin market - reject it
+            position_2_spread = second_ask - second_bid
+            position_2_spread_pct = position_2_spread / mid_price if mid_price > 0 else 0
+
+            if position_2_spread_pct > 0.5:  # 50% spread
+                logger.warning(f"❌ Position #2 spread too wide: {position_2_spread_pct:.2%}")
+                logger.warning(f"   Position #2 Bid: ${second_bid:.4f} ({second_bid*100:.2f}¢)")
+                logger.warning(f"   Position #2 Ask: ${second_ask:.4f} ({second_ask*100:.2f}¢)")
+                logger.warning(f"   This is a very thin market - REJECTING")
+                return None, None, {}
+
             # Random offset between 0.05 and 0.15 cents to add variety
             # Smaller offset = our spread closer to market spread
             # Still ensures we're at position #3 (below position #2)
@@ -315,9 +327,21 @@ class OrderManager:
             # For NO: if YES ask is at X, NO bid should be at (1 - X) - offset
             no_price = (1 - second_ask) - offset
 
-            # Validate prices are within bounds
-            yes_price = max(0.01, min(0.99, yes_price))
-            no_price = max(0.01, min(0.99, no_price))
+            # Validate prices are within reasonable bounds
+            # IMPORTANT: Don't force prices to 0.01-0.99 range!
+            # Some markets have very low/high prices (e.g., 0.002 or 0.998)
+            # Only reject if prices are completely invalid (<0.0001 or >0.9999)
+            if yes_price < 0.0001 or yes_price > 0.9999:
+                logger.warning(f"❌ Invalid YES price: ${yes_price:.4f} ({yes_price*100:.2f}¢)")
+                logger.warning(f"   Position #2 bid too extreme: ${second_bid:.4f}")
+                logger.warning(f"   REJECTING market")
+                return None, None, {}
+
+            if no_price < 0.0001 or no_price > 0.9999:
+                logger.warning(f"❌ Invalid NO price: ${no_price:.4f} ({no_price*100:.2f}¢)")
+                logger.warning(f"   Position #2 ask too extreme: ${second_ask:.4f}")
+                logger.warning(f"   REJECTING market")
+                return None, None, {}
 
             # Calculate spread between our YES bid and NO bid (as YES equivalent)
             # Our YES bid: yes_price
