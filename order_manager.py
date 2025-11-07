@@ -163,6 +163,27 @@ class OrderManager:
             best_ask = get_order_value(asks[0], 'price') if asks else 1
             mid_price = (best_bid + best_ask) / 2
 
+            # 🔍 DEBUG: Log orderbook data
+            logger.info(f"📊 Orderbook for market {market_id}:")
+            logger.info(f"   Best Bid: ${best_bid:.4f} ({best_bid*100:.2f}¢)")
+            logger.info(f"   Best Ask: ${best_ask:.4f} ({best_ask*100:.2f}¢)")
+            logger.info(f"   Mid Price: ${mid_price:.4f} ({mid_price*100:.2f}¢)")
+            logger.info(f"   Spread: ${(best_ask - best_bid):.4f} ({(best_ask - best_bid)*100:.2f}¢)")
+            logger.info(f"   Spread %: {((best_ask - best_bid) / best_bid * 100):.2f}%")
+
+            # Log top 3 bids and asks
+            logger.info(f"   Top 3 Bids:")
+            for i, bid in enumerate(bids[:3], 1):
+                price = get_order_value(bid, 'price')
+                size = get_order_value(bid, 'size')
+                logger.info(f"      {i}. ${price:.4f} ({price*100:.2f}¢) x {size:.0f}")
+
+            logger.info(f"   Top 3 Asks:")
+            for i, ask in enumerate(asks[:3], 1):
+                price = get_order_value(ask, 'price')
+                size = get_order_value(ask, 'size')
+                logger.info(f"      {i}. ${price:.4f} ({price*100:.2f}¢) x {size:.0f}")
+
             # Calculate spread and depth
             current_spread = best_ask - best_bid
 
@@ -318,12 +339,15 @@ class OrderManager:
 
             max_spread_from_mid = max(yes_spread_from_mid, no_spread_from_mid)
 
-            # 🔍 DEBUG: Log calculated prices and spreads
-            logger.debug(f"💰 Calculated prices:")
-            logger.debug(f"   Midpoint: ${mid_price:.4f}")
-            logger.debug(f"   YES: ${yes_price:.4f} (position {yes_position}, spread: {yes_spread_from_mid:.2%})")
-            logger.debug(f"   NO: ${no_price:.4f} (position {no_position}, spread: {no_spread_from_mid:.2%})")
-            logger.debug(f"   Max spread: {max_spread_from_mid:.2%} (allowed: {max_spread:.2%})")
+            # 🔍 DEBUG: Log calculated prices and spreads (changed to INFO for visibility)
+            logger.info(f"💰 Calculated prices:")
+            logger.info(f"   Midpoint: ${mid_price:.4f} ({mid_price*100:.2f}¢)")
+            logger.info(f"   YES: ${yes_price:.4f} ({yes_price*100:.2f}¢) at position {yes_position}")
+            logger.info(f"   YES spread from mid: {yes_spread_from_mid:.2%}")
+            logger.info(f"   NO: ${no_price:.4f} ({no_price*100:.2f}¢) at position {no_position}")
+            logger.info(f"   NO as YES equivalent: ${no_as_yes_price:.4f} ({no_as_yes_price*100:.2f}¢)")
+            logger.info(f"   NO spread from mid: {no_spread_from_mid:.2%}")
+            logger.info(f"   Max spread: {max_spread_from_mid:.2%} (allowed: {max_spread:.2%})")
 
             if max_spread_from_mid > max_spread:
                 logger.warning(f"❌ Calculated prices exceed max spread ({max_spread_from_mid:.2%} > {max_spread:.2%})")
