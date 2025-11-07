@@ -145,7 +145,9 @@ class PlaywrightRewardsScraper:
                             competition = market_data.get('market_competitiveness', 0)
 
                             # Get slug (API returns 'market_slug' not 'slug')
-                            slug = market_data.get('market_slug', '') or market_data.get('event_slug', '')
+                            market_slug = market_data.get('market_slug', '')
+                            event_slug = market_data.get('event_slug', '')
+                            slug = market_slug or event_slug
 
                             # ✅ Extract clob_token_ids from tokens field (API already provides this!)
                             tokens = market_data.get('tokens', [])
@@ -156,6 +158,8 @@ class PlaywrightRewardsScraper:
                                 'market_id': market_id,
                                 'question': market_data.get('question', ''),
                                 'slug': slug,
+                                'market_slug': market_slug,  # Store separately for categorical detection
+                                'event_slug': event_slug,    # Store separately for categorical detection
                                 'reward': reward,
                                 'competition_bars': competition,
                                 'volume': market_data.get('volume_24hr', 0),

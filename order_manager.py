@@ -60,7 +60,20 @@ class OrderManager:
 
             logger.info(f"🔍 Market {market_id} has {len(token_ids)} tokens: {token_ids}")
 
-            # CRITICAL CHECK: Only accept BINARY markets (exactly 2 tokens)
+            # CRITICAL CHECK 1: Reject categorical event outcomes
+            # If event_slug != market_slug, this is an outcome of a categorical event
+            market_slug = market.get('market_slug', '')
+            event_slug = market.get('event_slug', '')
+            if event_slug and market_slug and event_slug != market_slug:
+                logger.warning(f"❌ REJECTED - CATEGORICAL EVENT OUTCOME detected!")
+                logger.warning(f"   Event slug: {event_slug}")
+                logger.warning(f"   Market slug: {market_slug}")
+                logger.warning(f"   This is one outcome of a categorical event, not a standalone binary market")
+                logger.warning(f"   Example: 'NFLX above $1070' is one of many outcomes in 'NFLX above on Nov 14'")
+                logger.warning(f"   Market: {market.get('question', 'Unknown')[:80]}")
+                return None
+
+            # CRITICAL CHECK 2: Only accept BINARY markets (exactly 2 tokens)
             # Categorical markets have >2 tokens and are not suitable for our YES/NO strategy
             if len(token_ids) != 2:
                 if len(token_ids) < 2:

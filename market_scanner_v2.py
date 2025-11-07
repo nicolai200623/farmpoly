@@ -28,37 +28,42 @@ class MarketScannerV2:
         self.api_url = "https://gamma-api.polymarket.com/events"
 
         # Read config - handle both nested and direct config
-        # If config is already the scanner config (passed from main.py line 145)
+        # If config is already the scanner config (passed from main.py line 161)
         if 'min_reward' in config:
-            # Direct scanner config
-            self.min_reward = config.get('min_reward', 100)
-            self.max_competition = config.get('max_competition_bars', 2)
+            # Direct scanner config from config['market_scanner']
+            self.min_reward = config.get('min_reward', 10)  # Default 10 (match config.yaml)
+            self.max_competition = config.get('max_competition_bars', 3)  # Default 3 (match config.yaml)
             self.target_categories = config.get('target_categories', [])
         else:
             # Nested config (for backward compatibility)
             scanner_config = config.get('market_scanner', {})
-            self.min_reward = scanner_config.get('min_reward', 100)
-            self.max_competition = scanner_config.get('max_competition_bars', 2)
+            self.min_reward = scanner_config.get('min_reward', 10)  # Default 10
+            self.max_competition = scanner_config.get('max_competition_bars', 3)  # Default 3
             self.target_categories = scanner_config.get('target_categories', [])
 
         # Log the actual values being used
-        logger.info(f"📊 Market Scanner initialized with min_reward=${self.min_reward}, max_competition={self.max_competition}")
+        logger.info(f"📊 Market Scanner initialized with:")
+        logger.info(f"   - min_reward: ${self.min_reward}")
+        logger.info(f"   - max_competition_bars: {self.max_competition}")
         if self.target_categories:
-            logger.info(f"🎯 Target categories: {', '.join(self.target_categories)}")
+            logger.info(f"   - target_categories: {', '.join(self.target_categories)}")
         else:
-            logger.info(f"🎯 No category filter (all categories allowed)")
+            logger.info(f"   - target_categories: ALL (no filter)")
 
         self.browser = None
         self.context = None
+        self._clob_warning_shown = False  # Track if we've shown CLOB warning
 
         # Initialize CLOB client for orderbook verification
         clob_config = config.get('clob', {})
         self.clob_host = clob_config.get('host', 'https://clob.polymarket.com')
         try:
             self.clob_client = ClobClient(host=self.clob_host)
-            logger.debug("✅ CLOB client initialized for orderbook verification")
+            logger.info("✅ CLOB client initialized for orderbook verification (spread check enabled)")
         except Exception as e:
-            logger.warning(f"⚠️ Could not initialize CLOB client: {e}")
+            logger.error(f"❌ Could not initialize CLOB client: {e}")
+            logger.error(f"   Orderbook verification will be SKIPPED!")
+            logger.error(f"   Bot may select illiquid markets with wide spreads!")
             self.clob_client = None
 
         # Initialize Playwright Rewards Scraper (primary source - scrapes /rewards page!)
@@ -179,7 +184,7 @@ class MarketScannerV2:
                     verified_markets.extend(filtered_markets[50:])
 
                 if no_orderbook_count > 0:
-                    logger.info(f"   - {no_orderbook_count} markets rejected: no orderbook exists")
+                    logger.info(f"   - {no_orderbook_count} markets rejected: no orderbook or spread too wide (>50%)")
                 if error_count > 0:
                     logger.warning(f"   - {error_count} markets skipped due to errors")
 
@@ -446,6 +451,18 @@ class MarketScannerV2:
                 logger.debug(f"❌ Rejected (no clob_token_ids): {market['question'][:50]} - ID: {market.get('id')}")
                 continue
 
+            # ✅ NEW FILTER 1.4: Reject categorical event outcomes
+            # If event_slug != market_slug, this is an outcome of a categorical event
+            # Example: NFLX above $1070, NFLX above $1080, etc. are outcomes of categorical event
+            market_slug = market.get('market_slug', '')
+            event_slug = market.get('event_slug', '')
+            if event_slug and market_slug and event_slug != market_slug:
+                if 'categorical_outcome' not in rejected_reasons:
+                    rejected_reasons['categorical_outcome'] = 0
+                rejected_reasons['categorical_outcome'] += 1
+                logger.debug(f"❌ Rejected (categorical event outcome): {market['question'][:50]} - event_slug != market_slug")
+                continue
+
             # ✅ NEW FILTER 1.5: Only accept BINARY markets (exactly 2 tokens)
             # Reject categorical markets (>2 tokens) as they're not suitable for YES/NO strategy
             if len(clob_token_ids) != 2:
@@ -489,6 +506,8 @@ class MarketScannerV2:
                 logger.info(f"   - {rejected_reasons['wrong_category']} rejected: category not in {self.target_categories}")
             if rejected_reasons['no_clob_tokens'] > 0:
                 logger.info(f"   - {rejected_reasons['no_clob_tokens']} rejected: no clob_token_ids (cannot trade)")
+            if rejected_reasons.get('categorical_outcome', 0) > 0:
+                logger.info(f"   - {rejected_reasons['categorical_outcome']} rejected: categorical event outcomes (event_slug != market_slug)")
             if rejected_reasons.get('categorical_market', 0) > 0:
                 logger.info(f"   - {rejected_reasons['categorical_market']} rejected: categorical markets (not binary YES/NO)")
             if rejected_reasons['no_volume'] > 0:
@@ -521,16 +540,19 @@ class MarketScannerV2:
 
     async def _verify_orderbook_exists(self, market: Dict) -> bool:
         """
-        Verify that an orderbook exists for this market
+        Verify that an orderbook exists AND has reasonable spread for this market
 
         Args:
             market: Market dict with clob_token_ids
 
         Returns:
-            True if orderbook exists and has liquidity, False otherwise
+            True if orderbook exists with reasonable spread, False otherwise
         """
         if not self.clob_client:
-            logger.debug("⚠️ CLOB client not available, skipping orderbook verification")
+            if not self._clob_warning_shown:
+                logger.warning("⚠️ CLOB client not available, skipping orderbook verification for all markets!")
+                logger.warning("   Markets with wide spreads may pass through filter!")
+                self._clob_warning_shown = True
             return True  # Skip verification if CLOB client not available
 
         clob_token_ids = market.get('clob_token_ids', [])
@@ -555,13 +577,34 @@ class MarketScannerV2:
 
             # Check if orderbook has any bids or asks
             if hasattr(book, 'bids') and hasattr(book, 'asks'):
-                has_liquidity = (book.bids and len(book.bids) > 0) or (book.asks and len(book.asks) > 0)
-                if has_liquidity:
-                    logger.debug(f"✅ Orderbook verified for market {market.get('id')}: {len(book.bids)} bids, {len(book.asks)} asks")
-                    return True
-                else:
+                has_bids = book.bids and len(book.bids) > 0
+                has_asks = book.asks and len(book.asks) > 0
+
+                if not (has_bids and has_asks):
                     logger.debug(f"❌ Orderbook empty for market {market.get('id')}")
                     return False
+
+                # ✅ NEW: Check spread to filter out illiquid markets
+                # Get best bid and ask
+                best_bid = float(book.bids[0].price) if has_bids else 0
+                best_ask = float(book.asks[0].price) if has_asks else 1
+
+                # Calculate spread
+                spread = best_ask - best_bid
+                mid_price = (best_bid + best_ask) / 2
+                spread_pct = (spread / mid_price * 100) if mid_price > 0 else 999
+
+                # REJECT if spread > 50% (extremely illiquid)
+                # This is same threshold as in order_manager.py
+                MAX_SPREAD_PCT = 50.0
+
+                if spread_pct > MAX_SPREAD_PCT:
+                    logger.debug(f"❌ Spread too wide for market {market.get('question', 'unknown')[:50]}: {spread_pct:.1f}% (>{MAX_SPREAD_PCT}%)")
+                    logger.debug(f"   Best Bid: ${best_bid:.4f}, Best Ask: ${best_ask:.4f}")
+                    return False
+
+                logger.debug(f"✅ Orderbook verified for market {market.get('id')}: {len(book.bids)} bids, {len(book.asks)} asks, spread: {spread_pct:.1f}%")
+                return True
             else:
                 logger.debug(f"❌ Invalid orderbook format for market {market.get('id')}")
                 return False
