@@ -54,8 +54,9 @@ class OrderManager:
             market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
 
             # Get token_id from market data
-            # TESTING: Try BOTH tokens to see which one gives normal orderbook
-            # Normal orderbook should have bid/ask in similar range (e.g., 40-45¢, not 3¢-95¢)
+            # For binary markets (YES/NO), we only need to use token[0] (YES token)
+            # Token[1] (NO) is complement of YES, orderbook will be mirrored
+            # Using only token[0] reduces API calls and avoids confusion
             token_ids = market.get('clob_token_ids', [])
 
             logger.info(f"🔍 Market {market_id} has {len(token_ids)} tokens: {token_ids}")
@@ -64,38 +65,16 @@ class OrderManager:
                 logger.warning(f"❌ Market {market_id} has less than 2 tokens, skipping")
                 return None
 
-            # Try BOTH tokens and pick the one with narrower spread
-            token_id_0 = token_ids[0]
-            token_id_1 = token_ids[1]
+            # Use token[0] (YES token) for orderbook
+            token_id = token_ids[0]
+            logger.info(f"📖 Using token[0] (YES): {token_id}")
 
-            logger.info(f"🧪 Testing token[0]: {token_id_0}")
-            market_data_0 = await self._fetch_market_data(market_id, token_id_0)
+            # Fetch orderbook for YES token
+            market_data = await self._fetch_market_data(market_id, token_id)
 
-            logger.info(f"🧪 Testing token[1]: {token_id_1}")
-            market_data_1 = await self._fetch_market_data(market_id, token_id_1)
-
-            if not market_data_0 or not market_data_1:
-                logger.warning(f"❌ Could not fetch orderbook for both tokens")
+            if not market_data:
+                logger.warning(f"❌ Could not fetch orderbook for token[0]")
                 return None
-
-            # Compare spreads - pick the token with NARROWER spread
-            spread_0 = market_data_0.get('current_spread', 1.0)
-            spread_1 = market_data_1.get('current_spread', 1.0)
-
-            logger.info(f"📊 Token[0] spread: ${spread_0:.4f} ({spread_0*100:.2f}¢)")
-            logger.info(f"📊 Token[1] spread: ${spread_1:.4f} ({spread_1*100:.2f}¢)")
-
-            if spread_0 < spread_1:
-                token_id = token_id_0
-                market_data = market_data_0
-                logger.info(f"✅ Using token[0] (narrower spread)")
-            else:
-                token_id = token_id_1
-                market_data = market_data_1
-                logger.info(f"✅ Using token[1] (narrower spread)")
-
-            # market_data already fetched above when testing both tokens
-            # No need to fetch again
 
             # Get max spread from market rewards config (if available)
             # UPDATED: Increased default from 3.5% to 8% for position #3 strategy
