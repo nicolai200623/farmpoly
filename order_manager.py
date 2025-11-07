@@ -71,11 +71,41 @@ class OrderManager:
             logger.info(f"📖 Fetching orderbook for YES token: {yes_token_id}")
             yes_market_data = await self._fetch_market_data(market_id, yes_token_id)
 
+            if not yes_market_data:
+                logger.warning(f"❌ Could not fetch YES orderbook")
+                return None
+
+            # EARLY REJECTION: Check if best bid/ask spread is reasonable
+            # This saves 1 API call (NO orderbook) if market is obviously too thin
+            yes_best_bid = yes_market_data.get('best_bid', 0)
+            yes_best_ask = yes_market_data.get('best_ask', 1)
+            yes_mid_price = yes_market_data.get('mid_price', 0.5)
+
+            # Calculate position #1 spread percentage
+            position_1_spread = yes_best_ask - yes_best_bid
+            position_1_spread_pct = (position_1_spread / yes_mid_price) if yes_mid_price > 0 else 999
+
+            # REJECT if position #1 spread is too wide (> 50%)
+            # This indicates an extremely illiquid market not suitable for market making
+            MAX_POSITION_1_SPREAD = 0.50  # 50% - markets with wider spread are too thin
+
+            if position_1_spread_pct > MAX_POSITION_1_SPREAD:
+                logger.warning(f"❌ EARLY REJECTION - Position #1 spread too wide: {position_1_spread_pct:.2%}")
+                logger.warning(f"   Best Bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
+                logger.warning(f"   Best Ask: ${yes_best_ask:.4f} ({yes_best_ask*100:.2f}¢)")
+                logger.warning(f"   Spread: ${position_1_spread:.4f} ({position_1_spread*100:.2f}¢)")
+                logger.warning(f"   This market is too illiquid for market making - REJECTING")
+                logger.warning(f"   (Saved 1 API call by not fetching NO orderbook)")
+                return None
+
+            logger.info(f"✅ Position #1 spread OK: {position_1_spread_pct:.2%} (< {MAX_POSITION_1_SPREAD:.0%})")
+
+            # Spread looks good, proceed with fetching NO orderbook
             logger.info(f"📖 Fetching orderbook for NO token: {no_token_id}")
             no_market_data = await self._fetch_market_data(market_id, no_token_id)
 
-            if not yes_market_data or not no_market_data:
-                logger.warning(f"❌ Could not fetch orderbook for both tokens")
+            if not no_market_data:
+                logger.warning(f"❌ Could not fetch NO orderbook")
                 return None
 
             # Get max spread from market rewards config (if available)
