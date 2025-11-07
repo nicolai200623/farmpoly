@@ -54,9 +54,8 @@ class OrderManager:
             market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
 
             # Get token_id from market data
-            # For binary markets (YES/NO), we only need to use token[0] (YES token)
-            # Token[1] (NO) is complement of YES, orderbook will be mirrored
-            # Using only token[0] reduces API calls and avoids confusion
+            # For binary markets (YES/NO), fetch both orderbooks
+            # This is simpler and more direct than calculating from one orderbook
             token_ids = market.get('clob_token_ids', [])
 
             logger.info(f"🔍 Market {market_id} has {len(token_ids)} tokens: {token_ids}")
@@ -65,15 +64,18 @@ class OrderManager:
                 logger.warning(f"❌ Market {market_id} has less than 2 tokens, skipping")
                 return None
 
-            # Use token[0] (YES token) for orderbook
-            token_id = token_ids[0]
-            logger.info(f"📖 Using token[0] (YES): {token_id}")
+            # Fetch both orderbooks
+            yes_token_id = token_ids[0]
+            no_token_id = token_ids[1]
 
-            # Fetch orderbook for YES token
-            market_data = await self._fetch_market_data(market_id, token_id)
+            logger.info(f"📖 Fetching orderbook for YES token: {yes_token_id}")
+            yes_market_data = await self._fetch_market_data(market_id, yes_token_id)
 
-            if not market_data:
-                logger.warning(f"❌ Could not fetch orderbook for token[0]")
+            logger.info(f"📖 Fetching orderbook for NO token: {no_token_id}")
+            no_market_data = await self._fetch_market_data(market_id, no_token_id)
+
+            if not yes_market_data or not no_market_data:
+                logger.warning(f"❌ Could not fetch orderbook for both tokens")
                 return None
 
             # Get max spread from market rewards config (if available)
@@ -82,9 +84,11 @@ class OrderManager:
             max_spread_pct = market.get('rewards_max_spread', 8.0)  # Default 8.0%
             max_spread_decimal = max_spread_pct / 100  # Convert to decimal (e.g., 0.08)
 
-            # Calculate order prices at 2nd or 3rd position in order book
+            # Calculate order prices at position #3 in order book
+            # Pass both YES and NO orderbook data for direct price lookup
             yes_price, no_price, position_info = self._calculate_position_based_prices(
-                market_data,
+                yes_market_data,
+                no_market_data,
                 max_spread_decimal
             )
 
@@ -246,47 +250,42 @@ class OrderManager:
             logger.error(f"Error getting order book: {e}")
             return None
     
-    def _calculate_position_based_prices(self, market_data: Dict, max_spread: float) -> Tuple[Optional[float], Optional[float], Dict]:
+    def _calculate_position_based_prices(self, yes_market_data: Dict, no_market_data: Dict, max_spread: float) -> Tuple[Optional[float], Optional[float], Dict]:
         """Calculate order prices to place at position #3 in orderbook
 
-        STRATEGY:
-        1. Get price from position #2 in orderbook (NOT position #1 - best bid/ask)
-        2. Place our order slightly below position #2 (0.1-0.3 cents lower)
-        3. This ensures our order is at position #3 → NEVER at position #1
-        4. Check if spread between our bid and ask is within max_spread
-        5. Let order_monitor handle cancel/reorder if we move up to position #2 or #1
+        STRATEGY (SIMPLIFIED):
+        1. Fetch both YES and NO orderbooks
+        2. Get bid price from position #2 in YES orderbook
+        3. Get bid price from position #2 in NO orderbook
+        4. Place our orders slightly below position #2 (0.05-0.15 cents lower)
+        5. This ensures our orders are at position #3 → NEVER at position #1
+        6. Check if spread between our YES bid and NO bid is within max_spread
 
         Args:
-            market_data: Market data including order book
-            max_spread: Maximum allowed spread between our bid and ask (as decimal, e.g., 0.035 for 3.5%)
+            yes_market_data: Market data including YES token orderbook
+            no_market_data: Market data including NO token orderbook
+            max_spread: Maximum allowed spread between our bid and ask (as decimal, e.g., 0.08 for 8%)
 
         Returns:
             Tuple of (yes_price, no_price, position_info)
         """
         try:
-            order_book = market_data['order_book']
-            mid_price = market_data['mid_price']
+            # Extract YES orderbook
+            yes_order_book = yes_market_data['order_book']
+            yes_mid_price = yes_market_data['mid_price']
 
-            # Extract bids and asks from order book
-            if hasattr(order_book, 'bids'):
-                bids = order_book.bids if order_book.bids else []
-                asks = order_book.asks if order_book.asks else []
-            elif isinstance(order_book, dict):
-                bids = order_book.get('bids', [])
-                asks = order_book.get('asks', [])
-            else:
-                logger.error(f"Unknown orderbook type: {type(order_book)}")
-                return None, None, {}
+            # Extract NO orderbook
+            no_order_book = no_market_data['order_book']
+            no_mid_price = no_market_data['mid_price']
 
-            # ⚠️ CRITICAL CHECK: Need at least 2 orders on each side
-            # We take price from position #2, so we need at least 2 orders
-            logger.debug(f"📊 Orderbook depth: {len(bids)} bids, {len(asks)} asks")
-
-            if len(bids) < 2 or len(asks) < 2:
-                logger.warning(f"❌ Order book too thin! Bids: {len(bids)}, Asks: {len(asks)}")
-                logger.warning(f"   Need at least 2 orders on EACH side to place at position #3")
-                logger.warning(f"   REJECTING market")
-                return None, None, {}
+            # Helper function to extract bids from orderbook
+            def get_bids(order_book):
+                if hasattr(order_book, 'bids'):
+                    return order_book.bids if order_book.bids else []
+                elif isinstance(order_book, dict):
+                    return order_book.get('bids', [])
+                else:
+                    return []
 
             # Helper function to get price from order (handle both dict and object)
             def get_price(order):
@@ -295,75 +294,69 @@ class OrderManager:
                 else:
                     return float(getattr(order, 'price', 0))
 
-            # Get price from position #2 (index 1)
-            second_bid = get_price(bids[1])  # Position #2 in bids
-            second_ask = get_price(asks[1])  # Position #2 in asks
+            # Get bids from both orderbooks
+            yes_bids = get_bids(yes_order_book)
+            no_bids = get_bids(no_order_book)
 
-            # Also get position #1 for logging
-            best_bid = get_price(bids[0])
-            best_ask = get_price(asks[0])
+            # ⚠️ CRITICAL CHECK: Need at least 2 bids on each side
+            # We take bid price from position #2, so we need at least 2 bids
+            logger.debug(f"📊 Orderbook depth: YES {len(yes_bids)} bids, NO {len(no_bids)} bids")
 
-            # Check if position #2 spread is reasonable
-            # Calculate spread percentage relative to mid price
-            position_2_spread = second_ask - second_bid
-            position_2_spread_pct = (position_2_spread / mid_price) if mid_price > 0 else 0
-
-            # UPDATED: Increased threshold from 50% to 150%
-            # Some good markets have wide spread at position #2 but narrow at position #1
-            # We should focus on OUR final spread (checked later) rather than position #2 spread
-            if position_2_spread_pct > 1.5:  # 150% spread
-                logger.warning(f"❌ Position #2 spread too wide: {position_2_spread_pct:.2%}")
-                logger.warning(f"   Position #2 Bid: ${second_bid:.4f} ({second_bid*100:.2f}¢)")
-                logger.warning(f"   Position #2 Ask: ${second_ask:.4f} ({second_ask*100:.2f}¢)")
-                logger.warning(f"   This is an extremely thin market - REJECTING")
+            if len(yes_bids) < 2 or len(no_bids) < 2:
+                logger.warning(f"❌ Order book too thin! YES bids: {len(yes_bids)}, NO bids: {len(no_bids)}")
+                logger.warning(f"   Need at least 2 bids on EACH side to place at position #3")
+                logger.warning(f"   REJECTING market")
                 return None, None, {}
 
+            # Get bid position #1 and #2 from YES orderbook
+            yes_best_bid = get_price(yes_bids[0])  # Position #1
+            yes_second_bid = get_price(yes_bids[1])  # Position #2
+
+            # Get bid position #1 and #2 from NO orderbook
+            no_best_bid = get_price(no_bids[0])  # Position #1
+            no_second_bid = get_price(no_bids[1])  # Position #2
+
             # Random offset between 0.05 and 0.15 cents to add variety
-            # Smaller offset = our spread closer to market spread
-            # Still ensures we're at position #3 (below position #2)
+            # This ensures we're at position #3 (below position #2)
             offset = random.uniform(0.0005, 0.0015)  # 0.0005 = 0.05 cent, 0.0015 = 0.15 cent
 
-            # Calculate YES order price (buy side - place below position #2)
-            # Example: If bid #2 is 41.8¢, and offset is 0.2¢ → our bid is 41.6¢ (position #3)
-            yes_price = second_bid - offset
-
-            # Calculate NO order price (buy side - place below position #2 ask equivalent)
-            # Example: If ask #2 is 43.9¢, and offset is 0.2¢ → our NO bid is (100-43.9)-0.2 = 55.9¢
-            # For NO: if YES ask is at X, NO bid should be at (1 - X) - offset
-            no_price = (1 - second_ask) - offset
+            # Calculate our order prices at position #3
+            # Simply take position #2 bid and subtract offset
+            yes_price = yes_second_bid - offset
+            no_price = no_second_bid - offset
 
             # Validate prices are within reasonable bounds
-            # IMPORTANT: Don't force prices to 0.01-0.99 range!
             # Some markets have very low/high prices (e.g., 0.002 or 0.998)
             # Only reject if prices are completely invalid (<0.0001 or >0.9999)
             if yes_price < 0.0001 or yes_price > 0.9999:
                 logger.warning(f"❌ Invalid YES price: ${yes_price:.4f} ({yes_price*100:.2f}¢)")
-                logger.warning(f"   Position #2 bid too extreme: ${second_bid:.4f}")
+                logger.warning(f"   Position #2 YES bid too extreme: ${yes_second_bid:.4f}")
                 logger.warning(f"   REJECTING market")
                 return None, None, {}
 
             if no_price < 0.0001 or no_price > 0.9999:
                 logger.warning(f"❌ Invalid NO price: ${no_price:.4f} ({no_price*100:.2f}¢)")
-                logger.warning(f"   Position #2 ask too extreme: ${second_ask:.4f}")
+                logger.warning(f"   Position #2 NO bid too extreme: ${no_second_bid:.4f}")
                 logger.warning(f"   REJECTING market")
                 return None, None, {}
 
-            # Calculate spread between our YES bid and NO bid (as YES equivalent)
-            # Our YES bid: yes_price
-            # Our NO bid as YES equivalent: 1 - no_price
-            our_yes_bid = yes_price
+            # Calculate spread between our YES bid and NO bid
+            # In binary market: YES price + NO price should ≈ $1.00
+            # Our spread = (1 - no_price) - yes_price
+            # This represents the gap between our YES bid and the implied YES ask from our NO bid
             our_yes_ask_equivalent = 1 - no_price  # Convert NO bid to YES ask
+            spread_dollars = our_yes_ask_equivalent - yes_price
 
-            # Spread between our bid and ask
-            spread_dollars = our_yes_ask_equivalent - our_yes_bid
+            # Calculate spread percentage relative to mid price
+            mid_price = (yes_mid_price + (1 - no_mid_price)) / 2  # Average of both mid prices
             spread_percent = spread_dollars / mid_price if mid_price > 0 else 0
 
             # 🔍 DEBUG: Log calculated prices and spreads
-            logger.info(f"💰 Calculated prices (POSITION #3 STRATEGY):")
-            logger.info(f"   Position #1 (Best Bid): ${best_bid:.4f} ({best_bid*100:.2f}¢)")
-            logger.info(f"   Position #2 (Bid): ${second_bid:.4f} ({second_bid*100:.2f}¢)")
-            logger.info(f"   Position #1 (Best Ask): ${best_ask:.4f} ({best_ask*100:.2f}¢)")
-            logger.info(f"   Position #2 (Ask): ${second_ask:.4f} ({second_ask*100:.2f}¢)")
+            logger.info(f"💰 Calculated prices (POSITION #3 STRATEGY - DIRECT FROM ORDERBOOKS):")
+            logger.info(f"   YES Position #1 (Best Bid): ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
+            logger.info(f"   YES Position #2 (Bid): ${yes_second_bid:.4f} ({yes_second_bid*100:.2f}¢)")
+            logger.info(f"   NO Position #1 (Best Bid): ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢)")
+            logger.info(f"   NO Position #2 (Bid): ${no_second_bid:.4f} ({no_second_bid*100:.2f}¢)")
             logger.info(f"   Offset: ${offset:.4f} ({offset*100:.2f}¢)")
             logger.info(f"   Our YES bid (Position #3): ${yes_price:.4f} ({yes_price*100:.2f}¢)")
             logger.info(f"   Our NO bid (Position #3): ${no_price:.4f} ({no_price*100:.2f}¢)")
@@ -381,16 +374,16 @@ class OrderManager:
             position_info = {
                 'yes_price': yes_price,
                 'no_price': no_price,
-                'best_bid': best_bid,
-                'best_ask': best_ask,
-                'second_bid': second_bid,
-                'second_ask': second_ask,
+                'yes_best_bid': yes_best_bid,
+                'yes_second_bid': yes_second_bid,
+                'no_best_bid': no_best_bid,
+                'no_second_bid': no_second_bid,
                 'offset': offset,
                 'spread': spread_percent,
                 'max_spread_allowed': max_spread,
                 'midpoint': mid_price,
-                'num_bids': len(bids),
-                'num_asks': len(asks),
+                'num_yes_bids': len(yes_bids),
+                'num_no_bids': len(no_bids),
                 'target_position': 3  # We aim for position #3
             }
 
