@@ -28,25 +28,27 @@ class MarketScannerV2:
         self.api_url = "https://gamma-api.polymarket.com/events"
 
         # Read config - handle both nested and direct config
-        # If config is already the scanner config (passed from main.py line 145)
+        # If config is already the scanner config (passed from main.py line 161)
         if 'min_reward' in config:
-            # Direct scanner config
-            self.min_reward = config.get('min_reward', 100)
-            self.max_competition = config.get('max_competition_bars', 2)
+            # Direct scanner config from config['market_scanner']
+            self.min_reward = config.get('min_reward', 10)  # Default 10 (match config.yaml)
+            self.max_competition = config.get('max_competition_bars', 3)  # Default 3 (match config.yaml)
             self.target_categories = config.get('target_categories', [])
         else:
             # Nested config (for backward compatibility)
             scanner_config = config.get('market_scanner', {})
-            self.min_reward = scanner_config.get('min_reward', 100)
-            self.max_competition = scanner_config.get('max_competition_bars', 2)
+            self.min_reward = scanner_config.get('min_reward', 10)  # Default 10
+            self.max_competition = scanner_config.get('max_competition_bars', 3)  # Default 3
             self.target_categories = scanner_config.get('target_categories', [])
 
         # Log the actual values being used
-        logger.info(f"📊 Market Scanner initialized with min_reward=${self.min_reward}, max_competition={self.max_competition}")
+        logger.info(f"📊 Market Scanner initialized with:")
+        logger.info(f"   - min_reward: ${self.min_reward}")
+        logger.info(f"   - max_competition_bars: {self.max_competition}")
         if self.target_categories:
-            logger.info(f"🎯 Target categories: {', '.join(self.target_categories)}")
+            logger.info(f"   - target_categories: {', '.join(self.target_categories)}")
         else:
-            logger.info(f"🎯 No category filter (all categories allowed)")
+            logger.info(f"   - target_categories: ALL (no filter)")
 
         self.browser = None
         self.context = None
