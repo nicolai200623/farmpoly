@@ -8,7 +8,9 @@ import asyncio
 import os
 import sys
 import logging
+import requests
 from dotenv import load_dotenv
+from typing import List, Dict
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -29,19 +31,33 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-async def get_positions(client: ClobClient) -> list:
-    """Get all open positions"""
+async def get_positions(wallet_address: str) -> List[Dict]:
+    """Get all open positions from Polymarket Data API"""
     try:
-        positions = client.get_positions()
+        data_api_url = "https://data-api.polymarket.com/positions"
+        params = {
+            "user": wallet_address,
+            "sizeThreshold": 0.01,
+            "limit": 500
+        }
+
+        logger.info(f"Fetching positions for wallet: {wallet_address[:10]}...{wallet_address[-8:]}")
+        response = requests.get(data_api_url, params=params, timeout=10)
+        response.raise_for_status()
+
+        positions = response.json()
 
         if not positions:
             logger.info("No positions found")
             return []
 
+        logger.info(f"Found {len(positions)} position(s)")
         return positions
 
     except Exception as e:
         logger.error(f"Failed to get positions: {e}")
+        import traceback
+        traceback.print_exc()
         return []
 
 
@@ -56,11 +72,12 @@ async def display_positions(positions: list):
     print("="*100)
 
     for i, pos in enumerate(positions, 1):
-        market = pos.get('title', 'Unknown')[:60]
-        token_id = pos.get('asset', 'unknown')
+        # Data API field names (different from what I expected)
+        market = pos.get('title', pos.get('market', 'Unknown'))[:60]
+        token_id = pos.get('asset_id', pos.get('asset', 'unknown'))
         shares = float(pos.get('size', 0))
-        avg_entry = float(pos.get('avgPrice', 0))
-        current_price = float(pos.get('curPrice', 0))
+        avg_entry = float(pos.get('average_price', pos.get('avgPrice', 0)))
+        current_price = float(pos.get('current_price', pos.get('curPrice', 0)))
 
         # Calculate P&L
         entry_cost = shares * avg_entry
@@ -82,13 +99,13 @@ async def display_positions(positions: list):
     print("\n" + "="*100 + "\n")
 
 
-async def sell_position(client: ClobClient, position: dict, sell_percentage: float = 100.0):
+async def sell_position(position: dict, sell_percentage: float = 100.0):
     """Sell a position (default: 100% = sell all)"""
     try:
-        market = position.get('title', 'Unknown')
-        token_id = position.get('asset')
+        market = position.get('title', position.get('market', 'Unknown'))
+        token_id = position.get('asset_id', position.get('asset'))
         total_shares = float(position.get('size', 0))
-        current_price = float(position.get('curPrice', 0))
+        current_price = float(position.get('current_price', position.get('curPrice', 0)))
 
         # Calculate shares to sell
         shares_to_sell = total_shares * (sell_percentage / 100.0)
@@ -205,14 +222,18 @@ async def main():
         print("💰 MANUAL POSITION SELLER")
         print("="*100)
 
-        # Initialize CLOB client (read-only)
-        logger.info("🔧 Initializing CLOB client...")
-        client = ClobClient(host="https://clob.polymarket.com")
-        logger.info("✅ CLOB client initialized")
+        # Get wallet address from .env
+        wallet_address = os.getenv('WALLET_1_ADDRESS')
+        if not wallet_address:
+            logger.error("❌ WALLET_1_ADDRESS not found in .env")
+            logger.error("   Please add WALLET_1_ADDRESS=0x... to your .env file")
+            return
+
+        logger.info(f"Using wallet: {wallet_address[:10]}...{wallet_address[-8:]}")
 
         # Get positions
         logger.info("📊 Fetching positions...")
-        positions = await get_positions(client)
+        positions = await get_positions(wallet_address)
 
         # Display positions
         await display_positions(positions)
@@ -261,12 +282,12 @@ async def main():
                         continue
 
                     # Sell
-                    success = await sell_position(client, selected_pos, sell_pct)
+                    success = await sell_position(selected_pos, sell_pct)
 
                     if success:
                         print("\n✅ Position sold successfully!")
                         print("Refreshing positions...")
-                        positions = await get_positions(client)
+                        positions = await get_positions(wallet_address)
                         await display_positions(positions)
 
                 except ValueError:
@@ -274,7 +295,7 @@ async def main():
 
             elif choice == "2":
                 logger.info("📊 Refreshing positions...")
-                positions = await get_positions(client)
+                positions = await get_positions(wallet_address)
                 await display_positions(positions)
 
             elif choice == "3":
