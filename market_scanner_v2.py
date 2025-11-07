@@ -52,15 +52,18 @@ class MarketScannerV2:
 
         self.browser = None
         self.context = None
+        self._clob_warning_shown = False  # Track if we've shown CLOB warning
 
         # Initialize CLOB client for orderbook verification
         clob_config = config.get('clob', {})
         self.clob_host = clob_config.get('host', 'https://clob.polymarket.com')
         try:
             self.clob_client = ClobClient(host=self.clob_host)
-            logger.debug("✅ CLOB client initialized for orderbook verification")
+            logger.info("✅ CLOB client initialized for orderbook verification (spread check enabled)")
         except Exception as e:
-            logger.warning(f"⚠️ Could not initialize CLOB client: {e}")
+            logger.error(f"❌ Could not initialize CLOB client: {e}")
+            logger.error(f"   Orderbook verification will be SKIPPED!")
+            logger.error(f"   Bot may select illiquid markets with wide spreads!")
             self.clob_client = None
 
         # Initialize Playwright Rewards Scraper (primary source - scrapes /rewards page!)
@@ -532,7 +535,10 @@ class MarketScannerV2:
             True if orderbook exists with reasonable spread, False otherwise
         """
         if not self.clob_client:
-            logger.debug("⚠️ CLOB client not available, skipping orderbook verification")
+            if not self._clob_warning_shown:
+                logger.warning("⚠️ CLOB client not available, skipping orderbook verification for all markets!")
+                logger.warning("   Markets with wide spreads may pass through filter!")
+                self._clob_warning_shown = True
             return True  # Skip verification if CLOB client not available
 
         clob_token_ids = market.get('clob_token_ids', [])
