@@ -137,9 +137,12 @@ async def test_position_pricing():
                 print(f"  ❌ FAIL: Should have accepted this order book!")
         else:
             print(f"\n  Result: ACCEPTED")
-            print(f"    YES: ${yes_price:.4f} at position {position_info.get('yes_position', 'unknown')}")
-            print(f"    NO: ${no_price:.4f} at position {position_info.get('no_position', 'unknown')}")
-            print(f"    Spread: {position_info.get('spread_from_mid', 0):.2%}")
+            print(f"    Position #2 Bid: ${position_info.get('second_bid', 0):.4f} ({position_info.get('second_bid', 0)*100:.2f}¢)")
+            print(f"    Position #2 Ask: ${position_info.get('second_ask', 0):.4f} ({position_info.get('second_ask', 0)*100:.2f}¢)")
+            print(f"    Our YES bid (Position #3): ${yes_price:.4f} ({yes_price*100:.2f}¢)")
+            print(f"    Our NO bid (Position #3): ${no_price:.4f} ({no_price*100:.2f}¢)")
+            print(f"    Spread: {position_info.get('spread', 0):.2%}")
+            print(f"    Offset from position #2: ${position_info.get('offset', 0):.4f} ({position_info.get('offset', 0)*100:.2f}¢)")
 
             if should_pass:
                 print(f"  ✅ PASS: Correctly accepted normal order book")

@@ -1,6182 +1,2274 @@
-2025-11-07 01:06:21,909 - __main__ - INFO - Shutdown signal received
-2025-11-07 01:06:24,865 - __main__ - INFO - Shutting down bot...
-2025-11-07 01:06:24,865 - order_manager - INFO - Cancelled 0 orders
-2025-11-07 01:06:24,865 - __main__ - INFO - Bot shutdown complete
-2025-11-07 01:07:53,058 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
-2025-11-07 01:07:57,120 - __main__ - INFO - ðŸ“‚ Loading config from: config.yaml
-2025-11-07 01:07:57,149 - __main__ - INFO - âœ… Config loaded successfully
-2025-11-07 01:07:57,149 - __main__ - INFO -    - min_reward: 10
-2025-11-07 01:07:57,149 - __main__ - INFO -    - max_competition_bars: 3
-2025-11-07 01:07:57,149 - __main__ - INFO -    - interval: 60s
-2025-11-07 01:07:57,149 - __main__ - INFO - âœ… Telegram alerts configured (Chat ID: -1003157421030)
-2025-11-07 01:07:57,149 - __main__ - INFO - âœ… Webhook alerts configured
-2025-11-07 01:07:57,150 - telegram_notifier - INFO - âœ… Telegram Notifier initialized (Chat ID: -1003157421030)
-2025-11-07 01:07:57,150 - __main__ - INFO - âœ… Telegram Notifier initialized
-2025-11-07 01:07:57,150 - market_scanner_v2 - INFO - ðŸ“Š Market Scanner initialized with min_reward=$10, max_competition=3
-2025-11-07 01:07:57,150 - market_scanner_v2 - INFO - ðŸŽ¯ Target categories: crypto, sports, politics, science, entertainment
-2025-11-07 01:07:57,150 - circuit_breaker - INFO - âœ… Circuit Breaker 'playwright_scraper' initialized (threshold=3, timeout=60s)
-2025-11-07 01:07:57,150 - circuit_breaker - INFO - âœ… Circuit Breaker 'playwright_scraper' initialized (threshold=3, timeout=120s)
-2025-11-07 01:07:57,150 - order_manager - INFO - CLOB client initialized successfully (read-only mode)
-2025-11-07 01:07:57,158 - wallet_manager - INFO - Loading REAL wallets from .env
-2025-11-07 01:07:57,165 - wallet_manager - INFO - âœ… Loaded wallet 1: 0x18F261DC...Ae4FfD96
-2025-11-07 01:07:57,166 - wallet_manager - INFO - âœ… Successfully loaded 1 real wallets
-2025-11-07 01:07:57,182 - ml_predictor - INFO - No pre-trained model found, using new model
-2025-11-07 01:07:57,182 - monitoring_system - INFO - âœ… Monitoring System initialized
-2025-11-07 01:07:57,184 - __main__ - INFO - âœ… Monitoring System enabled
-2025-11-07 01:07:57,184 - __main__ - INFO - â­ï¸  Reward Manager disabled in config
-2025-11-07 01:07:57,892 - profit_taking_manager - INFO - âœ… CLOB client initialized with API credentials
-2025-11-07 01:07:57,893 - profit_taking_manager - INFO - âœ… Profit Taking Manager initialized
-2025-11-07 01:07:57,893 - profit_taking_manager - INFO -    - Min profit: 5%
-2025-11-07 01:07:57,893 - profit_taking_manager - INFO -    - Target profit: 10%
-2025-11-07 01:07:57,893 - profit_taking_manager - INFO -    - Max profit: 150%
-2025-11-07 01:07:57,893 - profit_taking_manager - INFO -    - Check interval: 300s
-2025-11-07 01:07:57,893 - __main__ - INFO - âœ… Profit Taking Manager enabled
-2025-11-07 01:07:57,893 - __main__ - INFO - All modules initialized successfully
-2025-11-07 01:07:57,893 - __main__ - INFO - ðŸš€ Starting Polymarket Trading Bot...
-2025-11-07 01:07:58,858 - __main__ - INFO - âœ… Startup alert sent via TelegramNotifier
-2025-11-07 01:07:58,858 - __main__ - INFO - ðŸ” Checking USDC approval for wallets...
-2025-11-07 01:07:59,072 - usdc_approver - INFO - âœ… Connected to Polygon RPC: https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQ...
-2025-11-07 01:07:59,073 - __main__ - INFO -    Checking wallet: 0x18F261DC...Ae4FfD96
-2025-11-07 01:07:59,441 - __main__ - INFO -    Raw allowance: 100000000 (base units)
-2025-11-07 01:07:59,441 - __main__ - INFO -    Allowance in USDC: 100.00 USDC
-2025-11-07 01:07:59,441 - __main__ - INFO -    Required minimum: 100 USDC (test mode)
-2025-11-07 01:07:59,441 - __main__ - INFO - âœ… USDC approval OK (100 USDC)
-2025-11-07 01:07:59,441 - __main__ - WARNING -    âš ï¸  Running in TEST MODE with 100 USDC
-2025-11-07 01:07:59,442 - __main__ - WARNING -    For production, approve at least 1,000 USDC
-2025-11-07 01:07:59,442 - __main__ - INFO - ðŸ” Starting market scanning loop
-2025-11-07 01:07:59,442 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:07:59,442 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:07:59,442 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:07:59,443 - __main__ - INFO - ðŸ“¦ Starting order management loop
-2025-11-07 01:07:59,443 - __main__ - INFO - ðŸ‘ï¸  Starting position monitoring loop
-2025-11-07 01:07:59,443 - __main__ - INFO - ðŸ›¡ï¸  Starting risk management loop
-2025-11-07 01:07:59,443 - __main__ - INFO - ðŸ¤– Starting ML training loop
-2025-11-07 01:07:59,443 - ml_predictor - INFO - Insufficient training data: 0 samples
-2025-11-07 01:07:59,443 - __main__ - INFO - ML model updated successfully
-2025-11-07 01:07:59,443 - __main__ - INFO - ðŸ“Š Starting daily optimization loop
-2025-11-07 01:07:59,443 - __main__ - INFO - ðŸ¥ Starting health monitoring loop
-2025-11-07 01:08:00,445 - __main__ - INFO - ðŸ“ˆ Starting hourly report loop
-2025-11-07 01:08:00,446 - __main__ - INFO - ðŸ’° Starting automated profit taking loop
-2025-11-07 01:08:00,446 - profit_taking_manager - INFO - ðŸ” Checking positions for wallet: 0x18F261DC...Ae4FfD96
-2025-11-07 01:08:00,764 - profit_taking_manager - INFO - ðŸ“Š Found 3 active positions
-2025-11-07 01:08:00,764 - profit_taking_manager - INFO - 
+2025-11-07 01:35:13,454 - __main__ - INFO - Shutdown signal received
+2025-11-07 01:35:15,939 - __main__ - INFO - Shutting down bot...
+2025-11-07 01:35:15,940 - order_manager - INFO - Cancelled 0 orders
+2025-11-07 01:35:15,940 - __main__ - INFO - Bot shutdown complete
+2025-11-07 01:36:44,303 - __main__ - INFO - âœ… Using MarketScannerV2 (Playwright + Gamma API)
+2025-11-07 01:36:47,646 - __main__ - INFO - ðŸ“‚ Loading config from: config.yaml
+2025-11-07 01:36:47,675 - __main__ - INFO - âœ… Config loaded successfully
+2025-11-07 01:36:47,675 - __main__ - INFO -    - min_reward: 10
+2025-11-07 01:36:47,675 - __main__ - INFO -    - max_competition_bars: 3
+2025-11-07 01:36:47,675 - __main__ - INFO -    - interval: 60s
+2025-11-07 01:36:47,675 - __main__ - INFO - âœ… Telegram alerts configured (Chat ID: -1003157421030)
+2025-11-07 01:36:47,675 - __main__ - INFO - âœ… Webhook alerts configured
+2025-11-07 01:36:47,675 - telegram_notifier - INFO - âœ… Telegram Notifier initialized (Chat ID: -1003157421030)
+2025-11-07 01:36:47,675 - __main__ - INFO - âœ… Telegram Notifier initialized
+2025-11-07 01:36:47,675 - market_scanner_v2 - INFO - ðŸ“Š Market Scanner initialized with min_reward=$10, max_competition=3
+2025-11-07 01:36:47,675 - market_scanner_v2 - INFO - ðŸŽ¯ Target categories: crypto, sports, politics, science, entertainment
+2025-11-07 01:36:47,675 - circuit_breaker - INFO - âœ… Circuit Breaker 'playwright_scraper' initialized (threshold=3, timeout=60s)
+2025-11-07 01:36:47,675 - circuit_breaker - INFO - âœ… Circuit Breaker 'playwright_scraper' initialized (threshold=3, timeout=120s)
+2025-11-07 01:36:47,675 - order_manager - INFO - CLOB client initialized successfully (read-only mode)
+2025-11-07 01:36:47,684 - wallet_manager - INFO - Loading REAL wallets from .env
+2025-11-07 01:36:47,690 - wallet_manager - INFO - âœ… Loaded wallet 1: 0x18F261DC...Ae4FfD96
+2025-11-07 01:36:47,690 - wallet_manager - INFO - âœ… Successfully loaded 1 real wallets
+2025-11-07 01:36:47,697 - ml_predictor - INFO - No pre-trained model found, using new model
+2025-11-07 01:36:47,698 - monitoring_system - INFO - âœ… Monitoring System initialized
+2025-11-07 01:36:47,699 - __main__ - INFO - âœ… Monitoring System enabled
+2025-11-07 01:36:47,699 - __main__ - INFO - â­ï¸  Reward Manager disabled in config
+2025-11-07 01:36:48,404 - profit_taking_manager - INFO - âœ… CLOB client initialized with API credentials
+2025-11-07 01:36:48,405 - profit_taking_manager - INFO - âœ… Profit Taking Manager initialized
+2025-11-07 01:36:48,405 - profit_taking_manager - INFO -    - Min profit: 5%
+2025-11-07 01:36:48,405 - profit_taking_manager - INFO -    - Target profit: 10%
+2025-11-07 01:36:48,405 - profit_taking_manager - INFO -    - Max profit: 150%
+2025-11-07 01:36:48,405 - profit_taking_manager - INFO -    - Check interval: 300s
+2025-11-07 01:36:48,405 - __main__ - INFO - âœ… Profit Taking Manager enabled
+2025-11-07 01:36:48,405 - __main__ - INFO - All modules initialized successfully
+2025-11-07 01:36:48,405 - __main__ - INFO - ðŸš€ Starting Polymarket Trading Bot...
+2025-11-07 01:36:49,373 - __main__ - INFO - âœ… Startup alert sent via TelegramNotifier
+2025-11-07 01:36:49,373 - __main__ - INFO - ðŸ” Checking USDC approval for wallets...
+2025-11-07 01:36:49,594 - usdc_approver - INFO - âœ… Connected to Polygon RPC: https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQ...
+2025-11-07 01:36:49,594 - __main__ - INFO -    Checking wallet: 0x18F261DC...Ae4FfD96
+2025-11-07 01:36:49,959 - __main__ - INFO -    Raw allowance: 100000000 (base units)
+2025-11-07 01:36:49,960 - __main__ - INFO -    Allowance in USDC: 100.00 USDC
+2025-11-07 01:36:49,960 - __main__ - INFO -    Required minimum: 100 USDC (test mode)
+2025-11-07 01:36:49,960 - __main__ - INFO - âœ… USDC approval OK (100 USDC)
+2025-11-07 01:36:49,960 - __main__ - WARNING -    âš ï¸  Running in TEST MODE with 100 USDC
+2025-11-07 01:36:49,960 - __main__ - WARNING -    For production, approve at least 1,000 USDC
+2025-11-07 01:36:49,960 - __main__ - INFO - ðŸ” Starting market scanning loop
+2025-11-07 01:36:49,960 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
+2025-11-07 01:36:49,960 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
+2025-11-07 01:36:49,961 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
+2025-11-07 01:36:49,961 - __main__ - INFO - ðŸ“¦ Starting order management loop
+2025-11-07 01:36:49,961 - __main__ - INFO - ðŸ‘ï¸  Starting position monitoring loop
+2025-11-07 01:36:49,961 - __main__ - INFO - ðŸ›¡ï¸  Starting risk management loop
+2025-11-07 01:36:49,961 - __main__ - INFO - ðŸ¤– Starting ML training loop
+2025-11-07 01:36:49,961 - ml_predictor - INFO - Insufficient training data: 0 samples
+2025-11-07 01:36:49,961 - __main__ - INFO - ML model updated successfully
+2025-11-07 01:36:49,961 - __main__ - INFO - ðŸ“Š Starting daily optimization loop
+2025-11-07 01:36:49,962 - __main__ - INFO - ðŸ¥ Starting health monitoring loop
+2025-11-07 01:36:50,964 - __main__ - INFO - ðŸ“ˆ Starting hourly report loop
+2025-11-07 01:36:50,964 - __main__ - INFO - ðŸ’° Starting automated profit taking loop
+2025-11-07 01:36:50,964 - profit_taking_manager - INFO - ðŸ” Checking positions for wallet: 0x18F261DC...Ae4FfD96
+2025-11-07 01:36:51,295 - profit_taking_manager - INFO - ðŸ“Š Found 3 active positions
+2025-11-07 01:36:51,295 - profit_taking_manager - INFO - 
 ðŸ“ˆ Position: Charlotte 49ers vs. East Carolina
-2025-11-07 01:08:00,764 - profit_taking_manager - INFO -    Shares: 259.00 @ $0.1494
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    Current: $0.0385
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    P&L: $-28.73 (-74.23%)
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO - 
+2025-11-07 01:36:51,295 - profit_taking_manager - INFO -    Shares: 259.00 @ $0.1494
+2025-11-07 01:36:51,295 - profit_taking_manager - INFO -    Current: $0.0385
+2025-11-07 01:36:51,295 - profit_taking_manager - INFO -    P&L: $-28.73 (-74.23%)
+2025-11-07 01:36:51,295 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
+2025-11-07 01:36:51,295 - profit_taking_manager - INFO - 
 ðŸ“ˆ Position: Will Google Gemini 3 score at least 70% on the Fro
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    Shares: 68.00 @ $0.3900
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    Current: $0.0700
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    P&L: $-21.76 (-82.05%)
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO - 
+2025-11-07 01:36:51,295 - profit_taking_manager - INFO -    Shares: 68.00 @ $0.3900
+2025-11-07 01:36:51,296 - profit_taking_manager - INFO -    Current: $0.0700
+2025-11-07 01:36:51,296 - profit_taking_manager - INFO -    P&L: $-21.76 (-82.05%)
+2025-11-07 01:36:51,296 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
+2025-11-07 01:36:51,296 - profit_taking_manager - INFO - 
 ðŸ“ˆ Position: Syracuse vs. Miami
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    Shares: 66.00 @ $0.4900
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    Current: $0.0475
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    P&L: $-29.20 (-90.31%)
-2025-11-07 01:08:00,765 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:08:00,765 - __main__ - INFO - â³ Next profit check in 300s
-2025-11-07 01:08:01,489 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:08:01,490 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:08:01,949 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:08:01,950 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:08:02,613 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:08:02,614 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:08:03,248 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:08:03,249 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:08:03,903 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:08:03,903 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:08:04,585 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:08:04,586 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:08:05,260 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:08:05,260 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:08:05,920 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:08:05,921 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:08:06,559 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:08:06,559 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:08:06,972 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:08:06,973 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:08:07,397 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:08:07,397 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:08:07,841 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:08:07,842 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:08:08,535 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:08:08,535 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:08:08,999 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:08:09,000 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:08:09,639 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:08:09,639 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:08:10,105 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:08:10,105 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:08:10,813 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:08:10,813 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:08:11,491 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:08:11,492 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:08:12,146 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:08:12,146 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:08:12,802 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:08:12,802 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:08:13,479 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:08:13,480 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:08:14,114 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:08:14,115 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:08:14,561 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:08:14,561 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:08:15,397 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:08:15,398 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:08:15,867 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:08:15,868 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:08:16,298 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:08:16,299 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:08:16,958 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:08:16,959 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:08:17,774 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:08:17,774 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:08:18,419 - playwright_rewards_scraper - INFO - âœ… Got 45 markets on page 29
-2025-11-07 01:08:18,420 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:08:18,708 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:08:18,710 - playwright_rewards_scraper - INFO - âœ… Fetched 2842 total unique markets from /rewards API
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO - âœ… Got 2842 markets from /rewards page
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO -    - Competition: 0.509696 bars, Score: -25.96
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Thailand win Miss Universe 2025?
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,758 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$126)
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Competition: 0.526933 bars, Score: -47.68
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:08:18,759 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:08:18,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Competition: 1.062743 bars, Score: -96.21
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Competition: 1.260037 bars, Score: -116.00
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Competition: 0.085 bars, Score: 1.51
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,761 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.54
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.53
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Competition: 0.085 bars, Score: 1.50
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,762 - market_scanner_v2 - INFO -    - Competition: 1.224667 bars, Score: -112.47
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Competition: 0.45925 bars, Score: -35.92
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Competition: 0.45925 bars, Score: -35.92
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Competition: 0.820527 bars, Score: -72.04
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:08:18,763 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Competition: 0.051 bars, Score: 4.90
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:08:18,764 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Competition: 2.744846 bars, Score: -264.42
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Competition: 2.273491 bars, Score: -196.37
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Competition: 1.371556 bars, Score: -129.00
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,765 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Competition: 0.464305 bars, Score: -41.36
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Google Gemini 3 score at least 30% on Humanityâ€™s Last E
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,766 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24073)
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 12.41
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,767 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,768 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:08:18,769 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,770 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:08:18,771 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.31
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:08:18,772 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Competition: 1.818152 bars, Score: -174.31
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:08:18,773 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Competition: 2.813364 bars, Score: -273.83
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:08:18,774 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Competition: 1.474 bars, Score: -141.31
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Competition: 2.650771 bars, Score: -253.14
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.49
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,775 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:08:18,776 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:08:18,777 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Competition: 2.59774 bars, Score: -249.75
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
-2025-11-07 01:08:18,778 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:08:18,779 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,780 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:08:18,780 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,780 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:08:18,780 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,780 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Competition: 0.818733 bars, Score: -64.55
-2025-11-07 01:08:18,781 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the Government shutdown end November 12-15?
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$112624)
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Competition: 2.528809 bars, Score: -141.62
-2025-11-07 01:08:18,782 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Competition: 0.1564 bars, Score: -5.59
-2025-11-07 01:08:18,783 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Competition: 0.239472 bars, Score: 34.05
-2025-11-07 01:08:18,784 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Competition: 2.240921 bars, Score: -101.38
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Competition: 1.112573 bars, Score: -91.09
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:08:18,785 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:08:18,787 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 94/2842 markets passed
-2025-11-07 01:08:18,787 - market_scanner_v2 - INFO -    - 2342 rejected: reward < $10
-2025-11-07 01:08:18,787 - market_scanner_v2 - INFO -    - 205 rejected: competition > 3
-2025-11-07 01:08:18,787 - market_scanner_v2 - INFO -    - 180 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:08:18,787 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:08:18,787 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:08:22,770 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:08:27,192 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:08:32,442 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:08:37,012 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:08:41,430 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:08:41,899 - market_scanner_v2 - INFO - âœ… Found 94 qualifying markets (from 2842 total)
-2025-11-07 01:08:41,903 - market_selector - INFO - Selected 2 markets from 94 candidates
-2025-11-07 01:08:43,211 - order_manager - WARNING - âŒ Calculated prices exceed max spread (96.20% > 3.50%)
-2025-11-07 01:08:43,212 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:08:43,212 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:08:43,212 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:08:43,212 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:08:43,212 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:08:43,212 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:08:43,533 - order_manager - WARNING - âŒ Calculated prices exceed max spread (92.20% > 3.50%)
-2025-11-07 01:08:43,534 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:08:43,534 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:08:43,534 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:08:43,534 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:08:43,534 - order_manager - WARNING - Could not calculate valid prices for market 663031
-2025-11-07 01:08:43,534 - __main__ - WARNING - âš ï¸  Skipped market 663031 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:09:37,515 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:09:37,515 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:09:37,515 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:09:38,168 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:09:38,170 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:09:38,820 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:09:38,821 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:09:39,454 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:09:39,455 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:09:40,089 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:09:40,090 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:09:40,752 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:09:40,752 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:09:41,414 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:09:41,414 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:09:42,188 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:09:42,188 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:09:42,844 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:09:42,845 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:09:43,543 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:09:43,544 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:09:44,194 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:09:44,194 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:09:44,840 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:09:44,841 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:09:45,511 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:09:45,512 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:09:46,181 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:09:46,181 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:09:46,890 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:09:46,891 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:09:47,577 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:09:47,578 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:09:48,043 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:09:48,044 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:09:48,861 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:09:48,863 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:09:49,316 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:09:49,317 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:09:49,777 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:09:49,777 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:09:50,477 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:09:50,477 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:09:51,135 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:09:51,136 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:09:51,816 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:09:51,817 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:09:52,471 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:09:52,472 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:09:53,143 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:09:53,144 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:09:53,823 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:09:53,823 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:09:54,475 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:09:54,476 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:09:55,159 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:09:55,160 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:09:55,828 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:09:55,829 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:09:56,534 - playwright_rewards_scraper - INFO - âœ… Got 45 markets on page 29
-2025-11-07 01:09:56,534 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:09:56,788 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:09:56,789 - playwright_rewards_scraper - INFO - âœ… Fetched 2842 total unique markets from /rewards API
-2025-11-07 01:09:56,838 - market_scanner_v2 - INFO - âœ… Got 2842 markets from /rewards page
-2025-11-07 01:09:56,838 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:09:56,838 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,838 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:09:56,838 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Competition: 0.518913 bars, Score: -26.88
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Thailand win Miss Universe 2025?
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$126)
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Competition: 0.526933 bars, Score: -47.68
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,839 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:09:56,840 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Competition: 1.062743 bars, Score: -96.21
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Competition: 1.260037 bars, Score: -116.00
-2025-11-07 01:09:56,841 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Competition: 0.085 bars, Score: 1.51
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.54
-2025-11-07 01:09:56,842 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.53
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Competition: 0.085 bars, Score: 1.50
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Competition: 1.224667 bars, Score: -112.47
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Competition: 0.45925 bars, Score: -35.92
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:09:56,843 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Competition: 0.45925 bars, Score: -35.92
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Competition: 0.820527 bars, Score: -72.04
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:09:56,844 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Competition: 0.051 bars, Score: 4.90
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Competition: 2.744846 bars, Score: -264.42
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Competition: 1.708324 bars, Score: -139.85
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:09:56,845 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 8.16
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:09:56,846 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Competition: 0.464305 bars, Score: -41.36
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Google Gemini 3 score at least 30% on Humanityâ€™s Last E
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24073)
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Competition: 1.78451 bars, Score: -166.04
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,847 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:09:56,848 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:09:56,849 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:09:56,850 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:09:56,851 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.31
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:09:56,852 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Competition: 1.818152 bars, Score: -174.31
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,853 - market_scanner_v2 - INFO -    - Competition: 2.813364 bars, Score: -273.83
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Competition: 1.474 bars, Score: -141.31
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,854 - market_scanner_v2 - INFO -    - Competition: 2.650771 bars, Score: -253.14
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.49
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:09:56,855 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:09:56,856 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Competition: 2.59774 bars, Score: -249.75
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:09:56,857 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 140-159 tweets from October 31 to Novemb
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$225332)
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Competition: 1.424838 bars, Score: -19.95
-2025-11-07 01:09:56,858 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,859 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Stable launch a token in 2025?
-2025-11-07 01:09:56,859 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,859 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$211226)
-2025-11-07 01:09:56,859 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,859 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.12
-2025-11-07 01:09:56,859 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,859 - market_scanner_v2 - INFO - âœ… ACCEPTED: Russia x Ukraine ceasefire by November 30?
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$16945)
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.69
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Donald Trump rank in Googleâ€™s Top 5 Most Searched Peopl
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$162884)
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 31.29
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:09:56,860 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Competition: 0.143455 bars, Score: 2.98
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:09:56,861 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,862 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:09:56,862 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,862 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:09:56,862 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,862 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:09:56,862 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,862 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:09:56,862 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Competition: 0.239472 bars, Score: 34.05
-2025-11-07 01:09:56,863 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Competition: 2.240921 bars, Score: -101.38
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Competition: 0.589333 bars, Score: -38.77
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:09:56,864 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:09:56,865 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 97/2842 markets passed
-2025-11-07 01:09:56,865 - market_scanner_v2 - INFO -    - 2342 rejected: reward < $10
-2025-11-07 01:09:56,866 - market_scanner_v2 - INFO -    - 201 rejected: competition > 3
-2025-11-07 01:09:56,866 - market_scanner_v2 - INFO -    - 181 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:09:56,866 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:09:56,866 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:10:00,858 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:10:05,431 - ml_predictor - INFO - Alert sent: ðŸš¨ <b>MONITORING ALERT</b>
+2025-11-07 01:36:51,296 - profit_taking_manager - INFO -    Shares: 66.00 @ $0.4900
+2025-11-07 01:36:51,296 - profit_taking_manager - INFO -    Current: $0.0580
+2025-11-07 01:36:51,296 - profit_taking_manager - INFO -    P&L: $-28.51 (-88.16%)
+2025-11-07 01:36:51,296 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
+2025-11-07 01:36:51,296 - __main__ - INFO - â³ Next profit check in 300s
+2025-11-07 01:36:51,956 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
+2025-11-07 01:36:51,957 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
+2025-11-07 01:36:52,722 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
+2025-11-07 01:36:52,722 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
+2025-11-07 01:36:53,150 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
+2025-11-07 01:36:53,151 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
+2025-11-07 01:36:53,572 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
+2025-11-07 01:36:53,573 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
+2025-11-07 01:36:54,011 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
+2025-11-07 01:36:54,012 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
+2025-11-07 01:36:54,662 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
+2025-11-07 01:36:54,663 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
+2025-11-07 01:36:55,344 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
+2025-11-07 01:36:55,345 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
+2025-11-07 01:36:55,996 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
+2025-11-07 01:36:55,996 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
+2025-11-07 01:36:56,693 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
+2025-11-07 01:36:56,694 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
+2025-11-07 01:36:57,362 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
+2025-11-07 01:36:57,363 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
+2025-11-07 01:36:57,846 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
+2025-11-07 01:36:57,846 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
+2025-11-07 01:36:58,514 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
+2025-11-07 01:36:58,515 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
+2025-11-07 01:36:59,186 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
+2025-11-07 01:36:59,186 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
+2025-11-07 01:36:59,629 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
+2025-11-07 01:36:59,630 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
+2025-11-07 01:37:00,072 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
+2025-11-07 01:37:00,073 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
+2025-11-07 01:37:00,519 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
+2025-11-07 01:37:00,519 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
+2025-11-07 01:37:01,172 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
+2025-11-07 01:37:01,173 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
+2025-11-07 01:37:01,868 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
+2025-11-07 01:37:01,868 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
+2025-11-07 01:37:02,526 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
+2025-11-07 01:37:02,527 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
+2025-11-07 01:37:03,176 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
+2025-11-07 01:37:03,177 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
+2025-11-07 01:37:03,854 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
+2025-11-07 01:37:03,854 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
+2025-11-07 01:37:04,523 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
+2025-11-07 01:37:04,523 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
+2025-11-07 01:37:05,206 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
+2025-11-07 01:37:05,207 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
+2025-11-07 01:37:05,862 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
+2025-11-07 01:37:05,862 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
+2025-11-07 01:37:06,286 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
+2025-11-07 01:37:06,287 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
+2025-11-07 01:37:06,929 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
+2025-11-07 01:37:06,930 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
+2025-11-07 01:37:07,592 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
+2025-11-07 01:37:07,592 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
+2025-11-07 01:37:08,227 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
+2025-11-07 01:37:08,227 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
+2025-11-07 01:37:08,664 - playwright_rewards_scraper - INFO - âœ… Got 42 markets on page 29
+2025-11-07 01:37:08,665 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
+2025-11-07 01:37:08,926 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
+2025-11-07 01:37:08,927 - playwright_rewards_scraper - INFO - âœ… Fetched 2840 total unique markets from /rewards API
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO - âœ… Got 2840 markets from /rewards page
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Competition: 0.539847 bars, Score: -28.98
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:37:08,976 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
+2025-11-07 01:37:08,977 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Competition: 0.136 bars, Score: -3.53
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
+2025-11-07 01:37:08,978 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Competition: 1.260037 bars, Score: -116.00
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Competition: 0.29784 bars, Score: -19.78
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.54
+2025-11-07 01:37:08,979 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.53
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Competition: 1.224667 bars, Score: -112.47
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,980 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Competition: 0.820527 bars, Score: -72.04
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,981 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Competition: 0.051 bars, Score: 4.90
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Competition: 2.756071 bars, Score: -265.54
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
+2025-11-07 01:37:08,982 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Competition: 0.823877 bars, Score: -76.25
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
+2025-11-07 01:37:08,983 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Competition: 0.760555 bars, Score: -70.98
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Google Gemini 3 score at least 40% on Humanityâ€™s Last E
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1131)
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Competition: 2.727311 bars, Score: -262.62
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,984 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
+2025-11-07 01:37:08,985 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
+2025-11-07 01:37:08,986 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,987 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,988 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Competition: 1.701 bars, Score: -164.79
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
+2025-11-07 01:37:08,989 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Competition: 0.10988 bars, Score: -3.42
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Competition: 2.159934 bars, Score: -208.49
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:37:08,990 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Competition: 1.60472 bars, Score: -152.96
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:37:08,991 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Competition: 1.075971 bars, Score: -101.51
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Competition: 1.250694 bars, Score: -98.58
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:37:08,992 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,993 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 7?
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1948)
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Competition: 2.6611 bars, Score: -255.92
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,994 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Competition: 2.916227 bars, Score: -281.59
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
+2025-11-07 01:37:08,995 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 140-159 tweets from October 31 to Novemb
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$225332)
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Competition: 0.143511 bars, Score: 108.18
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 81.49
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 180-199 tweets from October 31 to Novemb
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$161389)
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,996 - market_scanner_v2 - INFO -    - Competition: 2.750939 bars, Score: -243.96
+2025-11-07 01:37:08,997 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,997 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Stable launch a token in 2025?
+2025-11-07 01:37:08,997 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,997 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$211226)
+2025-11-07 01:37:08,997 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,997 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.12
+2025-11-07 01:37:08,997 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $3B one day after launch?
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1115)
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Competition: 2.546799 bars, Score: -244.57
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
+2025-11-07 01:37:08,998 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Competition: 0.000444 bars, Score: 17.28
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:08,999 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the Government shutdown end November 12-15?
+2025-11-07 01:37:09,000 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:09,000 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$112624)
+2025-11-07 01:37:09,000 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,000 - market_scanner_v2 - INFO -    - Competition: 2.826148 bars, Score: -171.35
+2025-11-07 01:37:09,000 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,000 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
+2025-11-07 01:37:09,000 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Competition: 0.03808 bars, Score: 6.24
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
+2025-11-07 01:37:09,001 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia capture Rodynske by December 31?
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11725)
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Competition: 2.925501 bars, Score: -286.38
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Competition: 2.753472 bars, Score: -217.35
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Competition: 0.933612 bars, Score: 29.35
+2025-11-07 01:37:09,002 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Competition: 2.258143 bars, Score: -205.65
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
+2025-11-07 01:37:09,003 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,004 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia capture Kostyantynivka by December 31?
+2025-11-07 01:37:09,004 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:37:09,004 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$20214)
+2025-11-07 01:37:09,004 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:37:09,004 - market_scanner_v2 - INFO -    - Competition: 2.449 bars, Score: -237.88
+2025-11-07 01:37:09,004 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:37:09,004 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 99/2840 markets passed
+2025-11-07 01:37:09,004 - market_scanner_v2 - INFO -    - 2342 rejected: reward < $10
+2025-11-07 01:37:09,005 - market_scanner_v2 - INFO -    - 205 rejected: competition > 3
+2025-11-07 01:37:09,005 - market_scanner_v2 - INFO -    - 173 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
+2025-11-07 01:37:09,005 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
+2025-11-07 01:37:09,005 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
+2025-11-07 01:37:13,058 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
+2025-11-07 01:37:17,546 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
+2025-11-07 01:37:22,953 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
+2025-11-07 01:37:27,502 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
+2025-11-07 01:37:32,012 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
+2025-11-07 01:37:32,459 - market_scanner_v2 - INFO - âœ… Found 99 qualifying markets (from 2840 total)
+2025-11-07 01:37:32,462 - market_selector - INFO - Selected 2 markets from 99 candidates
+2025-11-07 01:37:33,806 - order_manager - INFO - ðŸ“Š Orderbook for market 653215:
+2025-11-07 01:37:33,806 - order_manager - INFO -    Best Bid: $0.0010 (0.10Â¢)
+2025-11-07 01:37:33,806 - order_manager - INFO -    Best Ask: $0.9990 (99.90Â¢)
+2025-11-07 01:37:33,807 - order_manager - INFO -    Mid Price: $0.5000 (50.00Â¢)
+2025-11-07 01:37:33,807 - order_manager - INFO -    Spread: $0.9980 (99.80Â¢)
+2025-11-07 01:37:33,807 - order_manager - INFO -    Spread %: 99800.00%
+2025-11-07 01:37:33,807 - order_manager - INFO -    Top 3 Bids:
+2025-11-07 01:37:33,807 - order_manager - INFO -       1. $0.0010 (0.10Â¢) x 21339
+2025-11-07 01:37:33,807 - order_manager - INFO -       2. $0.0020 (0.20Â¢) x 10017
+2025-11-07 01:37:33,807 - order_manager - INFO -       3. $0.0030 (0.30Â¢) x 200
+2025-11-07 01:37:33,807 - order_manager - INFO -    Top 3 Asks:
+2025-11-07 01:37:33,807 - order_manager - INFO -       1. $0.9990 (99.90Â¢) x 13736
+2025-11-07 01:37:33,807 - order_manager - INFO -       2. $0.9980 (99.80Â¢) x 10010
+2025-11-07 01:37:33,807 - order_manager - INFO -       3. $0.9970 (99.70Â¢) x 10000
+2025-11-07 01:37:33,807 - order_manager - INFO - ðŸ’° Calculated prices:
+2025-11-07 01:37:33,807 - order_manager - INFO -    Midpoint: $0.5000 (50.00Â¢)
+2025-11-07 01:37:33,807 - order_manager - INFO -    YES: $0.0010 (0.10Â¢) at position 2
+2025-11-07 01:37:33,807 - order_manager - INFO -    YES spread from mid: 99.80%
+2025-11-07 01:37:33,807 - order_manager - INFO -    NO: $0.0010 (0.10Â¢) at position 2
+2025-11-07 01:37:33,807 - order_manager - INFO -    NO as YES equivalent: $0.9990 (99.90Â¢)
+2025-11-07 01:37:33,807 - order_manager - INFO -    NO spread from mid: 99.80%
+2025-11-07 01:37:33,807 - order_manager - INFO -    Max spread: 99.80% (allowed: 3.50%)
+2025-11-07 01:37:33,807 - order_manager - WARNING - âŒ Calculated prices exceed max spread (99.80% > 3.50%)
+2025-11-07 01:37:33,808 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
+2025-11-07 01:37:33,808 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
+2025-11-07 01:37:33,808 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
+2025-11-07 01:37:33,808 - order_manager - WARNING -    â†’ High risk of being filled immediately!
+2025-11-07 01:37:33,808 - order_manager - WARNING - Could not calculate valid prices for market 653215
+2025-11-07 01:37:33,808 - __main__ - WARNING - âš ï¸  Skipped market 653215 - could not prepare valid order (spread too high or orderbook too thin)
+2025-11-07 01:37:34,153 - order_manager - INFO - ðŸ“Š Orderbook for market 663184:
+2025-11-07 01:37:34,154 - order_manager - INFO -    Best Bid: $0.0100 (1.00Â¢)
+2025-11-07 01:37:34,154 - order_manager - INFO -    Best Ask: $0.9900 (99.00Â¢)
+2025-11-07 01:37:34,154 - order_manager - INFO -    Mid Price: $0.5000 (50.00Â¢)
+2025-11-07 01:37:34,154 - order_manager - INFO -    Spread: $0.9800 (98.00Â¢)
+2025-11-07 01:37:34,154 - order_manager - INFO -    Spread %: 9800.00%
+2025-11-07 01:37:34,154 - order_manager - INFO -    Top 3 Bids:
+2025-11-07 01:37:34,154 - order_manager - INFO -       1. $0.0100 (1.00Â¢) x 16
+2025-11-07 01:37:34,154 - order_manager - INFO -       2. $0.0300 (3.00Â¢) x 233
+2025-11-07 01:37:34,154 - order_manager - INFO -       3. $0.0500 (5.00Â¢) x 17
+2025-11-07 01:37:34,154 - order_manager - INFO -    Top 3 Asks:
+2025-11-07 01:37:34,154 - order_manager - INFO -       1. $0.9900 (99.00Â¢) x 18
+2025-11-07 01:37:34,154 - order_manager - INFO -       2. $0.9800 (98.00Â¢) x 350
+2025-11-07 01:37:34,154 - order_manager - INFO -       3. $0.9700 (97.00Â¢) x 10
+2025-11-07 01:37:34,154 - order_manager - INFO - ðŸ’° Calculated prices:
+2025-11-07 01:37:34,154 - order_manager - INFO -    Midpoint: $0.5000 (50.00Â¢)
+2025-11-07 01:37:34,154 - order_manager - INFO -    YES: $0.0290 (2.90Â¢) at position 2
+2025-11-07 01:37:34,154 - order_manager - INFO -    YES spread from mid: 94.20%
+2025-11-07 01:37:34,154 - order_manager - INFO -    NO: $0.0190 (1.90Â¢) at position 2
+2025-11-07 01:37:34,154 - order_manager - INFO -    NO as YES equivalent: $0.9810 (98.10Â¢)
+2025-11-07 01:37:34,154 - order_manager - INFO -    NO spread from mid: 96.20%
+2025-11-07 01:37:34,154 - order_manager - INFO -    Max spread: 96.20% (allowed: 3.50%)
+2025-11-07 01:37:34,155 - order_manager - WARNING - âŒ Calculated prices exceed max spread (96.20% > 3.50%)
+2025-11-07 01:37:34,155 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
+2025-11-07 01:37:34,155 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
+2025-11-07 01:37:34,155 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
+2025-11-07 01:37:34,155 - order_manager - WARNING -    â†’ High risk of being filled immediately!
+2025-11-07 01:37:34,155 - order_manager - WARNING - Could not calculate valid prices for market 663184
+2025-11-07 01:37:34,155 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
+2025-11-07 01:38:43,697 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
+2025-11-07 01:38:43,698 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
+2025-11-07 01:38:43,698 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
+2025-11-07 01:38:44,134 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
+2025-11-07 01:38:44,135 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
+2025-11-07 01:38:44,557 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
+2025-11-07 01:38:44,558 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
+2025-11-07 01:38:45,342 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
+2025-11-07 01:38:45,343 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
+2025-11-07 01:38:45,993 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
+2025-11-07 01:38:45,993 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
+2025-11-07 01:38:46,409 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
+2025-11-07 01:38:46,410 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
+2025-11-07 01:38:47,064 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
+2025-11-07 01:38:47,065 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
+2025-11-07 01:38:47,483 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
+2025-11-07 01:38:47,484 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
+2025-11-07 01:38:47,932 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
+2025-11-07 01:38:47,932 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
+2025-11-07 01:38:48,559 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
+2025-11-07 01:38:48,560 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
+2025-11-07 01:38:49,233 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
+2025-11-07 01:38:49,233 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
+2025-11-07 01:38:49,680 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
+2025-11-07 01:38:49,680 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
+2025-11-07 01:38:50,335 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
+2025-11-07 01:38:50,335 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
+2025-11-07 01:38:50,974 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
+2025-11-07 01:38:50,975 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
+2025-11-07 01:38:51,631 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
+2025-11-07 01:38:51,632 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
+2025-11-07 01:38:52,299 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
+2025-11-07 01:38:52,300 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
+2025-11-07 01:38:52,950 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
+2025-11-07 01:38:52,951 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
+2025-11-07 01:38:53,750 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
+2025-11-07 01:38:53,751 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
+2025-11-07 01:38:54,981 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
+2025-11-07 01:38:54,983 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
+2025-11-07 01:38:55,469 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
+2025-11-07 01:38:55,470 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
+2025-11-07 01:38:55,948 - ml_predictor - INFO - Alert sent: ðŸš¨ <b>MONITORING ALERT</b>
 
 ðŸ”´ KhÃ´ng quÃ©t markets trong 82s!
-2025-11-07 01:10:05,431 - monitoring_system - INFO - Alert sent: no_scan
-2025-11-07 01:10:05,432 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:10:05,432 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 82s!
-2025-11-07 01:10:05,432 - __main__ - WARNING -    - âš ï¸ API cháº­m: 44.1s trung bÃ¬nh
-2025-11-07 01:10:06,340 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:10:10,798 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:10:15,226 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:10:19,731 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:10:20,171 - market_scanner_v2 - INFO - âœ… Found 97 qualifying markets (from 2842 total)
-2025-11-07 01:10:20,175 - market_selector - INFO - Selected 2 markets from 97 candidates
-2025-11-07 01:10:21,521 - order_manager - WARNING - âŒ Calculated prices exceed max spread (96.20% > 3.50%)
-2025-11-07 01:10:21,521 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:10:21,521 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:10:21,521 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:10:21,522 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:10:21,522 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:10:21,522 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:10:21,849 - order_manager - WARNING - âŒ Calculated prices exceed max spread (94.20% > 3.50%)
-2025-11-07 01:10:21,849 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:10:21,849 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:10:21,849 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:10:21,849 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:10:21,849 - order_manager - WARNING - Could not calculate valid prices for market 663031
-2025-11-07 01:10:21,849 - __main__ - WARNING - âš ï¸  Skipped market 663031 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:11:26,402 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:11:26,403 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:11:26,403 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:11:27,109 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:11:27,110 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:11:27,780 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:11:27,780 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:11:28,426 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:11:28,426 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:11:29,112 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:11:29,112 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:11:29,550 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:11:29,551 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:11:30,225 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:11:30,226 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:11:30,689 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:11:30,689 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:11:31,323 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:11:31,323 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:11:31,983 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:11:31,984 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:11:32,648 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:11:32,649 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:11:33,082 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:11:33,082 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:11:33,512 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:11:33,513 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:11:33,960 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:11:33,961 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:11:34,642 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:11:34,642 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:11:35,132 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:11:35,132 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:11:35,564 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:11:35,565 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:11:36,239 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:11:36,240 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:11:36,883 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:11:36,883 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:11:37,330 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:11:37,331 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:11:38,444 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:11:38,444 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 77s!
-2025-11-07 01:11:38,444 - __main__ - WARNING -    - âš ï¸ API cháº­m: 44.2s trung bÃ¬nh
-2025-11-07 01:11:38,447 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:11:38,448 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:11:38,901 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:11:38,901 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:11:39,571 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:11:39,571 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:11:40,230 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:11:40,231 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:11:40,888 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:11:40,889 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:11:41,545 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:11:41,546 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:11:42,220 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:11:42,221 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:11:42,882 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:11:42,883 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:11:43,531 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:11:43,532 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:11:43,955 - playwright_rewards_scraper - INFO - âœ… Got 45 markets on page 29
-2025-11-07 01:11:43,956 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:11:44,236 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:11:44,236 - playwright_rewards_scraper - INFO - âœ… Fetched 2842 total unique markets from /rewards API
-2025-11-07 01:11:44,284 - market_scanner_v2 - INFO - âœ… Got 2842 markets from /rewards page
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Competition: 1.796081 bars, Score: -154.60
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Thailand win Miss Universe 2025?
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$126)
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Competition: 0.526933 bars, Score: -47.68
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:11:44,285 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,286 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:11:44,287 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Competition: 1.045743 bars, Score: -94.51
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Competition: 1.243037 bars, Score: -114.30
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Competition: 0.068 bars, Score: 3.21
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,288 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Competition: 0.612333 bars, Score: -51.23
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Competition: 0.612333 bars, Score: -51.22
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Competition: 0.068 bars, Score: 3.20
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,289 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Competition: 1.071583 bars, Score: -97.16
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:11:44,290 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Competition: 0.667443 bars, Score: -56.73
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:11:44,291 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Competition: 0.034 bars, Score: 6.60
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Competition: 2.724446 bars, Score: -262.38
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Competition: 1.369115 bars, Score: -105.93
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will any Google Gemini 3 model score at least 1600 on LMAren
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$1060)
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Competition: 1.975 bars, Score: -192.39
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,292 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Competition: 0.494 bars, Score: -43.26
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,293 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Competition: 0.464305 bars, Score: -41.36
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,294 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,295 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,296 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,297 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,298 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,299 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.31
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,300 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Competition: 1.818152 bars, Score: -174.31
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:11:44,301 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Competition: 2.813364 bars, Score: -273.83
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:11:44,302 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 6.09
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Competition: 2.650771 bars, Score: -253.14
-2025-11-07 01:11:44,303 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.49
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:11:44,304 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,305 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,306 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Competition: 2.59774 bars, Score: -249.75
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Competition: 1.856473 bars, Score: -175.64
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:11:44,307 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Competition: 2.216897 bars, Score: -140.20
-2025-11-07 01:11:44,308 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:11:44,309 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,310 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:11:44,310 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,310 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:11:44,310 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,310 - market_scanner_v2 - INFO -    - Competition: 0.000448 bars, Score: 17.28
-2025-11-07 01:11:44,310 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,310 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:11:44,311 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,311 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:11:44,311 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,311 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:11:44,311 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Competition: 0.039352 bars, Score: 6.12
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:11:44,312 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Competition: 0.239472 bars, Score: 34.05
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Competition: 0.531609 bars, Score: 69.55
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
-2025-11-07 01:11:44,313 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Competition: 1.910329 bars, Score: -170.87
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:11:44,314 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:11:44,315 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 95/2842 markets passed
-2025-11-07 01:11:44,315 - market_scanner_v2 - INFO -    - 2342 rejected: reward < $10
-2025-11-07 01:11:44,315 - market_scanner_v2 - INFO -    - 204 rejected: competition > 3
-2025-11-07 01:11:44,315 - market_scanner_v2 - INFO -    - 180 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:11:44,315 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:11:44,315 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:11:48,300 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:11:52,734 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:11:57,265 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:12:01,705 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:12:06,106 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:12:06,564 - market_scanner_v2 - INFO - âœ… Found 95 qualifying markets (from 2842 total)
-2025-11-07 01:12:06,568 - market_selector - INFO - Selected 2 markets from 95 candidates
-2025-11-07 01:12:07,883 - order_manager - WARNING - âŒ Calculated prices exceed max spread (94.20% > 3.50%)
-2025-11-07 01:12:07,884 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:12:07,884 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:12:07,884 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:12:07,884 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:12:07,884 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:12:07,884 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:12:08,235 - order_manager - WARNING - âŒ Calculated prices exceed max spread (92.20% > 3.50%)
-2025-11-07 01:12:08,236 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:12:08,236 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:12:08,236 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:12:08,236 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:12:08,236 - order_manager - WARNING - Could not calculate valid prices for market 663031
-2025-11-07 01:12:08,236 - __main__ - WARNING - âš ï¸  Skipped market 663031 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:13:00,766 - profit_taking_manager - INFO - ðŸ” Checking positions for wallet: 0x18F261DC...Ae4FfD96
-2025-11-07 01:13:01,126 - profit_taking_manager - INFO - ðŸ“Š Found 3 active positions
-2025-11-07 01:13:01,126 - profit_taking_manager - INFO - 
+2025-11-07 01:38:55,948 - monitoring_system - INFO - Alert sent: no_scan
+2025-11-07 01:38:55,948 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
+2025-11-07 01:38:55,948 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 82s!
+2025-11-07 01:38:55,948 - __main__ - WARNING -    - âš ï¸ API cháº­m: 44.2s trung bÃ¬nh
+2025-11-07 01:38:56,178 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
+2025-11-07 01:38:56,179 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
+2025-11-07 01:38:56,840 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
+2025-11-07 01:38:56,841 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
+2025-11-07 01:38:57,489 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
+2025-11-07 01:38:57,490 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
+2025-11-07 01:38:57,980 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
+2025-11-07 01:38:57,981 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
+2025-11-07 01:38:58,665 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
+2025-11-07 01:38:58,666 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
+2025-11-07 01:38:59,316 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
+2025-11-07 01:38:59,316 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
+2025-11-07 01:38:59,983 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
+2025-11-07 01:38:59,984 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
+2025-11-07 01:39:00,484 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
+2025-11-07 01:39:00,485 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
+2025-11-07 01:39:01,123 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
+2025-11-07 01:39:01,124 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
+2025-11-07 01:39:01,766 - playwright_rewards_scraper - INFO - âœ… Got 40 markets on page 29
+2025-11-07 01:39:01,767 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
+2025-11-07 01:39:02,036 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
+2025-11-07 01:39:02,037 - playwright_rewards_scraper - INFO - âœ… Fetched 2840 total unique markets from /rewards API
+2025-11-07 01:39:02,086 - market_scanner_v2 - INFO - âœ… Got 2840 markets from /rewards page
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Competition: 0.539847 bars, Score: -28.98
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,087 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:39:02,088 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Competition: 0.136 bars, Score: -3.53
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Competition: 1.260037 bars, Score: -116.00
+2025-11-07 01:39:02,089 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Competition: 0.29784 bars, Score: -19.78
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.54
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,090 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.53
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Competition: 1.224667 bars, Score: -112.47
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
+2025-11-07 01:39:02,091 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Competition: 0.820527 bars, Score: -72.04
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:39:02,092 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Competition: 0.051 bars, Score: 4.90
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Competition: 2.756071 bars, Score: -265.54
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Competition: 1.65968 bars, Score: -134.98
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,093 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Competition: 0.823877 bars, Score: -76.25
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,094 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Competition: 0.760555 bars, Score: -70.98
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Google Gemini 3 score at least 40% on Humanityâ€™s Last E
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1131)
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Competition: 2.727311 bars, Score: -262.62
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
+2025-11-07 01:39:02,095 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
+2025-11-07 01:39:02,096 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
+2025-11-07 01:39:02,097 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
+2025-11-07 01:39:02,098 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
+2025-11-07 01:39:02,099 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Competition: 1.701 bars, Score: -164.79
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,100 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Competition: 0.10988 bars, Score: -3.42
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Competition: 2.159934 bars, Score: -208.49
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,101 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Competition: 1.60472 bars, Score: -152.96
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:39:02,102 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Competition: 1.474 bars, Score: -141.31
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,103 - market_scanner_v2 - INFO -    - Competition: 1.250694 bars, Score: -98.58
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,104 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
+2025-11-07 01:39:02,105 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 7?
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1948)
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Competition: 2.6611 bars, Score: -255.92
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Competition: 2.916227 bars, Score: -281.59
+2025-11-07 01:39:02,106 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 140-159 tweets from October 31 to Novemb
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$225332)
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Competition: 0.248687 bars, Score: 97.66
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,107 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Competition: 0.009777 bars, Score: 80.51
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 180-199 tweets from October 31 to Novemb
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$161389)
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Competition: 0.899767 bars, Score: -58.84
+2025-11-07 01:39:02,108 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Stable launch a token in 2025?
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$211226)
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Competition: 0.2176 bars, Score: 4.36
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $3B one day after launch?
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1115)
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Competition: 2.750882 bars, Score: -264.98
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
+2025-11-07 01:39:02,109 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Competition: 0.168006 bars, Score: 0.53
+2025-11-07 01:39:02,110 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the Government shutdown end November 12-15?
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$112624)
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Competition: 2.887381 bars, Score: -177.48
+2025-11-07 01:39:02,111 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by June 30?
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$10120)
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 16.01
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
+2025-11-07 01:39:02,112 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
+2025-11-07 01:39:02,113 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Competition: 2.753472 bars, Score: -217.35
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Competition: 0.933612 bars, Score: 29.35
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,114 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Competition: 2.258143 bars, Score: -205.65
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia capture Kostyantynivka by December 31?
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:39:02,115 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$20214)
+2025-11-07 01:39:02,116 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:39:02,116 - market_scanner_v2 - INFO -    - Competition: 2.449 bars, Score: -237.88
+2025-11-07 01:39:02,116 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:39:02,116 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 99/2840 markets passed
+2025-11-07 01:39:02,116 - market_scanner_v2 - INFO -    - 2344 rejected: reward < $10
+2025-11-07 01:39:02,116 - market_scanner_v2 - INFO -    - 204 rejected: competition > 3
+2025-11-07 01:39:02,117 - market_scanner_v2 - INFO -    - 173 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
+2025-11-07 01:39:02,117 - market_scanner_v2 - INFO -    - 20 rejected: volume = 0 (no liquidity)
+2025-11-07 01:39:02,117 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
+2025-11-07 01:39:06,114 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
+2025-11-07 01:39:10,577 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
+2025-11-07 01:39:15,056 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
+2025-11-07 01:39:19,561 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
+2025-11-07 01:39:24,026 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
+2025-11-07 01:39:24,484 - market_scanner_v2 - INFO - âœ… Found 99 qualifying markets (from 2840 total)
+2025-11-07 01:39:24,488 - market_selector - INFO - Selected 2 markets from 99 candidates
+2025-11-07 01:39:25,796 - order_manager - INFO - ðŸ“Š Orderbook for market 653215:
+2025-11-07 01:39:25,796 - order_manager - INFO -    Best Bid: $0.0010 (0.10Â¢)
+2025-11-07 01:39:25,796 - order_manager - INFO -    Best Ask: $0.9990 (99.90Â¢)
+2025-11-07 01:39:25,796 - order_manager - INFO -    Mid Price: $0.5000 (50.00Â¢)
+2025-11-07 01:39:25,796 - order_manager - INFO -    Spread: $0.9980 (99.80Â¢)
+2025-11-07 01:39:25,796 - order_manager - INFO -    Spread %: 99800.00%
+2025-11-07 01:39:25,796 - order_manager - INFO -    Top 3 Bids:
+2025-11-07 01:39:25,796 - order_manager - INFO -       1. $0.0010 (0.10Â¢) x 21339
+2025-11-07 01:39:25,797 - order_manager - INFO -       2. $0.0020 (0.20Â¢) x 10017
+2025-11-07 01:39:25,797 - order_manager - INFO -       3. $0.0030 (0.30Â¢) x 200
+2025-11-07 01:39:25,797 - order_manager - INFO -    Top 3 Asks:
+2025-11-07 01:39:25,797 - order_manager - INFO -       1. $0.9990 (99.90Â¢) x 13736
+2025-11-07 01:39:25,797 - order_manager - INFO -       2. $0.9980 (99.80Â¢) x 10010
+2025-11-07 01:39:25,797 - order_manager - INFO -       3. $0.9970 (99.70Â¢) x 10000
+2025-11-07 01:39:25,797 - order_manager - INFO - ðŸ’° Calculated prices:
+2025-11-07 01:39:25,797 - order_manager - INFO -    Midpoint: $0.5000 (50.00Â¢)
+2025-11-07 01:39:25,797 - order_manager - INFO -    YES: $0.0020 (0.20Â¢) at position 3
+2025-11-07 01:39:25,797 - order_manager - INFO -    YES spread from mid: 99.60%
+2025-11-07 01:39:25,797 - order_manager - INFO -    NO: $0.0020 (0.20Â¢) at position 3
+2025-11-07 01:39:25,797 - order_manager - INFO -    NO as YES equivalent: $0.9980 (99.80Â¢)
+2025-11-07 01:39:25,797 - order_manager - INFO -    NO spread from mid: 99.60%
+2025-11-07 01:39:25,797 - order_manager - INFO -    Max spread: 99.60% (allowed: 3.50%)
+2025-11-07 01:39:25,797 - order_manager - WARNING - âŒ Calculated prices exceed max spread (99.60% > 3.50%)
+2025-11-07 01:39:25,798 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
+2025-11-07 01:39:25,798 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
+2025-11-07 01:39:25,798 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
+2025-11-07 01:39:25,798 - order_manager - WARNING -    â†’ High risk of being filled immediately!
+2025-11-07 01:39:25,798 - order_manager - WARNING - Could not calculate valid prices for market 653215
+2025-11-07 01:39:25,798 - __main__ - WARNING - âš ï¸  Skipped market 653215 - could not prepare valid order (spread too high or orderbook too thin)
+2025-11-07 01:39:26,155 - order_manager - INFO - ðŸ“Š Orderbook for market 663184:
+2025-11-07 01:39:26,155 - order_manager - INFO -    Best Bid: $0.0100 (1.00Â¢)
+2025-11-07 01:39:26,155 - order_manager - INFO -    Best Ask: $0.9900 (99.00Â¢)
+2025-11-07 01:39:26,155 - order_manager - INFO -    Mid Price: $0.5000 (50.00Â¢)
+2025-11-07 01:39:26,155 - order_manager - INFO -    Spread: $0.9800 (98.00Â¢)
+2025-11-07 01:39:26,155 - order_manager - INFO -    Spread %: 9800.00%
+2025-11-07 01:39:26,155 - order_manager - INFO -    Top 3 Bids:
+2025-11-07 01:39:26,155 - order_manager - INFO -       1. $0.0100 (1.00Â¢) x 16
+2025-11-07 01:39:26,156 - order_manager - INFO -       2. $0.0300 (3.00Â¢) x 233
+2025-11-07 01:39:26,156 - order_manager - INFO -       3. $0.0500 (5.00Â¢) x 17
+2025-11-07 01:39:26,156 - order_manager - INFO -    Top 3 Asks:
+2025-11-07 01:39:26,156 - order_manager - INFO -       1. $0.9900 (99.00Â¢) x 18
+2025-11-07 01:39:26,156 - order_manager - INFO -       2. $0.9800 (98.00Â¢) x 350
+2025-11-07 01:39:26,156 - order_manager - INFO -       3. $0.9700 (97.00Â¢) x 10
+2025-11-07 01:39:26,156 - order_manager - INFO - ðŸ’° Calculated prices:
+2025-11-07 01:39:26,156 - order_manager - INFO -    Midpoint: $0.5000 (50.00Â¢)
+2025-11-07 01:39:26,156 - order_manager - INFO -    YES: $0.0490 (4.90Â¢) at position 3
+2025-11-07 01:39:26,156 - order_manager - INFO -    YES spread from mid: 90.20%
+2025-11-07 01:39:26,156 - order_manager - INFO -    NO: $0.0290 (2.90Â¢) at position 3
+2025-11-07 01:39:26,156 - order_manager - INFO -    NO as YES equivalent: $0.9710 (97.10Â¢)
+2025-11-07 01:39:26,156 - order_manager - INFO -    NO spread from mid: 94.20%
+2025-11-07 01:39:26,156 - order_manager - INFO -    Max spread: 94.20% (allowed: 3.50%)
+2025-11-07 01:39:26,156 - order_manager - WARNING - âŒ Calculated prices exceed max spread (94.20% > 3.50%)
+2025-11-07 01:39:26,156 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
+2025-11-07 01:39:26,156 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
+2025-11-07 01:39:26,156 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
+2025-11-07 01:39:26,156 - order_manager - WARNING -    â†’ High risk of being filled immediately!
+2025-11-07 01:39:26,156 - order_manager - WARNING - Could not calculate valid prices for market 663184
+2025-11-07 01:39:26,156 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
+2025-11-07 01:40:29,166 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
+2025-11-07 01:40:29,167 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 64s!
+2025-11-07 01:40:29,167 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.3s trung bÃ¬nh
+2025-11-07 01:40:34,153 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
+2025-11-07 01:40:34,153 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
+2025-11-07 01:40:34,153 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
+2025-11-07 01:40:34,601 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
+2025-11-07 01:40:34,602 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
+2025-11-07 01:40:35,264 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
+2025-11-07 01:40:35,264 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
+2025-11-07 01:40:35,930 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
+2025-11-07 01:40:35,930 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
+2025-11-07 01:40:36,788 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
+2025-11-07 01:40:36,789 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
+2025-11-07 01:40:37,440 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
+2025-11-07 01:40:37,441 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
+2025-11-07 01:40:38,067 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
+2025-11-07 01:40:38,068 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
+2025-11-07 01:40:38,702 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
+2025-11-07 01:40:38,703 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
+2025-11-07 01:40:39,378 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
+2025-11-07 01:40:39,378 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
+2025-11-07 01:40:39,877 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
+2025-11-07 01:40:39,877 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
+2025-11-07 01:40:40,746 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
+2025-11-07 01:40:40,747 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
+2025-11-07 01:40:41,413 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
+2025-11-07 01:40:41,414 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
+2025-11-07 01:40:42,072 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
+2025-11-07 01:40:42,072 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
+2025-11-07 01:40:42,735 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
+2025-11-07 01:40:42,735 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
+2025-11-07 01:40:43,392 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
+2025-11-07 01:40:43,393 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
+2025-11-07 01:40:44,073 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
+2025-11-07 01:40:44,074 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
+2025-11-07 01:40:44,718 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
+2025-11-07 01:40:44,719 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
+2025-11-07 01:40:47,368 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
+2025-11-07 01:40:47,368 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
+2025-11-07 01:40:47,802 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
+2025-11-07 01:40:47,803 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
+2025-11-07 01:40:48,494 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
+2025-11-07 01:40:48,495 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
+2025-11-07 01:40:49,163 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
+2025-11-07 01:40:49,164 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
+2025-11-07 01:40:49,601 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
+2025-11-07 01:40:49,602 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
+2025-11-07 01:40:50,338 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
+2025-11-07 01:40:50,339 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
+2025-11-07 01:40:50,802 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
+2025-11-07 01:40:50,802 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
+2025-11-07 01:40:51,286 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
+2025-11-07 01:40:51,287 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
+2025-11-07 01:40:51,746 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
+2025-11-07 01:40:51,746 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
+2025-11-07 01:40:52,604 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
+2025-11-07 01:40:52,605 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
+2025-11-07 01:40:53,038 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
+2025-11-07 01:40:53,039 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
+2025-11-07 01:40:53,592 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
+2025-11-07 01:40:53,592 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
+2025-11-07 01:40:54,246 - playwright_rewards_scraper - INFO - âœ… Got 40 markets on page 29
+2025-11-07 01:40:54,246 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
+2025-11-07 01:40:54,532 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
+2025-11-07 01:40:54,533 - playwright_rewards_scraper - INFO - âœ… Fetched 2839 total unique markets from /rewards API
+2025-11-07 01:40:54,582 - market_scanner_v2 - INFO - âœ… Got 2839 markets from /rewards page
+2025-11-07 01:40:54,582 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Competition: 1.029487 bars, Score: -77.94
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:40:54,583 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:40:54,584 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Competition: 0.272 bars, Score: -17.13
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Competition: 1.294037 bars, Score: -119.40
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Competition: 0.43384 bars, Score: -33.38
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,585 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Competition: 1.071583 bars, Score: -97.16
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Competition: 1.071583 bars, Score: -97.14
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:40:54,586 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Competition: 1.530833 bars, Score: -143.08
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Competition: 0.45925 bars, Score: -35.92
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,587 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Competition: 1.126693 bars, Score: -102.65
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Competition: 0.085 bars, Score: 1.50
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Competition: 2.756071 bars, Score: -265.54
+2025-11-07 01:40:54,588 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Competition: 2.414158 bars, Score: -210.43
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Competition: 0.823877 bars, Score: -76.25
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,589 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Competition: 0.760555 bars, Score: -70.98
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Google Gemini 3 score at least 40% on Humanityâ€™s Last E
+2025-11-07 01:40:54,590 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1131)
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Competition: 2.727311 bars, Score: -262.62
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,591 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,592 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,593 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
+2025-11-07 01:40:54,594 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,595 - market_scanner_v2 - INFO -    - Competition: 1.701 bars, Score: -164.79
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Competition: 0.15252 bars, Score: -7.68
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Competition: 2.159934 bars, Score: -208.49
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,597 - market_scanner_v2 - INFO -    - Competition: 1.60472 bars, Score: -152.96
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 6.09
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
+2025-11-07 01:40:54,598 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Competition: 2.907286 bars, Score: -278.80
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Competition: 1.250694 bars, Score: -98.58
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
+2025-11-07 01:40:54,599 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,600 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 7?
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1948)
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Competition: 2.6611 bars, Score: -255.92
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
+2025-11-07 01:40:54,601 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Competition: 2.916227 bars, Score: -281.59
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
+2025-11-07 01:40:54,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 140-159 tweets from October 31 to Novemb
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$225332)
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Competition: 0.144732 bars, Score: 108.06
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Category: entertainment
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Competition: 0.032933 bars, Score: 78.20
+2025-11-07 01:40:54,603 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,604 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $3B one day after launch?
+2025-11-07 01:40:54,604 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,604 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1115)
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Competition: 2.780549 bars, Score: -267.94
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Competition: 0.887037 bars, Score: -71.38
+2025-11-07 01:40:54,605 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,606 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
+2025-11-07 01:40:54,606 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,606 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
+2025-11-07 01:40:54,606 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,606 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
+2025-11-07 01:40:54,606 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO -    - Category: crypto
+2025-11-07 01:40:54,607 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Competition: 0.480281 bars, Score: -37.98
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
+2025-11-07 01:40:54,608 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Competition: 2.753472 bars, Score: -217.35
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Competition: 2.258143 bars, Score: -205.65
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Category: science
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
+2025-11-07 01:40:54,609 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,610 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia capture Kostyantynivka by December 31?
+2025-11-07 01:40:54,610 - market_scanner_v2 - INFO -    - Category: politics
+2025-11-07 01:40:54,610 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$20214)
+2025-11-07 01:40:54,610 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
+2025-11-07 01:40:54,610 - market_scanner_v2 - INFO -    - Competition: 2.449 bars, Score: -237.88
+2025-11-07 01:40:54,610 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
+2025-11-07 01:40:54,611 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 95/2839 markets passed
+2025-11-07 01:40:54,611 - market_scanner_v2 - INFO -    - 2344 rejected: reward < $10
+2025-11-07 01:40:54,611 - market_scanner_v2 - INFO -    - 208 rejected: competition > 3
+2025-11-07 01:40:54,611 - market_scanner_v2 - INFO -    - 173 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
+2025-11-07 01:40:54,611 - market_scanner_v2 - INFO -    - 19 rejected: volume = 0 (no liquidity)
+2025-11-07 01:40:54,611 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
+2025-11-07 01:40:58,676 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
+2025-11-07 01:41:00,169 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
+2025-11-07 01:41:00,170 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 95s!
+2025-11-07 01:41:00,170 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.3s trung bÃ¬nh
+2025-11-07 01:41:03,801 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
+2025-11-07 01:41:08,218 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
+2025-11-07 01:41:12,603 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
+2025-11-07 01:41:17,042 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
+2025-11-07 01:41:17,464 - market_scanner_v2 - INFO - âœ… Found 95 qualifying markets (from 2839 total)
+2025-11-07 01:41:17,468 - market_selector - INFO - Selected 2 markets from 95 candidates
+2025-11-07 01:41:18,910 - order_manager - INFO - ðŸ“Š Orderbook for market 653215:
+2025-11-07 01:41:18,911 - order_manager - INFO -    Best Bid: $0.0010 (0.10Â¢)
+2025-11-07 01:41:18,911 - order_manager - INFO -    Best Ask: $0.9990 (99.90Â¢)
+2025-11-07 01:41:18,911 - order_manager - INFO -    Mid Price: $0.5000 (50.00Â¢)
+2025-11-07 01:41:18,911 - order_manager - INFO -    Spread: $0.9980 (99.80Â¢)
+2025-11-07 01:41:18,911 - order_manager - INFO -    Spread %: 99800.00%
+2025-11-07 01:41:18,911 - order_manager - INFO -    Top 3 Bids:
+2025-11-07 01:41:18,911 - order_manager - INFO -       1. $0.0010 (0.10Â¢) x 21339
+2025-11-07 01:41:18,911 - order_manager - INFO -       2. $0.0020 (0.20Â¢) x 10017
+2025-11-07 01:41:18,911 - order_manager - INFO -       3. $0.0030 (0.30Â¢) x 200
+2025-11-07 01:41:18,911 - order_manager - INFO -    Top 3 Asks:
+2025-11-07 01:41:18,911 - order_manager - INFO -       1. $0.9990 (99.90Â¢) x 13736
+2025-11-07 01:41:18,911 - order_manager - INFO -       2. $0.9980 (99.80Â¢) x 10010
+2025-11-07 01:41:18,911 - order_manager - INFO -       3. $0.9970 (99.70Â¢) x 10000
+2025-11-07 01:41:18,911 - order_manager - INFO - ðŸ’° Calculated prices:
+2025-11-07 01:41:18,911 - order_manager - INFO -    Midpoint: $0.5000 (50.00Â¢)
+2025-11-07 01:41:18,911 - order_manager - INFO -    YES: $0.0020 (0.20Â¢) at position 3
+2025-11-07 01:41:18,911 - order_manager - INFO -    YES spread from mid: 99.60%
+2025-11-07 01:41:18,911 - order_manager - INFO -    NO: $0.0020 (0.20Â¢) at position 3
+2025-11-07 01:41:18,912 - order_manager - INFO -    NO as YES equivalent: $0.9980 (99.80Â¢)
+2025-11-07 01:41:18,912 - order_manager - INFO -    NO spread from mid: 99.60%
+2025-11-07 01:41:18,912 - order_manager - INFO -    Max spread: 99.60% (allowed: 3.50%)
+2025-11-07 01:41:18,912 - order_manager - WARNING - âŒ Calculated prices exceed max spread (99.60% > 3.50%)
+2025-11-07 01:41:18,912 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
+2025-11-07 01:41:18,912 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
+2025-11-07 01:41:18,912 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
+2025-11-07 01:41:18,912 - order_manager - WARNING -    â†’ High risk of being filled immediately!
+2025-11-07 01:41:18,912 - order_manager - WARNING - Could not calculate valid prices for market 653215
+2025-11-07 01:41:18,912 - __main__ - WARNING - âš ï¸  Skipped market 653215 - could not prepare valid order (spread too high or orderbook too thin)
+2025-11-07 01:41:19,243 - order_manager - INFO - ðŸ“Š Orderbook for market 663184:
+2025-11-07 01:41:19,243 - order_manager - INFO -    Best Bid: $0.0100 (1.00Â¢)
+2025-11-07 01:41:19,243 - order_manager - INFO -    Best Ask: $0.9900 (99.00Â¢)
+2025-11-07 01:41:19,244 - order_manager - INFO -    Mid Price: $0.5000 (50.00Â¢)
+2025-11-07 01:41:19,244 - order_manager - INFO -    Spread: $0.9800 (98.00Â¢)
+2025-11-07 01:41:19,244 - order_manager - INFO -    Spread %: 9800.00%
+2025-11-07 01:41:19,244 - order_manager - INFO -    Top 3 Bids:
+2025-11-07 01:41:19,244 - order_manager - INFO -       1. $0.0100 (1.00Â¢) x 16
+2025-11-07 01:41:19,244 - order_manager - INFO -       2. $0.0300 (3.00Â¢) x 233
+2025-11-07 01:41:19,244 - order_manager - INFO -       3. $0.0400 (4.00Â¢) x 10
+2025-11-07 01:41:19,244 - order_manager - INFO -    Top 3 Asks:
+2025-11-07 01:41:19,244 - order_manager - INFO -       1. $0.9900 (99.00Â¢) x 18
+2025-11-07 01:41:19,244 - order_manager - INFO -       2. $0.9800 (98.00Â¢) x 350
+2025-11-07 01:41:19,244 - order_manager - INFO -       3. $0.9700 (97.00Â¢) x 10
+2025-11-07 01:41:19,244 - order_manager - INFO - ðŸ’° Calculated prices:
+2025-11-07 01:41:19,244 - order_manager - INFO -    Midpoint: $0.5000 (50.00Â¢)
+2025-11-07 01:41:19,244 - order_manager - INFO -    YES: $0.0390 (3.90Â¢) at position 3
+2025-11-07 01:41:19,244 - order_manager - INFO -    YES spread from mid: 92.20%
+2025-11-07 01:41:19,244 - order_manager - INFO -    NO: $0.0290 (2.90Â¢) at position 3
+2025-11-07 01:41:19,244 - order_manager - INFO -    NO as YES equivalent: $0.9710 (97.10Â¢)
+2025-11-07 01:41:19,244 - order_manager - INFO -    NO spread from mid: 94.20%
+2025-11-07 01:41:19,244 - order_manager - INFO -    Max spread: 94.20% (allowed: 3.50%)
+2025-11-07 01:41:19,244 - order_manager - WARNING - âŒ Calculated prices exceed max spread (94.20% > 3.50%)
+2025-11-07 01:41:19,244 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
+2025-11-07 01:41:19,244 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
+2025-11-07 01:41:19,244 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
+2025-11-07 01:41:19,244 - order_manager - WARNING -    â†’ High risk of being filled immediately!
+2025-11-07 01:41:19,244 - order_manager - WARNING - Could not calculate valid prices for market 663184
+2025-11-07 01:41:19,244 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
+2025-11-07 01:41:51,297 - profit_taking_manager - INFO - ðŸ” Checking positions for wallet: 0x18F261DC...Ae4FfD96
+2025-11-07 01:41:51,628 - profit_taking_manager - INFO - ðŸ“Š Found 3 active positions
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO - 
 ðŸ“ˆ Position: Charlotte 49ers vs. East Carolina
-2025-11-07 01:13:01,126 - profit_taking_manager - INFO -    Shares: 259.00 @ $0.1494
-2025-11-07 01:13:01,126 - profit_taking_manager - INFO -    Current: $0.0385
-2025-11-07 01:13:01,126 - profit_taking_manager - INFO -    P&L: $-28.73 (-74.23%)
-2025-11-07 01:13:01,126 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO - 
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    Shares: 259.00 @ $0.1494
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    Current: $0.0385
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    P&L: $-28.73 (-74.23%)
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO - 
 ðŸ“ˆ Position: Will Google Gemini 3 score at least 70% on the Fro
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO -    Shares: 68.00 @ $0.3900
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO -    Current: $0.0700
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO -    P&L: $-21.76 (-82.05%)
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO - 
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    Shares: 68.00 @ $0.3900
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    Current: $0.0700
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    P&L: $-21.76 (-82.05%)
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO - 
 ðŸ“ˆ Position: Syracuse vs. Miami
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO -    Shares: 66.00 @ $0.4900
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO -    Current: $0.0430
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO -    P&L: $-29.50 (-91.22%)
-2025-11-07 01:13:01,127 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:13:01,127 - __main__ - INFO - â³ Next profit check in 300s
-2025-11-07 01:13:11,459 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:13:11,459 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 64s!
-2025-11-07 01:13:11,459 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.4s trung bÃ¬nh
-2025-11-07 01:13:11,460 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:13:11,460 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:13:11,460 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:13:12,149 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:13:12,150 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:13:12,825 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:13:12,825 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:13:13,507 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:13:13,508 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:13:14,155 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:13:14,155 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:13:14,811 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:13:14,811 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:13:15,485 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:13:15,486 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:13:16,175 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:13:16,175 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:13:16,638 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:13:16,638 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:13:17,301 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:13:17,302 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:13:17,771 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:13:17,772 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:13:18,468 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:13:18,468 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:13:19,132 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:13:19,132 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:13:19,793 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:13:19,794 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:13:20,441 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:13:20,441 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:13:21,171 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:13:21,171 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:13:21,841 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:13:21,842 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:13:22,498 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:13:22,499 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:13:22,952 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:13:22,952 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:13:23,623 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:13:23,624 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:13:24,337 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:13:24,338 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:13:25,002 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:13:25,003 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:13:25,659 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:13:25,659 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:13:26,358 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:13:26,358 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:13:27,019 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:13:27,020 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:13:27,710 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:13:27,711 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:13:28,402 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:13:28,403 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:13:29,052 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:13:29,053 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:13:29,715 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:13:29,716 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:13:30,383 - playwright_rewards_scraper - INFO - âœ… Got 45 markets on page 29
-2025-11-07 01:13:30,384 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:13:30,648 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:13:30,649 - playwright_rewards_scraper - INFO - âœ… Fetched 2842 total unique markets from /rewards API
-2025-11-07 01:13:30,696 - market_scanner_v2 - INFO - âœ… Got 2842 markets from /rewards page
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Competition: 1.578833 bars, Score: -132.88
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Thailand win Miss Universe 2025?
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$126)
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Competition: 0.526933 bars, Score: -47.68
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:13:30,697 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,698 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Competition: 1.045743 bars, Score: -94.51
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:13:30,699 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Competition: 1.243037 bars, Score: -114.30
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Competition: 0.068 bars, Score: 3.21
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Competition: 0.612333 bars, Score: -51.23
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,700 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Competition: 0.612333 bars, Score: -51.22
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Competition: 1.071583 bars, Score: -97.16
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:13:30,701 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Competition: 0.667443 bars, Score: -56.73
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,702 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Competition: 0.034 bars, Score: 6.60
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Competition: 2.724446 bars, Score: -262.38
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Competition: 2.279799 bars, Score: -197.00
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
-2025-11-07 01:13:30,703 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Competition: 0.494 bars, Score: -43.26
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,704 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Competition: 0.464305 bars, Score: -41.36
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Google Gemini 3 score at least 30% on Humanityâ€™s Last E
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24073)
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Competition: 1.789612 bars, Score: -166.55
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,705 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,706 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,707 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:13:30,708 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:13:30,709 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.31
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:13:30,710 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Competition: 1.818152 bars, Score: -174.31
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:13:30,711 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Competition: 2.813364 bars, Score: -273.83
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,712 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 6.09
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Competition: 2.6702 bars, Score: -255.09
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Competition: 0.090361 bars, Score: 17.45
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:13:30,713 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,714 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:13:30,715 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Competition: 2.59774 bars, Score: -249.75
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,716 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:13:30,717 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,718 - market_scanner_v2 - INFO -    - Competition: 1.245169 bars, Score: -107.19
-2025-11-07 01:13:30,719 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,719 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:13:30,719 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,719 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:13:30,719 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,719 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:13:30,719 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,720 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:13:30,720 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,720 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:13:30,720 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,720 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Competition: 0.039352 bars, Score: 6.12
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,721 - market_scanner_v2 - INFO -    - Competition: 0.239472 bars, Score: 34.05
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Competition: 1.306742 bars, Score: -7.96
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Competition: 0.691611 bars, Score: -49.00
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:13:30,722 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:13:30,723 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:13:30,723 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:13:30,724 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 94/2842 markets passed
-2025-11-07 01:13:30,724 - market_scanner_v2 - INFO -    - 2342 rejected: reward < $10
-2025-11-07 01:13:30,724 - market_scanner_v2 - INFO -    - 205 rejected: competition > 3
-2025-11-07 01:13:30,724 - market_scanner_v2 - INFO -    - 180 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:13:30,724 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:13:30,724 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:13:34,756 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:13:39,246 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:13:42,463 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:13:42,463 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 95s!
-2025-11-07 01:13:42,463 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.4s trung bÃ¬nh
-2025-11-07 01:13:44,312 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:13:48,841 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:13:53,202 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:13:53,637 - market_scanner_v2 - INFO - âœ… Found 94 qualifying markets (from 2842 total)
-2025-11-07 01:13:53,641 - market_selector - INFO - Selected 2 markets from 94 candidates
-2025-11-07 01:13:54,938 - order_manager - WARNING - âŒ Calculated prices exceed max spread (96.20% > 3.50%)
-2025-11-07 01:13:54,938 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:13:54,938 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:13:54,938 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:13:54,938 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:13:54,938 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:13:54,938 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:13:55,279 - order_manager - WARNING - âŒ Calculated prices exceed max spread (94.20% > 3.50%)
-2025-11-07 01:13:55,279 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:13:55,279 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:13:55,279 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:13:55,280 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:13:55,280 - order_manager - WARNING - Could not calculate valid prices for market 663031
-2025-11-07 01:13:55,280 - __main__ - WARNING - âš ï¸  Skipped market 663031 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:14:59,720 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:14:59,720 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:14:59,720 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:15:00,423 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:15:00,424 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:15:01,123 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:15:01,123 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:15:01,787 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:15:01,788 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:15:02,443 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:15:02,443 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:15:03,223 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:15:03,224 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:15:03,898 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:15:03,899 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:15:04,594 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:15:04,595 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:15:05,309 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:15:05,309 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:15:05,997 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:15:05,998 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:15:06,680 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:15:06,681 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:15:07,142 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:15:07,142 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:15:07,802 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:15:07,802 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:15:08,486 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:15:08,486 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:15:09,164 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:15:09,164 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:15:09,834 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:15:09,834 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:15:10,497 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:15:10,497 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:15:11,178 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:15:11,179 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:15:11,841 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:15:11,842 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:15:12,495 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:15:12,496 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:15:13,182 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:15:13,183 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:15:13,843 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:15:13,844 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:15:15,478 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:15:15,480 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:15:16,154 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:15:16,154 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:15:16,458 - ml_predictor - INFO - Alert sent: ðŸš¨ <b>MONITORING ALERT</b>
-
-ðŸ”´ KhÃ´ng quÃ©t markets trong 81s!
-2025-11-07 01:15:16,459 - monitoring_system - INFO - Alert sent: no_scan
-2025-11-07 01:15:16,459 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:15:16,459 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 81s!
-2025-11-07 01:15:16,459 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.5s trung bÃ¬nh
-2025-11-07 01:15:16,619 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:15:16,619 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:15:17,370 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:15:17,370 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:15:18,071 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:15:18,072 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:15:18,753 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:15:18,754 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:15:19,427 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:15:19,428 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:15:20,102 - playwright_rewards_scraper - INFO - âœ… Got 45 markets on page 29
-2025-11-07 01:15:20,102 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:15:20,365 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:15:20,366 - playwright_rewards_scraper - INFO - âœ… Fetched 2842 total unique markets from /rewards API
-2025-11-07 01:15:20,423 - market_scanner_v2 - INFO - âœ… Got 2842 markets from /rewards page
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Competition: 1.568616 bars, Score: -131.86
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Thailand win Miss Universe 2025?
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$126)
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Competition: 0.526933 bars, Score: -47.68
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:15:20,424 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:15:20,425 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Competition: 0.06936 bars, Score: 3.13
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:15:20,426 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Competition: 1.243037 bars, Score: -114.30
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Competition: 0.068 bars, Score: 3.21
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Competition: 0.612333 bars, Score: -51.23
-2025-11-07 01:15:20,427 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Competition: 0.612333 bars, Score: -51.22
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Competition: 1.071583 bars, Score: -97.16
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,428 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Competition: 0.667443 bars, Score: -56.73
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:15:20,429 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Competition: 0.034 bars, Score: 6.60
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Competition: 2.724446 bars, Score: -262.38
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Competition: 1.698282 bars, Score: -138.84
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will any Google Gemini 3 model score at least 1600 on LMAren
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,430 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$1060)
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Competition: 1.975 bars, Score: -192.39
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Competition: 0.494 bars, Score: -43.26
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:15:20,431 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Competition: 0.464305 bars, Score: -41.36
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,432 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:15:20,433 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,434 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,435 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:15:20,436 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.31
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,437 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Competition: 1.818152 bars, Score: -174.31
-2025-11-07 01:15:20,438 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $130 end of November?
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Competition: 2.747556 bars, Score: -267.24
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Competition: 0.750547 bars, Score: -67.54
-2025-11-07 01:15:20,439 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 6.09
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 200-219 tweets from November 4 to Novemb
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Estimated Reward: $41 (based on volume=$32917)
-2025-11-07 01:15:20,440 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Competition: 1.282078 bars, Score: -104.42
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Competition: 2.6702 bars, Score: -255.09
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.49
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:15:20,441 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,442 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,443 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Competition: 2.59774 bars, Score: -249.75
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,444 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Competition: 2.049541 bars, Score: -123.46
-2025-11-07 01:15:20,445 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be VVD + CDA + JA21 + D66?
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$5456)
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Competition: 2.413534 bars, Score: -225.81
-2025-11-07 01:15:20,446 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,447 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:15:20,447 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,447 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:15:20,447 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,447 - market_scanner_v2 - INFO -    - Competition: 0.000449 bars, Score: 17.28
-2025-11-07 01:15:20,447 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,447 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:15:20,447 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,448 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:15:20,448 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,448 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:15:20,448 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,448 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Competition: 0.039352 bars, Score: 6.12
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Abigail Spanberger win by 15-18%?
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$31138)
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Competition: 2.938815 bars, Score: -240.77
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:15:20,449 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Competition: 0.402672 bars, Score: 17.73
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Competition: 1.306742 bars, Score: -7.96
-2025-11-07 01:15:20,450 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,451 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:15:20,451 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:15:20,451 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:15:20,451 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:15:20,451 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:15:20,451 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:15:20,452 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 98/2842 markets passed
-2025-11-07 01:15:20,452 - market_scanner_v2 - INFO -    - 2342 rejected: reward < $10
-2025-11-07 01:15:20,452 - market_scanner_v2 - INFO -    - 198 rejected: competition > 3
-2025-11-07 01:15:20,452 - market_scanner_v2 - INFO -    - 183 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:15:20,452 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:15:20,452 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:15:24,494 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:15:28,982 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:15:33,565 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:15:38,023 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:15:42,468 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:15:42,908 - market_scanner_v2 - INFO - âœ… Found 98 qualifying markets (from 2842 total)
-2025-11-07 01:15:42,912 - market_selector - INFO - Selected 2 markets from 98 candidates
-2025-11-07 01:15:44,207 - order_manager - WARNING - âŒ Calculated prices exceed max spread (94.20% > 3.50%)
-2025-11-07 01:15:44,208 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:15:44,208 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:15:44,208 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:15:44,208 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:15:44,208 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:15:44,208 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:15:44,561 - order_manager - WARNING - âŒ Calculated prices exceed max spread (92.20% > 3.50%)
-2025-11-07 01:15:44,561 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:15:44,561 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:15:44,561 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:15:44,561 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:15:44,561 - order_manager - WARNING - Could not calculate valid prices for market 663031
-2025-11-07 01:15:44,562 - __main__ - WARNING - âš ï¸  Skipped market 663031 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:16:47,241 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:16:47,241 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:16:47,241 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:16:47,919 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:16:47,920 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:16:48,409 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:16:48,410 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:16:49,470 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:16:49,470 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 66s!
-2025-11-07 01:16:49,470 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.8s trung bÃ¬nh
-2025-11-07 01:16:49,474 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:16:49,474 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:16:49,934 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:16:49,935 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:16:50,584 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:16:50,585 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:16:51,056 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:16:51,057 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:16:51,551 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:16:51,552 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:16:52,000 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:16:52,001 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:16:52,687 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:16:52,688 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:16:53,737 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:16:53,738 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:16:54,422 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:16:54,422 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:16:55,104 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:16:55,105 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:16:55,791 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:16:55,792 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:16:56,241 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:16:56,242 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:16:56,689 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:16:56,690 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:16:57,180 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:16:57,180 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:16:57,636 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:16:57,637 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:16:58,113 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:16:58,114 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:16:58,786 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:16:58,787 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:16:59,473 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:16:59,473 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:17:00,166 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:17:00,166 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:17:00,861 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:17:00,861 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:17:01,551 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:17:01,551 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:17:02,017 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:17:02,018 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:17:02,633 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:17:02,633 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:17:03,305 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:17:03,306 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:17:03,958 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:17:03,959 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:17:04,749 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:17:04,750 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:17:05,431 - playwright_rewards_scraper - INFO - âœ… Got 44 markets on page 29
-2025-11-07 01:17:05,431 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:17:05,684 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:17:05,685 - playwright_rewards_scraper - INFO - âœ… Fetched 2840 total unique markets from /rewards API
-2025-11-07 01:17:05,737 - market_scanner_v2 - INFO - âœ… Got 2840 markets from /rewards page
-2025-11-07 01:17:05,737 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:17:05,737 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,737 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:17:05,737 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,737 - market_scanner_v2 - INFO -    - Competition: 0.673282 bars, Score: -42.32
-2025-11-07 01:17:05,737 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:17:05,738 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:17:05,739 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Competition: 0.07344 bars, Score: 2.72
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Competition: 1.260037 bars, Score: -116.00
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:17:05,740 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Competition: 0.360228 bars, Score: -26.02
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.54
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:17:05,741 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.53
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Competition: 1.224667 bars, Score: -112.47
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,742 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Competition: 0.667443 bars, Score: -56.73
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,743 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Competition: 0.034 bars, Score: 6.60
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:17:05,744 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Competition: 2.724446 bars, Score: -262.38
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Competition: 2.499293 bars, Score: -218.95
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:17:05,745 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,746 - market_scanner_v2 - INFO -    - Competition: 0.464305 bars, Score: -41.36
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,747 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,748 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:17:05,749 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,750 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,751 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.31
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:17:05,752 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,753 - market_scanner_v2 - INFO -    - Competition: 1.818152 bars, Score: -174.31
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $130 end of November?
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Competition: 2.928526 bars, Score: -285.34
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,754 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Competition: 0.750547 bars, Score: -67.54
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO - âœ… ACCEPTED: MicroStrategy announces >1000 BTC purchase November 4-10?
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,755 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2069)
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Competition: 1.77892 bars, Score: -172.69
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 6.09
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Competition: 2.6702 bars, Score: -255.09
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:17:05,756 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.49
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:17:05,757 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:17:05,758 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:17:05,759 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Competition: 2.59774 bars, Score: -249.75
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:17:05,760 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 140-159 tweets from October 31 to Novemb
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$225332)
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Competition: 0.073858 bars, Score: 115.15
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,761 - market_scanner_v2 - INFO -    - Competition: 0.074067 bars, Score: 74.08
-2025-11-07 01:17:05,762 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,762 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 180-199 tweets from October 31 to Novemb
-2025-11-07 01:17:05,762 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:17:05,762 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$161389)
-2025-11-07 01:17:05,762 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,762 - market_scanner_v2 - INFO -    - Competition: 0.3993 bars, Score: -8.79
-2025-11-07 01:17:05,762 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,763 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 17.33
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:17:05,764 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,765 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:17:05,765 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,765 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:17:05,765 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Competition: 0.039352 bars, Score: 6.12
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,766 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Competition: 0.402672 bars, Score: 17.73
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Competition: 1.306742 bars, Score: -7.96
-2025-11-07 01:17:05,767 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Competition: 2.304803 bars, Score: -210.32
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:17:05,768 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:17:05,769 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 96/2840 markets passed
-2025-11-07 01:17:05,769 - market_scanner_v2 - INFO -    - 2341 rejected: reward < $10
-2025-11-07 01:17:05,769 - market_scanner_v2 - INFO -    - 205 rejected: competition > 3
-2025-11-07 01:17:05,770 - market_scanner_v2 - INFO -    - 177 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:17:05,770 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:17:05,770 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:17:09,769 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:17:14,287 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:17:18,741 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:17:20,473 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:17:20,474 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 97s!
-2025-11-07 01:17:20,474 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.8s trung bÃ¬nh
-2025-11-07 01:17:24,186 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:17:28,750 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:17:29,199 - market_scanner_v2 - INFO - âœ… Found 96 qualifying markets (from 2840 total)
-2025-11-07 01:17:29,203 - market_selector - INFO - Selected 2 markets from 96 candidates
-2025-11-07 01:17:30,523 - order_manager - WARNING - âŒ Calculated prices exceed max spread (99.80% > 3.50%)
-2025-11-07 01:17:30,523 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:17:30,523 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:17:30,523 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:17:30,523 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:17:30,523 - order_manager - WARNING - Could not calculate valid prices for market 653215
-2025-11-07 01:17:30,523 - __main__ - WARNING - âš ï¸  Skipped market 653215 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:17:30,877 - order_manager - WARNING - âŒ Calculated prices exceed max spread (94.20% > 3.50%)
-2025-11-07 01:17:30,877 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:17:30,877 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:17:30,877 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:17:30,877 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:17:30,877 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:17:30,877 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:18:01,128 - profit_taking_manager - INFO - ðŸ” Checking positions for wallet: 0x18F261DC...Ae4FfD96
-2025-11-07 01:18:01,468 - profit_taking_manager - INFO - ðŸ“Š Found 3 active positions
-2025-11-07 01:18:01,468 - profit_taking_manager - INFO - 
-ðŸ“ˆ Position: Charlotte 49ers vs. East Carolina
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    Shares: 259.00 @ $0.1494
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    Current: $0.0385
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    P&L: $-28.73 (-74.23%)
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO - 
-ðŸ“ˆ Position: Will Google Gemini 3 score at least 70% on the Fro
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    Shares: 68.00 @ $0.3900
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    Current: $0.0700
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    P&L: $-21.76 (-82.05%)
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO - 
-ðŸ“ˆ Position: Syracuse vs. Miami
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    Shares: 66.00 @ $0.4900
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    Current: $0.0430
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    P&L: $-29.50 (-91.22%)
-2025-11-07 01:18:01,469 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:18:01,469 - __main__ - INFO - â³ Next profit check in 300s
-2025-11-07 01:18:35,411 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:18:35,412 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:18:35,412 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:18:36,143 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:18:36,143 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:18:36,829 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:18:36,830 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:18:37,487 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:18:37,488 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:18:37,960 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:18:37,961 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:18:38,634 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:18:38,635 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:18:39,309 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:18:39,310 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:18:39,763 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:18:39,764 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:18:40,505 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:18:40,506 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:18:40,952 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:18:40,952 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:18:41,426 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:18:41,427 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:18:41,904 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:18:41,905 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:18:42,578 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:18:42,579 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:18:43,256 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:18:43,257 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:18:44,003 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:18:44,003 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:18:44,669 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:18:44,670 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:18:45,354 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:18:45,354 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:18:46,018 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:18:46,018 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:18:46,691 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:18:46,692 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:18:47,209 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:18:47,209 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:18:48,392 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:18:48,393 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:18:49,163 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:18:49,163 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:18:49,650 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:18:49,651 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:18:50,139 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:18:50,139 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:18:50,802 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:18:50,803 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:18:51,473 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:18:51,473 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:18:52,147 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:18:52,147 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:18:53,491 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:18:53,491 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 83s!
-2025-11-07 01:18:53,491 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.8s trung bÃ¬nh
-2025-11-07 01:18:53,495 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:18:53,495 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:18:54,168 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:18:54,169 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:18:54,627 - playwright_rewards_scraper - INFO - âœ… Got 44 markets on page 29
-2025-11-07 01:18:54,627 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:18:54,893 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:18:54,894 - playwright_rewards_scraper - INFO - âœ… Fetched 2840 total unique markets from /rewards API
-2025-11-07 01:18:54,943 - market_scanner_v2 - INFO - âœ… Got 2840 markets from /rewards page
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Competition: 0.673282 bars, Score: -42.32
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:18:54,944 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:18:54,945 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Competition: 0.20944 bars, Score: -10.88
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Competition: 1.260037 bars, Score: -116.00
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:18:54,946 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Competition: 0.360228 bars, Score: -26.02
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.54
-2025-11-07 01:18:54,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.53
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Competition: 1.224667 bars, Score: -112.47
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:18:54,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Competition: 0.820527 bars, Score: -72.04
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:18:54,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Competition: 0.051 bars, Score: 4.90
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Competition: 2.744846 bars, Score: -264.42
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Competition: 2.499293 bars, Score: -218.95
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will any Google Gemini 3 model score at least 1600 on LMAren
-2025-11-07 01:18:54,950 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$1060)
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Competition: 1.975 bars, Score: -192.39
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Competition: 0.823333 bars, Score: -76.19
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:18:54,951 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Competition: 0.464305 bars, Score: -41.36
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:18:54,952 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.78
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:18:54,953 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:18:54,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.31
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:18:54,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Competition: 1.55645 bars, Score: -148.14
-2025-11-07 01:18:54,958 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $130 end of November?
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Competition: 2.928526 bars, Score: -285.34
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:18:54,959 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Competition: 0.750547 bars, Score: -67.54
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 6.09
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:18:54,960 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Competition: 2.6702 bars, Score: -255.09
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.49
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:18:54,961 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,963 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Competition: 2.59774 bars, Score: -249.75
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,964 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 140-159 tweets from October 31 to Novemb
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$225332)
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Competition: 0.00034 bars, Score: 122.50
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 81.49
-2025-11-07 01:18:54,965 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Stable launch a token in 2025?
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$211226)
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.12
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO - âœ… ACCEPTED: Russia x Ukraine ceasefire by November 30?
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,966 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$16945)
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.69
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Donald Trump rank in Googleâ€™s Top 5 Most Searched Peopl
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$162884)
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 31.29
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:18:54,967 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,968 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:18:54,968 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,968 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:18:54,968 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,968 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 17.33
-2025-11-07 01:18:54,968 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,969 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:18:54,969 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,969 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:18:54,969 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,969 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:18:54,969 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Competition: 0.034034 bars, Score: 6.65
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,970 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Competition: 1.055672 bars, Score: -47.57
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Competition: 1.306742 bars, Score: -7.96
-2025-11-07 01:18:54,971 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,972 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:18:54,972 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:18:54,972 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:18:54,972 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,972 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:18:54,972 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,973 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Oscar Piastri finish second in the 2025 Drivers Champio
-2025-11-07 01:18:54,973 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:18:54,973 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$488)
-2025-11-07 01:18:54,973 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:18:54,973 - market_scanner_v2 - INFO -    - Competition: 1.311282 bars, Score: -126.08
-2025-11-07 01:18:54,973 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:18:54,973 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 99/2840 markets passed
-2025-11-07 01:18:54,973 - market_scanner_v2 - INFO -    - 2341 rejected: reward < $10
-2025-11-07 01:18:54,974 - market_scanner_v2 - INFO -    - 202 rejected: competition > 3
-2025-11-07 01:18:54,974 - market_scanner_v2 - INFO -    - 177 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:18:54,974 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:18:54,974 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:18:58,966 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:19:03,400 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:19:07,835 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:19:12,269 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:19:16,701 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:19:17,165 - market_scanner_v2 - INFO - âœ… Found 99 qualifying markets (from 2840 total)
-2025-11-07 01:19:17,169 - market_selector - INFO - Selected 2 markets from 99 candidates
-2025-11-07 01:19:18,486 - order_manager - WARNING - âŒ Calculated prices exceed max spread (99.60% > 3.50%)
-2025-11-07 01:19:18,486 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:19:18,486 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:19:18,487 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:19:18,487 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:19:18,487 - order_manager - WARNING - Could not calculate valid prices for market 653215
-2025-11-07 01:19:18,487 - __main__ - WARNING - âš ï¸  Skipped market 653215 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:19:18,812 - order_manager - WARNING - âŒ Calculated prices exceed max spread (94.20% > 3.50%)
-2025-11-07 01:19:18,813 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:19:18,813 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:19:18,813 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:19:18,813 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:19:18,813 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:19:18,813 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:20:18,788 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:20:18,788 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:20:18,788 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:20:19,477 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:20:19,478 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:20:20,148 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:20:20,148 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:20:20,608 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:20:20,609 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:20:21,069 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:20:21,070 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:20:21,522 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:20:21,522 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:20:22,224 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:20:22,225 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:20:22,671 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:20:22,672 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:20:23,412 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:20:23,413 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:20:24,097 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:20:24,098 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:20:24,787 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:20:24,787 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:20:25,452 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:20:25,452 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:20:26,508 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:20:26,510 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:20:27,177 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:20:27,177 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:20:27,470 - ml_predictor - INFO - Alert sent: ðŸš¨ <b>MONITORING ALERT</b>
-
-ðŸ”´ KhÃ´ng quÃ©t markets trong 68s!
-2025-11-07 01:20:27,471 - monitoring_system - INFO - Alert sent: no_scan
-2025-11-07 01:20:27,471 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:20:27,471 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 68s!
-2025-11-07 01:20:27,471 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.7s trung bÃ¬nh
-2025-11-07 01:20:27,853 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:20:27,853 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:20:28,381 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:20:28,382 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:20:28,870 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:20:28,871 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:20:29,527 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:20:29,529 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:20:30,193 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:20:30,193 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:20:30,881 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:20:30,882 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:20:31,552 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:20:31,552 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:20:32,275 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:20:32,276 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:20:32,730 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:20:32,731 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:20:33,404 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:20:33,405 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:20:34,089 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:20:34,090 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:20:34,774 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:20:34,775 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:20:35,477 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:20:35,478 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:20:36,141 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:20:36,141 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:20:36,807 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:20:36,807 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:20:37,274 - playwright_rewards_scraper - INFO - âœ… Got 44 markets on page 29
-2025-11-07 01:20:37,274 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:20:37,541 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:20:37,542 - playwright_rewards_scraper - INFO - âœ… Fetched 2840 total unique markets from /rewards API
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO - âœ… Got 2840 markets from /rewards page
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO -    - Competition: 0.673282 bars, Score: -42.32
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:20:37,593 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:20:37,594 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Competition: 0.136 bars, Score: -3.53
-2025-11-07 01:20:37,595 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Competition: 1.260037 bars, Score: -116.00
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Competition: 0.29784 bars, Score: -19.78
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,596 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.54
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.53
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Competition: 1.224667 bars, Score: -112.47
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,597 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Competition: 0.820527 bars, Score: -72.04
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,598 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Competition: 0.051 bars, Score: 4.90
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Competition: 2.744846 bars, Score: -264.42
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:20:37,599 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Competition: 2.499293 bars, Score: -218.95
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Competition: 0.494 bars, Score: -43.26
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,600 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Competition: 0.760555 bars, Score: -70.98
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:20:37,601 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Competition: 1.701 bars, Score: -164.32
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:20:37,602 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,603 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:20:37,604 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:20:37,605 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,606 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.31
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:20:37,607 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Competition: 2.159934 bars, Score: -208.49
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $130 end of November?
-2025-11-07 01:20:37,608 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Competition: 2.928526 bars, Score: -285.34
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Competition: 0.811944 bars, Score: -73.68
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:20:37,609 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 6.09
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Competition: 2.6702 bars, Score: -255.09
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.49
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,610 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:20:37,611 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,612 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Competition: 2.916227 bars, Score: -281.59
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:20:37,613 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 140-159 tweets from October 31 to Novemb
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$225332)
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Competition: 0.005349 bars, Score: 122.00
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Competition: 0.025321 bars, Score: 78.96
-2025-11-07 01:20:37,614 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,615 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:20:37,615 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,615 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:20:37,615 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,615 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Competition: 1.147378 bars, Score: -97.41
-2025-11-07 01:20:37,616 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,617 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:20:37,617 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,617 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:20:37,617 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,617 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:20:37,617 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:20:37,618 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Competition: 0.459201 bars, Score: -35.87
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Competition: 1.055672 bars, Score: -47.57
-2025-11-07 01:20:37,619 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Competition: 1.306742 bars, Score: -7.96
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:20:37,620 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:20:37,622 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 94/2840 markets passed
-2025-11-07 01:20:37,622 - market_scanner_v2 - INFO -    - 2341 rejected: reward < $10
-2025-11-07 01:20:37,622 - market_scanner_v2 - INFO -    - 208 rejected: competition > 3
-2025-11-07 01:20:37,622 - market_scanner_v2 - INFO -    - 176 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:20:37,622 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:20:37,622 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:20:41,667 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:20:46,111 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:20:50,652 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:20:55,197 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:20:58,474 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:20:58,475 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 100s!
-2025-11-07 01:20:58,475 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.7s trung bÃ¬nh
-2025-11-07 01:21:00,376 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:21:00,841 - market_scanner_v2 - INFO - âœ… Found 94 qualifying markets (from 2840 total)
-2025-11-07 01:21:00,845 - market_selector - INFO - Selected 2 markets from 94 candidates
-2025-11-07 01:21:02,173 - order_manager - WARNING - âŒ Calculated prices exceed max spread (99.80% > 3.50%)
-2025-11-07 01:21:02,173 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:21:02,173 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:21:02,173 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:21:02,173 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:21:02,173 - order_manager - WARNING - Could not calculate valid prices for market 653215
-2025-11-07 01:21:02,173 - __main__ - WARNING - âš ï¸  Skipped market 653215 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:21:02,505 - order_manager - WARNING - âŒ Calculated prices exceed max spread (96.20% > 3.50%)
-2025-11-07 01:21:02,505 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:21:02,505 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:21:02,506 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:21:02,506 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:21:02,506 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:21:02,506 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:22:02,846 - market_scanner_v2 - INFO - ðŸŒ Scraping markets from /rewards page using Playwright...
-2025-11-07 01:22:02,846 - playwright_rewards_scraper - INFO - ðŸŒ Fetching markets from /rewards API...
-2025-11-07 01:22:02,847 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 1 (cursor: MA==)...
-2025-11-07 01:22:03,307 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 1
-2025-11-07 01:22:03,308 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 2 (cursor: MTAw)...
-2025-11-07 01:22:03,952 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 2
-2025-11-07 01:22:03,952 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 3 (cursor: MjAw)...
-2025-11-07 01:22:04,628 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 3
-2025-11-07 01:22:04,628 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 4 (cursor: MzAw)...
-2025-11-07 01:22:05,270 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 4
-2025-11-07 01:22:05,271 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 5 (cursor: NDAw)...
-2025-11-07 01:22:06,025 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 5
-2025-11-07 01:22:06,025 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 6 (cursor: NTAw)...
-2025-11-07 01:22:06,663 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 6
-2025-11-07 01:22:06,663 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 7 (cursor: NjAw)...
-2025-11-07 01:22:07,367 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 7
-2025-11-07 01:22:07,368 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 8 (cursor: NzAw)...
-2025-11-07 01:22:08,030 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 8
-2025-11-07 01:22:08,030 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 9 (cursor: ODAw)...
-2025-11-07 01:22:08,682 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 9
-2025-11-07 01:22:08,683 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 10 (cursor: OTAw)...
-2025-11-07 01:22:09,357 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 10
-2025-11-07 01:22:09,358 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 11 (cursor: MTAwMA==)...
-2025-11-07 01:22:10,010 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 11
-2025-11-07 01:22:10,010 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 12 (cursor: MTEwMA==)...
-2025-11-07 01:22:10,693 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 12
-2025-11-07 01:22:10,694 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 13 (cursor: MTIwMA==)...
-2025-11-07 01:22:11,389 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 13
-2025-11-07 01:22:11,390 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 14 (cursor: MTMwMA==)...
-2025-11-07 01:22:12,019 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 14
-2025-11-07 01:22:12,019 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 15 (cursor: MTQwMA==)...
-2025-11-07 01:22:12,682 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 15
-2025-11-07 01:22:12,683 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 16 (cursor: MTUwMA==)...
-2025-11-07 01:22:13,355 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 16
-2025-11-07 01:22:13,355 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 17 (cursor: MTYwMA==)...
-2025-11-07 01:22:13,774 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 17
-2025-11-07 01:22:13,775 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 18 (cursor: MTcwMA==)...
-2025-11-07 01:22:14,500 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 18
-2025-11-07 01:22:14,501 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 19 (cursor: MTgwMA==)...
-2025-11-07 01:22:15,144 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 19
-2025-11-07 01:22:15,144 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 20 (cursor: MTkwMA==)...
-2025-11-07 01:22:15,791 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 20
-2025-11-07 01:22:15,792 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 21 (cursor: MjAwMA==)...
-2025-11-07 01:22:16,438 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 21
-2025-11-07 01:22:16,439 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 22 (cursor: MjEwMA==)...
-2025-11-07 01:22:16,932 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 22
-2025-11-07 01:22:16,933 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 23 (cursor: MjIwMA==)...
-2025-11-07 01:22:17,658 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 23
-2025-11-07 01:22:17,659 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 24 (cursor: MjMwMA==)...
-2025-11-07 01:22:18,305 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 24
-2025-11-07 01:22:18,305 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 25 (cursor: MjQwMA==)...
-2025-11-07 01:22:18,984 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 25
-2025-11-07 01:22:18,985 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 26 (cursor: MjUwMA==)...
-2025-11-07 01:22:19,654 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 26
-2025-11-07 01:22:19,654 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 27 (cursor: MjYwMA==)...
-2025-11-07 01:22:20,319 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 27
-2025-11-07 01:22:20,319 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 28 (cursor: MjcwMA==)...
-2025-11-07 01:22:20,980 - playwright_rewards_scraper - INFO - âœ… Got 100 markets on page 28
-2025-11-07 01:22:20,983 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 29 (cursor: MjgwMA==)...
-2025-11-07 01:22:21,624 - playwright_rewards_scraper - INFO - âœ… Got 44 markets on page 29
-2025-11-07 01:22:21,625 - playwright_rewards_scraper - INFO - ðŸ“„ Fetching page 30 (cursor: LTE=)...
-2025-11-07 01:22:21,894 - playwright_rewards_scraper - INFO - âœ… No more markets on page 30
-2025-11-07 01:22:21,895 - playwright_rewards_scraper - INFO - âœ… Fetched 2840 total unique markets from /rewards API
-2025-11-07 01:22:21,943 - market_scanner_v2 - INFO - âœ… Got 2840 markets from /rewards page
-2025-11-07 01:22:21,943 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Kanye visit Israel by December 31?
-2025-11-07 01:22:21,943 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,943 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$64)
-2025-11-07 01:22:21,943 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,943 - market_scanner_v2 - INFO -    - Competition: 0.539847 bars, Score: -28.98
-2025-11-07 01:22:21,943 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Ukraine win Miss Universe 2025?
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will China win Miss Universe 2025?
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Great Britain win Miss Universe 2025?
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Spain win Miss Universe 2025?
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:22:21,944 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel win Miss Universe 2025?
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Russia win Miss Universe 2025?
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$61)
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Palestine win Miss Universe 2025?
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$66)
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Howard Hughes Holdings (HHH) beat quarterly earnings?
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$110)
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 25.01
-2025-11-07 01:22:21,945 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: Airbnb (ABNB) Up or Down on November 7?
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$687)
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Competition: 0.136 bars, Score: -3.53
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: Palantir (PLTR) Up or Down on November 7?
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$30)
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Competition: 1.260037 bars, Score: -116.00
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: NVIDIA (NVDA) Up or Down on November 7?
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$71)
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Competition: 0.29784 bars, Score: -19.78
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hang Seng (HSI) Up or Down on November 7?
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$51)
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO - âœ… ACCEPTED: Tesla (TSLA) Up or Down on November 7?
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$184)
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,946 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO - âœ… ACCEPTED: DAX (DAX) Up or Down on November 7?
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$24)
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.54
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO - âœ… ACCEPTED: FTSE 100 (UKX) Up or Down on November 7?
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Competition: 0.765417 bars, Score: -66.53
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO - âœ… ACCEPTED: Meta (META) Up or Down on November 7?
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO - âœ… ACCEPTED: Dow Jones (DJI) Up or Down on November 7?
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Competition: 1.224667 bars, Score: -112.47
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO - âœ… ACCEPTED: Google (GOOGL) Up or Down on November 7?
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,947 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2)
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: Amazon (AMZN) Up or Down on November 7?
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$108)
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nasdaq 100 (NDX) Up or Down on November 7?
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$64)
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: Microsoft (MSFT) Up or Down on November 7?
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$150)
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Competition: 0.820527 bars, Score: -72.04
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: Nikkei 225 (NIK) Up or Down on November 7?
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$56)
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 7?
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,948 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$4)
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO - âœ… ACCEPTED: S&P 500 (SPX) Up or Down on November 7?
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$187)
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO - âœ… ACCEPTED: Apple (AAPL) Up or Down on November 7?
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$12)
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Competition: 0.051 bars, Score: 4.90
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO - âœ… ACCEPTED: Consensys IPO closing market cap above $3B?
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$660)
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Competition: 2.744846 bars, Score: -264.42
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel allow independent journalists into Gaza by Decem
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Estimated Reward: $60 (based on volume=$9837)
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Competition: 1.708324 bars, Score: -139.85
-2025-11-07 01:22:21,949 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 7?
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$6592)
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Competition: 1.481333 bars, Score: -139.97
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: Trump announces new drug boat strike by November 14?
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$11390)
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Competition: 0.494 bars, Score: -43.26
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2243)
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.22
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Silver Futures (SI=F) Up or Down on November 6?
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$735)
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:22:21,950 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO - âœ… ACCEPTED: COMEX Gold Futures (GC=F) Up or Down on November 6?
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$855)
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Competition: 2.429 bars, Score: -232.81
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Catalin Drula finish second in the 2025 Bucharest mayor
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$709)
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Competition: 0.760555 bars, Score: -70.98
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO - âœ… ACCEPTED: U.S. Closes Airspace due to Government Shutdown?
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14330)
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 26.43
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO - âœ… ACCEPTED: NYMEX Crude Oil Futures (WTI) (CL=F) Up or Down on November 
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$130)
-2025-11-07 01:22:21,951 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.01
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Asia" or "Asian" 8+ times during C5+1 Summit
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7842)
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Competition: 1.6602 bars, Score: -160.24
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Million" or "Billion" or "Trillion" 12+ time
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6712)
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.67
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Thank you" 8+ times during C5+1 Summit on No
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8507)
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.85
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Biden" or "Obama" 4+ times during C5+1 Summi
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4101)
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.41
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Russia" or "China" 4+ times during C5+1 Summ
-2025-11-07 01:22:21,952 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$7641)
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.76
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Nuclear" 2+ times during C5+1 Summit on Nove
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2305)
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Caspian Sea" during C5+1 Summit on November 
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6274)
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Boeing" during C5+1 Summit on November 6?
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$4640)
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.46
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Rare Earth" or "Critical Mineral" during C5+
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$8309)
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.83
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Energy" during C5+1 Summit on November 6?
-2025-11-07 01:22:21,953 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$9825)
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.98
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Drug" during C5+1 Summit on November 6?
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2410)
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Soviet" during C5+1 Summit on November 6?
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3623)
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.36
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Best Equipment" during C5+1 Summit on Novemb
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$548)
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.05
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Investment" during C5+1 Summit on November 6
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3839)
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,954 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.38
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Middle East" during C5+1 Summit on November 
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$150)
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.01
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Azerbaijan" during C5+1 Summit on November 6
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2317)
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.23
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "President Xi" during C5+1 Summit on November
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2352)
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.24
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Afghanistan" during C5+1 Summit on November 
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$820)
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.08
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Eight wars" during C5+1 Summit on November 6
-2025-11-07 01:22:21,955 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3294)
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.33
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Dead Country" during C5+1 Summit on November
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3079)
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Competition: 1.701 bars, Score: -164.79
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump say "Crypto" or "AI" during C5+1 Summit on Novemb
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$6332)
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.63
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Claude pass Grok by November 15 on the UnifAI Polyarena
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$462)
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Competition: 1.088 bars, Score: -103.75
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $115?
-2025-11-07 01:22:21,956 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$50)
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $125?
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$694)
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Competition: 0.773157 bars, Score: -69.75
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) finish week of November 10 above $135?
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$20)
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Competition: 2.159934 bars, Score: -208.49
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) finish week of November 10 above $1,070?
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:22:21,957 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $130 end of November?
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$150)
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Competition: 2.928526 bars, Score: -285.34
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb (ABNB) close above $140 end of November?
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$104)
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Competition: 0.811944 bars, Score: -73.68
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Netflix (NFLX) close above $1,080 end of November?
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$125)
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.51
-2025-11-07 01:22:21,958 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO - âœ… ACCEPTED: MicroStrategy announces >1000 BTC purchase November 4-10?
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2069)
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Competition: 2.533887 bars, Score: -248.18
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Microstrategy announce a Bitcoin purchase November 4-10
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$10868)
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 6.09
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 220-239 tweets from November 4 to Novemb
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Estimated Reward: $21 (based on volume=$14327)
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Competition: 2.6702 bars, Score: -255.09
-2025-11-07 01:22:21,959 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO - âœ… ACCEPTED: Hezbollah strike on Israel by December 31?
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Estimated Reward: $50 (based on volume=$14904)
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Competition: 0.156281 bars, Score: 10.86
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Airbnb reach $136 in November?
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$5)
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.00
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 7?
-2025-11-07 01:22:21,960 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$11321)
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 11.13
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 8?
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$2258)
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.23
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 11?
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$906)
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 12?
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$609)
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.06
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 13?
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$491)
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,961 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.05
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Lebanon on November 14?
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$1346)
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Competition: 0.790598 bars, Score: -68.93
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 8?
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$702)
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 9?
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$205)
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.02
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 10?
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$279)
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Competition: 2.916227 bars, Score: -281.59
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 11?
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,962 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$58)
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Competition: 1.922306 bars, Score: -182.22
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel strike Gaza on November 14?
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$265)
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.03
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Israel launch a major ground offensive in Lebanon by De
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$5501)
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Competition: 2.222 bars, Score: -216.65
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO - âœ… ACCEPTED: Park Sung-jae in jail by November 30?
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$3469)
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Competition: 1.202566 bars, Score: -114.91
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 140-159 tweets from October 31 to Novemb
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$225332)
-2025-11-07 01:22:21,963 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,964 - market_scanner_v2 - INFO -    - Competition: 0.008333 bars, Score: 121.70
-2025-11-07 01:22:21,964 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,964 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Elon Musk post 160-179 tweets from October 31 to Novemb
-2025-11-07 01:22:21,964 - market_scanner_v2 - INFO -    - Category: entertainment
-2025-11-07 01:22:21,964 - market_scanner_v2 - INFO -    - Estimated Reward: $130 (based on volume=$164904)
-2025-11-07 01:22:21,964 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,964 - market_scanner_v2 - INFO -    - Competition: 0.104444 bars, Score: 71.05
-2025-11-07 01:22:21,964 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $5B one day after launch?
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$857)
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.09
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO - âœ… ACCEPTED: Canton FDV above $10B one day after launch?
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$725)
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 10.07
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will the next Dutch government be GL/PvdA + VVD + D66?
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$23278)
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Competition: 1.718907 bars, Score: -154.56
-2025-11-07 01:22:21,965 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,966 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Trump establish a Gaza â€œBoard of Peaceâ€ in 2025?
-2025-11-07 01:22:21,966 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,966 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$6039)
-2025-11-07 01:22:21,966 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,966 - market_scanner_v2 - INFO -    - Competition: 1.9152 bars, Score: -175.92
-2025-11-07 01:22:21,966 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token in 2025?
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$231159)
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 28.12
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will MetaMask launch a token by September 30, 2026?
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Category: crypto
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Estimated Reward: $20 (based on volume=$507)
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,967 - market_scanner_v2 - INFO -    - Competition: 0.085034 bars, Score: 1.55
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Matt Van Epps win TN-7 Special Election?
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Estimated Reward: $10 (based on volume=$2908)
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 5.29
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO - âœ… ACCEPTED: US x Venezuela military engagement by November 14?
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Estimated Reward: $100 (based on volume=$79998)
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Competition: 1.055672 bars, Score: -47.57
-2025-11-07 01:22:21,968 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Gemini 3.0 be released by November 15?
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Estimated Reward: $200 (based on volume=$227154)
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Competition: 0.443749 bars, Score: 78.34
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Katie Wilson win the 2025 Seattle mayoral election?
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Category: politics
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Estimated Reward: $30 (based on volume=$51648)
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Competition: 2.764053 bars, Score: -256.24
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO - âœ… ACCEPTED: Will Roaring Kitty tweet again by December 31?
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Category: science
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Estimated Reward: $15 (based on volume=$213)
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Rewards Config: minSize=0, maxSpread=0
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Competition: 0 bars, Score: 7.52
-2025-11-07 01:22:21,969 - market_scanner_v2 - INFO -    - Source: playwright_api_direct
-2025-11-07 01:22:21,971 - market_scanner_v2 - INFO - ðŸ“Š Filter results: 96/2840 markets passed
-2025-11-07 01:22:21,971 - market_scanner_v2 - INFO -    - 2341 rejected: reward < $10
-2025-11-07 01:22:21,971 - market_scanner_v2 - INFO -    - 207 rejected: competition > 3
-2025-11-07 01:22:21,971 - market_scanner_v2 - INFO -    - 175 rejected: category not in ['crypto', 'sports', 'politics', 'science', 'entertainment']
-2025-11-07 01:22:21,971 - market_scanner_v2 - INFO -    - 21 rejected: volume = 0 (no liquidity)
-2025-11-07 01:22:21,971 - market_scanner_v2 - INFO - ðŸ” Verifying orderbook for top 50 markets...
-2025-11-07 01:22:26,016 - market_scanner_v2 - INFO -    Progress: 10/50 markets verified...
-2025-11-07 01:22:30,458 - market_scanner_v2 - INFO -    Progress: 20/50 markets verified...
-2025-11-07 01:22:31,488 - __main__ - WARNING - âš ï¸ Health check failed: 2 issues
-2025-11-07 01:22:31,489 - __main__ - WARNING -    - ðŸ”´ KhÃ´ng quÃ©t markets trong 90s!
-2025-11-07 01:22:31,489 - __main__ - WARNING -    - âš ï¸ API cháº­m: 43.7s trung bÃ¬nh
-2025-11-07 01:22:35,614 - market_scanner_v2 - INFO -    Progress: 30/50 markets verified...
-2025-11-07 01:22:40,061 - market_scanner_v2 - INFO -    Progress: 40/50 markets verified...
-2025-11-07 01:22:44,516 - market_scanner_v2 - INFO -    Progress: 50/50 markets verified...
-2025-11-07 01:22:44,979 - market_scanner_v2 - INFO - âœ… Found 96 qualifying markets (from 2840 total)
-2025-11-07 01:22:44,983 - market_selector - INFO - Selected 2 markets from 96 candidates
-2025-11-07 01:22:46,354 - order_manager - WARNING - âŒ Calculated prices exceed max spread (99.60% > 3.50%)
-2025-11-07 01:22:46,354 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:22:46,354 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:22:46,354 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:22:46,354 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:22:46,354 - order_manager - WARNING - Could not calculate valid prices for market 653215
-2025-11-07 01:22:46,355 - __main__ - WARNING - âš ï¸  Skipped market 653215 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:22:46,704 - order_manager - WARNING - âŒ Calculated prices exceed max spread (96.20% > 3.50%)
-2025-11-07 01:22:46,704 - order_manager - WARNING -    This indicates orderbook is too thin or position 2-3 is too far from midpoint
-2025-11-07 01:22:46,704 - order_manager - WARNING -    REJECTING market to avoid placing order at position #1 (best bid/ask)
-2025-11-07 01:22:46,704 - order_manager - WARNING -    Reason: Adjusting to max spread would place order too close to best bid/ask
-2025-11-07 01:22:46,705 - order_manager - WARNING -    â†’ High risk of being filled immediately!
-2025-11-07 01:22:46,705 - order_manager - WARNING - Could not calculate valid prices for market 663184
-2025-11-07 01:22:46,705 - __main__ - WARNING - âš ï¸  Skipped market 663184 - could not prepare valid order (spread too high or orderbook too thin)
-2025-11-07 01:23:01,474 - profit_taking_manager - INFO - ðŸ” Checking positions for wallet: 0x18F261DC...Ae4FfD96
-2025-11-07 01:23:01,801 - profit_taking_manager - INFO - ðŸ“Š Found 3 active positions
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO - 
-ðŸ“ˆ Position: Charlotte 49ers vs. East Carolina
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    Shares: 259.00 @ $0.1494
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    Current: $0.0385
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    P&L: $-28.73 (-74.23%)
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO - 
-ðŸ“ˆ Position: Will Google Gemini 3 score at least 70% on the Fro
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    Shares: 68.00 @ $0.3900
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    Current: $0.0700
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    P&L: $-21.76 (-82.05%)
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO - 
-ðŸ“ˆ Position: Syracuse vs. Miami
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    Shares: 66.00 @ $0.4900
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    Current: $0.0430
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    P&L: $-29.50 (-91.22%)
-2025-11-07 01:23:01,802 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
-2025-11-07 01:23:01,802 - __main__ - INFO - â³ Next profit check in 300s
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    Shares: 66.00 @ $0.4900
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    Current: $0.0580
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    P&L: $-28.51 (-88.16%)
+2025-11-07 01:41:51,629 - profit_taking_manager - INFO -    â¸ï¸  Losing position - NOT closing (manual decision required)
+2025-11-07 01:41:51,629 - __main__ - INFO - â³ Next profit check in 300s

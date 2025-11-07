@@ -80,7 +80,8 @@ monitoring:
   price_move_threshold: 0.005  # Cancel if price moves >2 cents
 
   # Position timeout (AUTO-CANCEL to avoid fills)
-  max_position_age: 1800  # 30 minutes (was 1 hour - too long!)
+  # UPDATED: Increased to 45 minutes for position #3 strategy (less risk of fill)
+  max_position_age: 2700  # 45 minutes (was 30 minutes)
 
   # Monitoring alerts
   alert_on_fill: true

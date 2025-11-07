@@ -64,23 +64,27 @@ async def test_real_market_pricing():
         if order:
             print(f"\nOrder prepared successfully!")
             print(f"\n  YES Order:")
-            print(f"    - Price: ${order['yes_order']['price']:.4f}")
+            print(f"    - Price: ${order['yes_order']['price']:.4f} ({order['yes_order']['price']*100:.2f}¢)")
             print(f"    - Size: {order['yes_order']['size']} shares")
-            print(f"    - Position: {order['position_info']['yes_position']}")
-            
+            print(f"    - Target Position: #{order['position_info'].get('target_position', 3)}")
+
             print(f"\n  NO Order:")
-            print(f"    - Price: ${order['no_order']['price']:.4f}")
+            print(f"    - Price: ${order['no_order']['price']:.4f} ({order['no_order']['price']*100:.2f}¢)")
             print(f"    - Size: {order['no_order']['size']} shares")
-            print(f"    - Position: {order['position_info']['no_position']}")
-            
+            print(f"    - Target Position: #{order['position_info'].get('target_position', 3)}")
+
             print(f"\n  Position Info:")
-            print(f"    - Midpoint: ${order['position_info']['midpoint']:.4f}")
-            print(f"    - Spread from mid: {order['position_info']['spread_from_mid']:.2%}")
+            print(f"    - Position #1 (Best Bid): ${order['position_info']['best_bid']:.4f} ({order['position_info']['best_bid']*100:.2f}¢)")
+            print(f"    - Position #2 (Bid): ${order['position_info']['second_bid']:.4f} ({order['position_info']['second_bid']*100:.2f}¢)")
+            print(f"    - Position #1 (Best Ask): ${order['position_info']['best_ask']:.4f} ({order['position_info']['best_ask']*100:.2f}¢)")
+            print(f"    - Position #2 (Ask): ${order['position_info']['second_ask']:.4f} ({order['position_info']['second_ask']*100:.2f}¢)")
+            print(f"    - Offset from position #2: ${order['position_info']['offset']:.4f} ({order['position_info']['offset']*100:.2f}¢)")
+            print(f"    - Spread: {order['position_info']['spread']:.2%}")
             print(f"    - Max spread allowed: {order['position_info']['max_spread_allowed']:.2%}")
             print(f"    - Order book depth: {order['position_info']['num_bids']} bids, {order['position_info']['num_asks']} asks")
-            
+
             # Verify within max spread
-            if order['position_info']['spread_from_mid'] <= order['position_info']['max_spread_allowed']:
+            if order['position_info']['spread'] <= order['position_info']['max_spread_allowed']:
                 print(f"\n  PASS: Orders are within max spread!")
             else:
                 print(f"\n  FAIL: Orders exceed max spread!")
