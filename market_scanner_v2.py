@@ -451,6 +451,18 @@ class MarketScannerV2:
                 logger.debug(f"❌ Rejected (no clob_token_ids): {market['question'][:50]} - ID: {market.get('id')}")
                 continue
 
+            # ✅ NEW FILTER 1.4: Reject categorical event outcomes
+            # If event_slug != market_slug, this is an outcome of a categorical event
+            # Example: NFLX above $1070, NFLX above $1080, etc. are outcomes of categorical event
+            market_slug = market.get('market_slug', '')
+            event_slug = market.get('event_slug', '')
+            if event_slug and market_slug and event_slug != market_slug:
+                if 'categorical_outcome' not in rejected_reasons:
+                    rejected_reasons['categorical_outcome'] = 0
+                rejected_reasons['categorical_outcome'] += 1
+                logger.debug(f"❌ Rejected (categorical event outcome): {market['question'][:50]} - event_slug != market_slug")
+                continue
+
             # ✅ NEW FILTER 1.5: Only accept BINARY markets (exactly 2 tokens)
             # Reject categorical markets (>2 tokens) as they're not suitable for YES/NO strategy
             if len(clob_token_ids) != 2:
@@ -494,6 +506,8 @@ class MarketScannerV2:
                 logger.info(f"   - {rejected_reasons['wrong_category']} rejected: category not in {self.target_categories}")
             if rejected_reasons['no_clob_tokens'] > 0:
                 logger.info(f"   - {rejected_reasons['no_clob_tokens']} rejected: no clob_token_ids (cannot trade)")
+            if rejected_reasons.get('categorical_outcome', 0) > 0:
+                logger.info(f"   - {rejected_reasons['categorical_outcome']} rejected: categorical event outcomes (event_slug != market_slug)")
             if rejected_reasons.get('categorical_market', 0) > 0:
                 logger.info(f"   - {rejected_reasons['categorical_market']} rejected: categorical markets (not binary YES/NO)")
             if rejected_reasons['no_volume'] > 0:
