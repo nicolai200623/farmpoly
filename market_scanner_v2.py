@@ -446,6 +446,18 @@ class MarketScannerV2:
                 logger.debug(f"❌ Rejected (no clob_token_ids): {market['question'][:50]} - ID: {market.get('id')}")
                 continue
 
+            # ✅ NEW FILTER 1.5: Only accept BINARY markets (exactly 2 tokens)
+            # Reject categorical markets (>2 tokens) as they're not suitable for YES/NO strategy
+            if len(clob_token_ids) != 2:
+                if 'categorical_market' not in rejected_reasons:
+                    rejected_reasons['categorical_market'] = 0
+                rejected_reasons['categorical_market'] += 1
+                if len(clob_token_ids) > 2:
+                    logger.debug(f"❌ Rejected (categorical market): {market['question'][:50]} - {len(clob_token_ids)} tokens (not binary YES/NO)")
+                else:
+                    logger.debug(f"❌ Rejected (invalid market): {market['question'][:50]} - only {len(clob_token_ids)} token(s)")
+                continue
+
             # ✅ NEW FILTER 2: Check if market has volume > 0
             volume = market.get('volume', 0) or market.get('volume_24hr', 0)
             if volume <= 0:
@@ -477,6 +489,8 @@ class MarketScannerV2:
                 logger.info(f"   - {rejected_reasons['wrong_category']} rejected: category not in {self.target_categories}")
             if rejected_reasons['no_clob_tokens'] > 0:
                 logger.info(f"   - {rejected_reasons['no_clob_tokens']} rejected: no clob_token_ids (cannot trade)")
+            if rejected_reasons.get('categorical_market', 0) > 0:
+                logger.info(f"   - {rejected_reasons['categorical_market']} rejected: categorical markets (not binary YES/NO)")
             if rejected_reasons['no_volume'] > 0:
                 logger.info(f"   - {rejected_reasons['no_volume']} rejected: volume = 0 (no liquidity)")
 
