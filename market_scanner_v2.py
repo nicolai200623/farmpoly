@@ -179,7 +179,7 @@ class MarketScannerV2:
                     verified_markets.extend(filtered_markets[50:])
 
                 if no_orderbook_count > 0:
-                    logger.info(f"   - {no_orderbook_count} markets rejected: no orderbook exists")
+                    logger.info(f"   - {no_orderbook_count} markets rejected: no orderbook or spread too wide (>50%)")
                 if error_count > 0:
                     logger.warning(f"   - {error_count} markets skipped due to errors")
 
@@ -521,13 +521,13 @@ class MarketScannerV2:
 
     async def _verify_orderbook_exists(self, market: Dict) -> bool:
         """
-        Verify that an orderbook exists for this market
+        Verify that an orderbook exists AND has reasonable spread for this market
 
         Args:
             market: Market dict with clob_token_ids
 
         Returns:
-            True if orderbook exists and has liquidity, False otherwise
+            True if orderbook exists with reasonable spread, False otherwise
         """
         if not self.clob_client:
             logger.debug("⚠️ CLOB client not available, skipping orderbook verification")
@@ -555,13 +555,34 @@ class MarketScannerV2:
 
             # Check if orderbook has any bids or asks
             if hasattr(book, 'bids') and hasattr(book, 'asks'):
-                has_liquidity = (book.bids and len(book.bids) > 0) or (book.asks and len(book.asks) > 0)
-                if has_liquidity:
-                    logger.debug(f"✅ Orderbook verified for market {market.get('id')}: {len(book.bids)} bids, {len(book.asks)} asks")
-                    return True
-                else:
+                has_bids = book.bids and len(book.bids) > 0
+                has_asks = book.asks and len(book.asks) > 0
+
+                if not (has_bids and has_asks):
                     logger.debug(f"❌ Orderbook empty for market {market.get('id')}")
                     return False
+
+                # ✅ NEW: Check spread to filter out illiquid markets
+                # Get best bid and ask
+                best_bid = float(book.bids[0].price) if has_bids else 0
+                best_ask = float(book.asks[0].price) if has_asks else 1
+
+                # Calculate spread
+                spread = best_ask - best_bid
+                mid_price = (best_bid + best_ask) / 2
+                spread_pct = (spread / mid_price * 100) if mid_price > 0 else 999
+
+                # REJECT if spread > 50% (extremely illiquid)
+                # This is same threshold as in order_manager.py
+                MAX_SPREAD_PCT = 50.0
+
+                if spread_pct > MAX_SPREAD_PCT:
+                    logger.debug(f"❌ Spread too wide for market {market.get('question', 'unknown')[:50]}: {spread_pct:.1f}% (>{MAX_SPREAD_PCT}%)")
+                    logger.debug(f"   Best Bid: ${best_bid:.4f}, Best Ask: ${best_ask:.4f}")
+                    return False
+
+                logger.debug(f"✅ Orderbook verified for market {market.get('id')}: {len(book.bids)} bids, {len(book.asks)} asks, spread: {spread_pct:.1f}%")
+                return True
             else:
                 logger.debug(f"❌ Invalid orderbook format for market {market.get('id')}")
                 return False
