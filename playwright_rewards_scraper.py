@@ -135,6 +135,20 @@ class PlaywrightRewardsScraper:
 
                             seen_market_ids.add(market_id)
 
+                            # ✅ FILTER 1: Check if this is a LIQUIDITY REWARDS market
+                            # Liquidity rewards MUST have both rewards_min_size AND rewards_max_spread > 0
+                            # Other reward types (trading rewards, event rewards) don't have these requirements
+                            rewards_min_size = float(market_data.get('rewards_min_size', 0) or 0)
+                            rewards_max_spread = float(market_data.get('rewards_max_spread', 0) or 0)
+
+                            # Skip markets without LIQUIDITY REWARDS indicators
+                            # Only accept if BOTH conditions are true:
+                            # 1. rewards_min_size > 0 (requires minimum order size)
+                            # 2. rewards_max_spread > 0 (requires spread limit)
+                            if rewards_min_size == 0 or rewards_max_spread == 0:
+                                logger.debug(f"⏭️  Skipped (not liquidity rewards): {market_data.get('question', 'Unknown')[:60]} - minSize={rewards_min_size}, maxSpread={rewards_max_spread}")
+                                continue  # Skip this market
+
                             # Extract reward from rewards_config
                             reward = 0
                             if 'rewards_config' in market_data and market_data['rewards_config']:
@@ -167,8 +181,8 @@ class PlaywrightRewardsScraper:
                                 'liquidity': market_data.get('liquidity', 0),
                                 'end_date': None,
                                 'source': 'playwright_api_direct',
-                                'rewardsMinSize': market_data.get('rewards_min_size', 0),
-                                'rewardsMaxSpread': market_data.get('rewards_max_spread', 0),
+                                'rewardsMinSize': rewards_min_size,
+                                'rewardsMaxSpread': rewards_max_spread,
                                 'active': True,
                                 'closed': False,
                                 'url': f"https://polymarket.com/market/{slug}",

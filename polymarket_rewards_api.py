@@ -137,23 +137,37 @@ class PolymarketRewardsAPI:
     def parse_market(self, market_data: dict) -> Optional[Dict]:
         """
         Parse market data from API response
-        
+
         Args:
             market_data: Raw market data from API
-        
+
         Returns:
-            Parsed market dictionary or None if invalid
+            Parsed market dictionary or None if invalid (including non-liquidity rewards)
         """
         try:
+            # ✅ FILTER 1: Check if this is a LIQUIDITY REWARDS market
+            # Liquidity rewards MUST have both rewards_min_size AND rewards_max_spread > 0
+            # Other reward types (trading rewards, event rewards) don't have these requirements
+            rewards_min_size = float(market_data.get('rewards_min_size', 0) or 0)
+            rewards_max_spread = float(market_data.get('rewards_max_spread', 0) or 0)
+
+            # Skip markets without LIQUIDITY REWARDS indicators
+            # Only accept if BOTH conditions are true:
+            # 1. rewards_min_size > 0 (requires minimum order size)
+            # 2. rewards_max_spread > 0 (requires spread limit)
+            if rewards_min_size == 0 or rewards_max_spread == 0:
+                logger.debug(f"⏭️  Skipped (not liquidity rewards): {market_data.get('question', 'Unknown')[:60]} - minSize={rewards_min_size}, maxSpread={rewards_max_spread}")
+                return None  # Skip this market
+
             # Extract reward from rewards_config
             reward = 0
             if 'rewards_config' in market_data and market_data['rewards_config']:
                 for config in market_data['rewards_config']:
                     reward += float(config.get('rate_per_day', 0))
-            
+
             # Extract competition from market_competitiveness
             competition = market_data.get('market_competitiveness', 0)
-            
+
             # Extract other fields
             market = {
                 'id': market_data.get('market_id', ''),
@@ -167,17 +181,17 @@ class PolymarketRewardsAPI:
                 'spread': market_data.get('spread', 0),
                 'end_date': market_data.get('end_date'),
                 'source': 'polymarket_rewards_api',
-                'rewardsMinSize': market_data.get('rewards_min_size', 0),
-                'rewardsMaxSpread': market_data.get('rewards_max_spread', 0),
+                'rewardsMinSize': rewards_min_size,
+                'rewardsMaxSpread': rewards_max_spread,
                 'earning_percentage': market_data.get('earning_percentage', 0),
                 'active': True,
                 'closed': False,
                 # Store raw rewards_config for reference
                 'rewards_config': market_data.get('rewards_config', [])
             }
-            
+
             return market
-            
+
         except Exception as e:
             logger.debug(f"Failed to parse market: {e}")
             return None
