@@ -127,29 +127,48 @@ class OrderManager:
                 logger.info(f"✅ Using token[1] as YES (narrower spread)")
 
             # VALIDATION: Verify this is a TRUE binary market (YES + NO ≈ $1.00)
-            # In binary markets, YES best_bid + NO best_bid should be close to $1.00
-            # If not, it might be a categorical market misidentified as binary
+            # Binary market validation - Check if YES + NO bids sum to ~$1.00
+            # This helps detect categorical markets misidentified as binary
             yes_best_bid = yes_market_data.get('best_bid', 0)
             no_best_bid = no_market_data.get('best_bid', 0)
-
-            # Calculate sum of best bids
             bid_sum = yes_best_bid + no_best_bid
 
-            # In true binary market: YES bid + NO bid should be in range [0.4, 1.6]
-            # (accounting for spread and market inefficiency)
-            # If sum is too low (<0.3) or too high (>1.7), it's likely a categorical market
-            if bid_sum < 0.3 or bid_sum > 1.7:
-                logger.warning(f"❌ REJECTED - Invalid binary market detected!")
-                logger.warning(f"   YES best bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
-                logger.warning(f"   NO best bid: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢)")
-                logger.warning(f"   Sum: ${bid_sum:.4f} (expected ~$1.00 for binary markets)")
-                logger.warning(f"   This market does NOT behave like a binary YES/NO market")
-                logger.warning(f"   Likely a categorical market with 2 unrelated outcomes")
-                return None
+            # ✅ IMPORTANT: Skip validation for LIQUIDITY REWARDS markets
+            # Markets with liquidity rewards are INTENTIONALLY illiquid (high spread)
+            # That's WHY Polymarket pays rewards - they need market makers!
+            #
+            # Example ILLIQUID binary market (with rewards):
+            # YES: Bid $0.01, Ask $0.95 → Spread 94¢
+            # NO:  Bid $0.05, Ask $0.99 → Spread 94¢
+            # Sum of bids: $0.06 (very low, but THIS IS NORMAL for illiquid markets!)
+            #
+            # These markets are GOOD opportunities for farming:
+            # - High spread = Low liquidity = High rewards
+            # - Bot will CREATE liquidity by placing tight spread orders
+            # - Bot earns rewards for improving market efficiency
+            has_liquidity_rewards = market.get('rewardsMinSize', 0) > 0 and market.get('rewardsMaxSpread', 0) > 0
 
-            logger.info(f"✅ Binary market validation passed:")
-            logger.info(f"   YES best bid: ${yes_best_bid:.4f} + NO best bid: ${no_best_bid:.4f} = ${bid_sum:.4f}")
-            logger.info(f"   Sum is within valid range [0.3, 1.7] for binary markets")
+            if not has_liquidity_rewards:
+                # Only validate binary market for non-rewards markets
+                # In true binary market: YES bid + NO bid should be in range [0.3, 1.7]
+                if bid_sum < 0.3 or bid_sum > 1.7:
+                    logger.warning(f"❌ REJECTED - Invalid binary market detected!")
+                    logger.warning(f"   YES best bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
+                    logger.warning(f"   NO best bid: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢)")
+                    logger.warning(f"   Sum: ${bid_sum:.4f} (expected ~$1.00 for binary markets)")
+                    logger.warning(f"   This market does NOT behave like a binary YES/NO market")
+                    logger.warning(f"   Likely a categorical market with 2 unrelated outcomes")
+                    return None
+
+                logger.info(f"✅ Binary market validation passed:")
+                logger.info(f"   YES best bid: ${yes_best_bid:.4f} + NO best bid: ${no_best_bid:.4f} = ${bid_sum:.4f}")
+                logger.info(f"   Sum is within valid range [0.3, 1.7] for binary markets")
+            else:
+                # Skip validation for liquidity rewards markets
+                logger.info(f"✅ Skipping binary validation for LIQUIDITY REWARDS market:")
+                logger.info(f"   YES best bid: ${yes_best_bid:.4f}, NO best bid: ${no_best_bid:.4f}")
+                logger.info(f"   Sum: ${bid_sum:.4f} (low bid sum is NORMAL for illiquid markets with rewards)")
+                logger.info(f"   This market has liquidity rewards - illiquidity is expected and desired!")
 
             # Get max spread from market rewards config (if available)
             # UPDATED: Increased default from 3.5% to 8% for position #3 strategy
