@@ -171,17 +171,29 @@ class OrderManager:
                 logger.info(f"   This market has liquidity rewards - illiquidity is expected and desired!")
 
             # Get max spread from market rewards config (if available)
-            # UPDATED: Increased default from 3.5% to 8% for position #3 strategy
-            # Position #3 naturally has wider spread than position #1, so we need higher threshold
-            max_spread_pct = market.get('rewards_max_spread', 8.0)  # Default 8.0%
-            max_spread_decimal = max_spread_pct / 100  # Convert to decimal (e.g., 0.08)
+            # For liquidity rewards markets: Use rewards_max_spread (usually 1-3%)
+            # For regular markets: Use 8% default
+            has_liquidity_rewards = market.get('rewardsMinSize', 0) > 0 and market.get('rewardsMaxSpread', 0) > 0
 
-            # Calculate order prices at position #3 in order book
-            # Pass both YES and NO orderbook data for direct price lookup
+            if has_liquidity_rewards:
+                # Use strict spread from rewards config (1-3%)
+                max_spread_pct = market.get('rewardsMaxSpread', 3.0)
+                logger.info(f"💎 LIQUIDITY REWARDS market detected!")
+                logger.info(f"   Using rewards_max_spread: {max_spread_pct}%")
+            else:
+                # Use relaxed spread for position #3 strategy (8%)
+                max_spread_pct = 8.0
+
+            max_spread_decimal = max_spread_pct / 100  # Convert to decimal (e.g., 0.03 or 0.08)
+
+            # Calculate order prices
+            # For liquidity rewards markets: Use MID PRICE strategy (create new liquidity)
+            # For regular markets: Use POSITION #3 strategy (follow orderbook)
             yes_price, no_price, position_info = self._calculate_position_based_prices(
                 yes_market_data,
                 no_market_data,
-                max_spread_decimal
+                max_spread_decimal,
+                use_mid_price_strategy=has_liquidity_rewards  # NEW parameter
             )
 
             if yes_price is None or no_price is None:
@@ -342,21 +354,28 @@ class OrderManager:
             logger.error(f"Error getting order book: {e}")
             return None
     
-    def _calculate_position_based_prices(self, yes_market_data: Dict, no_market_data: Dict, max_spread: float) -> Tuple[Optional[float], Optional[float], Dict]:
-        """Calculate order prices to place at position #3 in orderbook
+    def _calculate_position_based_prices(self, yes_market_data: Dict, no_market_data: Dict, max_spread: float, use_mid_price_strategy: bool = False) -> Tuple[Optional[float], Optional[float], Dict]:
+        """Calculate order prices using either MID PRICE or POSITION #3 strategy
 
-        STRATEGY (SIMPLIFIED):
-        1. Fetch both YES and NO orderbooks
-        2. Get bid price from position #2 in YES orderbook
-        3. Get bid price from position #2 in NO orderbook
-        4. Place our orders slightly below position #2 (0.05-0.15 cents lower)
-        5. This ensures our orders are at position #3 → NEVER at position #1
-        6. Check if spread between our YES bid and NO bid is within max_spread
+        TWO STRATEGIES:
+
+        A) MID PRICE STRATEGY (for liquidity rewards markets):
+           - Calculate mid price from orderbook
+           - Place orders around mid price with tight spread
+           - CREATE new liquidity instead of following existing orders
+           - Example: Mid $0.50 → Bid $0.485, Ask $0.515 (3% spread)
+
+        B) POSITION #3 STRATEGY (for regular markets):
+           - Get bid price from position #2 in orderbook
+           - Place orders slightly below position #2
+           - Ensures orders at position #3 → NEVER at position #1
+           - Follow existing market structure
 
         Args:
             yes_market_data: Market data including YES token orderbook
             no_market_data: Market data including NO token orderbook
-            max_spread: Maximum allowed spread between our bid and ask (as decimal, e.g., 0.08 for 8%)
+            max_spread: Maximum allowed spread (as decimal, e.g., 0.03 for 3%)
+            use_mid_price_strategy: If True, use mid price strategy (for liquidity rewards)
 
         Returns:
             Tuple of (yes_price, no_price, position_info)
@@ -369,6 +388,57 @@ class OrderManager:
             # Extract NO orderbook
             no_order_book = no_market_data['order_book']
             no_mid_price = no_market_data['mid_price']
+
+            # ✅ STRATEGY A: MID PRICE STRATEGY (for liquidity rewards markets)
+            if use_mid_price_strategy:
+                logger.info(f"📊 Using MID PRICE STRATEGY (create new liquidity)")
+
+                # Calculate combined mid price from both YES and NO
+                # YES mid = (YES best bid + YES best ask) / 2
+                # NO mid = (NO best bid + NO best ask) / 2
+                # Combined mid = Average of YES mid and (1 - NO mid)
+                combined_mid = (yes_mid_price + (1 - no_mid_price)) / 2
+
+                # Place orders around mid price with tight spread
+                # Spread is split evenly: half above mid, half below mid
+                half_spread = max_spread / 2  # e.g., 3% → 1.5% each side
+
+                yes_bid = combined_mid * (1 - half_spread)  # Below mid
+                yes_ask = combined_mid * (1 + half_spread)  # Above mid
+
+                # In binary market: NO price = 1 - YES price
+                # Our NO bid should complement our YES ask
+                no_bid = 1 - yes_ask
+
+                # Calculate actual spread
+                spread_dollars = yes_ask - yes_bid
+                spread_percent = spread_dollars / combined_mid if combined_mid > 0 else 0
+
+                logger.info(f"💰 Calculated prices (MID PRICE STRATEGY):")
+                logger.info(f"   YES mid price: ${yes_mid_price:.4f} ({yes_mid_price*100:.2f}¢)")
+                logger.info(f"   NO mid price: ${no_mid_price:.4f} ({no_mid_price*100:.2f}¢)")
+                logger.info(f"   Combined mid: ${combined_mid:.4f} ({combined_mid*100:.2f}¢)")
+                logger.info(f"   Half spread: {half_spread:.2%}")
+                logger.info(f"   Our YES bid: ${yes_bid:.4f} ({yes_bid*100:.2f}¢)")
+                logger.info(f"   Our YES ask: ${yes_ask:.4f} ({yes_ask*100:.2f}¢)")
+                logger.info(f"   Our NO bid: ${no_bid:.4f} ({no_bid*100:.2f}¢)")
+                logger.info(f"   Spread: ${spread_dollars:.4f} ({spread_dollars*100:.2f}¢) = {spread_percent:.2%}")
+                logger.info(f"   Max allowed: {max_spread:.2%}")
+
+                # Verify spread is within limits
+                if spread_percent > max_spread:
+                    logger.warning(f"❌ Spread too high ({spread_percent:.2%} > {max_spread:.2%})")
+                    return None, None, {}
+
+                # Return prices (yes_bid for YES, no_bid for NO)
+                return yes_bid, no_bid, {
+                    'strategy': 'mid_price',
+                    'mid_price': combined_mid,
+                    'spread': spread_percent
+                }
+
+            # ✅ STRATEGY B: POSITION #3 STRATEGY (for regular markets)
+            logger.info(f"📊 Using POSITION #3 STRATEGY (follow orderbook)")
 
             # Helper function to extract bids from orderbook
             def get_bids(order_book):
