@@ -230,10 +230,20 @@ class OrderManager:
             }
 
             logger.info(f"✅ Prepared order for market {market_id}")
-            logger.info(f"   - YES bid: ${yes_price:.4f} ({yes_price*100:.2f}¢) at position #{position_info.get('target_position', 3)}")
-            logger.info(f"   - NO bid: ${no_price:.4f} ({no_price*100:.2f}¢) at position #{position_info.get('target_position', 3)}")
-            logger.info(f"   - Spread: {position_info['spread']:.2%} (max: {max_spread_decimal:.2%})")
-            logger.info(f"   - Offset from position #2: ${position_info['offset']:.4f} ({position_info['offset']*100:.2f}¢)")
+            logger.info(f"   - YES bid: ${yes_price:.4f} ({yes_price*100:.2f}¢)")
+            logger.info(f"   - NO bid: ${no_price:.4f} ({no_price*100:.2f}¢)")
+
+            # Log strategy-specific details
+            if position_info.get('strategy') == 'tight_bid':
+                # Tight bid strategy: log distance from midpoint
+                logger.info(f"   - YES distance from mid: {position_info['yes_distance']*100:.2f}¢")
+                logger.info(f"   - NO distance from mid: {position_info['no_distance']*100:.2f}¢")
+                logger.info(f"   - Strategy: TIGHT BID (maximize liquidity rewards)")
+            else:
+                # Position #3 strategy: log spread and offset
+                logger.info(f"   - Position: #{position_info.get('target_position', 3)}")
+                logger.info(f"   - Spread: {position_info.get('spread', 0):.2%} (max: {max_spread_decimal:.2%})")
+                logger.info(f"   - Offset from position #2: ${position_info.get('offset', 0):.4f} ({position_info.get('offset', 0)*100:.2f}¢)")
 
             return order
 
