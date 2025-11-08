@@ -389,52 +389,118 @@ class OrderManager:
             no_order_book = no_market_data['order_book']
             no_mid_price = no_market_data['mid_price']
 
-            # ✅ STRATEGY A: MID PRICE STRATEGY (for liquidity rewards markets)
+            # ✅ STRATEGY A: TIGHT BID STRATEGY (for liquidity rewards markets)
+            # Polymarket liquidity rewards prioritize:
+            # 1. Orders CLOSE TO MIDPOINT (max rewards)
+            # 2. Orders that are RESTING (not filled immediately)
+            # 3. Orders within ±rewards_max_spread of midpoint
+            # 4. Two-sided orders (bid + ask) get multiplier boost
+            #
+            # CORRECT APPROACH:
+            # - Place bid as close to midpoint as possible
+            # - But still below best ask (to avoid immediate fill)
+            # - This maximizes rewards while staying resting
+            #
+            # Example: YES mid 77.5¢, best ask 78¢
+            # → Bot bid: 77.4¢ (close to mid, won't fill)
             if use_mid_price_strategy:
-                logger.info(f"📊 Using MID PRICE STRATEGY (create new liquidity)")
+                logger.info(f"📊 Using TIGHT BID STRATEGY (maximize liquidity rewards)")
 
-                # Calculate combined mid price from both YES and NO
-                # YES mid = (YES best bid + YES best ask) / 2
-                # NO mid = (NO best bid + NO best ask) / 2
-                # Combined mid = Average of YES mid and (1 - NO mid)
-                combined_mid = (yes_mid_price + (1 - no_mid_price)) / 2
+                # Helper functions to extract bids and asks
+                def get_bids(order_book):
+                    if hasattr(order_book, 'bids'):
+                        return order_book.bids if order_book.bids else []
+                    elif isinstance(order_book, dict):
+                        return order_book.get('bids', [])
+                    return []
 
-                # Place orders around mid price with tight spread
-                # Spread is split evenly: half above mid, half below mid
-                half_spread = max_spread / 2  # e.g., 3% → 1.5% each side
+                def get_asks(order_book):
+                    if hasattr(order_book, 'asks'):
+                        return order_book.asks if order_book.asks else []
+                    elif isinstance(order_book, dict):
+                        return order_book.get('asks', [])
+                    return []
 
-                yes_bid = combined_mid * (1 - half_spread)  # Below mid
-                yes_ask = combined_mid * (1 + half_spread)  # Above mid
+                def get_price(order):
+                    if isinstance(order, dict):
+                        return float(order.get('price', 0))
+                    return float(getattr(order, 'price', 0))
 
-                # In binary market: NO price = 1 - YES price
-                # Our NO bid should complement our YES ask
-                no_bid = 1 - yes_ask
+                # Get orderbook data
+                yes_bids = get_bids(yes_order_book)
+                yes_asks = get_asks(yes_order_book)
+                no_bids = get_bids(no_order_book)
+                no_asks = get_asks(no_order_book)
 
-                # Calculate actual spread
-                spread_dollars = yes_ask - yes_bid
-                spread_percent = spread_dollars / combined_mid if combined_mid > 0 else 0
-
-                logger.info(f"💰 Calculated prices (MID PRICE STRATEGY):")
-                logger.info(f"   YES mid price: ${yes_mid_price:.4f} ({yes_mid_price*100:.2f}¢)")
-                logger.info(f"   NO mid price: ${no_mid_price:.4f} ({no_mid_price*100:.2f}¢)")
-                logger.info(f"   Combined mid: ${combined_mid:.4f} ({combined_mid*100:.2f}¢)")
-                logger.info(f"   Half spread: {half_spread:.2%}")
-                logger.info(f"   Our YES bid: ${yes_bid:.4f} ({yes_bid*100:.2f}¢)")
-                logger.info(f"   Our YES ask: ${yes_ask:.4f} ({yes_ask*100:.2f}¢)")
-                logger.info(f"   Our NO bid: ${no_bid:.4f} ({no_bid*100:.2f}¢)")
-                logger.info(f"   Spread: ${spread_dollars:.4f} ({spread_dollars*100:.2f}¢) = {spread_percent:.2%}")
-                logger.info(f"   Max allowed: {max_spread:.2%}")
-
-                # Verify spread is within limits
-                if spread_percent > max_spread:
-                    logger.warning(f"❌ Spread too high ({spread_percent:.2%} > {max_spread:.2%})")
+                # Verify orderbook has data
+                if not (yes_bids and yes_asks and no_bids and no_asks):
+                    logger.warning(f"❌ Incomplete orderbook for liquidity rewards")
+                    logger.warning(f"   YES: {len(yes_bids)} bids, {len(yes_asks)} asks")
+                    logger.warning(f"   NO: {len(no_bids)} bids, {len(no_asks)} asks")
                     return None, None, {}
+
+                # Get best prices
+                yes_best_bid = get_price(yes_bids[0])
+                yes_best_ask = get_price(yes_asks[0])
+                no_best_bid = get_price(no_bids[0])
+                no_best_ask = get_price(no_asks[0])
+
+                # Calculate midpoints (from orderbook, not from mid_price field)
+                yes_mid = (yes_best_bid + yes_best_ask) / 2
+                no_mid = (no_best_bid + no_best_ask) / 2
+
+                # Safety offset to avoid immediate fills (0.1 cent = $0.001)
+                offset = 0.001
+
+                # Place bids close to midpoint (but below best ask)
+                # This maximizes rewards (close to mid) while staying resting (below ask)
+                yes_bid = yes_mid - offset
+                no_bid = no_mid - offset
+
+                # Safety check: Ensure won't fill immediately
+                if yes_bid >= yes_best_ask:
+                    logger.warning(f"⚠️  YES bid {yes_bid:.4f} >= best ask {yes_best_ask:.4f}, adjusting...")
+                    yes_bid = yes_best_ask - 0.002  # Extra safety margin
+
+                if no_bid >= no_best_ask:
+                    logger.warning(f"⚠️  NO bid {no_bid:.4f} >= best ask {no_best_ask:.4f}, adjusting...")
+                    no_bid = no_best_ask - 0.002
+
+                # Verify prices are reasonable
+                if yes_bid < 0.001 or yes_bid > 0.999:
+                    logger.warning(f"❌ Invalid YES bid price: ${yes_bid:.4f}")
+                    return None, None, {}
+
+                if no_bid < 0.001 or no_bid > 0.999:
+                    logger.warning(f"❌ Invalid NO bid price: ${no_bid:.4f}")
+                    return None, None, {}
+
+                # Calculate distances from midpoint (for rewards estimation)
+                yes_distance_from_mid = abs(yes_bid - yes_mid)
+                no_distance_from_mid = abs(no_bid - no_mid)
+
+                # Log strategy details
+                logger.info(f"💰 Calculated prices (TIGHT BID STRATEGY):")
+                logger.info(f"   YES Market:")
+                logger.info(f"      Best Bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
+                logger.info(f"      Best Ask: ${yes_best_ask:.4f} ({yes_best_ask*100:.2f}¢)")
+                logger.info(f"      Midpoint: ${yes_mid:.4f} ({yes_mid*100:.2f}¢)")
+                logger.info(f"      Our Bid:  ${yes_bid:.4f} ({yes_bid*100:.2f}¢) [Distance: {yes_distance_from_mid*100:.2f}¢]")
+                logger.info(f"   NO Market:")
+                logger.info(f"      Best Bid: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢)")
+                logger.info(f"      Best Ask: ${no_best_ask:.4f} ({no_best_ask*100:.2f}¢)")
+                logger.info(f"      Midpoint: ${no_mid:.4f} ({no_mid*100:.2f}¢)")
+                logger.info(f"      Our Bid:  ${no_bid:.4f} ({no_bid*100:.2f}¢) [Distance: {no_distance_from_mid*100:.2f}¢]")
+                logger.info(f"   Strategy: Place bids close to midpoint for maximum rewards")
+                logger.info(f"   Safety: Bids < asks to avoid immediate fills")
 
                 # Return prices (yes_bid for YES, no_bid for NO)
                 return yes_bid, no_bid, {
-                    'strategy': 'mid_price',
-                    'mid_price': combined_mid,
-                    'spread': spread_percent
+                    'strategy': 'tight_bid',
+                    'yes_mid': yes_mid,
+                    'no_mid': no_mid,
+                    'yes_distance': yes_distance_from_mid,
+                    'no_distance': no_distance_from_mid
                 }
 
             # ✅ STRATEGY B: POSITION #3 STRATEGY (for regular markets)
