@@ -74,7 +74,8 @@ Kiểm tra:
 ## 🚀 CÁCH SỬ DỤNG
 
 ### Bước 1: Chạy script
-
+# Activate
+source venv/bin/activate
 ```bash
 python close_positions_manual.py
 ```

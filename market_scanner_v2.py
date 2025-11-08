@@ -184,7 +184,7 @@ class MarketScannerV2:
                     verified_markets.extend(filtered_markets[50:])
 
                 if no_orderbook_count > 0:
-                    logger.info(f"   - {no_orderbook_count} markets rejected: no orderbook or spread too wide (>50%)")
+                    logger.info(f"   - {no_orderbook_count} markets rejected: no orderbook (no bids or asks)")
                 if error_count > 0:
                     logger.warning(f"   - {error_count} markets skipped due to errors")
 
@@ -584,7 +584,7 @@ class MarketScannerV2:
                     logger.debug(f"❌ Orderbook empty for market {market.get('id')}")
                     return False
 
-                # ✅ NEW: Check spread to filter out illiquid markets
+                # ✅ Calculate spread for logging purposes (NOT for rejection!)
                 # Get best bid and ask
                 best_bid = float(book.bids[0].price) if has_bids else 0
                 best_ask = float(book.asks[0].price) if has_asks else 1
@@ -594,14 +594,16 @@ class MarketScannerV2:
                 mid_price = (best_bid + best_ask) / 2
                 spread_pct = (spread / mid_price * 100) if mid_price > 0 else 999
 
-                # REJECT if spread > 50% (extremely illiquid)
-                # This is same threshold as in order_manager.py
-                MAX_SPREAD_PCT = 50.0
-
-                if spread_pct > MAX_SPREAD_PCT:
-                    logger.debug(f"❌ Spread too wide for market {market.get('question', 'unknown')[:50]}: {spread_pct:.1f}% (>{MAX_SPREAD_PCT}%)")
-                    logger.debug(f"   Best Bid: ${best_bid:.4f}, Best Ask: ${best_ask:.4f}")
-                    return False
+                # ✅ IMPORTANT: DO NOT reject markets with high spread!
+                # High spread = LOW liquidity = GOOD opportunity for farming rewards!
+                # Polymarket pays rewards BECAUSE these markets need market makers
+                #
+                # Example:
+                # - Market with 80% spread = ILLIQUID → Bot should farm here!
+                # - Market with 5% spread = LIQUID → Less rewards, more competition
+                #
+                # We only verify that orderbook EXISTS (has bids & asks)
+                # We DO NOT reject based on spread width
 
                 logger.debug(f"✅ Orderbook verified for market {market.get('id')}: {len(book.bids)} bids, {len(book.asks)} asks, spread: {spread_pct:.1f}%")
                 return True
