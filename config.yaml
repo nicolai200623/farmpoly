@@ -55,8 +55,8 @@ order_management:
   spread_max: 0.10   # 8 cents (was 1.5 cents - too tight!)
 
   # Position size range (number of shares)
-  size_min: 20   # Giảm từ 200 xuống 50
-  size_max: 100  # Giảm từ 500 xuống 100
+  size_min: 50   # Giảm từ 200 xuống 50
+  size_max: 500  # Giảm từ 500 xuống 100
 
   # Order type
   order_type: limit
