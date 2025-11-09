@@ -107,25 +107,51 @@ class OrderManager:
                 logger.warning(f"❌ Could not fetch orderbook for both tokens")
                 return None
 
-            # Compare spreads - pick the token with NARROWER spread
+            # ✅ CORRECT TOKEN SELECTION: Use mid price to identify favored side
+            # In binary markets:
+            #   - Favored side (YES): mid price ~60-70¢ (higher)
+            #   - Underdog side (NO): mid price ~30-40¢ (lower)
+            #   - YES + NO ≈ $1.00
+            #
+            # WRONG approach: Compare spreads (both tokens can have similar spreads)
+            # RIGHT approach: Compare mid prices (higher mid = favored = YES)
+            mid_0 = market_data_0.get('mid_price', 0)
+            mid_1 = market_data_1.get('mid_price', 0)
             spread_0 = market_data_0.get('current_spread', 1.0)
             spread_1 = market_data_1.get('current_spread', 1.0)
 
-            logger.info(f"📊 Token[0] spread: ${spread_0:.4f} ({spread_0*100:.2f}¢)")
-            logger.info(f"📊 Token[1] spread: ${spread_1:.4f} ({spread_1*100:.2f}¢)")
+            logger.info(f"📊 Token[0] - Mid: ${mid_0:.4f} ({mid_0*100:.2f}¢), Spread: ${spread_0:.4f} ({spread_0*100:.2f}¢)")
+            logger.info(f"📊 Token[1] - Mid: ${mid_1:.4f} ({mid_1*100:.2f}¢), Spread: ${spread_1:.4f} ({spread_1*100:.2f}¢)")
 
-            if spread_0 < spread_1:
-                yes_token_id = token_id_0
-                no_token_id = token_id_1
-                yes_market_data = market_data_0
-                no_market_data = market_data_1
-                logger.info(f"✅ Using token[0] as YES (narrower spread)")
+            # ✅ For liquidity rewards markets: Pick token with HIGHER mid price as YES (favored side)
+            # This ensures we trade on the liquid side with tighter orderbook
+            if has_liquidity_rewards:
+                if mid_0 > mid_1:
+                    yes_token_id = token_id_0
+                    no_token_id = token_id_1
+                    yes_market_data = market_data_0
+                    no_market_data = market_data_1
+                    logger.info(f"✅ Using token[0] as YES (higher mid price: {mid_0*100:.2f}¢ > {mid_1*100:.2f}¢)")
+                else:
+                    yes_token_id = token_id_1
+                    no_token_id = token_id_0
+                    yes_market_data = market_data_1
+                    no_market_data = market_data_0
+                    logger.info(f"✅ Using token[1] as YES (higher mid price: {mid_1*100:.2f}¢ > {mid_0*100:.2f}¢)")
             else:
-                yes_token_id = token_id_1
-                no_token_id = token_id_0
-                yes_market_data = market_data_1
-                no_market_data = market_data_0
-                logger.info(f"✅ Using token[1] as YES (narrower spread)")
+                # For non-rewards markets: Use spread-based selection (original logic)
+                if spread_0 < spread_1:
+                    yes_token_id = token_id_0
+                    no_token_id = token_id_1
+                    yes_market_data = market_data_0
+                    no_market_data = market_data_1
+                    logger.info(f"✅ Using token[0] as YES (narrower spread)")
+                else:
+                    yes_token_id = token_id_1
+                    no_token_id = token_id_0
+                    yes_market_data = market_data_1
+                    no_market_data = market_data_0
+                    logger.info(f"✅ Using token[1] as YES (narrower spread)")
 
             # VALIDATION: Verify this is a TRUE binary market (YES + NO ≈ $1.00)
             # Binary market validation - Check if YES + NO bids sum to ~$1.00
@@ -188,13 +214,14 @@ class OrderManager:
             max_spread_decimal = max_spread_pct / 100  # Convert to decimal (e.g., 0.03 or 0.08)
 
             # Calculate order prices
-            # For liquidity rewards markets: Use MID PRICE strategy (create new liquidity)
-            # For regular markets: Use POSITION #3 strategy (follow orderbook)
+            # ✅ ALWAYS USE POSITION #2-3 STRATEGY for liquidity rewards
+            # This ensures orders are positioned correctly in the orderbook to maximize rewards
+            # TIGHT BID strategy (mid price) can place orders at wrong positions
             yes_price, no_price, position_info = self._calculate_position_based_prices(
                 yes_market_data,
                 no_market_data,
                 max_spread_decimal,
-                use_mid_price_strategy=has_liquidity_rewards  # NEW parameter
+                use_mid_price_strategy=False  # ALWAYS use position-based pricing
             )
 
             if yes_price is None or no_price is None:
@@ -664,14 +691,23 @@ class OrderManager:
             no_best_bid = get_price(no_bids[0])  # Position #1
             no_second_bid = get_price(no_bids[1])  # Position #2
 
+            # Log orderbook positions for debugging
+            logger.info(f"📊 YES Orderbook - Position #1: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢), Position #2: ${yes_second_bid:.4f} ({yes_second_bid*100:.2f}¢)")
+            logger.info(f"📊 NO Orderbook - Position #1: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢), Position #2: ${no_second_bid:.4f} ({no_second_bid*100:.2f}¢)")
+
             # Random offset between 0.05 and 0.15 cents to add variety
             # This ensures we're at position #3 (below position #2)
             offset = random.uniform(0.0005, 0.0015)  # 0.0005 = 0.05 cent, 0.0015 = 0.15 cent
 
-            # Calculate our order prices at position #3
-            # Simply take position #2 bid and subtract offset
+            # ✅ CRITICAL: Maintain YES + NO = $1.00 constraint for binary markets
+            # Calculate YES price from YES orderbook, then derive NO price
             yes_price = yes_second_bid - offset
-            no_price = no_second_bid - offset
+            no_price = 1.0 - yes_price  # Complement to maintain $1.00 constraint
+
+            logger.info(f"💰 Target position #3:")
+            logger.info(f"   YES price: ${yes_price:.4f} ({yes_price*100:.2f}¢) [based on position #2: ${yes_second_bid:.4f}]")
+            logger.info(f"   NO price: ${no_price:.4f} ({no_price*100:.2f}¢) [complement: 1.0 - YES]")
+            logger.info(f"   Sum: ${yes_price + no_price:.4f} (must be $1.00)")
 
             # Validate prices are within reasonable bounds
             # Some markets have very low/high prices (e.g., 0.002 or 0.998)
