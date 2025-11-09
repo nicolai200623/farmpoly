@@ -459,79 +459,127 @@ class OrderManager:
                 yes_mid = (yes_best_bid + yes_best_ask) / 2
                 no_mid = (no_best_bid + no_best_ask) / 2
 
-                # Safety offset to avoid immediate fills (0.1 cent = $0.001)
+                # ✅ CRITICAL: For binary markets, YES + NO must = $1.00
+                # "a bid on A counts as an ask on A'" - Polymarket docs
+                # This ensures proper two-sided liquidity provision
+
+                # Verify orderbooks are complementary
+                mid_sum = yes_mid + no_mid
+                if abs(mid_sum - 1.0) > 0.10:  # Allow 10¢ tolerance
+                    logger.warning(f"❌ Orderbooks not complementary:")
+                    logger.warning(f"   YES mid: ${yes_mid:.3f} + NO mid: ${no_mid:.3f} = ${mid_sum:.3f}")
+                    logger.warning(f"   Should be ≈ $1.00 (diff: ${abs(mid_sum - 1.0):.3f})")
+                    logger.warning(f"   This indicates arbitrage or bad orderbook data")
+                    return None, None, {}
+
+                # For binary market, if we place YES bid = P, then NO bid = 1 - P
+                # Constraints:
+                #   P < YES best ask (to avoid filling YES)
+                #   (1 - P) < NO best ask, which means P > 1 - NO best ask (to avoid filling NO)
+                # Valid range: (1 - NO best ask) < P < YES best ask
+
+                min_yes_bid = 1.0 - no_best_ask + 0.002  # Add 0.2¢ safety margin
+                max_yes_bid = yes_best_ask - 0.002       # Subtract 0.2¢ safety margin
+
+                logger.info(f"🎯 Binary market constraints:")
+                logger.info(f"   YES bid must be in range: ${min_yes_bid:.4f} < P < ${max_yes_bid:.4f}")
+                logger.info(f"   (Ensures YES bid < ask AND NO bid = 1-P < NO ask)")
+
+                if min_yes_bid >= max_yes_bid:
+                    logger.warning(f"❌ No valid bid range for binary market:")
+                    logger.warning(f"   min: ${min_yes_bid:.4f} >= max: ${max_yes_bid:.4f}")
+                    logger.warning(f"   YES ask: ${yes_best_ask:.4f}, NO ask: ${no_best_ask:.4f}")
+                    logger.warning(f"   Sum of asks: ${yes_best_ask + no_best_ask:.4f} (should be > $1.00 for valid market)")
+                    return None, None, {}
+
+                # Choose YES bid close to yes_mid, but within valid range
                 offset = 0.001
+                yes_bid_target = yes_mid - offset
 
-                # Place bids close to midpoint (but below best ask)
-                # This maximizes rewards (close to mid) while staying resting (below ask)
-                yes_bid = yes_mid - offset
-                no_bid = no_mid - offset
+                # Clamp to valid range
+                yes_bid = max(min_yes_bid, min(max_yes_bid, yes_bid_target))
 
-                # Safety check: Ensure won't fill immediately
-                if yes_bid >= yes_best_ask:
-                    logger.warning(f"⚠️  YES bid {yes_bid:.4f} >= best ask {yes_best_ask:.4f}, adjusting...")
-                    yes_bid = yes_best_ask - 0.002  # Extra safety margin
+                # Calculate complementary NO bid
+                no_bid = 1.0 - yes_bid
 
-                if no_bid >= no_best_ask:
-                    logger.warning(f"⚠️  NO bid {no_bid:.4f} >= best ask {no_best_ask:.4f}, adjusting...")
-                    no_bid = no_best_ask - 0.002
+                # Verify both prices are reasonable
+                if yes_bid < 0.001 or yes_bid > 0.999:
+                    logger.warning(f"❌ Invalid YES bid: ${yes_bid:.4f}")
+                    return None, None, {}
+
+                if no_bid < 0.001 or no_bid > 0.999:
+                    logger.warning(f"❌ Invalid NO bid: ${no_bid:.4f}")
+                    return None, None, {}
+
+                # Log if we had to adjust from target
+                if abs(yes_bid - yes_bid_target) > 0.001:
+                    logger.info(f"✅ Adjusted YES bid from ${yes_bid_target:.4f} to ${yes_bid:.4f} to satisfy constraints")
+
+                # Verify sum is exactly $1.00
+                bid_sum = yes_bid + no_bid
+                logger.info(f"✅ Binary market check: YES ${yes_bid:.4f} + NO ${no_bid:.4f} = ${bid_sum:.4f}")
 
                 # ✅ CHECK DEEP ORDERBOOK: Ensure our bids aren't too close to ANY ask in top 10
-                # This prevents being filled when market moves slightly
+                # IMPORTANT: Must maintain YES + NO = $1.00 constraint for binary markets
                 min_distance_from_asks = 0.05  # Minimum 5¢ buffer from any ask
 
-                # Check YES orderbook
-                yes_too_close = False
+                # Find the most restrictive YES ask (closest ask that's too close)
+                yes_min_ask = float('inf')
                 for i, ask in enumerate(yes_asks[:10]):
                     ask_price = get_price(ask)
                     distance = ask_price - yes_bid
                     if distance < min_distance_from_asks:
                         logger.warning(f"⚠️  YES bid ${yes_bid:.4f} too close to ask #{i+1} at ${ask_price:.4f} (distance: {distance*100:.2f}¢ < 5¢)")
-                        yes_too_close = True
-                        # Adjust bid to be 5¢ below this ask
-                        yes_bid = ask_price - min_distance_from_asks
+                        yes_min_ask = min(yes_min_ask, ask_price)
 
-                # Check NO orderbook
-                no_too_close = False
+                # Find the most restrictive NO ask (closest ask that's too close)
+                no_min_ask = float('inf')
                 for i, ask in enumerate(no_asks[:10]):
                     ask_price = get_price(ask)
                     distance = ask_price - no_bid
                     if distance < min_distance_from_asks:
                         logger.warning(f"⚠️  NO bid ${no_bid:.4f} too close to ask #{i+1} at ${ask_price:.4f} (distance: {distance*100:.2f}¢ < 5¢)")
-                        no_too_close = True
-                        # Adjust bid to be 5¢ below this ask
-                        no_bid = ask_price - min_distance_from_asks
+                        no_min_ask = min(no_min_ask, ask_price)
 
-                # If bids had to be adjusted too much, reject the market
-                if yes_too_close or no_too_close:
-                    adjusted_yes_distance = abs(yes_bid - yes_mid)
-                    adjusted_no_distance = abs(no_bid - no_mid)
+                # If either side has nearby asks, adjust while maintaining YES + NO = 1.00
+                if yes_min_ask != float('inf') or no_min_ask != float('inf'):
+                    # Calculate new max YES bid based on both constraints
+                    max_yes_from_yes_asks = yes_min_ask - min_distance_from_asks if yes_min_ask != float('inf') else yes_bid
+                    max_yes_from_no_asks = 1.0 - (no_min_ask - min_distance_from_asks) if no_min_ask != float('inf') else yes_bid
 
-                    # If adjusted bid is now too far from midpoint (>10¢), reject
-                    if adjusted_yes_distance > 0.10 or adjusted_no_distance > 0.10:
-                        logger.warning(f"❌ After adjusting for nearby asks, bids are too far from midpoint:")
-                        logger.warning(f"   YES: {adjusted_yes_distance*100:.2f}¢ from mid (max: 10¢)")
-                        logger.warning(f"   NO: {adjusted_no_distance*100:.2f}¢ from mid (max: 10¢)")
+                    # Take the most restrictive constraint
+                    new_yes_bid = min(max_yes_from_yes_asks, max_yes_from_no_asks)
+
+                    # Ensure still in valid range
+                    if new_yes_bid < min_yes_bid:
+                        logger.warning(f"❌ After adjusting for nearby asks, YES bid ${new_yes_bid:.4f} < min ${min_yes_bid:.4f}")
+                        logger.warning(f"   Cannot maintain 5¢ buffer while keeping YES + NO = $1.00")
                         logger.warning(f"   REJECTING market - orderbook too risky")
                         return None, None, {}
 
-                    logger.info(f"✅ Adjusted bids to maintain 5¢ buffer from all asks")
+                    yes_bid = new_yes_bid
+                    no_bid = 1.0 - yes_bid
 
-                # Verify prices are reasonable
-                if yes_bid < 0.001 or yes_bid > 0.999:
-                    logger.warning(f"❌ Invalid YES bid price: ${yes_bid:.4f}")
-                    return None, None, {}
+                    # Check if too far from midpoint
+                    yes_distance = abs(yes_bid - yes_mid)
+                    no_distance = abs(no_bid - no_mid)
 
-                if no_bid < 0.001 or no_bid > 0.999:
-                    logger.warning(f"❌ Invalid NO bid price: ${no_bid:.4f}")
-                    return None, None, {}
+                    if yes_distance > 0.10 or no_distance > 0.10:
+                        logger.warning(f"❌ After adjusting for nearby asks, bids too far from midpoint:")
+                        logger.warning(f"   YES: {yes_distance*100:.2f}¢ from mid (max: 10¢)")
+                        logger.warning(f"   NO: {no_distance*100:.2f}¢ from mid (max: 10¢)")
+                        logger.warning(f"   REJECTING market - orderbook too risky")
+                        return None, None, {}
+
+                    logger.info(f"✅ Adjusted bids: YES ${yes_bid:.4f}, NO ${no_bid:.4f} (sum = ${yes_bid + no_bid:.4f})")
+                    logger.info(f"   Maintained 5¢ buffer and YES + NO = $1.00 constraint")
 
                 # Calculate distances from midpoint (for rewards estimation)
                 yes_distance_from_mid = abs(yes_bid - yes_mid)
                 no_distance_from_mid = abs(no_bid - no_mid)
 
                 # Log strategy details
-                logger.info(f"💰 Calculated prices (TIGHT BID STRATEGY):")
+                logger.info(f"💰 Calculated prices (TIGHT BID STRATEGY - BINARY MARKET):")
                 logger.info(f"   YES Market:")
                 logger.info(f"      Best Bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
                 logger.info(f"      Best Ask: ${yes_best_ask:.4f} ({yes_best_ask*100:.2f}¢)")
@@ -542,8 +590,9 @@ class OrderManager:
                 logger.info(f"      Best Ask: ${no_best_ask:.4f} ({no_best_ask*100:.2f}¢)")
                 logger.info(f"      Midpoint: ${no_mid:.4f} ({no_mid*100:.2f}¢)")
                 logger.info(f"      Our Bid:  ${no_bid:.4f} ({no_bid*100:.2f}¢) [Distance: {no_distance_from_mid*100:.2f}¢]")
-                logger.info(f"   Strategy: Place bids close to midpoint for maximum rewards")
-                logger.info(f"   Safety: Bids < asks to avoid immediate fills")
+                logger.info(f"   ✅ YES + NO = ${yes_bid + no_bid:.4f} (binary market constraint)")
+                logger.info(f"   Strategy: YES bid + NO bid = $1.00 for proper two-sided liquidity")
+                logger.info(f"   Polymarket: 'a bid on A counts as an ask on A''")
 
                 # Return prices (yes_bid for YES, no_bid for NO)
                 return yes_bid, no_bid, {
