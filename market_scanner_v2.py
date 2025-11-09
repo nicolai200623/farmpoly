@@ -584,7 +584,7 @@ class MarketScannerV2:
                     logger.debug(f"❌ Orderbook empty for market {market.get('id')}")
                     return False
 
-                # ✅ Calculate spread for logging purposes (NOT for rejection!)
+                # ✅ Calculate spread and check liquidity
                 # Get best bid and ask
                 best_bid = float(book.bids[0].price) if has_bids else 0
                 best_ask = float(book.asks[0].price) if has_asks else 1
@@ -594,18 +594,45 @@ class MarketScannerV2:
                 mid_price = (best_bid + best_ask) / 2
                 spread_pct = (spread / mid_price * 100) if mid_price > 0 else 999
 
-                # ✅ IMPORTANT: DO NOT reject markets with high spread!
-                # High spread = LOW liquidity = GOOD opportunity for farming rewards!
-                # Polymarket pays rewards BECAUSE these markets need market makers
-                #
-                # Example:
-                # - Market with 80% spread = ILLIQUID → Bot should farm here!
-                # - Market with 5% spread = LIQUID → Less rewards, more competition
-                #
-                # We only verify that orderbook EXISTS (has bids & asks)
-                # We DO NOT reject based on spread width
+                # ✅ CHECK 1: Reject markets with EXTREMELY wide spreads (>80%)
+                # While high spread = more rewards, EXTREMELY wide spreads (9700%) are too risky:
+                # - Orderbook too thin → high chance of immediate fills
+                # - Price can jump unpredictably
+                # - Asks can appear anywhere and fill our bids
+                if spread_pct > 80:
+                    logger.debug(f"❌ Spread too wide ({spread_pct:.1f}% > 80%) - too risky for market {market.get('id')}")
+                    return False
 
-                logger.debug(f"✅ Orderbook verified for market {market.get('id')}: {len(book.bids)} bids, {len(book.asks)} asks, spread: {spread_pct:.1f}%")
+                # ✅ CHECK 2: Verify orderbook has sufficient depth
+                # Need at least 3 levels on each side to ensure some liquidity
+                num_bids = len(book.bids)
+                num_asks = len(book.asks)
+
+                if num_bids < 3 or num_asks < 3:
+                    logger.debug(f"❌ Insufficient orderbook depth for market {market.get('id')}: {num_bids} bids, {num_asks} asks (need ≥3)")
+                    return False
+
+                # ✅ CHECK 3: Calculate total volume in orderbook
+                # Sum up top 5 orders to ensure there's real liquidity
+                def get_total_size(orders, limit=5):
+                    total = 0
+                    for i, order in enumerate(orders[:limit]):
+                        if i >= limit:
+                            break
+                        size = float(getattr(order, 'size', 0))
+                        total += size
+                    return total
+
+                total_bid_volume = get_total_size(book.bids, 5)
+                total_ask_volume = get_total_size(book.asks, 5)
+
+                # Require minimum $50 of liquidity on each side (assuming $0.50 avg price = 100 contracts)
+                min_volume = 100
+                if total_bid_volume < min_volume or total_ask_volume < min_volume:
+                    logger.debug(f"❌ Insufficient volume for market {market.get('id')}: bid_vol={total_bid_volume:.0f}, ask_vol={total_ask_volume:.0f} (need ≥{min_volume})")
+                    return False
+
+                logger.debug(f"✅ Orderbook verified for market {market.get('id')}: {num_bids} bids, {num_asks} asks, spread: {spread_pct:.1f}%, bid_vol={total_bid_volume:.0f}, ask_vol={total_ask_volume:.0f}")
                 return True
             else:
                 logger.debug(f"❌ Invalid orderbook format for market {market.get('id')}")
