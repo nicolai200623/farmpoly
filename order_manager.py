@@ -662,6 +662,15 @@ class OrderManager:
                 else:
                     return []
 
+            # Helper function to extract asks from orderbook
+            def get_asks(order_book):
+                if hasattr(order_book, 'asks'):
+                    return order_book.asks if order_book.asks else []
+                elif isinstance(order_book, dict):
+                    return order_book.get('asks', [])
+                else:
+                    return []
+
             # Helper function to get price from order (handle both dict and object)
             def get_price(order):
                 if isinstance(order, dict):
@@ -669,45 +678,78 @@ class OrderManager:
                 else:
                     return float(getattr(order, 'price', 0))
 
-            # Get bids from both orderbooks
+            # Get bids AND asks from both orderbooks
             yes_bids = get_bids(yes_order_book)
+            yes_asks = get_asks(yes_order_book)
             no_bids = get_bids(no_order_book)
+            no_asks = get_asks(no_order_book)
 
-            # ⚠️ CRITICAL CHECK: Need at least 2 bids on each side
-            # We take bid price from position #2, so we need at least 2 bids
-            logger.debug(f"📊 Orderbook depth: YES {len(yes_bids)} bids, NO {len(no_bids)} bids")
+            # ⚠️ CRITICAL CHECK: Need at least 2 bids AND 1 ask on each side
+            # We need bids for position #3 and asks to avoid immediate fills
+            logger.debug(f"📊 Orderbook depth: YES {len(yes_bids)} bids / {len(yes_asks)} asks, NO {len(no_bids)} bids / {len(no_asks)} asks")
 
-            if len(yes_bids) < 2 or len(no_bids) < 2:
-                logger.warning(f"❌ Order book too thin! YES bids: {len(yes_bids)}, NO bids: {len(no_bids)}")
-                logger.warning(f"   Need at least 2 bids on EACH side to place at position #3")
+            if len(yes_bids) < 2 or len(no_bids) < 2 or len(yes_asks) < 1 or len(no_asks) < 1:
+                logger.warning(f"❌ Order book too thin!")
+                logger.warning(f"   YES: {len(yes_bids)} bids, {len(yes_asks)} asks")
+                logger.warning(f"   NO: {len(no_bids)} bids, {len(no_asks)} asks")
+                logger.warning(f"   Need: 2 bids + 1 ask on EACH side")
                 logger.warning(f"   REJECTING market")
                 return None, None, {}
 
             # Get bid position #1 and #2 from YES orderbook
             yes_best_bid = get_price(yes_bids[0])  # Position #1
             yes_second_bid = get_price(yes_bids[1])  # Position #2
+            yes_best_ask = get_price(yes_asks[0])  # Best ask (to avoid fills)
 
             # Get bid position #1 and #2 from NO orderbook
             no_best_bid = get_price(no_bids[0])  # Position #1
             no_second_bid = get_price(no_bids[1])  # Position #2
+            no_best_ask = get_price(no_asks[0])  # Best ask (to avoid fills)
 
             # Log orderbook positions for debugging
-            logger.info(f"📊 YES Orderbook - Position #1: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢), Position #2: ${yes_second_bid:.4f} ({yes_second_bid*100:.2f}¢)")
-            logger.info(f"📊 NO Orderbook - Position #1: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢), Position #2: ${no_second_bid:.4f} ({no_second_bid*100:.2f}¢)")
+            logger.info(f"📊 YES Orderbook:")
+            logger.info(f"   Bids - Position #1: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢), Position #2: ${yes_second_bid:.4f} ({yes_second_bid*100:.2f}¢)")
+            logger.info(f"   Asks - Best Ask: ${yes_best_ask:.4f} ({yes_best_ask*100:.2f}¢)")
+            logger.info(f"📊 NO Orderbook:")
+            logger.info(f"   Bids - Position #1: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢), Position #2: ${no_second_bid:.4f} ({no_second_bid*100:.2f}¢)")
+            logger.info(f"   Asks - Best Ask: ${no_best_ask:.4f} ({no_best_ask*100:.2f}¢)")
 
             # Random offset between 0.05 and 0.15 cents to add variety
             # This ensures we're at position #3 (below position #2)
             offset = random.uniform(0.0005, 0.0015)  # 0.0005 = 0.05 cent, 0.0015 = 0.15 cent
 
+            # ✅ CRITICAL FIX: Ensure our bid is BELOW best ask (to avoid immediate fill)
+            # Calculate YES price from position #2, then check against best ask
+            yes_price_target = yes_second_bid - offset
+
+            # Safety margin to avoid fills (stay 0.2¢ below best ask minimum)
+            min_safety_margin = 0.002  # $0.002 = 0.2 cents
+
+            # Check if our target bid would be too close to best ask
+            if yes_price_target >= (yes_best_ask - min_safety_margin):
+                logger.warning(f"⚠️  Target YES bid ${yes_price_target:.4f} too close to best ask ${yes_best_ask:.4f}")
+                logger.warning(f"   Would be filled immediately! Adjusting bid lower...")
+
+                # Adjust to stay below best ask with safety margin
+                yes_price = yes_best_ask - min_safety_margin - offset
+                logger.info(f"   Adjusted YES bid: ${yes_price:.4f} (${min_safety_margin*100:.2f}¢ below ask)")
+            else:
+                yes_price = yes_price_target
+
             # ✅ CRITICAL: Maintain YES + NO = $1.00 constraint for binary markets
-            # Calculate YES price from YES orderbook, then derive NO price
-            yes_price = yes_second_bid - offset
             no_price = 1.0 - yes_price  # Complement to maintain $1.00 constraint
 
+            # Verify NO price also doesn't exceed NO best ask
+            if no_price >= (no_best_ask - min_safety_margin):
+                logger.warning(f"⚠️  Calculated NO bid ${no_price:.4f} too close to NO best ask ${no_best_ask:.4f}")
+                logger.warning(f"   REJECTING market - orderbook too tight for safe positioning")
+                return None, None, {}
+
             logger.info(f"💰 Target position #3:")
-            logger.info(f"   YES price: ${yes_price:.4f} ({yes_price*100:.2f}¢) [based on position #2: ${yes_second_bid:.4f}]")
-            logger.info(f"   NO price: ${no_price:.4f} ({no_price*100:.2f}¢) [complement: 1.0 - YES]")
+            logger.info(f"   YES price: ${yes_price:.4f} ({yes_price*100:.2f}¢) [based on position #2: ${yes_second_bid:.4f}, best ask: ${yes_best_ask:.4f}]")
+            logger.info(f"   NO price: ${no_price:.4f} ({no_price*100:.2f}¢) [complement: 1.0 - YES, best ask: ${no_best_ask:.4f}]")
             logger.info(f"   Sum: ${yes_price + no_price:.4f} (must be $1.00)")
+            logger.info(f"   Safety: YES bid ${(yes_best_ask - yes_price)*100:.2f}¢ below ask, NO bid ${(no_best_ask - no_price)*100:.2f}¢ below ask")
 
             # Validate prices are within reasonable bounds
             # Some markets have very low/high prices (e.g., 0.002 or 0.998)
