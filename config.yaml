@@ -294,6 +294,38 @@ clob:
   websocket_reconnect_delay: 5  # seconds
   websocket_ping_interval: 30  # seconds
 
+# OrderBook WebSocket Settings (Real-time orderbook updates)
+orderbook_websocket:
+  # WebSocket URL for orderbook updates
+  url: "wss://ws-subscriptions-clob.polymarket.com/ws/market"
+
+  # Connection settings
+  reconnect_delay: 5  # seconds
+  ping_interval: 20  # seconds
+  ping_timeout: 10  # seconds
+
+  # Data freshness
+  max_age: 5  # Consider data stale if older than 5 seconds
+
+# Order Repositioning Settings (Maintain position 2-3 in orderbook)
+order_repositioning:
+  # Enable automatic order repositioning
+  enabled: true
+
+  # Check interval (how often to check if orders need repositioning)
+  check_interval: 15  # seconds (check every 15 seconds)
+
+  # Repositioning thresholds
+  min_reposition_gap: 0.002  # $0.002 = 0.2 cents (reposition if price gap > this)
+
+  # Rate limiting (prevent too many repositions)
+  max_repositions_per_hour: 10  # Maximum 10 repositions per hour per market
+  reposition_cooldown: 60  # Wait at least 60 seconds between repositions
+
+  # Target position (maintain position 2 or 3, never position 1)
+  target_position_min: 2  # Position #2 (0-indexed: 1)
+  target_position_max: 3  # Position #3 (0-indexed: 2)
+
 # Blockchain Settings
 blockchain:
   # Polygon RPC
