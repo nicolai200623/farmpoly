@@ -90,6 +90,10 @@ class OrderManager:
 
             logger.info(f"✅ Binary market confirmed: 2 tokens (YES/NO)")
 
+            # ✅ FIX #1: Initialize has_liquidity_rewards BEFORE using it
+            # Check if market has liquidity rewards (must be done early for token selection)
+            has_liquidity_rewards = market.get('rewardsMinSize', 0) > 0 and market.get('rewardsMaxSpread', 0) > 0
+
             # AUTO-SELECT CORRECT TOKEN: Try BOTH tokens and pick the one with narrower spread
             # Polymarket token convention may vary - we can't assume token[0] = YES or NO
             # The correct token will have a NARROW spread (e.g., 2-10¢)
@@ -105,6 +109,10 @@ class OrderManager:
 
             if not market_data_0 or not market_data_1:
                 logger.warning(f"❌ Could not fetch orderbook for both tokens")
+                logger.warning(f"   This could be due to:")
+                logger.warning(f"   1. WebSocket not connected yet (retry in next scan)")
+                logger.warning(f"   2. REST API rate limiting")
+                logger.warning(f"   3. Invalid token IDs")
                 return None
 
             # ✅ CORRECT TOKEN SELECTION: Use mid price to identify favored side
@@ -200,7 +208,7 @@ class OrderManager:
             # Get max spread from market rewards config (if available)
             # For liquidity rewards markets: Use rewards_max_spread (usually 1-3%)
             # For regular markets: Use 8% default
-            has_liquidity_rewards = market.get('rewardsMinSize', 0) > 0 and market.get('rewardsMaxSpread', 0) > 0
+            # NOTE: has_liquidity_rewards already initialized at line 95
 
             if has_liquidity_rewards:
                 # Use strict spread from rewards config (1-3%)
@@ -374,41 +382,57 @@ class OrderManager:
             lookup_id = token_id if token_id else market_id
 
             # ✅ PRIORITY 1: Try WebSocket cache (real-time, <100ms latency)
-            if self.orderbook_ws:
+            if self.orderbook_ws and self.orderbook_ws.is_connected():
                 cached_book = self.orderbook_ws.get_orderbook(lookup_id)
 
                 if cached_book:
                     logger.debug(f"✅ Using WebSocket orderbook for {lookup_id} (real-time)")
-
-                    # Convert WebSocket format to py-clob-client format
-                    # WebSocket format: {'bids': [{'price': ..., 'size': ...}], 'asks': [...]}
-                    # py-clob-client expects similar format, so return as-is
                     return cached_book
                 else:
-                    # Not in cache yet - subscribe and use fallback for now
+                    # Not in cache yet - subscribe for future updates
                     logger.debug(f"📡 Subscribing to {lookup_id} for future updates")
-                    await self.orderbook_ws.subscribe(lookup_id)
+                    try:
+                        await self.orderbook_ws.subscribe(lookup_id)
+                    except Exception as sub_err:
+                        logger.debug(f"WebSocket subscribe failed: {sub_err}, using REST fallback")
 
             # ✅ FALLBACK: Use REST API if WebSocket not available or not cached yet
             logger.debug(f"⏳ Falling back to REST API for {lookup_id}")
 
             if self.clob_client:
-                # Use py-clob-client with token_id
-                book = self.clob_client.get_order_book(lookup_id)
-                return book
-            else:
-                # Fallback to direct API call
+                try:
+                    # Use py-clob-client with token_id (synchronous call)
+                    book = self.clob_client.get_order_book(lookup_id)
+                    if book:
+                        logger.debug(f"✅ Got orderbook from REST API for {lookup_id}")
+                        return book
+                except Exception as clob_err:
+                    logger.warning(f"CLOB client failed for {lookup_id}: {clob_err}")
+
+            # Final fallback: Direct API call
+            try:
                 url = f"{self.clob_host}/book?token_id={lookup_id}"
 
                 async with aiohttp.ClientSession() as session:
-                    async with session.get(url) as response:
+                    async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as response:
                         if response.status == 200:
-                            return await response.json()
+                            data = await response.json()
+                            logger.debug(f"✅ Got orderbook from direct API for {lookup_id}")
+                            return data
+                        else:
+                            logger.warning(f"Direct API returned {response.status} for {lookup_id}")
+            except asyncio.TimeoutError:
+                logger.warning(f"Direct API timeout for {lookup_id}")
+            except Exception as api_err:
+                logger.warning(f"Direct API failed for {lookup_id}: {api_err}")
 
+            logger.warning(f"❌ All orderbook fetch methods failed for {lookup_id}")
             return None
 
         except Exception as e:
-            logger.error(f"Error getting order book: {e}")
+            logger.error(f"Error getting order book for {lookup_id}: {e}")
+            import traceback
+            logger.debug(traceback.format_exc())
             return None
     
     def _calculate_position_based_prices(self, yes_market_data: Dict, no_market_data: Dict, max_spread: float, use_mid_price_strategy: bool = False) -> Tuple[Optional[float], Optional[float], Dict]:
