@@ -19,19 +19,20 @@ logger = logging.getLogger(__name__)
 class OrderManager:
     """Manages order lifecycle on Polymarket CLOB"""
 
-    def __init__(self, config: dict, telegram_notifier=None):
+    def __init__(self, config: dict, telegram_notifier=None, orderbook_ws=None):
         self.config = config
         self.pending_orders = []
         self.active_orders = {}
         self.filled_orders = []
         self.clob_client = None
         self.telegram = telegram_notifier  # Telegram notifier
-        
+        self.orderbook_ws = orderbook_ws  # WebSocket for real-time orderbook
+
         # Read CLOB settings from config
         clob_config = self.config.get('clob', {})
         self.clob_host = clob_config.get('host', 'https://clob.polymarket.com')
         self.chain_id = clob_config.get('chain_id', 137)
-        
+
         self._initialize_clob()
     
     def _initialize_clob(self):
@@ -335,7 +336,7 @@ class OrderManager:
             return None
     
     async def _get_order_book(self, market_id: str, token_id: str = None) -> Optional[Dict]:
-        """Get order book from CLOB API
+        """Get order book from WebSocket cache or fallback to REST API
 
         Args:
             market_id: Market ID (for logging)
@@ -344,6 +345,25 @@ class OrderManager:
         try:
             # Use token_id if provided, otherwise fall back to market_id
             lookup_id = token_id if token_id else market_id
+
+            # ✅ PRIORITY 1: Try WebSocket cache (real-time, <100ms latency)
+            if self.orderbook_ws:
+                cached_book = self.orderbook_ws.get_orderbook(lookup_id)
+
+                if cached_book:
+                    logger.debug(f"✅ Using WebSocket orderbook for {lookup_id} (real-time)")
+
+                    # Convert WebSocket format to py-clob-client format
+                    # WebSocket format: {'bids': [{'price': ..., 'size': ...}], 'asks': [...]}
+                    # py-clob-client expects similar format, so return as-is
+                    return cached_book
+                else:
+                    # Not in cache yet - subscribe and use fallback for now
+                    logger.debug(f"📡 Subscribing to {lookup_id} for future updates")
+                    await self.orderbook_ws.subscribe(lookup_id)
+
+            # ✅ FALLBACK: Use REST API if WebSocket not available or not cached yet
+            logger.debug(f"⏳ Falling back to REST API for {lookup_id}")
 
             if self.clob_client:
                 # Use py-clob-client with token_id

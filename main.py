@@ -48,6 +48,8 @@ from reward_manager import RewardManager
 from monitoring_system import MonitoringSystem
 from telegram_notifier import TelegramNotifier
 from profit_taking_manager import ProfitTakingManager
+from orderbook_websocket import OrderBookWebSocket
+from order_repositioner import OrderRepositioner
 
 
 class PolymarketBot:
@@ -158,13 +160,20 @@ class PolymarketBot:
             self.modules['telegram'] = TelegramNotifier(self.config)
             logger.info("✅ Telegram Notifier initialized")
 
+            # Initialize WebSocket for real-time orderbook updates
+            orderbook_config = self.config.get('orderbook_websocket', {})
+            ws_url = orderbook_config.get('url', 'wss://ws-subscriptions-clob.polymarket.com/ws/market')
+            self.modules['orderbook_ws'] = OrderBookWebSocket(ws_url)
+            logger.info("✅ OrderBook WebSocket initialized")
+
             self.modules['scanner'] = MarketScanner(self.config['market_scanner'])
             self.modules['selector'] = MarketSelectorAI(self.config)
 
-            # Pass telegram notifier to OrderManager
+            # Pass telegram notifier AND WebSocket to OrderManager
             self.modules['order_mgr'] = OrderManager(
                 self.config['order_management'],
-                telegram_notifier=self.modules['telegram']
+                telegram_notifier=self.modules['telegram'],
+                orderbook_ws=self.modules['orderbook_ws']
             )
 
             self.modules['monitor'] = PositionMonitor(self.config['monitoring'])
@@ -212,6 +221,18 @@ class PolymarketBot:
             else:
                 logger.info("⏭️  Profit Taking Manager disabled in config")
 
+            # Initialize order repositioner if enabled
+            reposition_config = self.config.get('order_repositioning', {})
+            if reposition_config.get('enabled', True):
+                self.modules['repositioner'] = OrderRepositioner(
+                    self.modules['order_mgr'],
+                    self.modules['orderbook_ws'],
+                    reposition_config
+                )
+                logger.info("✅ Order Repositioner enabled")
+            else:
+                logger.info("⏭️  Order Repositioner disabled in config")
+
             logger.info("All modules initialized successfully")
         except Exception as e:
             logger.error(f"Module initialization failed: {e}")
@@ -241,7 +262,8 @@ class PolymarketBot:
             self._ml_training_loop(),
             self._daily_optimization_loop(),
             self._monitoring_loop(),  # Add monitoring loop
-            self._hourly_report_loop()  # Add hourly report loop
+            self._hourly_report_loop(),  # Add hourly report loop
+            self._orderbook_websocket_loop()  # Add WebSocket loop
         ]
 
         # Add reward management loop if enabled
@@ -251,6 +273,10 @@ class PolymarketBot:
         # Add profit taking loop if enabled
         if 'profit_mgr' in self.modules:
             tasks.append(self._profit_taking_loop())
+
+        # Add order repositioning loop if enabled
+        if 'repositioner' in self.modules:
+            tasks.append(self._order_repositioning_loop())
 
         try:
             await asyncio.gather(*tasks)
@@ -567,6 +593,36 @@ class PolymarketBot:
             except Exception as e:
                 logger.error(f"Profit taking error: {e}")
                 await asyncio.sleep(60)  # Wait 1 minute before retry
+
+    async def _orderbook_websocket_loop(self):
+        """WebSocket connection loop for real-time orderbook updates"""
+        orderbook_ws = self.modules['orderbook_ws']
+
+        logger.info("📡 Starting OrderBook WebSocket loop")
+
+        while self.running:
+            try:
+                # Connect and listen (this will auto-reconnect on errors)
+                await orderbook_ws.connect()
+
+            except Exception as e:
+                logger.error(f"WebSocket loop error: {e}")
+                await asyncio.sleep(10)
+
+    async def _order_repositioning_loop(self):
+        """Automated order repositioning loop - maintain position 2-3"""
+        repositioner = self.modules['repositioner']
+
+        logger.info("🔄 Starting automated order repositioning loop")
+
+        while self.running:
+            try:
+                # Monitor and reposition orders
+                await repositioner.monitor_and_reposition()
+
+            except Exception as e:
+                logger.error(f"Order repositioning error: {e}")
+                await asyncio.sleep(30)  # Wait 30 seconds before retry
     
     async def _process_market_opportunity(self, market: dict):
         """Process a selected market opportunity"""
