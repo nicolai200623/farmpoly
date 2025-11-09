@@ -39,6 +39,25 @@ Bridge USDC to Polygon: https://wallet.polygon.technology/
 python scripts/approve_wallets.py
 ```
 
+
+git checkout master
+
+# Merge the fix from the feature branch
+git merge origin/claude/fix-reward-data-filtering-011CUuhn9tcAmwj5m18g831z
+
+# Restart the bot
+sudo systemctl restart farmpoly-bot
+
+
+git checkout claude/fix-reward-data-filtering-011CUuhn9tcAmwj5m18g831z
+
+# Pull latest changes
+git pull
+
+# Restart the bot
+sudo systemctl restart farmpoly-bot
+
+
 This approves the Polymarket CLOB to spend USDC from your wallets.
 
 ### 4️⃣ Configure Bot (2 min)

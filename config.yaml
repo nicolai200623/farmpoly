@@ -30,7 +30,7 @@ market_scanner:
     #
 
   # Illiquid market threshold
-  illiquid_threshold: 2000  # Markets with liquidity < $10k
+  illiquid_threshold: 5000  # Markets with liquidity < $10k
 
 # Market Selection AI
 market_selection:
@@ -45,7 +45,7 @@ market_selection:
   volume_lookback_hours: 24
   
   # Maximum markets to trade simultaneously
-  max_concurrent_markets: 2
+  max_concurrent_markets: 5
 
 # Order Management
 order_management:
