@@ -476,6 +476,47 @@ class OrderManager:
                     logger.warning(f"⚠️  NO bid {no_bid:.4f} >= best ask {no_best_ask:.4f}, adjusting...")
                     no_bid = no_best_ask - 0.002
 
+                # ✅ CHECK DEEP ORDERBOOK: Ensure our bids aren't too close to ANY ask in top 10
+                # This prevents being filled when market moves slightly
+                min_distance_from_asks = 0.05  # Minimum 5¢ buffer from any ask
+
+                # Check YES orderbook
+                yes_too_close = False
+                for i, ask in enumerate(yes_asks[:10]):
+                    ask_price = get_price(ask)
+                    distance = ask_price - yes_bid
+                    if distance < min_distance_from_asks:
+                        logger.warning(f"⚠️  YES bid ${yes_bid:.4f} too close to ask #{i+1} at ${ask_price:.4f} (distance: {distance*100:.2f}¢ < 5¢)")
+                        yes_too_close = True
+                        # Adjust bid to be 5¢ below this ask
+                        yes_bid = ask_price - min_distance_from_asks
+
+                # Check NO orderbook
+                no_too_close = False
+                for i, ask in enumerate(no_asks[:10]):
+                    ask_price = get_price(ask)
+                    distance = ask_price - no_bid
+                    if distance < min_distance_from_asks:
+                        logger.warning(f"⚠️  NO bid ${no_bid:.4f} too close to ask #{i+1} at ${ask_price:.4f} (distance: {distance*100:.2f}¢ < 5¢)")
+                        no_too_close = True
+                        # Adjust bid to be 5¢ below this ask
+                        no_bid = ask_price - min_distance_from_asks
+
+                # If bids had to be adjusted too much, reject the market
+                if yes_too_close or no_too_close:
+                    adjusted_yes_distance = abs(yes_bid - yes_mid)
+                    adjusted_no_distance = abs(no_bid - no_mid)
+
+                    # If adjusted bid is now too far from midpoint (>10¢), reject
+                    if adjusted_yes_distance > 0.10 or adjusted_no_distance > 0.10:
+                        logger.warning(f"❌ After adjusting for nearby asks, bids are too far from midpoint:")
+                        logger.warning(f"   YES: {adjusted_yes_distance*100:.2f}¢ from mid (max: 10¢)")
+                        logger.warning(f"   NO: {adjusted_no_distance*100:.2f}¢ from mid (max: 10¢)")
+                        logger.warning(f"   REJECTING market - orderbook too risky")
+                        return None, None, {}
+
+                    logger.info(f"✅ Adjusted bids to maintain 5¢ buffer from all asks")
+
                 # Verify prices are reasonable
                 if yes_bid < 0.001 or yes_bid > 0.999:
                     logger.warning(f"❌ Invalid YES bid price: ${yes_bid:.4f}")
