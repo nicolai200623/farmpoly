@@ -43,7 +43,8 @@ class OrderBookWebSocket:
                 async with websockets.connect(
                     self.ws_url,
                     ping_interval=20,
-                    ping_timeout=10
+                    ping_timeout=10,
+                    close_timeout=5  # FIX #3: Add close timeout to prevent hanging
                 ) as websocket:
                     self.ws_connection = websocket
                     logger.info("✅ WebSocket connected successfully")
@@ -54,18 +55,39 @@ class OrderBookWebSocket:
                     # Listen for messages
                     await self._listen()
 
+            except websockets.exceptions.ConnectionClosedOK:
+                logger.info("WebSocket connection closed normally")
+                if self.running:
+                    logger.info(f"Reconnecting in {self.reconnect_delay}s...")
+                    await asyncio.sleep(self.reconnect_delay)
+            except websockets.exceptions.ConnectionClosedError as e:
+                logger.warning(f"⚠️  WebSocket connection closed with error: {e}")
+                if self.running:
+                    logger.info(f"Reconnecting in {self.reconnect_delay}s...")
+                    await asyncio.sleep(self.reconnect_delay)
             except websockets.exceptions.ConnectionClosed:
                 logger.warning(f"⚠️  WebSocket connection closed, reconnecting in {self.reconnect_delay}s...")
                 await asyncio.sleep(self.reconnect_delay)
+            except asyncio.CancelledError:
+                logger.info("WebSocket task cancelled, shutting down...")
+                self.running = False
+                break
             except Exception as e:
                 logger.error(f"❌ WebSocket error: {e}")
-                await asyncio.sleep(self.reconnect_delay)
+                if self.running:
+                    await asyncio.sleep(self.reconnect_delay)
 
     async def _listen(self):
         """Listen for WebSocket messages"""
         try:
             async for message in self.ws_connection:
                 await self._process_message(message)
+        except websockets.exceptions.ConnectionClosed:
+            logger.debug("WebSocket connection closed during listen")
+            raise
+        except asyncio.CancelledError:
+            logger.debug("WebSocket listen task cancelled")
+            raise
         except Exception as e:
             logger.error(f"Error listening to WebSocket: {e}")
             raise
@@ -303,12 +325,21 @@ class OrderBookWebSocket:
         return self.ws_connection is not None and self.ws_connection.open
 
     async def close(self):
-        """Close WebSocket connection"""
+        """Close WebSocket connection gracefully"""
         self.running = False
 
         if self.ws_connection:
-            await self.ws_connection.close()
-            logger.info("🔌 WebSocket connection closed")
+            try:
+                # Send close frame with timeout
+                await asyncio.wait_for(
+                    self.ws_connection.close(),
+                    timeout=5.0
+                )
+                logger.info("🔌 WebSocket connection closed gracefully")
+            except asyncio.TimeoutError:
+                logger.warning("WebSocket close timeout, forcing close")
+            except Exception as e:
+                logger.warning(f"Error closing WebSocket: {e}")
 
     def get_stats(self) -> Dict:
         """Get WebSocket statistics
