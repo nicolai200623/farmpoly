@@ -135,19 +135,18 @@ class PlaywrightRewardsScraper:
 
                             seen_market_ids.add(market_id)
 
-                            # ✅ FILTER 1: Check if this is a LIQUIDITY REWARDS market
-                            # Liquidity rewards MUST have both rewards_min_size AND rewards_max_spread > 0
-                            # Other reward types (trading rewards, event rewards) don't have these requirements
+                            # ✅ FILTER 1: Check if market has rewards_config
+                            # Official API uses rewards_config array, NOT rewards_min_size/rewards_max_spread
+                            rewards_config = market_data.get('rewards_config', [])
+
+                            # Skip if no rewards configured
+                            if not rewards_config or len(rewards_config) == 0:
+                                logger.debug(f"⏭️  Skipped (no rewards_config): {market_data.get('question', 'Unknown')[:60]}")
+                                continue
+
+                            # Extract these fields if they exist (for compatibility with other APIs)
                             rewards_min_size = float(market_data.get('rewards_min_size', 0) or 0)
                             rewards_max_spread = float(market_data.get('rewards_max_spread', 0) or 0)
-
-                            # Skip markets without LIQUIDITY REWARDS indicators
-                            # Only accept if BOTH conditions are true:
-                            # 1. rewards_min_size > 0 (requires minimum order size)
-                            # 2. rewards_max_spread > 0 (requires spread limit)
-                            if rewards_min_size == 0 or rewards_max_spread == 0:
-                                logger.debug(f"⏭️  Skipped (not liquidity rewards): {market_data.get('question', 'Unknown')[:60]} - minSize={rewards_min_size}, maxSpread={rewards_max_spread}")
-                                continue  # Skip this market
 
                             # Extract reward from rewards_config
                             reward = 0
