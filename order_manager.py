@@ -541,7 +541,11 @@ class OrderManager:
 
                 # ✅ CHECK DEEP ORDERBOOK: Ensure our bids aren't too close to ANY ask in top 10
                 # IMPORTANT: Must maintain YES + NO = $1.00 constraint for binary markets
-                min_distance_from_asks = 0.05  # Minimum 5¢ buffer from any ask
+                # RELAXED for liquidity rewards markets with wide spreads
+                if yes_spread_pct > 50:  # Wide spread = illiquid market
+                    min_distance_from_asks = 0.02  # 2¢ buffer (relaxed from 5¢)
+                else:
+                    min_distance_from_asks = 0.05  # 5¢ buffer (normal markets)
 
                 # Find the most restrictive YES ask (closest ask that's too close)
                 yes_min_ask = float('inf')
@@ -581,13 +585,19 @@ class OrderManager:
                     no_bid = 1.0 - yes_bid
 
                     # Check if too far from midpoint
+                    # RELAXED for liquidity rewards markets with wide spreads
                     yes_distance = abs(yes_bid - yes_mid)
                     no_distance = abs(no_bid - no_mid)
 
-                    if yes_distance > 0.10 or no_distance > 0.10:
+                    if yes_spread_pct > 50:  # Wide spread = illiquid market
+                        max_distance_from_mid = 0.40  # 40¢ (relaxed from 10¢)
+                    else:
+                        max_distance_from_mid = 0.10  # 10¢ (normal markets)
+
+                    if yes_distance > max_distance_from_mid or no_distance > max_distance_from_mid:
                         logger.warning(f"❌ After adjusting for nearby asks, bids too far from midpoint:")
-                        logger.warning(f"   YES: {yes_distance*100:.2f}¢ from mid (max: 10¢)")
-                        logger.warning(f"   NO: {no_distance*100:.2f}¢ from mid (max: 10¢)")
+                        logger.warning(f"   YES: {yes_distance*100:.2f}¢ from mid (max: {max_distance_from_mid*100:.0f}¢)")
+                        logger.warning(f"   NO: {no_distance*100:.2f}¢ from mid (max: {max_distance_from_mid*100:.0f}¢)")
                         logger.warning(f"   REJECTING market - orderbook too risky")
                         return None, None, {}
 
