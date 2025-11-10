@@ -21,10 +21,7 @@ market_scanner:
   api_fallback: true  # Fallback to Playwright if API fails
 
   # Categories to focus on
-  target_categories: #[]  # Empty = all categories
-- politics
-- crypto
-- science
+  target_categories: []  # Empty = all categories (enable all)
 
   # Illiquid market threshold
   illiquid_threshold: 5000  # Markets with liquidity < $10k
