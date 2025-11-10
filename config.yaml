@@ -21,7 +21,7 @@ market_scanner:
   api_fallback: true  # Fallback to Playwright if API fails
 
   # Categories to focus on
-  target_categories: []  # Empty = all categories
+  target_categories: #[]  # Empty = all categories
 - politics
 - crypto
 - science
