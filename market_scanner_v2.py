@@ -149,8 +149,10 @@ class MarketScannerV2:
             filtered_markets = self._filter_markets(markets)
 
             # ✅ NEW FILTER 3: Verify orderbook exists for top markets
-            # Only verify top 50 markets to avoid too many API calls
-            if filtered_markets and len(filtered_markets) > 0:
+            # DISABLED TEMPORARILY - orderbook verification rejecting ALL markets
+            # Issue: clob_token_ids may be empty or incorrect from API
+            # TODO: Debug why clob_token_ids not extracted properly
+            if False and filtered_markets and len(filtered_markets) > 0:  # DISABLED
                 top_count = min(50, len(filtered_markets))
                 logger.info(f"🔍 Verifying orderbook for top {top_count} markets...")
                 verified_markets = []

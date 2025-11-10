@@ -179,6 +179,15 @@ class PlaywrightRewardsScraper:
                             tokens = market_data.get('tokens', [])
                             clob_token_ids = [token.get('token_id') for token in tokens if token.get('token_id')]
 
+                            # DEBUG: Log token extraction for first 3 markets
+                            if len(all_markets) < 3:
+                                logger.info(f"🔍 DEBUG Market: {market_data.get('question', 'Unknown')[:60]}")
+                                logger.info(f"   - tokens field present: {'tokens' in market_data}")
+                                logger.info(f"   - tokens count: {len(tokens)}")
+                                logger.info(f"   - clob_token_ids extracted: {len(clob_token_ids)}")
+                                if clob_token_ids:
+                                    logger.info(f"   - First token_id: {clob_token_ids[0][:20]}...")
+
                             market = {
                                 'id': market_id,
                                 'market_id': market_id,
