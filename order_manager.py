@@ -517,29 +517,40 @@ class OrderManager:
                     logger.warning(f"   Sum of asks: ${yes_best_ask + no_best_ask:.4f} (should be > $1.00 for valid market)")
                     return None, None, {}
 
-                # ✅ LIQUIDITY FARMING STRATEGY: Place bid close to best bid (position 2-3)
-                # NOT at midpoint (too aggressive, causes fills)
-                # For wide spread markets (98%+), this keeps us at edge of orderbook
+                # ✅ CRITICAL CHECK: Ensure constraint range allows safe positioning
+                # For liquidity farming, we want to place bids far from midpoint (avoid fills)
+                # If binary constraint FORCES us to bid near midpoint, reject the market
 
-                # Strategy: Place bid slightly above best bid (e.g., best bid + 1-2¢)
-                # This provides liquidity at position 2-3 but much less likely to fill
+                # Check if min constraint is too close to midpoint
+                min_distance_from_mid = abs(min_yes_bid - yes_mid)
+                if min_distance_from_mid < 0.15:  # Less than 15¢ from mid
+                    logger.warning(f"❌ Binary constraint too restrictive:")
+                    logger.warning(f"   min_yes_bid ${min_yes_bid:.4f} is only {min_distance_from_mid*100:.2f}¢ from midpoint ${yes_mid:.4f}")
+                    logger.warning(f"   This would force bid too close to midpoint (high fill risk)")
+                    logger.warning(f"   REJECTING market - constraint range not compatible with liquidity farming")
+                    return None, None, {}
+
+                # ✅ LIQUIDITY FARMING STRATEGY: Place bid close to best bid (position 2-3)
+                # Start with target near best bid
                 if yes_spread_pct > 50:  # Wide spread = illiquid rewards market
-                    # For wide spreads: stay close to best bid
-                    improvement = 0.01  # Improve by 1¢ above best bid
+                    improvement = 0.01  # 1¢ above best bid
                 else:
-                    # For normal spreads: use larger improvement
-                    improvement = 0.02  # Improve by 2¢ above best bid
+                    improvement = 0.02  # 2¢ above best bid
 
                 yes_bid_target = yes_best_bid + improvement
 
-                # Ensure we don't get TOO close to midpoint (avoid fills)
-                max_approach_mid = 0.30  # Don't go within 30¢ of midpoint for wide spreads
-                if yes_spread_pct > 50 and abs(yes_bid_target - yes_mid) < max_approach_mid:
-                    # Too close to mid, stay at edge
-                    yes_bid_target = yes_best_bid + 0.005  # Only 0.5¢ improvement
-
-                # Clamp to valid range
+                # Clamp to valid constraint range
                 yes_bid = max(min_yes_bid, min(max_yes_bid, yes_bid_target))
+
+                # Verify final bid is far enough from midpoint (avoid fills)
+                final_distance_from_mid = abs(yes_bid - yes_mid)
+                if final_distance_from_mid < 0.15:  # Less than 15¢ from mid
+                    logger.warning(f"❌ After applying constraints, bid too close to midpoint:")
+                    logger.warning(f"   YES bid ${yes_bid:.4f} is only {final_distance_from_mid*100:.2f}¢ from midpoint ${yes_mid:.4f}")
+                    logger.warning(f"   Target was ${yes_bid_target:.4f} (best bid + {improvement*100:.2f}¢)")
+                    logger.warning(f"   But constraint forced adjustment to ${yes_bid:.4f}")
+                    logger.warning(f"   REJECTING market - too risky for liquidity farming")
+                    return None, None, {}
 
                 # Calculate complementary NO bid
                 no_bid = 1.0 - yes_bid
