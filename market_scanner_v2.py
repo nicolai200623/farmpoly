@@ -241,21 +241,17 @@ class MarketScannerV2:
             if not market_data.get('active', False):
                 return None
 
-            # Check if market has rewards enabled
-            # IMPORTANT: Only use rewardsMinSize and rewardsMaxSpread as indicators
-            # umaReward is NOT a dollar amount - it's a config value/multiplier
+            # ✅ MODIFIED: Check if market has rewards enabled
+            # IMPORTANT: Gamma API may not always return rewardsMinSize/rewardsMaxSpread
+            # Instead, we should accept markets and let downstream filters handle it
+            # Extract these fields if they exist (for compatibility)
             rewards_min_size = float(market_data.get('rewardsMinSize', 0) or 0)
             rewards_max_spread = float(market_data.get('rewardsMaxSpread', 0) or 0)
 
-            # Skip markets without REAL rewards indicators
-            # Only accept if BOTH conditions are true:
-            # 1. rewardsMinSize > 0 (có yêu cầu minimum size)
-            # 2. rewardsMaxSpread > 0 (có giới hạn spread)
-            # This ensures we only trade on markets with VERIFIED rewards program
-            if rewards_min_size == 0 or rewards_max_spread == 0:
-                question = market_data.get('question', 'Unknown')
-                logger.debug(f"⏭️  Skipped (no verified rewards): {question[:60]} - minSize={rewards_min_size}, maxSpread={rewards_max_spread}")
-                return None
+            # NOTE: We no longer reject based on missing rewards_min_size/rewards_max_spread
+            # Instead, we'll rely on:
+            # 1. The market appearing on /rewards page (validated by playwright scraper)
+            # 2. Downstream filters (orderbook verification, volume checks, etc.)
 
             # Get actual reward from umaReward field
             # IMPORTANT: umaReward is the ACTUAL dollar amount for rewards, not a multiplier!
