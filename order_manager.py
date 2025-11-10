@@ -517,9 +517,26 @@ class OrderManager:
                     logger.warning(f"   Sum of asks: ${yes_best_ask + no_best_ask:.4f} (should be > $1.00 for valid market)")
                     return None, None, {}
 
-                # Choose YES bid close to yes_mid, but within valid range
-                offset = 0.001
-                yes_bid_target = yes_mid - offset
+                # ✅ LIQUIDITY FARMING STRATEGY: Place bid close to best bid (position 2-3)
+                # NOT at midpoint (too aggressive, causes fills)
+                # For wide spread markets (98%+), this keeps us at edge of orderbook
+
+                # Strategy: Place bid slightly above best bid (e.g., best bid + 1-2¢)
+                # This provides liquidity at position 2-3 but much less likely to fill
+                if yes_spread_pct > 50:  # Wide spread = illiquid rewards market
+                    # For wide spreads: stay close to best bid
+                    improvement = 0.01  # Improve by 1¢ above best bid
+                else:
+                    # For normal spreads: use larger improvement
+                    improvement = 0.02  # Improve by 2¢ above best bid
+
+                yes_bid_target = yes_best_bid + improvement
+
+                # Ensure we don't get TOO close to midpoint (avoid fills)
+                max_approach_mid = 0.30  # Don't go within 30¢ of midpoint for wide spreads
+                if yes_spread_pct > 50 and abs(yes_bid_target - yes_mid) < max_approach_mid:
+                    # Too close to mid, stay at edge
+                    yes_bid_target = yes_best_bid + 0.005  # Only 0.5¢ improvement
 
                 # Clamp to valid range
                 yes_bid = max(min_yes_bid, min(max_yes_bid, yes_bid_target))
@@ -591,11 +608,14 @@ class OrderManager:
 
                     # Check if too far from midpoint
                     # RELAXED for liquidity rewards markets with wide spreads
+                    # NOTE: With new liquidity farming strategy, we INTENTIONALLY stay far from mid
                     yes_distance = abs(yes_bid - yes_mid)
                     no_distance = abs(no_bid - no_mid)
 
                     if yes_spread_pct > 50:  # Wide spread = illiquid market
-                        max_distance_from_mid = 0.40  # 40¢ (relaxed from 10¢)
+                        # VERY RELAXED: For wide spreads, we want to stay at edge (best bid)
+                        # This means we can be very far from midpoint (e.g., 45¢ from mid on a 98% spread)
+                        max_distance_from_mid = 0.48  # 48¢ (allows positioning at edge of wide spreads)
                     else:
                         max_distance_from_mid = 0.10  # 10¢ (normal markets)
 
@@ -614,20 +634,20 @@ class OrderManager:
                 no_distance_from_mid = abs(no_bid - no_mid)
 
                 # Log strategy details
-                logger.info(f"💰 Calculated prices (TIGHT BID STRATEGY - BINARY MARKET):")
+                logger.info(f"💰 Calculated prices (LIQUIDITY FARMING - POSITION 2-3 STRATEGY):")
                 logger.info(f"   YES Market:")
                 logger.info(f"      Best Bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
+                logger.info(f"      Our Bid:  ${yes_bid:.4f} ({yes_bid*100:.2f}¢) [+{(yes_bid - yes_best_bid)*100:.2f}¢ above best]")
+                logger.info(f"      Midpoint: ${yes_mid:.4f} ({yes_mid*100:.2f}¢) [Distance: {yes_distance_from_mid*100:.2f}¢]")
                 logger.info(f"      Best Ask: ${yes_best_ask:.4f} ({yes_best_ask*100:.2f}¢)")
-                logger.info(f"      Midpoint: ${yes_mid:.4f} ({yes_mid*100:.2f}¢)")
-                logger.info(f"      Our Bid:  ${yes_bid:.4f} ({yes_bid*100:.2f}¢) [Distance: {yes_distance_from_mid*100:.2f}¢]")
+                logger.info(f"      Spread: {yes_spread_pct:.1f}%")
                 logger.info(f"   NO Market:")
                 logger.info(f"      Best Bid: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢)")
+                logger.info(f"      Our Bid:  ${no_bid:.4f} ({no_bid*100:.2f}¢) [+{(no_bid - no_best_bid)*100:.2f}¢ above best]")
+                logger.info(f"      Midpoint: ${no_mid:.4f} ({no_mid*100:.2f}¢) [Distance: {no_distance_from_mid*100:.2f}¢]")
                 logger.info(f"      Best Ask: ${no_best_ask:.4f} ({no_best_ask*100:.2f}¢)")
-                logger.info(f"      Midpoint: ${no_mid:.4f} ({no_mid*100:.2f}¢)")
-                logger.info(f"      Our Bid:  ${no_bid:.4f} ({no_bid*100:.2f}¢) [Distance: {no_distance_from_mid*100:.2f}¢]")
                 logger.info(f"   ✅ YES + NO = ${yes_bid + no_bid:.4f} (binary market constraint)")
-                logger.info(f"   Strategy: YES bid + NO bid = $1.00 for proper two-sided liquidity")
-                logger.info(f"   Polymarket: 'a bid on A counts as an ask on A''")
+                logger.info(f"   Strategy: Position 2-3 (best bid + 1-2¢) to avoid fills while earning rewards")
 
                 # Return prices (yes_bid for YES, no_bid for NO)
                 return yes_bid, no_bid, {
