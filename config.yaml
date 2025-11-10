@@ -87,8 +87,8 @@ profit_taking:
   check_interval: 300  # Check positions every 5 minutes
 
   # Profit thresholds
-  min_profit_percentage: 50 # Start considering closing at 50% profit
-  target_profit_percentage: 50 # Target profit to close position
+  min_profit_percentage: 2 # Start considering closing at 50% profit
+  target_profit_percentage: 2 # Target profit to close position
   max_profit_percentage: 150  # Close immediately if profit >= 150%
 
   # Safety settings
