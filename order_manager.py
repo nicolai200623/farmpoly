@@ -475,6 +475,11 @@ class OrderManager:
                 no_best_bid = get_price(no_bids[0])
                 no_best_ask = get_price(no_asks[0])
 
+                # Calculate spreads (needed for constraint adjustments later)
+                yes_spread = yes_best_ask - yes_best_bid
+                temp_yes_mid = (yes_best_bid + yes_best_ask) / 2
+                yes_spread_pct = (yes_spread / temp_yes_mid * 100) if temp_yes_mid > 0 else 0
+
                 # Calculate midpoints (from orderbook, not from mid_price field)
                 yes_mid = (yes_best_bid + yes_best_ask) / 2
                 no_mid = (no_best_bid + no_best_ask) / 2
