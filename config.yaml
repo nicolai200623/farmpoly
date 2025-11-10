@@ -12,8 +12,8 @@ rpc_url: "https://polygon-mainnet.g.alchemy.com/v2/FQJnJWsEQLZqOJuRTH6n_FZEkyWx2
 # Market Scanner Settings (V2 - Playwright + Gamma API)
 market_scanner:
   interval: 60  # Scan interval in seconds
-  min_reward: 3  # Minimum reward in USD (LOWERED to 3 to accept most markets!)
-  max_competition_bars: 5  # Maximum competition level (0-5) - INCREASED to 5 to accept more markets
+  min_reward: 20  # Minimum reward in USD - $20/day is good for liquidity farming
+  max_competition_bars: 3  # Maximum competition level (0-5) - Lower competition = easier to farm
   min_shares: 100  # Maximum minimum shares requirement
 
   # API Settings

@@ -135,24 +135,37 @@ class PlaywrightRewardsScraper:
 
                             seen_market_ids.add(market_id)
 
-                            # ✅ FILTER 1: Check if market has rewards_config
-                            # Official API uses rewards_config array, NOT rewards_min_size/rewards_max_spread
+                            # ✅ FILTER 1: Extract rewards_config (if available)
+                            # API structure varies - some markets have rewards_config, some don't
+                            # But if market appears on /rewards page, it HAS rewards!
                             rewards_config = market_data.get('rewards_config', [])
 
-                            # Skip if no rewards configured
-                            if not rewards_config or len(rewards_config) == 0:
-                                logger.debug(f"⏭️  Skipped (no rewards_config): {market_data.get('question', 'Unknown')[:60]}")
-                                continue
+                            # Extract reward from rewards_config
+                            reward = 0
+                            if rewards_config and len(rewards_config) > 0:
+                                for config in rewards_config:
+                                    reward += float(config.get('rate_per_day', 0))
+
+                            # FALLBACK: If no rewards_config but market is on /rewards page,
+                            # estimate reward from volume (markets on /rewards MUST have rewards!)
+                            if reward == 0:
+                                volume_24hr = float(market_data.get('volume_24hr', 0) or 0)
+                                if volume_24hr > 10000:
+                                    reward = min(volume_24hr * 0.002, 500)  # 0.2% of volume, max $500
+                                elif volume_24hr > 1000:
+                                    reward = min(volume_24hr * 0.005, 200)  # 0.5% of volume, max $200
+                                else:
+                                    reward = min(volume_24hr * 0.01, 100)  # 1% of volume, max $100
+
+                                # Minimum reward for markets on /rewards page
+                                if reward == 0:
+                                    reward = 10  # Default to $10/day if can't estimate
+
+                                logger.debug(f"📊 Estimated reward ${reward:.1f} from volume ${volume_24hr:.0f}: {market_data.get('question', 'Unknown')[:60]}")
 
                             # Extract these fields if they exist (for compatibility with other APIs)
                             rewards_min_size = float(market_data.get('rewards_min_size', 0) or 0)
                             rewards_max_spread = float(market_data.get('rewards_max_spread', 0) or 0)
-
-                            # Extract reward from rewards_config
-                            reward = 0
-                            if 'rewards_config' in market_data and market_data['rewards_config']:
-                                for config in market_data['rewards_config']:
-                                    reward += float(config.get('rate_per_day', 0))
 
                             # Extract competition from market_competitiveness
                             competition = market_data.get('market_competitiveness', 0)
