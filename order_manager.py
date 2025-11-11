@@ -134,49 +134,42 @@ class OrderManager:
                 no_market_data = market_data_0
                 logger.info(f"✅ Using token[1] as YES (narrower spread)")
 
-            # VALIDATION: Verify this is a TRUE binary market (YES + NO ≈ $1.00)
-            # Binary market validation - Check if YES + NO bids sum to ~$1.00
-            # This helps detect categorical markets misidentified as binary
+            # ✅ CRITICAL VALIDATION: Verify this is a TRUE binary market (YES + NO ≈ $1.00)
+            # Check BOTH tokens' best bids sum to verify binary complementarity
+            # This prevents bot from trading categorical markets disguised as binary
             yes_best_bid = yes_market_data.get('best_bid', 0)
             no_best_bid = no_market_data.get('best_bid', 0)
             bid_sum = yes_best_bid + no_best_bid
 
-            # ✅ IMPORTANT: Skip validation for LIQUIDITY REWARDS markets
-            # Markets with liquidity rewards are INTENTIONALLY illiquid (high spread)
-            # That's WHY Polymarket pays rewards - they need market makers!
-            #
-            # Example ILLIQUID binary market (with rewards):
-            # YES: Bid $0.01, Ask $0.95 → Spread 94¢
-            # NO:  Bid $0.05, Ask $0.99 → Spread 94¢
-            # Sum of bids: $0.06 (very low, but THIS IS NORMAL for illiquid markets!)
-            #
-            # These markets are GOOD opportunities for farming:
-            # - High spread = Low liquidity = High rewards
-            # - Bot will CREATE liquidity by placing tight spread orders
-            # - Bot earns rewards for improving market efficiency
-            has_liquidity_rewards = market.get('rewardsMinSize', 0) > 0 and market.get('rewardsMaxSpread', 0) > 0
+            logger.info(f"🔍 Binary market validation:")
+            logger.info(f"   Token[0] best bid: ${market_data_0.get('best_bid', 0):.4f}")
+            logger.info(f"   Token[1] best bid: ${market_data_1.get('best_bid', 0):.4f}")
+            logger.info(f"   Selected YES bid: ${yes_best_bid:.4f}")
+            logger.info(f"   Selected NO bid: ${no_best_bid:.4f}")
+            logger.info(f"   Sum: ${bid_sum:.4f}")
 
-            if not has_liquidity_rewards:
-                # Only validate binary market for non-rewards markets
-                # In true binary market: YES bid + NO bid should be in range [0.3, 1.7]
-                if bid_sum < 0.3 or bid_sum > 1.7:
-                    logger.warning(f"❌ REJECTED - Invalid binary market detected!")
-                    logger.warning(f"   YES best bid: ${yes_best_bid:.4f} ({yes_best_bid*100:.2f}¢)")
-                    logger.warning(f"   NO best bid: ${no_best_bid:.4f} ({no_best_bid*100:.2f}¢)")
-                    logger.warning(f"   Sum: ${bid_sum:.4f} (expected ~$1.00 for binary markets)")
-                    logger.warning(f"   This market does NOT behave like a binary YES/NO market")
-                    logger.warning(f"   Likely a categorical market with 2 unrelated outcomes")
-                    return None
+            # ✅ STRICT CHECK: Reject if bid_sum too extreme (indicates non-binary market)
+            # True binary markets (even illiquid ones) will have bid_sum in range [0.2, 1.8]
+            # Examples:
+            #   - Normal binary: YES 45¢ + NO 55¢ = $1.00 ✅
+            #   - Illiquid binary: YES 2¢ + NO 3¢ = $0.05 (low but still reasonable) ✅
+            #   - Categorical (Up/Down): "Down" 99¢ + "Up" 0.1¢ = $0.991 (< 0.2 extreme!) ❌
+            #
+            # REJECT if:
+            # 1. Either token has bid < 0.005 ($0.005 = 0.5¢) AND other token > 0.95 (95¢)
+            # 2. This indicates a "sure thing" categorical outcome, not a binary market
+            if (yes_best_bid < 0.005 and no_best_bid > 0.95) or (no_best_bid < 0.005 and yes_best_bid > 0.95):
+                logger.warning(f"❌ REJECTED - CATEGORICAL market detected (not binary YES/NO)!")
+                logger.warning(f"   Token bids: ${yes_best_bid:.4f} vs ${no_best_bid:.4f}")
+                logger.warning(f"   One side < 0.5¢ AND other side > 95¢ → Not complementary outcomes")
+                logger.warning(f"   This is likely 'Up vs Down' or other categorical choices")
+                logger.warning(f"   Example: ABNB Up (0.1¢) vs Down (99¢) - NOT binary YES/NO")
+                logger.warning(f"   Binary markets require COMPLEMENTARY probabilities summing to ~100%")
+                return None
 
-                logger.info(f"✅ Binary market validation passed:")
-                logger.info(f"   YES best bid: ${yes_best_bid:.4f} + NO best bid: ${no_best_bid:.4f} = ${bid_sum:.4f}")
-                logger.info(f"   Sum is within valid range [0.3, 1.7] for binary markets")
-            else:
-                # Skip validation for liquidity rewards markets
-                logger.info(f"✅ Skipping binary validation for LIQUIDITY REWARDS market:")
-                logger.info(f"   YES best bid: ${yes_best_bid:.4f}, NO best bid: ${no_best_bid:.4f}")
-                logger.info(f"   Sum: ${bid_sum:.4f} (low bid sum is NORMAL for illiquid markets with rewards)")
-                logger.info(f"   This market has liquidity rewards - illiquidity is expected and desired!")
+            logger.info(f"✅ Binary market validation passed:")
+            logger.info(f"   YES best bid: ${yes_best_bid:.4f} + NO best bid: ${no_best_bid:.4f} = ${bid_sum:.4f}")
+            logger.info(f"   Both sides have reasonable bids → True binary complementary outcomes")
 
             # Get max spread from market rewards config (if available)
             # For liquidity rewards markets: Use rewards_max_spread (usually 1-3%)
