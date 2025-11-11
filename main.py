@@ -612,13 +612,22 @@ class PolymarketBot:
     async def _order_repositioning_loop(self):
         """Automated order repositioning loop - maintain position 2-3"""
         repositioner = self.modules['repositioner']
+        order_manager = self.modules['order_manager']
 
-        logger.info("🔄 Starting automated order repositioning loop")
+        logger.info("🔄 Starting automated order repositioning and fill monitoring loop")
 
         while self.running:
             try:
+                # Check for filled orders and cancel opposite sides
+                fills = await order_manager.check_order_fills()
+                if fills:
+                    logger.warning(f"⚠️  Detected {len(fills)} filled orders")
+
                 # Monitor and reposition orders
                 await repositioner.monitor_and_reposition()
+
+                # Wait before next check
+                await asyncio.sleep(15)  # Check every 15 seconds
 
             except Exception as e:
                 logger.error(f"Order repositioning error: {e}")

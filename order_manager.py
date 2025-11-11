@@ -54,6 +54,13 @@ class OrderManager:
             # Get market ID (CLOB API uses 'market_id' or 'condition_id', Gamma API uses 'id')
             market_id = market.get('market_id') or market.get('condition_id') or market.get('id', 'unknown')
 
+            # ✅ CRITICAL CHECK 0: Do NOT place order if we already have open orders/positions on this market
+            # This prevents the bot from repeatedly buying when orders get filled
+            if market_id in self.active_orders:
+                logger.warning(f"⚠️  SKIPPING - Already have active order for market {market_id}")
+                logger.warning(f"   Market: {market.get('question', 'Unknown')[:80]}")
+                return None
+
             # Get token_id from market data
             # For binary markets (YES/NO), fetch both orderbooks
             # This is simpler and more direct than calculating from one orderbook
@@ -1034,17 +1041,22 @@ class OrderManager:
         return self.pending_orders.copy()
     
     async def check_order_fills(self) -> List[Dict]:
-        """Check for filled orders"""
+        """Check for filled orders and cancel opposite side"""
         fills = []
-        
-        for market_id, order in self.active_orders.items():
+        markets_to_remove = []
+
+        for market_id, order in list(self.active_orders.items()):
             if 'order_ids' not in order:
                 continue
-            
+
+            any_filled = False
+
             for side, order_id in order['order_ids'].items():
                 order_status = await self._get_order_details(order_id)
-                
+
                 if order_status and order_status.get('status') == 'filled':
+                    any_filled = True
+
                     fill_data = {
                         'market_id': market_id,
                         'side': side,
@@ -1058,6 +1070,10 @@ class OrderManager:
                     # Move to filled orders
                     self.filled_orders.append(order_status)
 
+                    logger.warning(f"⚠️  ORDER FILLED - {side.upper()} order on market {market_id}")
+                    logger.warning(f"   Price: ${order_status.get('fillPrice', 0):.4f}")
+                    logger.warning(f"   Size: {order_status.get('fillSize', 0)}")
+
                     # Send Telegram notification (IMPORTANT!)
                     if self.telegram:
                         try:
@@ -1069,7 +1085,31 @@ class OrderManager:
                             await self.telegram.notify_order_filled(fill_data, market, pnl=None)
                         except Exception as e:
                             logger.debug(f"Failed to send fill notification: {e}")
-        
+
+            # If any order filled, cancel ALL orders on this market and remove from active
+            if any_filled:
+                logger.warning(f"🚫 Cancelling all orders for market {market_id} due to fill")
+
+                # Cancel all orders for this market
+                for side, order_id in order['order_ids'].items():
+                    try:
+                        # Check if order still active before cancelling
+                        order_status = await self._get_order_details(order_id)
+                        if order_status and order_status.get('status') in ['open', 'live']:
+                            await self.cancel_order(order_id, reason=f"Opposite side filled")
+                            logger.info(f"✅ Cancelled {side.upper()} order {order_id}")
+                    except Exception as e:
+                        logger.error(f"Failed to cancel {side} order {order_id}: {e}")
+
+                # Mark for removal from active_orders
+                markets_to_remove.append(market_id)
+
+        # Remove filled markets from active_orders
+        for market_id in markets_to_remove:
+            if market_id in self.active_orders:
+                del self.active_orders[market_id]
+                logger.info(f"✅ Removed market {market_id} from active_orders (filled)")
+
         return fills
     
     def get_order_stats(self) -> Dict:
